@@ -48,19 +48,5 @@
         dots: true,
         items: 1
     });
-
-
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        items: 1,
-        autoplay: true,
-        smartSpeed: 1000,
-        animateIn: 'fadeIn',
-        animateOut: 'fadeOut',
-        dots: true,
-        loop: true,
-        nav: false
-    });
-    
 })(jQuery);
 
