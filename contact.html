@@ -105,49 +105,39 @@
                 <h1 class="mb-5">Tell Us About Your <span class="text-uppercase text-primary bg-light px-2">Project</span></h1>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <p class="text-center mb-4">For a useful first review, include the product type, quantity, target market, drawings or reference images, and required delivery date. You can also contact us on <a href="https://wa.me/8619956229033">WhatsApp</a>.</p>
-                    <div class="wow fadeIn" data-wow-delay="0.3s">
-                        <form id="contact-form" action="/api/contact" method="post">
-                            <div class="row g-3">
-                                <div style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;" aria-hidden="true">
-                                    <label for="company_website">Company website</label>
-                                    <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
-                                        <label for="name">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
-                                        <label for="email">Your Email</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="subject" name="project" placeholder="Project / Product">
-                                        <label for="subject">Project / Product</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" name="requirements" placeholder="Leave a message here" id="message"
-                                            style="height: 150px" required></textarea>
-                                        <label for="message">Requirements</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div id="turnstile-container"></div>
-                                </div>
-                                <div class="col-12">
-                                    <button id="contact-submit" class="btn btn-primary w-100 py-3" type="submit">Send Enquiry</button>
-                                </div>
+                <div class="col-lg-8">
+                    <p class="text-center mb-4">Email is the best way to send product lists, drawings, reference images and project documents. We will review your information and reply from our business email.</p>
+                    <div class="bg-light p-4 p-md-5 wow fadeIn" data-wow-delay="0.3s">
+                        <div class="text-center mb-4">
+                            <p class="text-uppercase text-primary mb-2">Project Enquiries &amp; Quotations</p>
+                            <a class="h3 d-inline-block mb-4" href="mailto:sales@ianproject.com">sales@ianproject.com</a>
+                            <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                                <a class="btn btn-primary py-3 px-4" href="mailto:sales@ianproject.com?subject=Project%20Enquiry%20-%20IanProject&amp;body=Hello%20IanProject%20team%2C%0D%0A%0D%0ACompany%3A%0D%0ACountry%3A%0D%0AProduct%20or%20project%3A%0D%0AQuantity%3A%0D%0ADelivery%20destination%3A%0D%0ARequired%20date%3A%0D%0A%0D%0APlease%20see%20the%20attached%20references.%0D%0A">
+                                    <i class="fa fa-envelope me-2"></i>Open Email App
+                                </a>
+                                <button id="copy-sales-email" class="btn btn-outline-dark py-3 px-4" type="button" data-email="sales@ianproject.com">
+                                    <i class="fa fa-copy me-2"></i>Copy Email Address
+                                </button>
                             </div>
-                        </form>
-                        <div id="contact-status" class="alert mt-3" role="status" aria-live="polite" tabindex="-1" hidden></div>
+                            <p id="copy-email-status" class="text-primary mt-3 mb-0" role="status" aria-live="polite"></p>
+                        </div>
+                        <hr class="my-4">
+                        <h4 class="mb-3">What to Include</h4>
+                        <div class="row g-3">
+                            <div class="col-md-6"><i class="fa fa-check text-primary me-2"></i>Company and target market</div>
+                            <div class="col-md-6"><i class="fa fa-check text-primary me-2"></i>Product names and quantities</div>
+                            <div class="col-md-6"><i class="fa fa-check text-primary me-2"></i>Dimensions, materials and finishes</div>
+                            <div class="col-md-6"><i class="fa fa-check text-primary me-2"></i>Drawings or reference images</div>
+                            <div class="col-md-6"><i class="fa fa-check text-primary me-2"></i>Delivery destination</div>
+                            <div class="col-md-6"><i class="fa fa-check text-primary me-2"></i>Required delivery date</div>
+                        </div>
+                        <hr class="my-4">
+                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                            <p class="mb-0">General enquiries: <a href="mailto:info@ianproject.com">info@ianproject.com</a></p>
+                            <a class="btn btn-outline-primary" href="https://wa.me/8619956229033" target="_blank" rel="noopener">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
