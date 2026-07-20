@@ -532,7 +532,13 @@ p {
     }
 
     .hero-header .display-1 {
-        font-size: 44px;
+        font-size: clamp(36px, 10vw, 42px);
+        overflow-wrap: anywhere;
+    }
+
+    .hero-header h5.border {
+        display: block !important;
+        padding: 1rem 1.25rem !important;
     }
 
     .header-carousel img {
