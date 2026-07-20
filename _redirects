@@ -2,8 +2,8 @@
 /project.html /products 301
 /service /custom-solutions 301
 /service.html /custom-solutions 301
-/about /factory 301
-/about.html /factory 301
+/factory /about 301
+/factory.html /about 301
 /feature /quality-process 301
 /feature.html /quality-process 301
 /team /project-cases 301
