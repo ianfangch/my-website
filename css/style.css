@@ -413,6 +413,22 @@
 
 
 /*** Footer ***/
+.footer-social {
+    display: grid;
+    grid-template-columns: repeat(4, 38px);
+    gap: 10px;
+}
+
+.footer-social .btn {
+    margin: 0;
+    border-color: rgba(255, 255, 255, .35);
+}
+
+.footer-social .btn:hover,
+.footer-social .btn:focus {
+    border-color: var(--bs-primary);
+}
+
 .footer .btn.btn-link {
     display: block;
     margin-bottom: 10px;
