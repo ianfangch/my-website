@@ -1,0 +1,290 @@
+(function () {
+    "use strict";
+
+    var catalog = window.IAN_CATALOG;
+    if (!catalog) return;
+
+    var storageKey = "ianproject-enquiry";
+
+    function escapeHtml(value) {
+        return String(value == null ? "" : value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function getCategory(id) {
+        return catalog.categories.find(function (category) { return category.id === id; });
+    }
+
+    function getProduct(id) {
+        return catalog.products.find(function (product) { return product.id === id; });
+    }
+
+    function getEnquiry() {
+        try {
+            var parsed = JSON.parse(localStorage.getItem(storageKey) || "[]");
+            return Array.isArray(parsed) ? parsed : [];
+        } catch (error) {
+            return [];
+        }
+    }
+
+    function saveEnquiry(items) {
+        localStorage.setItem(storageKey, JSON.stringify(items));
+        updateEnquiryCount();
+    }
+
+    function priceMarkup(product, compact) {
+        if (typeof product.price !== "number") {
+            return '<div class="catalog-price catalog-price-pending"><strong>Price to be added</strong>' +
+                (compact ? "" : "<small>Real USD price required before publishing</small>") + "</div>";
+        }
+
+        return '<div class="catalog-price"><span>' + escapeHtml(product.pricePrefix || "") + '</span>' +
+            '<strong>' + escapeHtml(catalog.currency) + " " +
+            product.price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) +
+            '</strong><small>' + escapeHtml(product.priceUnit || "") + "</small></div>";
+    }
+
+    function addToEnquiry(productId) {
+        var items = getEnquiry();
+        var existing = items.find(function (item) { return item.id === productId; });
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            items.push({ id: productId, quantity: 1 });
+        }
+        saveEnquiry(items);
+        showNotice("Added to enquiry list");
+    }
+
+    function showNotice(message) {
+        var notice = document.getElementById("catalog-notice");
+        if (!notice) {
+            notice = document.createElement("div");
+            notice.id = "catalog-notice";
+            notice.className = "catalog-notice";
+            notice.setAttribute("role", "status");
+            document.body.appendChild(notice);
+        }
+        notice.textContent = message;
+        notice.classList.add("show");
+        window.setTimeout(function () { notice.classList.remove("show"); }, 1800);
+    }
+
+    function updateEnquiryCount() {
+        var count = getEnquiry().reduce(function (total, item) { return total + item.quantity; }, 0);
+        document.querySelectorAll("[data-enquiry-count]").forEach(function (element) {
+            element.textContent = count;
+            element.hidden = count === 0;
+        });
+    }
+
+    function productCard(product) {
+        var category = getCategory(product.category);
+        return '<article class="catalog-card">' +
+            '<a class="catalog-card-image" href="product.html?id=' + encodeURIComponent(product.id) + '">' +
+            '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.imageAlt) + '" loading="lazy">' +
+            '<span class="badge bg-primary">' + escapeHtml(product.badge) + "</span></a>" +
+            '<div class="catalog-card-body"><p class="catalog-card-meta">' +
+            escapeHtml(category ? category.name : product.category) + " / " + escapeHtml(product.code) + "</p>" +
+            '<h3><a href="product.html?id=' + encodeURIComponent(product.id) + '">' + escapeHtml(product.name) + "</a></h3>" +
+            "<p>" + escapeHtml(product.summary) + "</p>" +
+            priceMarkup(product, true) +
+            '<div class="d-flex flex-wrap gap-2 mt-4">' +
+            '<a class="btn btn-outline-primary" href="product.html?id=' + encodeURIComponent(product.id) + '">View Details</a>' +
+            '<button class="btn btn-primary" type="button" data-add-product="' + escapeHtml(product.id) + '">Add to Enquiry</button>' +
+            "</div></div></article>";
+    }
+
+    function renderCatalog() {
+        var grid = document.getElementById("catalog-grid");
+        if (!grid) return;
+
+        var params = new URLSearchParams(window.location.search);
+        var activeCategory = params.get("category") || "all";
+        var search = "";
+        var sort = "featured";
+        var searchInput = document.getElementById("catalog-search");
+        var sortInput = document.getElementById("catalog-sort");
+        var filterContainer = document.getElementById("catalog-filters");
+
+        filterContainer.innerHTML = [{ id: "all", name: "All Products" }].concat(catalog.categories)
+            .map(function (category) {
+                return '<button class="catalog-filter' + (category.id === activeCategory ? " active" : "") +
+                    '" type="button" data-category="' + escapeHtml(category.id) + '">' +
+                    escapeHtml(category.name) + "</button>";
+            }).join("");
+
+        function draw() {
+            var products = catalog.products.filter(function (product) {
+                var categoryMatch = activeCategory === "all" || product.category === activeCategory;
+                var haystack = (product.name + " " + product.code + " " + product.summary).toLowerCase();
+                return categoryMatch && haystack.indexOf(search) !== -1;
+            });
+
+            if (sort === "price-low") {
+                products.sort(function (a, b) {
+                    return (typeof a.price === "number" ? a.price : Number.MAX_VALUE) -
+                        (typeof b.price === "number" ? b.price : Number.MAX_VALUE);
+                });
+            } else if (sort === "price-high") {
+                products.sort(function (a, b) {
+                    return (typeof b.price === "number" ? b.price : -1) -
+                        (typeof a.price === "number" ? a.price : -1);
+                });
+            } else if (sort === "name") {
+                products.sort(function (a, b) { return a.name.localeCompare(b.name); });
+            }
+
+            document.getElementById("catalog-result-count").textContent =
+                products.length + (products.length === 1 ? " product" : " products");
+            grid.innerHTML = products.length ? products.map(productCard).join("") :
+                '<div class="catalog-empty"><h3>No products in this category yet.</h3>' +
+                '<p>The category is ready for future products. Send us the first product images, codes and prices to publish them.</p></div>';
+            bindAddButtons();
+        }
+
+        filterContainer.addEventListener("click", function (event) {
+            var button = event.target.closest("[data-category]");
+            if (!button) return;
+            activeCategory = button.getAttribute("data-category");
+            filterContainer.querySelectorAll(".catalog-filter").forEach(function (item) {
+                item.classList.toggle("active", item === button);
+            });
+            var url = new URL(window.location.href);
+            if (activeCategory === "all") url.searchParams.delete("category");
+            else url.searchParams.set("category", activeCategory);
+            window.history.replaceState({}, "", url.pathname + url.search + "#catalog");
+            draw();
+        });
+
+        searchInput.addEventListener("input", function () {
+            search = searchInput.value.trim().toLowerCase();
+            draw();
+        });
+        sortInput.addEventListener("change", function () {
+            sort = sortInput.value;
+            draw();
+        });
+        draw();
+    }
+
+    function renderProductDetail() {
+        var target = document.getElementById("product-detail");
+        if (!target) return;
+        var id = new URLSearchParams(window.location.search).get("id");
+        var product = getProduct(id);
+        if (!product) {
+            target.innerHTML = '<div class="catalog-empty"><h1>Product not found</h1>' +
+                '<p>This product may have been moved or is not yet published.</p>' +
+                '<a class="btn btn-primary" href="products.html#catalog">Browse Products</a></div>';
+            return;
+        }
+
+        var category = getCategory(product.category);
+        var specs = Object.keys(product.specifications).map(function (key) {
+            return "<tr><th>" + escapeHtml(key) + "</th><td>" +
+                escapeHtml(product.specifications[key]) + "</td></tr>";
+        }).join("");
+        var highlights = product.highlights.map(function (item) {
+            return '<li><i class="fa fa-check text-primary me-2"></i>' + escapeHtml(item) + "</li>";
+        }).join("");
+
+        document.title = product.name + " | IanProject";
+        target.innerHTML = '<div class="row g-5 align-items-start">' +
+            '<div class="col-lg-6"><div class="product-detail-image"><img src="' +
+            escapeHtml(product.image) + '" alt="' + escapeHtml(product.imageAlt) + '"></div></div>' +
+            '<div class="col-lg-6"><p class="text-uppercase text-primary mb-2">' +
+            escapeHtml(category ? category.name : product.category) + " / " + escapeHtml(product.code) + "</p>" +
+            "<h1>" + escapeHtml(product.name) + "</h1><p class=\"mb-4\">" + escapeHtml(product.summary) + "</p>" +
+            priceMarkup(product, false) +
+            '<p class="catalog-price-note">Displayed prices exclude freight, duties, installation and project-specific changes unless stated otherwise.</p>' +
+            '<ul class="product-highlights list-unstyled my-4">' + highlights + "</ul>" +
+            '<div class="d-flex flex-wrap gap-3"><button class="btn btn-primary px-4 py-3" type="button" data-add-product="' +
+            escapeHtml(product.id) + '">Add to Enquiry</button><a class="btn btn-outline-dark px-4 py-3" href="enquiry.html">View Enquiry List</a></div></div>' +
+            '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
+            '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div></div>";
+        bindAddButtons();
+    }
+
+    function renderEnquiry() {
+        var target = document.getElementById("enquiry-list");
+        if (!target) return;
+
+        function draw() {
+            var items = getEnquiry();
+            if (!items.length) {
+                target.innerHTML = '<div class="catalog-empty"><h2>Your enquiry list is empty.</h2>' +
+                    '<p>Add products from the catalogue, then return here to send one combined request.</p>' +
+                    '<a class="btn btn-primary" href="products.html#catalog">Browse Products</a></div>';
+                document.getElementById("send-enquiry-email").classList.add("disabled");
+                return;
+            }
+
+            target.innerHTML = items.map(function (item) {
+                var product = getProduct(item.id);
+                if (!product) return "";
+                return '<div class="enquiry-item"><img src="' + escapeHtml(product.image) + '" alt="">' +
+                    '<div class="enquiry-item-main"><p>' + escapeHtml(product.code) + '</p><h3>' +
+                    escapeHtml(product.name) + "</h3>" + priceMarkup(product, true) + "</div>" +
+                    '<div class="enquiry-quantity"><label for="qty-' + escapeHtml(product.id) + '">Quantity</label>' +
+                    '<input id="qty-' + escapeHtml(product.id) + '" type="number" min="1" value="' + item.quantity +
+                    '" data-quantity-product="' + escapeHtml(product.id) + '"></div>' +
+                    '<button class="btn btn-link text-danger" type="button" data-remove-product="' +
+                    escapeHtml(product.id) + '">Remove</button></div>';
+            }).join("");
+
+            var lines = items.map(function (item) {
+                var product = getProduct(item.id);
+                return product ? "- " + product.code + " | " + product.name + " | Quantity: " + item.quantity : "";
+            }).filter(Boolean);
+            var body = "Hello IanProject team,\n\nPlease quote the following products:\n\n" +
+                lines.join("\n") + "\n\nCompany:\nCountry:\nDelivery destination:\nRequired date:\n\nThank you.";
+            var email = document.getElementById("send-enquiry-email");
+            email.href = "mailto:sales@ianproject.com?subject=" +
+                encodeURIComponent("Product Enquiry - IanProject") + "&body=" + encodeURIComponent(body);
+            email.classList.remove("disabled");
+        }
+
+        target.addEventListener("change", function (event) {
+            var input = event.target.closest("[data-quantity-product]");
+            if (!input) return;
+            var items = getEnquiry();
+            var item = items.find(function (candidate) { return candidate.id === input.getAttribute("data-quantity-product"); });
+            if (item) item.quantity = Math.max(1, parseInt(input.value, 10) || 1);
+            saveEnquiry(items);
+            draw();
+        });
+        target.addEventListener("click", function (event) {
+            var button = event.target.closest("[data-remove-product]");
+            if (!button) return;
+            saveEnquiry(getEnquiry().filter(function (item) {
+                return item.id !== button.getAttribute("data-remove-product");
+            }));
+            draw();
+        });
+        draw();
+    }
+
+    function bindAddButtons() {
+        document.querySelectorAll("[data-add-product]").forEach(function (button) {
+            if (button.dataset.bound) return;
+            button.dataset.bound = "true";
+            button.addEventListener("click", function () {
+                addToEnquiry(button.getAttribute("data-add-product"));
+            });
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        updateEnquiryCount();
+        renderCatalog();
+        renderProductDetail();
+        renderEnquiry();
+        bindAddButtons();
+    });
+}());
