@@ -108,8 +108,12 @@
                 <div class="col-lg-7">
                     <p class="text-center mb-4">For a useful first review, include the product type, quantity, target market, drawings or reference images, and required delivery date. You can also contact us on <a href="https://wa.me/8619956229033">WhatsApp</a>.</p>
                     <div class="wow fadeIn" data-wow-delay="0.3s">
-                        <form action="mailto:info@ianproject.com" method="post" enctype="text/plain">
+                        <form id="contact-form" action="/api/contact" method="post">
                             <div class="row g-3">
+                                <div style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;" aria-hidden="true">
+                                    <label for="company_website">Company website</label>
+                                    <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off">
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
@@ -136,10 +140,14 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Enquiry</button>
+                                    <div id="turnstile-container"></div>
+                                </div>
+                                <div class="col-12">
+                                    <button id="contact-submit" class="btn btn-primary w-100 py-3" type="submit">Send Enquiry</button>
                                 </div>
                             </div>
                         </form>
+                        <div id="contact-status" class="alert mt-3" role="status" aria-live="polite" tabindex="-1" hidden></div>
                     </div>
                 </div>
             </div>
@@ -261,6 +269,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
 </body>
 
 </html>
