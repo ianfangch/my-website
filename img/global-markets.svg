@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">IanProject global market network</title>
+  <desc id="desc">A stylised world map showing connections from China to North America, Europe, the Middle East, Southeast Asia, Australia and New Zealand.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.3" fill="#ffffff" opacity=".12"/>
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="720" fill="#17242f"/>
+  <rect width="1200" height="720" fill="url(#grid)"/>
+  <circle cx="600" cy="372" r="287" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="2"/>
+  <circle cx="600" cy="372" r="215" fill="none" stroke="#ffffff" stroke-opacity=".06" stroke-width="2"/>
+
+  <g fill="#d7aa58" fill-opacity=".3" stroke="#d7aa58" stroke-opacity=".7" stroke-width="2">
+    <path d="M127 233l54-56 92-25 85 25 56 56-23 44-46 16-25 45-50 15-31-36-49-18-36-34z"/>
+    <path d="M344 372l52 28 32 55-14 68-43 91-35-22-15-77-31-63 18-58z"/>
+    <path d="M545 224l45-30 66 7 27 32-29 26-61-3-46 25-30-19z"/>
+    <path d="M577 294l68-22 76 34 22 75-35 95-51 62-38-28-9-82-45-58z"/>
+    <path d="M680 229l86-49 131 5 113 57-17 61-67 5-40 45-76-3-49-42-72 4-31-42z"/>
+    <path d="M830 350l59 15 52 54-30 35-54-32-44-47z"/>
+    <path d="M925 483l69-34 76 25 24 52-39 42-87-8-55-37z"/>
+    <path d="M1080 567l25-8 16 19-24 14z"/>
+  </g>
+
+  <g fill="none" stroke="#d7aa58" stroke-width="3" stroke-dasharray="8 10" opacity=".8">
+    <path d="M842 305 Q600 80 280 244"/>
+    <path d="M842 305 Q760 134 620 230"/>
+    <path d="M842 305 Q770 322 717 344"/>
+    <path d="M842 305 Q850 365 880 396"/>
+    <path d="M842 305 Q970 360 1006 504"/>
+  </g>
+
+  <g fill="#f4c66f" filter="url(#glow)">
+    <circle cx="842" cy="305" r="10"/>
+    <circle cx="280" cy="244" r="7"/>
+    <circle cx="620" cy="230" r="7"/>
+    <circle cx="717" cy="344" r="7"/>
+    <circle cx="880" cy="396" r="7"/>
+    <circle cx="1006" cy="504" r="7"/>
+  </g>
+
+  <g font-family="Arial, sans-serif" fill="#ffffff">
+    <text x="54" y="70" font-size="19" letter-spacing="5" fill="#f4c66f">GLOBAL MARKET NETWORK</text>
+    <text x="54" y="108" font-size="28" font-weight="700">China-based coordination. International project reach.</text>
+
+    <g font-size="16" font-weight="700">
+      <text x="170" y="220">UNITED STATES · CANADA</text>
+      <text x="530" y="204">UNITED KINGDOM · EUROPE</text>
+      <text x="625" y="376">UAE · SAUDI ARABIA</text>
+      <text x="800" y="433">SINGAPORE · MALAYSIA</text>
+      <text x="905" y="545">AUSTRALIA · NEW ZEALAND</text>
+      <text x="862" y="294" fill="#f4c66f">CHINA</text>
+    </g>
+  </g>
+
+  <g transform="translate(54 625)" font-family="Arial, sans-serif">
+    <rect width="1092" height="48" rx="24" fill="#ffffff" fill-opacity=".08"/>
+    <circle cx="28" cy="24" r="6" fill="#f4c66f"/>
+    <text x="48" y="30" fill="#ffffff" font-size="16">Market focus shown for positioning; product specifications and compliance are reviewed for each destination.</text>
+  </g>
+</svg>

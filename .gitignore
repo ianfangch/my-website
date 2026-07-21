@@ -1,0 +1,11 @@
+# Local operating-system files
+Thumbs.db
+.DS_Store
+
+# Local logs and temporary files
+*.log
+*.tmp
+
+# Local backup archives
+backups/
+*.zip
