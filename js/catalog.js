@@ -190,9 +190,19 @@
         }
 
         var category = getCategory(product.category);
-        var specs = Object.keys(product.specifications).map(function (key) {
+        var displaySpecifications = {};
+        Object.keys(product.specifications).forEach(function (key) {
+            if (key === "Minimum order" || key === "Production lead time") return;
+            displaySpecifications[key] = product.specifications[key];
+            if (key === "Door finish" && !product.specifications["Standard hinges"]) {
+                displaySpecifications["Standard hinges"] = "Blum";
+            }
+        });
+        if (!displaySpecifications["Standard hinges"]) displaySpecifications["Standard hinges"] = "Blum";
+        if (!displaySpecifications["Country of origin"]) displaySpecifications["Country of origin"] = "China";
+        var specs = Object.keys(displaySpecifications).map(function (key) {
             return "<tr><th>" + escapeHtml(key) + "</th><td>" +
-                escapeHtml(product.specifications[key]) + "</td></tr>";
+                escapeHtml(displaySpecifications[key]) + "</td></tr>";
         }).join("");
         var highlights = product.highlights.map(function (item) {
             return '<li><i class="fa fa-check text-primary me-2"></i>' + escapeHtml(item) + "</li>";
@@ -201,7 +211,7 @@
         var galleryMarkup = '<div class="product-gallery"><div class="product-detail-image">' +
             '<img id="product-main-image" src="' + escapeHtml(gallery[0]) + '" alt="' +
             escapeHtml(product.imageAlt) + '" width="1254" height="1254" fetchpriority="high"></div></div>';
-        var directGalleryMarkup = product.id === "blue-minimalist-kitchen" && gallery.length > 1 ?
+        var directGalleryMarkup = gallery.length > 1 ?
             '<section class="col-12 mt-5 product-image-section" aria-labelledby="product-gallery-title">' +
             '<h2 id="product-gallery-title" class="mb-4">Product Gallery</h2>' +
             '<div class="product-direct-gallery">' + gallery.slice(1).map(function (image, index) {
@@ -209,21 +219,55 @@
                 return '<div class="product-direct-image"><img src="' + escapeHtml(image) + '" alt="' + escapeHtml(imageAlt) +
                     '" loading="lazy" width="1254" height="1254"></div>';
             }).join("") + "</div></section>" : "";
-        var customisationMarkup = Array.isArray(product.customisationOptions) && product.customisationOptions.length ?
+        var standardCustomisationOptions = [
+            "Cabinet dimensions and layout",
+            "Door colours and finishes",
+            "Countertop colours and thicknesses",
+            "Handles and hardware",
+            "Internal storage accessories",
+            "Sink and appliance integration",
+            "Alternative materials according to model and project requirements",
+            "Other requirements — contact us"
+        ];
+        var customisationOptions = Array.isArray(product.customisationOptions) && product.customisationOptions.length ?
+            product.customisationOptions : standardCustomisationOptions;
+        var customisationNote = product.customisationNote ||
+            "Final specifications are confirmed through drawings, material samples and the approved quotation before production.";
+        var indicativePrice = (product.pricePrefix ? product.pricePrefix + " " : "") + catalog.currency + " " +
+            product.price.toLocaleString("en-US", { maximumFractionDigits: 2 }) + " " + (product.priceUnit || "");
+        var standardCommercialInformation = {
+            "Indicative price": indicativePrice.trim(),
+            "Minimum order": "1 metre",
+            "Currency": "USD",
+            "Payment method": "T/T only",
+            "Payment terms": "30% deposit upon order confirmation and 70% balance before shipment",
+            "Production lead time": "Approximately 30–40 days after confirmation of drawings, materials and deposit",
+            "Packaging": "Flat-pack or assembled export packaging according to project requirements",
+            "Trade terms": "EXW, FOB and CIF",
+            "DDP delivery": "Available for selected destinations, subject to the final delivery address and local import requirements",
+            "Port of loading": "Ningbo, China",
+            "Warranty": "One year",
+            "Factory inspection": "Buyers or their appointed representatives may inspect the goods at the factory by appointment",
+            "Video inspection": "Remote video inspection is available before shipment"
+        };
+        var commercialInformation = product.commercialInformation || standardCommercialInformation;
+        var commercialNote = product.commercialNote ||
+            "Prices shown on the website are indicative starting prices. Final pricing depends on dimensions, materials, hardware, accessories, order quantity and delivery destination.";
+        var customisationMarkup = customisationOptions.length ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Customisation Options</h2>' +
-            '<ul class="product-option-list list-unstyled">' + product.customisationOptions.map(function (option) {
+            '<ul class="product-option-list list-unstyled">' + customisationOptions.map(function (option) {
                 return '<li><i class="fa fa-check text-primary" aria-hidden="true"></i><span>' +
                     escapeHtml(option) + "</span></li>";
-            }).join("") + "</ul>" + (product.customisationNote ? '<p class="product-info-note">' +
-                escapeHtml(product.customisationNote) + "</p>" : "") + "</section>" : "";
-        var commercialMarkup = product.commercialInformation ?
+            }).join("") + "</ul>" + '<p class="product-info-note">' +
+                escapeHtml(customisationNote) + "</p></section>" : "";
+        var commercialMarkup = commercialInformation ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Commercial &amp; Delivery Information</h2>' +
             '<div class="table-responsive"><table class="table product-commercial-table"><tbody>' +
-            Object.keys(product.commercialInformation).map(function (key) {
+            Object.keys(commercialInformation).map(function (key) {
                 return "<tr><th>" + escapeHtml(key) + "</th><td>" +
-                    escapeHtml(product.commercialInformation[key]) + "</td></tr>";
-            }).join("") + "</tbody></table></div>" + (product.commercialNote ?
-                '<p class="product-info-note">' + escapeHtml(product.commercialNote) + "</p>" : "") + "</section>" : "";
+                    escapeHtml(commercialInformation[key]) + "</td></tr>";
+            }).join("") + "</tbody></table></div>" +
+                '<p class="product-info-note">' + escapeHtml(commercialNote) + "</p></section>" : "";
 
         document.title = product.name + " | IanProject";
         var descriptionMeta = document.querySelector('meta[name="description"]');
