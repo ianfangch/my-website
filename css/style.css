@@ -773,6 +773,46 @@ p {
     color: var(--bs-dark);
 }
 
+.product-option-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 28px;
+    margin-bottom: 24px;
+}
+
+.product-option-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px 16px;
+    background: var(--bs-light);
+}
+
+.product-option-list i {
+    margin-top: 5px;
+}
+
+.product-commercial-table th {
+    width: 28%;
+    color: var(--bs-dark);
+}
+
+.product-info-note {
+    max-width: 920px;
+    margin: 20px 0 0;
+    color: #617574;
+}
+
+@media (max-width: 767.98px) {
+    .product-option-list {
+        grid-template-columns: 1fr;
+    }
+
+    .product-commercial-table th {
+        width: 40%;
+    }
+}
+
 .enquiry-item {
     display: grid;
     grid-template-columns: 110px minmax(0, 1fr) 110px auto;
