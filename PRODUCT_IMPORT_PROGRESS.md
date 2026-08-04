@@ -30,6 +30,16 @@ Batch 1 contains 30 optimized product images and was published on 2026-08-04 thr
 
 Batch 2 contains 30 optimized product images and was published on 2026-08-04 through PR #10 (merge commit `0516af9c730c5d414a7ab76207348f5431ebc1f0`). All visible OULIN marks were removed, and every product has six descriptive image alt texts, a natural English search title, a search description, price, MOQ, lead time, highlights and detailed specifications.
 
+## Prepared batch 3
+
+11. `OLCG018-1` — Blue Minimalist Modular Kitchen
+12. `OLCG035` — Neutral Modular Kitchen for Home Renovation
+13. `OL62749344` — Custom Grey Apartment Kitchen
+14. `OLCG022` — Minimalist White and Wood Mini Kitchen
+15. `OLCG021` — Grey and Blush Modular Kitchen
+
+Batch 3 contains 30 optimized product images. All visible source-brand marks have been removed, and every product has six descriptive image alt texts, edited English copy, a starting price, MOQ, lead time, highlights, specifications and a dedicated SEO page. `OL62749344` is an internal traceable code based on the source page ID because the source does not publish a manufacturer model for that item.
+
 ## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
@@ -38,10 +48,10 @@ Batch 2 contains 30 optimized product images and was published on 2026-08-04 thr
 - Products remain enquiry-based rather than direct online checkout.
 - Every published product now has a dedicated crawlable URL under `/products/`.
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
-- All ten dedicated product URLs are listed in `sitemap.xml`.
+- All fifteen dedicated product URLs are listed in `sitemap.xml`.
 
 ## Next batch
 
-- Resume with product 11, the third item in the Melamine Kitchen Cabinet section: “Blue Minimalist Style Home Modular Kitchen Cabinet Kitchen Modern Flat Edge / Eased Edge Apartment Oulin”.
+- After batch 3 is published, resume with product 16 in the Melamine Kitchen Cabinet section: “Gray apartment economical simple wooden small kitchen design kitchen cabinet”.
 - Continue in source-category order and use the same image, data, naming and SEO standard.
-- Do not re-import or regenerate the first ten products unless the user requests changes.
+- Do not re-import or regenerate the first fifteen products unless the user requests changes.
