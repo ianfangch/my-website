@@ -522,8 +522,9 @@ p {
 }
 
 .catalog-card {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 620px;
     border: 1px solid rgba(17, 49, 48, .14);
     background: #fff;
     min-width: 0;
@@ -534,7 +535,7 @@ p {
     display: block;
     overflow: hidden;
     background: var(--bs-light);
-    aspect-ratio: 1 / 1;
+    min-height: 0;
 }
 
 .catalog-card-image img {
@@ -556,17 +557,33 @@ p {
 
 .catalog-card-body {
     display: flex;
-    flex: 1;
     flex-direction: column;
-    padding: 24px;
+    min-height: 0;
+    padding: 18px;
 }
 
-.catalog-card-body > p {
+.catalog-card-body > p:not(.catalog-card-meta) {
     flex-grow: 1;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    margin-bottom: 10px;
 }
 
 .catalog-card h3 a {
     color: var(--bs-dark);
+}
+
+.catalog-card h3 {
+    display: -webkit-box;
+    overflow: hidden;
+    min-height: 50px;
+    font-size: 21px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
 }
 
 .catalog-card-meta {
@@ -575,6 +592,7 @@ p {
     font-weight: 700;
     letter-spacing: .06em;
     text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
 .catalog-price {
@@ -588,7 +606,12 @@ p {
 .catalog-price strong {
     color: var(--bs-dark);
     font-family: "Space Grotesk", sans-serif;
-    font-size: 26px;
+    font-size: 22px;
+}
+
+.catalog-card-body .btn {
+    padding: 9px 11px;
+    font-size: 13px;
 }
 
 .catalog-price small {
@@ -668,6 +691,40 @@ p {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+}
+
+.product-gallery-thumbs {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.product-gallery-thumb {
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background: var(--bs-light);
+    cursor: pointer;
+}
+
+.product-gallery-thumb img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.product-gallery-thumb:hover,
+.product-gallery-thumb:focus-visible,
+.product-gallery-thumb.active {
+    border-color: var(--bs-primary);
+}
+
+@media (max-width: 575.98px) {
+    .product-gallery-thumbs {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 .product-highlights li {
