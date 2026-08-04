@@ -20,7 +20,7 @@ Last updated: 2026-08-04
 
 Batch 1 contains 30 optimized product images and was published on 2026-08-04 through PR #9.
 
-## Batch 2 prepared for publication
+## Published batch 2
 
 6. `OLCG027-1` — Premium Brown Modular Kitchen with Island
 7. `OLCG012-2` — Smart Shaker Kitchen with Integrated Storage
@@ -28,7 +28,7 @@ Batch 1 contains 30 optimized product images and was published on 2026-08-04 thr
 9. `OLCG018-2` — Blue Melamine Modular Kitchen
 10. `OLCG004` — Modern Melamine Kitchen with Integrated Storage
 
-Batch 2 contains 30 optimized product images. All visible OULIN marks were removed, and every product has six descriptive image alt texts, a natural English search title, a search description, price, MOQ, lead time, highlights and detailed specifications.
+Batch 2 contains 30 optimized product images and was published on 2026-08-04 through PR #10 (merge commit `0516af9c730c5d414a7ab76207348f5431ebc1f0`). All visible OULIN marks were removed, and every product has six descriptive image alt texts, a natural English search title, a search description, price, MOQ, lead time, highlights and detailed specifications.
 
 ## Catalogue and SEO decisions
 
