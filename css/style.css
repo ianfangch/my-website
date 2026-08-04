@@ -741,7 +741,7 @@ p {
 
 .product-direct-gallery {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: 24px;
 }
 
@@ -758,21 +758,9 @@ p {
     object-fit: cover;
 }
 
-.product-direct-image:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    width: calc(50% - 12px);
-    margin-inline: auto;
-}
-
 @media (max-width: 767.98px) {
     .product-direct-gallery {
-        grid-template-columns: 1fr;
         gap: 16px;
-    }
-
-    .product-direct-image:last-child:nth-child(odd) {
-        grid-column: auto;
-        width: 100%;
     }
 }
 
