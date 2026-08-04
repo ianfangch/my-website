@@ -489,7 +489,8 @@
                     "Handles and hardware",
                     "Internal storage accessories",
                     "Sink and appliance integration",
-                    "Alternative materials according to model and project requirements"
+                    "Alternative materials according to model and project requirements",
+                    "Other customisation requirements are welcome — please contact us to discuss your project"
                 ],
                 customisationNote: "Final specifications are confirmed through drawings, material samples and the approved quotation before production.",
                 commercialInformation: {
