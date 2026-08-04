@@ -198,25 +198,17 @@
             return '<li><i class="fa fa-check text-primary me-2"></i>' + escapeHtml(item) + "</li>";
         }).join("");
         var gallery = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
-        var carouselEnabled = product.id === "blue-minimalist-kitchen" && gallery.length > 1;
-        var carouselControls = carouselEnabled ?
-            '<div class="product-banner-nav" aria-label="Product image carousel">' +
-            '<button class="product-banner-arrow product-banner-prev" type="button" aria-label="Previous product image">&#8249;</button>' +
-            '<button class="product-banner-arrow product-banner-next" type="button" aria-label="Next product image">&#8250;</button>' +
-            '<span class="product-banner-count" aria-live="polite">1 / ' + gallery.length + "</span></div>" : "";
         var galleryMarkup = '<div class="product-gallery"><div class="product-detail-image">' +
             '<img id="product-main-image" src="' + escapeHtml(gallery[0]) + '" alt="' +
-            escapeHtml(product.imageAlt) + '" width="1254" height="1254" fetchpriority="high">' +
-            carouselControls + "</div>" +
-            (gallery.length > 1 ? '<div class="product-gallery-thumbs" aria-label="Product images">' +
-                gallery.map(function (image, index) {
-                    var imageAlt = product.imageAlts && product.imageAlts[index] ? product.imageAlts[index] : product.imageAlt;
-                    return '<button class="product-gallery-thumb' + (index === 0 ? " active" : "") +
-                        '" type="button" data-gallery-image="' + escapeHtml(image) +
-                        '" data-gallery-alt="' + escapeHtml(imageAlt) +
-                        '" aria-label="View product image ' + (index + 1) + '"><img src="' +
-                        escapeHtml(image) + '" alt="' + escapeHtml(imageAlt) + '" loading="lazy" width="1254" height="1254"></button>';
-                }).join("") + "</div>" : "") + "</div>";
+            escapeHtml(product.imageAlt) + '" width="1254" height="1254" fetchpriority="high"></div></div>';
+        var directGalleryMarkup = product.id === "blue-minimalist-kitchen" && gallery.length > 1 ?
+            '<section class="col-12 mt-5 product-image-section" aria-labelledby="product-gallery-title">' +
+            '<h2 id="product-gallery-title" class="mb-4">Product Gallery</h2>' +
+            '<div class="product-direct-gallery">' + gallery.slice(1).map(function (image, index) {
+                var imageAlt = product.imageAlts && product.imageAlts[index + 1] ? product.imageAlts[index + 1] : product.imageAlt;
+                return '<div class="product-direct-image"><img src="' + escapeHtml(image) + '" alt="' + escapeHtml(imageAlt) +
+                    '" loading="lazy" width="1254" height="1254"></div>';
+            }).join("") + "</div></section>" : "";
 
         document.title = product.name + " | IanProject";
         var descriptionMeta = document.querySelector('meta[name="description"]');
@@ -231,46 +223,9 @@
             '<ul class="product-highlights list-unstyled my-4">' + highlights + "</ul>" +
             '<div class="d-flex flex-wrap gap-3"><button class="btn btn-primary px-4 py-3" type="button" data-add-product="' +
             escapeHtml(product.id) + '">Add to Enquiry</button><a class="btn btn-outline-dark px-4 py-3" href="enquiry.html">View Enquiry List</a></div></div>' +
+            directGalleryMarkup +
             '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
             '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div></div>";
-        target.querySelectorAll("[data-gallery-image]").forEach(function (button) {
-            button.addEventListener("click", function () {
-                var mainImage = document.getElementById("product-main-image");
-                mainImage.src = button.getAttribute("data-gallery-image");
-                mainImage.alt = button.getAttribute("data-gallery-alt") || product.imageAlt;
-                target.querySelectorAll("[data-gallery-image]").forEach(function (item) {
-                    item.classList.toggle("active", item === button);
-                });
-            });
-        });
-        if (carouselEnabled) {
-            var galleryButtons = Array.from(target.querySelectorAll("[data-gallery-image]"));
-            var galleryFrame = target.querySelector(".product-detail-image");
-            var galleryCount = target.querySelector(".product-banner-count");
-            var galleryIndex = 0;
-            var touchStartX = 0;
-
-            function showGalleryImage(index) {
-                galleryIndex = (index + galleryButtons.length) % galleryButtons.length;
-                galleryButtons[galleryIndex].click();
-                galleryCount.textContent = (galleryIndex + 1) + " / " + galleryButtons.length;
-            }
-
-            target.querySelector(".product-banner-prev").addEventListener("click", function () {
-                showGalleryImage(galleryIndex - 1);
-            });
-            target.querySelector(".product-banner-next").addEventListener("click", function () {
-                showGalleryImage(galleryIndex + 1);
-            });
-            galleryFrame.addEventListener("touchstart", function (event) {
-                touchStartX = event.changedTouches[0].clientX;
-            }, { passive: true });
-            galleryFrame.addEventListener("touchend", function (event) {
-                var distance = event.changedTouches[0].clientX - touchStartX;
-                if (Math.abs(distance) < 45) return;
-                showGalleryImage(galleryIndex + (distance < 0 ? 1 : -1));
-            }, { passive: true });
-        }
         bindAddButtons();
     }
 
