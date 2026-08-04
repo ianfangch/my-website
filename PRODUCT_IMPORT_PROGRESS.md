@@ -30,7 +30,7 @@ Batch 1 contains 30 optimized product images and was published on 2026-08-04 thr
 
 Batch 2 contains 30 optimized product images and was published on 2026-08-04 through PR #10 (merge commit `0516af9c730c5d414a7ab76207348f5431ebc1f0`). All visible OULIN marks were removed, and every product has six descriptive image alt texts, a natural English search title, a search description, price, MOQ, lead time, highlights and detailed specifications.
 
-## Prepared batch 3
+## Published batch 3
 
 11. `OLCG018-1` — Blue Minimalist Modular Kitchen
 12. `OLCG035` — Neutral Modular Kitchen for Home Renovation
@@ -38,7 +38,7 @@ Batch 2 contains 30 optimized product images and was published on 2026-08-04 thr
 14. `OLCG022` — Minimalist White and Wood Mini Kitchen
 15. `OLCG021` — Grey and Blush Modular Kitchen
 
-Batch 3 contains 30 optimized product images. All visible source-brand marks have been removed, and every product has six descriptive image alt texts, edited English copy, a starting price, MOQ, lead time, highlights, specifications and a dedicated SEO page. `OL62749344` is an internal traceable code based on the source page ID because the source does not publish a manufacturer model for that item.
+Batch 3 contains 30 optimized product images and was published on 2026-08-04 through PR #13 (merge commit `811ec07aad23c7509973df33251a808978b37d22`). All visible source-brand marks were removed, and every product has six descriptive image alt texts, edited English copy, a starting price, MOQ, lead time, highlights, specifications and a dedicated SEO page. `OL62749344` is an internal traceable code based on the source page ID because the source does not publish a manufacturer model for that item.
 
 ## Catalogue and SEO decisions
 
