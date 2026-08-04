@@ -193,11 +193,21 @@
         var highlights = product.highlights.map(function (item) {
             return '<li><i class="fa fa-check text-primary me-2"></i>' + escapeHtml(item) + "</li>";
         }).join("");
+        var gallery = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
+        var galleryMarkup = '<div class="product-gallery"><div class="product-detail-image">' +
+            '<img id="product-main-image" src="' + escapeHtml(gallery[0]) + '" alt="' +
+            escapeHtml(product.imageAlt) + '"></div>' +
+            (gallery.length > 1 ? '<div class="product-gallery-thumbs" aria-label="Product images">' +
+                gallery.map(function (image, index) {
+                    return '<button class="product-gallery-thumb' + (index === 0 ? " active" : "") +
+                        '" type="button" data-gallery-image="' + escapeHtml(image) +
+                        '" aria-label="View product image ' + (index + 1) + '"><img src="' +
+                        escapeHtml(image) + '" alt="" loading="lazy"></button>';
+                }).join("") + "</div>" : "") + "</div>";
 
         document.title = product.name + " | IanProject";
         target.innerHTML = '<div class="row g-5 align-items-start">' +
-            '<div class="col-lg-6"><div class="product-detail-image"><img src="' +
-            escapeHtml(product.image) + '" alt="' + escapeHtml(product.imageAlt) + '"></div></div>' +
+            '<div class="col-lg-6">' + galleryMarkup + '</div>' +
             '<div class="col-lg-6"><p class="text-uppercase text-primary mb-2">' +
             escapeHtml(category ? category.name : product.category) + " / " + escapeHtml(product.code) + "</p>" +
             "<h1>" + escapeHtml(product.name) + "</h1><p class=\"mb-4\">" + escapeHtml(product.summary) + "</p>" +
@@ -208,6 +218,15 @@
             escapeHtml(product.id) + '">Add to Enquiry</button><a class="btn btn-outline-dark px-4 py-3" href="enquiry.html">View Enquiry List</a></div></div>' +
             '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
             '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div></div>";
+        target.querySelectorAll("[data-gallery-image]").forEach(function (button) {
+            button.addEventListener("click", function () {
+                var mainImage = document.getElementById("product-main-image");
+                mainImage.src = button.getAttribute("data-gallery-image");
+                target.querySelectorAll("[data-gallery-image]").forEach(function (item) {
+                    item.classList.toggle("active", item === button);
+                });
+            });
+        });
         bindAddButtons();
     }
 
