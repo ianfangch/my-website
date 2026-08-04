@@ -476,12 +476,38 @@
                     "Carcase material": "Particleboard",
                     "Door material": "Particleboard",
                     "Door finish": "Vinyl wrap / thermofoil",
+                    "Standard hinges": "Blum",
                     "Countertop": "Artificial quartz",
                     "Countertop edge": "Flat edge / eased edge",
                     "Environmental standard": "E1 / E0",
-                    "Minimum order": "1 metre",
-                    "Production lead time": "Approximately 30–40 days"
+                    "Country of origin": "China"
                 },
+                customisationOptions: [
+                    "Cabinet dimensions and layout",
+                    "Door colours and finishes",
+                    "Countertop colours and thicknesses",
+                    "Handles and hardware",
+                    "Internal storage accessories",
+                    "Sink and appliance integration",
+                    "Alternative materials according to model and project requirements"
+                ],
+                customisationNote: "Final specifications are confirmed through drawings, material samples and the approved quotation before production.",
+                commercialInformation: {
+                    "Indicative price": "From USD 351 per metre",
+                    "Minimum order": "1 metre",
+                    "Currency": "USD",
+                    "Payment method": "T/T only",
+                    "Payment terms": "30% deposit upon order confirmation and 70% balance before shipment",
+                    "Production lead time": "Approximately 30–40 days after confirmation of drawings, materials and deposit",
+                    "Packaging": "Flat-pack or assembled export packaging according to project requirements",
+                    "Trade terms": "EXW, FOB and CIF",
+                    "DDP delivery": "Available for selected destinations, subject to the final delivery address and local import requirements",
+                    "Port of loading": "Ningbo, China",
+                    "Warranty": "One year",
+                    "Factory inspection": "Buyers or their appointed representatives may inspect the goods at the factory by appointment",
+                    "Video inspection": "Remote video inspection is available before shipment"
+                },
+                commercialNote: "Prices shown on the website are indicative starting prices. Final pricing depends on dimensions, materials, hardware, accessories, order quantity and delivery destination.",
                 sourceUrl: "https://www.oulin-oversea.com/melamine-kitchen-cabinet/62749354.html"
             },
             {

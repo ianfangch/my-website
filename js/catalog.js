@@ -209,6 +209,21 @@
                 return '<div class="product-direct-image"><img src="' + escapeHtml(image) + '" alt="' + escapeHtml(imageAlt) +
                     '" loading="lazy" width="1254" height="1254"></div>';
             }).join("") + "</div></section>" : "";
+        var customisationMarkup = Array.isArray(product.customisationOptions) && product.customisationOptions.length ?
+            '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Customisation Options</h2>' +
+            '<ul class="product-option-list list-unstyled">' + product.customisationOptions.map(function (option) {
+                return '<li><i class="fa fa-check text-primary" aria-hidden="true"></i><span>' +
+                    escapeHtml(option) + "</span></li>";
+            }).join("") + "</ul>" + (product.customisationNote ? '<p class="product-info-note">' +
+                escapeHtml(product.customisationNote) + "</p>" : "") + "</section>" : "";
+        var commercialMarkup = product.commercialInformation ?
+            '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Commercial &amp; Delivery Information</h2>' +
+            '<div class="table-responsive"><table class="table product-commercial-table"><tbody>' +
+            Object.keys(product.commercialInformation).map(function (key) {
+                return "<tr><th>" + escapeHtml(key) + "</th><td>" +
+                    escapeHtml(product.commercialInformation[key]) + "</td></tr>";
+            }).join("") + "</tbody></table></div>" + (product.commercialNote ?
+                '<p class="product-info-note">' + escapeHtml(product.commercialNote) + "</p>" : "") + "</section>" : "";
 
         document.title = product.name + " | IanProject";
         var descriptionMeta = document.querySelector('meta[name="description"]');
@@ -225,7 +240,8 @@
             escapeHtml(product.id) + '">Add to Enquiry</button><a class="btn btn-outline-dark px-4 py-3" href="enquiry.html">View Enquiry List</a></div></div>' +
             directGalleryMarkup +
             '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
-            '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div></div>";
+            '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div>" +
+            customisationMarkup + commercialMarkup + "</div>";
         bindAddButtons();
     }
 
