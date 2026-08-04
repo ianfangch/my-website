@@ -2,15 +2,15 @@
 
 Last updated: 2026-08-04
 
-## Agreed source
+## Agreed source and publishing rules
 
 - Use `https://www.oulin-oversea.com/` as the only product-data and image source.
 - Do not use the Alibaba store for future imports.
-- Replace the displayed `OULIN` model prefix with `OL` (for example, `OULINCG026` becomes `OLCG026`).
+- Replace the displayed `OULIN` model prefix with `OL`.
+- Publish products in reviewed batches of five.
+- Every published product requires six local images, visible source-brand removal, optimized JPG files, edited English copy, accurate specifications, a USD starting price and an enquiry route.
 
-## Completed sample products
-
-The first five Glass Kitchen Cabinet products are complete:
+## Published batch 1
 
 1. `OLCG026` — Compact Smart Kitchen with Pull-Out Storage
 2. `OLCG025` — Aluminium-Frame Modular Kitchen
@@ -18,33 +18,30 @@ The first five Glass Kitchen Cabinet products are complete:
 4. `OLCG051` — Minimalist Glass-Front Kitchen
 5. `OLCG038-1` — High-Gloss Modern Kitchen
 
-Each product currently includes:
+Batch 1 contains 30 optimized product images and was published on 2026-08-04 through PR #9.
 
-- six locally stored product images;
-- removal of visible OULIN logos and website watermarks from all six images;
-- optimized JPG files for website performance;
-- an edited English product title and summary;
-- USD starting price and pricing unit;
-- model, application, style, cabinet type, carcase, door, finish, countertop, edge, environmental standard, MOQ and lead time;
-- product highlights, image alt text and a multi-image detail gallery;
-- source URL retained in the catalogue data for internal traceability.
+## Batch 2 prepared for publication
 
-The 30 final product images total approximately 6.5 MB. The original logo-bearing website copies are no longer stored in the project product-image folders.
+6. `OLCG027-1` — Premium Brown Modular Kitchen with Island
+7. `OLCG012-2` — Smart Shaker Kitchen with Integrated Storage
+8. `OLCG025-2` — Modern Glass-Front Kitchen with Wine Storage
+9. `OLCG018-2` — Blue Melamine Modular Kitchen
+10. `OLCG004` — Modern Melamine Kitchen with Integrated Storage
 
-## Catalogue layout decisions
+Batch 2 contains 30 optimized product images. All visible OULIN marks were removed, and every product has six descriptive image alt texts, a natural English search title, a search description, price, MOQ, lead time, highlights and detailed specifications.
+
+## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
 - Card titles and summaries are limited to two lines.
 - Product details use a main image plus six clickable thumbnails.
 - Products remain enquiry-based rather than direct online checkout.
+- Every published product now has a dedicated crawlable URL under `/products/`.
+- Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
+- All ten dedicated product URLs are listed in `sitemap.xml`.
 
-## Next session
+## Next batch
 
-- Resume from product 6 in the Glass Kitchen Cabinet section: “Brown high-end kitchen customized for sale kitchen cabinets”.
-- Continue with the same data fields, naming rules, six-image gallery and image-cleaning standard.
-- Import the remaining products by category only after reviewing these five samples.
-- Do not re-import or regenerate the five completed products unless the user requests changes.
-
-## Publication status
-
-Batch 1 was approved for publication on 2026-08-04. Future products will be prepared and published in batches of five.
+- Resume with product 11, the third item in the Melamine Kitchen Cabinet section: “Blue Minimalist Style Home Modular Kitchen Cabinet Kitchen Modern Flat Edge / Eased Edge Apartment Oulin”.
+- Continue in source-category order and use the same image, data, naming and SEO standard.
+- Do not re-import or regenerate the first ten products unless the user requests changes.

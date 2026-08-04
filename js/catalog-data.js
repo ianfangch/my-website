@@ -14,6 +14,7 @@
         products: [
             {
                 id: "mini-smart-kitchen",
+                url: "products/compact-smart-kitchen",
                 category: "cabinetry",
                 name: "Compact Smart Kitchen with Pull-Out Storage",
                 code: "OLCG026",
@@ -51,6 +52,7 @@
             },
             {
                 id: "aluminium-frame-kitchen",
+                url: "products/aluminium-frame-modular-kitchen",
                 category: "cabinetry",
                 name: "Aluminium-Frame Modular Kitchen",
                 code: "OLCG025",
@@ -88,6 +90,7 @@
             },
             {
                 id: "shaker-storage-kitchen",
+                url: "products/modern-shaker-storage-kitchen",
                 category: "cabinetry",
                 name: "Modern Shaker Kitchen with Smart Storage",
                 code: "OLCG012",
@@ -125,6 +128,7 @@
             },
             {
                 id: "minimalist-glass-kitchen",
+                url: "products/minimalist-glass-front-kitchen",
                 category: "cabinetry",
                 name: "Minimalist Glass-Front Kitchen",
                 code: "OLCG051",
@@ -162,6 +166,7 @@
             },
             {
                 id: "high-gloss-kitchen",
+                url: "products/high-gloss-modern-kitchen",
                 category: "cabinetry",
                 name: "High-Gloss Modern Kitchen",
                 code: "OLCG038-1",
@@ -196,6 +201,241 @@
                     "Production lead time": "Approximately 30–40 days"
                 },
                 sourceUrl: "https://www.oulin-oversea.com/glass-kitchen-cabinet/62749568.html"
+            },
+            {
+                id: "premium-brown-kitchen",
+                url: "products/premium-brown-modular-kitchen",
+                category: "cabinetry",
+                name: "Premium Brown Modular Kitchen with Island",
+                code: "OLCG027-1",
+                badge: "Glass Kitchen",
+                image: "img/products/premium-brown-kitchen/1.jpg",
+                images: [
+                    "img/products/premium-brown-kitchen/1.jpg",
+                    "img/products/premium-brown-kitchen/2.jpg",
+                    "img/products/premium-brown-kitchen/3.jpg",
+                    "img/products/premium-brown-kitchen/4.jpg",
+                    "img/products/premium-brown-kitchen/5.jpg",
+                    "img/products/premium-brown-kitchen/6.jpg"
+                ],
+                imageAlt: "Premium brown modular kitchen cabinets with island and open display storage",
+                imageAlts: [
+                    "Premium brown modular kitchen with island in an open-plan interior",
+                    "Brown kitchen cabinets with quartz island and dining seating",
+                    "Full brown modular kitchen cabinet layout with integrated appliances",
+                    "Tall brown kitchen storage cabinet with open display shelving",
+                    "Brown tall-unit kitchen cabinets with built-in oven",
+                    "Brown wood-effect kitchen cabinets with quartz countertop"
+                ],
+                price: 509,
+                pricePrefix: "From",
+                priceUnit: "per metre",
+                summary: "A warm brown modular kitchen system with an island, integrated tall units and a balanced mix of concealed and display storage.",
+                seoDescription: "Premium brown modular kitchen cabinets with island, quartz countertop and custom storage. Model OLCG027-1, from USD 509 per metre.",
+                highlights: ["Coordinated island and tall-unit layout", "Warm wood-effect finish", "Custom dimensions and storage planning"],
+                specifications: {
+                    "Model": "OLCG027-1",
+                    "Application": "Apartment",
+                    "Design style": "Modern",
+                    "Cabinet type": "Modular kitchen cabinets",
+                    "Carcase material": "Particleboard",
+                    "Door material": "Particleboard",
+                    "Door finish": "Vinyl wrap / thermofoil",
+                    "Countertop": "Artificial quartz",
+                    "Countertop edge": "Flat edge / eased edge",
+                    "Environmental standard": "E1 / E0",
+                    "Minimum order": "1 metre",
+                    "Production lead time": "Approximately 30–40 days"
+                },
+                sourceUrl: "https://www.oulin-oversea.com/glass-kitchen-cabinet/62749506.html"
+            },
+            {
+                id: "smart-shaker-kitchen",
+                url: "products/smart-shaker-kitchen-storage",
+                category: "cabinetry",
+                name: "Smart Shaker Kitchen with Integrated Storage",
+                code: "OLCG012-2",
+                badge: "Glass Kitchen",
+                image: "img/products/smart-shaker-kitchen/1.jpg",
+                images: [
+                    "img/products/smart-shaker-kitchen/1.jpg",
+                    "img/products/smart-shaker-kitchen/2.jpg",
+                    "img/products/smart-shaker-kitchen/3.jpg",
+                    "img/products/smart-shaker-kitchen/4.jpg",
+                    "img/products/smart-shaker-kitchen/5.jpg",
+                    "img/products/smart-shaker-kitchen/6.jpg"
+                ],
+                imageAlt: "White Shaker kitchen cabinets with walnut storage and dining island",
+                imageAlts: [
+                    "White Shaker kitchen cabinets with walnut display storage",
+                    "Modern white and walnut kitchen island cabinet layout",
+                    "Shaker kitchen with dining island and integrated wine storage",
+                    "White kitchen wall cabinets above black countertop and sink",
+                    "Walnut kitchen wine rack and hanging glass storage detail",
+                    "White base cabinets with black countertop and double sink"
+                ],
+                price: 638,
+                pricePrefix: "From",
+                priceUnit: "per metre",
+                summary: "A white and walnut kitchen composition combining clean Shaker-inspired fronts, glass elements and dedicated wine and dining storage.",
+                seoDescription: "Smart Shaker kitchen cabinets with white fronts, walnut storage and glass elements. Model OLCG012-2, from USD 638 per metre.",
+                highlights: ["White and walnut two-tone design", "Wine and glass storage features", "Flexible island and dining configuration"],
+                specifications: {
+                    "Model": "OLCG012-2",
+                    "Application": "Apartment",
+                    "Design style": "Modern",
+                    "Cabinet type": "Modular kitchen cabinets",
+                    "Carcase material": "Particleboard",
+                    "Door material": "Glass",
+                    "Door finish": "Lacquer",
+                    "Countertop": "Artificial quartz",
+                    "Countertop edge": "Flat edge / eased edge",
+                    "Environmental standard": "E1 / E0",
+                    "Minimum order": "1 metre",
+                    "Production lead time": "Approximately 30–40 days"
+                },
+                sourceUrl: "https://www.oulin-oversea.com/glass-kitchen-cabinet/62749646.html"
+            },
+            {
+                id: "modern-glass-kitchen",
+                url: "products/modern-glass-front-kitchen",
+                category: "cabinetry",
+                name: "Modern Glass-Front Kitchen with Wine Storage",
+                code: "OLCG025-2",
+                badge: "Glass Kitchen",
+                image: "img/products/modern-glass-kitchen/1.jpg",
+                images: [
+                    "img/products/modern-glass-kitchen/1.jpg",
+                    "img/products/modern-glass-kitchen/2.jpg",
+                    "img/products/modern-glass-kitchen/3.jpg",
+                    "img/products/modern-glass-kitchen/4.jpg",
+                    "img/products/modern-glass-kitchen/5.jpg",
+                    "img/products/modern-glass-kitchen/6.jpg"
+                ],
+                imageAlt: "Modern glass-front kitchen cabinets with walnut wine storage and island",
+                imageAlts: [
+                    "Modern grey and walnut glass-front kitchen with island",
+                    "Tall kitchen wine storage cabinet beside integrated appliances",
+                    "Grey modular kitchen island with walnut dining extension",
+                    "Modern kitchen cabinet system with pendant-lit island",
+                    "Glass-front wall cabinets and walnut open kitchen storage",
+                    "Modular kitchen cabinet components on a white background"
+                ],
+                price: 638,
+                pricePrefix: "From",
+                priceUnit: "per metre",
+                summary: "A modern grey and walnut kitchen system with glass-front display cabinets, integrated appliances and a space-efficient wine-storage tower.",
+                seoDescription: "Modern glass-front kitchen cabinets with grey and walnut finishes, island and wine storage. Model OLCG025-2, from USD 638 per metre.",
+                highlights: ["Glass-front display cabinetry", "Integrated wine-storage tower", "Coordinated island and appliance units"],
+                specifications: {
+                    "Model": "OLCG025-2",
+                    "Application": "Apartment",
+                    "Design style": "Modern",
+                    "Cabinet type": "Modular kitchen cabinets",
+                    "Carcase material": "Particleboard",
+                    "Door material": "Solid wood",
+                    "Door finish": "Glass",
+                    "Countertop": "Artificial quartz",
+                    "Countertop edge": "Flat edge / eased edge",
+                    "Environmental standard": "E1 / E0",
+                    "Minimum order": "1 metre",
+                    "Production lead time": "Approximately 30–40 days"
+                },
+                sourceUrl: "https://www.oulin-oversea.com/glass-kitchen-cabinet/62749774.html"
+            },
+            {
+                id: "blue-melamine-kitchen",
+                url: "products/blue-melamine-modular-kitchen",
+                category: "cabinetry",
+                name: "Blue Melamine Modular Kitchen",
+                code: "OLCG018-2",
+                badge: "Melamine Kitchen",
+                image: "img/products/blue-melamine-kitchen/1.jpg",
+                images: [
+                    "img/products/blue-melamine-kitchen/1.jpg",
+                    "img/products/blue-melamine-kitchen/2.jpg",
+                    "img/products/blue-melamine-kitchen/3.jpg",
+                    "img/products/blue-melamine-kitchen/4.jpg",
+                    "img/products/blue-melamine-kitchen/5.jpg",
+                    "img/products/blue-melamine-kitchen/6.jpg"
+                ],
+                imageAlt: "Blue and light wood melamine modular kitchen cabinets",
+                imageAlts: [
+                    "Blue and light wood melamine L-shaped kitchen cabinets",
+                    "Light wood modular kitchen cabinets with open shelves",
+                    "Black-framed glass wall cabinet detail in a blue kitchen",
+                    "Blue melamine base cabinets with light wood wall cabinets",
+                    "Blue handleless kitchen cabinets with white countertop",
+                    "Quartz island countertop and blue melamine kitchen cabinets"
+                ],
+                price: 351,
+                pricePrefix: "From",
+                priceUnit: "per metre",
+                summary: "A practical blue and light-wood melamine kitchen for apartments, with handleless base units, open shelving and configurable storage.",
+                seoDescription: "Blue melamine modular kitchen cabinets for apartments with light wood storage and quartz countertop. Model OLCG018-2, from USD 351 per metre.",
+                highlights: ["Blue and light-wood colour palette", "Handleless modern cabinet fronts", "Apartment-friendly modular planning"],
+                specifications: {
+                    "Model": "OLCG018-2",
+                    "Application": "Apartment",
+                    "Design style": "Modern",
+                    "Cabinet type": "Modular kitchen cabinets",
+                    "Carcase material": "Particleboard",
+                    "Door material": "Particleboard",
+                    "Door finish": "Vinyl wrap / thermofoil",
+                    "Countertop": "Artificial quartz",
+                    "Countertop edge": "Flat edge / eased edge",
+                    "Environmental standard": "E1 / E0",
+                    "Minimum order": "1 metre",
+                    "Production lead time": "Approximately 30–40 days"
+                },
+                sourceUrl: "https://www.oulin-oversea.com/melamine-kitchen-cabinet/62749347.html"
+            },
+            {
+                id: "modern-melamine-storage-kitchen",
+                url: "products/modern-melamine-storage-kitchen",
+                category: "cabinetry",
+                name: "Modern Melamine Kitchen with Integrated Storage",
+                code: "OLCG004",
+                badge: "Melamine Kitchen",
+                image: "img/products/modern-melamine-storage-kitchen/1.jpg",
+                images: [
+                    "img/products/modern-melamine-storage-kitchen/1.jpg",
+                    "img/products/modern-melamine-storage-kitchen/2.jpg",
+                    "img/products/modern-melamine-storage-kitchen/3.jpg",
+                    "img/products/modern-melamine-storage-kitchen/4.jpg",
+                    "img/products/modern-melamine-storage-kitchen/5.jpg",
+                    "img/products/modern-melamine-storage-kitchen/6.jpg"
+                ],
+                imageAlt: "Modern neutral melamine kitchen cabinets with integrated storage accessories",
+                imageAlts: [
+                    "Neutral melamine kitchen cabinets with open shelf storage",
+                    "Kitchen sink storage system with dish and glass organisers",
+                    "Lift-up kitchen wall cabinet with organised shelving",
+                    "Pull-out kitchen pantry accessory inside melamine cabinetry",
+                    "Integrated oven and appliance tower in a modern kitchen",
+                    "Pull-out cookware organiser fitted inside a kitchen drawer"
+                ],
+                price: 509,
+                pricePrefix: "From",
+                priceUnit: "per metre",
+                summary: "A neutral melamine kitchen system built around accessible storage, including lift-up wall units, pull-out pantry fittings and appliance towers.",
+                seoDescription: "Modern melamine kitchen cabinets with lift-up storage, pull-out pantry fittings and appliance tower. Model OLCG004, from USD 509 per metre.",
+                highlights: ["Integrated pull-out storage accessories", "Lift-up wall cabinet options", "Coordinated appliance tower"],
+                specifications: {
+                    "Model": "OLCG004",
+                    "Application": "Apartment",
+                    "Design style": "Modern",
+                    "Cabinet type": "Modular kitchen cabinets",
+                    "Carcase material": "Particleboard",
+                    "Door material": "Particleboard",
+                    "Door finish": "Vinyl wrap / thermofoil",
+                    "Countertop": "Artificial quartz",
+                    "Countertop edge": "Flat edge / eased edge",
+                    "Environmental standard": "E1 / E0",
+                    "Minimum order": "1 metre",
+                    "Production lead time": "Approximately 30–40 days"
+                },
+                sourceUrl: "https://www.oulin-oversea.com/melamine-kitchen-cabinet/62749390.html"
             }
         ]
     };

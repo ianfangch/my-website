@@ -23,6 +23,10 @@
         return catalog.products.find(function (product) { return product.id === id; });
     }
 
+    function productUrl(product) {
+        return product.url || ("product.html?id=" + encodeURIComponent(product.id));
+    }
+
     function getEnquiry() {
         try {
             var parsed = JSON.parse(localStorage.getItem(storageKey) || "[]");
@@ -86,16 +90,16 @@
     function productCard(product) {
         var category = getCategory(product.category);
         return '<article class="catalog-card">' +
-            '<a class="catalog-card-image" href="product.html?id=' + encodeURIComponent(product.id) + '">' +
-            '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.imageAlt) + '" loading="lazy">' +
+            '<a class="catalog-card-image" href="' + escapeHtml(productUrl(product)) + '">' +
+            '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.imageAlt) + '" loading="lazy" width="1254" height="1254">' +
             '<span class="badge bg-primary">' + escapeHtml(product.badge) + "</span></a>" +
             '<div class="catalog-card-body"><p class="catalog-card-meta">' +
             escapeHtml(category ? category.name : product.category) + " / " + escapeHtml(product.code) + "</p>" +
-            '<h3><a href="product.html?id=' + encodeURIComponent(product.id) + '">' + escapeHtml(product.name) + "</a></h3>" +
+            '<h3><a href="' + escapeHtml(productUrl(product)) + '">' + escapeHtml(product.name) + "</a></h3>" +
             "<p>" + escapeHtml(product.summary) + "</p>" +
             priceMarkup(product, true) +
             '<div class="d-flex flex-wrap gap-2 mt-4">' +
-            '<a class="btn btn-outline-primary" href="product.html?id=' + encodeURIComponent(product.id) + '">View Details</a>' +
+            '<a class="btn btn-outline-primary" href="' + escapeHtml(productUrl(product)) + '">View Details</a>' +
             '<button class="btn btn-primary" type="button" data-add-product="' + escapeHtml(product.id) + '">Add to Enquiry</button>' +
             "</div></div></article>";
     }
@@ -176,7 +180,7 @@
     function renderProductDetail() {
         var target = document.getElementById("product-detail");
         if (!target) return;
-        var id = new URLSearchParams(window.location.search).get("id");
+        var id = new URLSearchParams(window.location.search).get("id") || target.getAttribute("data-product-id");
         var product = getProduct(id);
         if (!product) {
             target.innerHTML = '<div class="catalog-empty"><h1>Product not found</h1>' +
@@ -196,16 +200,20 @@
         var gallery = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
         var galleryMarkup = '<div class="product-gallery"><div class="product-detail-image">' +
             '<img id="product-main-image" src="' + escapeHtml(gallery[0]) + '" alt="' +
-            escapeHtml(product.imageAlt) + '"></div>' +
+            escapeHtml(product.imageAlt) + '" width="1254" height="1254" fetchpriority="high"></div>' +
             (gallery.length > 1 ? '<div class="product-gallery-thumbs" aria-label="Product images">' +
                 gallery.map(function (image, index) {
+                    var imageAlt = product.imageAlts && product.imageAlts[index] ? product.imageAlts[index] : product.imageAlt;
                     return '<button class="product-gallery-thumb' + (index === 0 ? " active" : "") +
                         '" type="button" data-gallery-image="' + escapeHtml(image) +
+                        '" data-gallery-alt="' + escapeHtml(imageAlt) +
                         '" aria-label="View product image ' + (index + 1) + '"><img src="' +
-                        escapeHtml(image) + '" alt="" loading="lazy"></button>';
+                        escapeHtml(image) + '" alt="' + escapeHtml(imageAlt) + '" loading="lazy" width="1254" height="1254"></button>';
                 }).join("") + "</div>" : "") + "</div>";
 
         document.title = product.name + " | IanProject";
+        var descriptionMeta = document.querySelector('meta[name="description"]');
+        if (descriptionMeta) descriptionMeta.setAttribute("content", product.seoDescription || product.summary);
         target.innerHTML = '<div class="row g-5 align-items-start">' +
             '<div class="col-lg-6">' + galleryMarkup + '</div>' +
             '<div class="col-lg-6"><p class="text-uppercase text-primary mb-2">' +
@@ -222,6 +230,7 @@
             button.addEventListener("click", function () {
                 var mainImage = document.getElementById("product-main-image");
                 mainImage.src = button.getAttribute("data-gallery-image");
+                mainImage.alt = button.getAttribute("data-gallery-alt") || product.imageAlt;
                 target.querySelectorAll("[data-gallery-image]").forEach(function (item) {
                     item.classList.toggle("active", item === button);
                 });
