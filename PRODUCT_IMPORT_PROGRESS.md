@@ -50,7 +50,7 @@ Batch 3 contains 30 optimized product images and was published on 2026-08-04 thr
 
 Batch 4 contains 30 optimized, logo-free product images, edited English copy, starting prices, specifications, complete commercial information and dedicated SEO pages. It was published on 2026-08-05 through PR #23. `OL62749324` uses a traceable internal code based on the source page ID because that source item does not publish a manufacturer model. Products 17 and 18 show related layouts but are positioned separately as melamine and lacquer configurations.
 
-## Prepared batch 5
+## Published batch 5
 
 21. `OL62749783` — White and Wood Minimalist Kitchen
 22. `OLCG035-1` — Dark Grey Corner Kitchen
@@ -58,7 +58,7 @@ Batch 4 contains 30 optimized, logo-free product images, edited English copy, st
 24. `OLCG013-3` — Soft Pink Modular Kitchen with Island
 25. `OLCG045` — Walnut Lacquer Kitchen with Pull-Out Storage
 
-Batch 5 contains 30 optimized, logo-free product images, complete product and commercial information, and dedicated SEO pages. Duplicate source listings were screened out: source pages `62749854`, `62749494`, `62749644`, and `62749697` reused image sets already represented by another catalogue product. `OL62749783` uses the source page ID because its published source model value is not a usable product code.
+Batch 5 contains 30 optimized, logo-free product images, complete product and commercial information, and dedicated SEO pages. It was published on 2026-08-05 through PR #24. Duplicate source listings were screened out: source pages `62749854`, `62749494`, `62749644`, and `62749697` reused image sets already represented by another catalogue product. `OL62749783` uses the source page ID because its published source model value is not a usable product code.
 
 ## Catalogue and SEO decisions
 
