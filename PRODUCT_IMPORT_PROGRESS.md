@@ -60,6 +60,16 @@ Batch 4 contains 30 optimized, logo-free product images, edited English copy, st
 
 Batch 5 contains 30 optimized, logo-free product images, complete product and commercial information, and dedicated SEO pages. It was published on 2026-08-05 through PR #24. Duplicate source listings were screened out: source pages `62749854`, `62749494`, `62749644`, and `62749697` reused image sets already represented by another catalogue product. `OL62749783` uses the source page ID because its published source model value is not a usable product code.
 
+## Published batch 6
+
+26. `OLCG022-1` — White and Wood Peninsula Kitchen
+27. `OLCG006-3` — Grey Wood Linear Kitchen
+28. `OLCG096` — Navy Handleless Kitchen
+29. `OLCG036` — Blue Shaker Corner Kitchen
+30. `OLCG028` — Teal Shaker Kitchen with Island
+
+Batch 6 contains 30 optimized, logo-free product images, edited English copy, source-aligned starting prices and specifications, complete commercial information, and five dedicated SEO pages. It continues through the final two Melamine category products and the first three distinct Lacquer category products in source order.
+
 ## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
@@ -68,10 +78,10 @@ Batch 5 contains 30 optimized, logo-free product images, complete product and co
 - Products remain enquiry-based rather than direct online checkout.
 - Every published product now has a dedicated crawlable URL under `/products/`.
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
-- All twenty-five dedicated product URLs are listed in `sitemap.xml`.
+- All thirty dedicated product URLs are listed in `sitemap.xml`.
 
-## Next batch after batch 5
+## Next batch after batch 6
 
-- Resume at source page `62749499`: “Modern kitchen household joinery kitchen cabinet full set”. Continue screening repeated source listings before assigning the next five catalogue positions.
+- Resume at source page `62749410`: “European kitchen white wood veneer solid wood kitchen furniture cabinet modular kitchen cabinet”. Continue screening repeated source listings before assigning the next five catalogue positions.
 - Continue in source-category order and use the same image, data, naming and SEO standard.
-- Do not re-import or regenerate the first twenty-five products unless the user requests changes.
+- Do not re-import or regenerate the first thirty products unless the user requests changes.
