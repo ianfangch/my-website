@@ -80,6 +80,16 @@ Batch 6 contains 30 optimized, logo-free product images, edited English copy, so
 
 Batch 7 contains 30 optimized, logo-free product images, concise English product titles, source-aligned pricing and specifications, full customisation and commercial information, and five dedicated SEO pages. The five products continue through the Lacquer category in source order and were screened against the existing catalogue before publication.
 
+## Published batch 8
+
+36. `OLCG042` — White and Walnut Modular Kitchen
+37. `OL62749322` — Blue and White Shaker Kitchen
+38. `OL62749720` — Black and White Heritage Kitchen
+39. `OLCG024-1` — White Gloss and Oak Island Kitchen
+40. `OLCG037-1` — White European Corner Kitchen
+
+Batch 8 contains 30 optimized, logo-free product images, edited English copy, prices, specifications, full customisation and commercial information, and five dedicated SEO pages. Source pages `62749349`, `62749651`, `62749649`, and `62749560` were skipped because their image sets duplicated products already represented in the catalogue. `OL62749322` and `OL62749720` use traceable source-page codes because those listings do not provide a usable manufacturer model.
+
 ## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
@@ -88,10 +98,10 @@ Batch 7 contains 30 optimized, logo-free product images, concise English product
 - Products remain enquiry-based rather than direct online checkout.
 - Every published product now has a dedicated crawlable URL under `/products/`.
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
-- All thirty-five dedicated product URLs are listed in `sitemap.xml`.
+- All forty dedicated product URLs are listed in `sitemap.xml`.
 
-## Next batch after batch 7
+## Next batch after batch 8
 
-- Resume at source page `62749356`: “new product ideas 2021 kitchen Modern kitchen cabinets white modular kitchen furniture cabinet designs”. Continue screening repeated source listings before assigning the next five catalogue positions.
+- Resume at source page `62749498`: “American pastoral shaped paint door style kitchen cabinet”. Continue screening repeated source listings before assigning the next five catalogue positions.
 - Continue in source-category order and use the same image, data, naming and SEO standard.
-- Do not re-import or regenerate the first thirty-five products unless the user requests changes.
+- Do not re-import or regenerate the first forty products unless the user requests changes.
