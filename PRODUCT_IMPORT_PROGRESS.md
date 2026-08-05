@@ -70,6 +70,16 @@ Batch 5 contains 30 optimized, logo-free product images, complete product and co
 
 Batch 6 contains 30 optimized, logo-free product images, edited English copy, source-aligned starting prices and specifications, complete commercial information, and five dedicated SEO pages. It continues through the final two Melamine category products and the first three distinct Lacquer category products in source order.
 
+## Published batch 7
+
+31. `OLCG017` — White Transitional Island Kitchen
+32. `OLCG019` — Classic White Corner Kitchen
+33. `OLCG015` — White Handleless Island Kitchen
+34. `OLCG002` — Charcoal Wood Dining Kitchen
+35. `OLCG007` — Classic White U-Shaped Kitchen
+
+Batch 7 contains 30 optimized, logo-free product images, concise English product titles, source-aligned pricing and specifications, full customisation and commercial information, and five dedicated SEO pages. The five products continue through the Lacquer category in source order and were screened against the existing catalogue before publication.
+
 ## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
@@ -78,10 +88,10 @@ Batch 6 contains 30 optimized, logo-free product images, edited English copy, so
 - Products remain enquiry-based rather than direct online checkout.
 - Every published product now has a dedicated crawlable URL under `/products/`.
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
-- All thirty dedicated product URLs are listed in `sitemap.xml`.
+- All thirty-five dedicated product URLs are listed in `sitemap.xml`.
 
-## Next batch after batch 6
+## Next batch after batch 7
 
-- Resume at source page `62749410`: “European kitchen white wood veneer solid wood kitchen furniture cabinet modular kitchen cabinet”. Continue screening repeated source listings before assigning the next five catalogue positions.
+- Resume at source page `62749356`: “new product ideas 2021 kitchen Modern kitchen cabinets white modular kitchen furniture cabinet designs”. Continue screening repeated source listings before assigning the next five catalogue positions.
 - Continue in source-category order and use the same image, data, naming and SEO standard.
-- Do not re-import or regenerate the first thirty products unless the user requests changes.
+- Do not re-import or regenerate the first thirty-five products unless the user requests changes.
