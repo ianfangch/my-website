@@ -50,6 +50,16 @@ Batch 3 contains 30 optimized product images and was published on 2026-08-04 thr
 
 Batch 4 contains 30 optimized, logo-free product images, edited English copy, starting prices, specifications, complete commercial information and dedicated SEO pages. It was published on 2026-08-05 through PR #23. `OL62749324` uses a traceable internal code based on the source page ID because that source item does not publish a manufacturer model. Products 17 and 18 show related layouts but are positioned separately as melamine and lacquer configurations.
 
+## Prepared batch 5
+
+21. `OL62749783` — White and Wood Minimalist Kitchen
+22. `OLCG035-1` — Dark Grey Corner Kitchen
+23. `OLCG040` — Monochrome Modular Island Kitchen
+24. `OLCG013-3` — Soft Pink Modular Kitchen with Island
+25. `OLCG045` — Walnut Lacquer Kitchen with Pull-Out Storage
+
+Batch 5 contains 30 optimized, logo-free product images, complete product and commercial information, and dedicated SEO pages. Duplicate source listings were screened out: source pages `62749854`, `62749494`, `62749644`, and `62749697` reused image sets already represented by another catalogue product. `OL62749783` uses the source page ID because its published source model value is not a usable product code.
+
 ## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
@@ -58,10 +68,10 @@ Batch 4 contains 30 optimized, logo-free product images, edited English copy, st
 - Products remain enquiry-based rather than direct online checkout.
 - Every published product now has a dedicated crawlable URL under `/products/`.
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
-- All twenty dedicated product URLs are listed in `sitemap.xml`.
+- All twenty-five dedicated product URLs are listed in `sitemap.xml`.
 
-## Next batch after batch 4
+## Next batch after batch 5
 
-- After batch 4 is published, resume with the next source-order Melamine Kitchen Cabinet product after “New arrivals kitchen complete cheap kitchen cabinet”.
+- Resume at source page `62749499`: “Modern kitchen household joinery kitchen cabinet full set”. Continue screening repeated source listings before assigning the next five catalogue positions.
 - Continue in source-category order and use the same image, data, naming and SEO standard.
-- Do not re-import or regenerate the first twenty products unless the user requests changes.
+- Do not re-import or regenerate the first twenty-five products unless the user requests changes.
