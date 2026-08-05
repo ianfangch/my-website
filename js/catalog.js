@@ -190,15 +190,16 @@
         }
 
         var category = getCategory(product.category);
+        var isSink = product.category === "sinks-faucets";
         var displaySpecifications = {};
         Object.keys(product.specifications).forEach(function (key) {
             if (key === "Minimum order" || key === "Production lead time") return;
             displaySpecifications[key] = product.specifications[key];
-            if (key === "Door finish" && !product.specifications["Standard hinges"]) {
+            if (!isSink && key === "Door finish" && !product.specifications["Standard hinges"]) {
                 displaySpecifications["Standard hinges"] = "Blum";
             }
         });
-        if (!displaySpecifications["Standard hinges"]) displaySpecifications["Standard hinges"] = "Blum";
+        if (!isSink && !displaySpecifications["Standard hinges"]) displaySpecifications["Standard hinges"] = "Blum";
         if (!displaySpecifications["Country of origin"]) displaySpecifications["Country of origin"] = "China";
         var specs = Object.keys(displaySpecifications).map(function (key) {
             return "<tr><th>" + escapeHtml(key) + "</th><td>" +
@@ -229,10 +230,22 @@
             "Alternative materials according to model and project requirements",
             "Other requirements — contact us"
         ];
+        var sinkCustomisationOptions = [
+            "Sink dimensions and bowl depth",
+            "Stainless steel grade and material thickness",
+            "Surface finish and colour",
+            "Top-mount, undermount or flush-mount configuration",
+            "Faucet, rinser and accessory-hole layout",
+            "Drain and overflow configuration",
+            "Workstation boards, racks, colanders and baskets",
+            "Other requirements — contact us"
+        ];
         var customisationOptions = Array.isArray(product.customisationOptions) && product.customisationOptions.length ?
-            product.customisationOptions : standardCustomisationOptions;
+            product.customisationOptions : (isSink ? sinkCustomisationOptions : standardCustomisationOptions);
         var customisationNote = product.customisationNote ||
-            "Final specifications are confirmed through drawings, material samples and the approved quotation before production.";
+            (isSink ?
+                "Final sink dimensions, cut-out details, finish and included accessories are confirmed in the approved quotation before production." :
+                "Final specifications are confirmed through drawings, material samples and the approved quotation before production.");
         var indicativePrice = (product.pricePrefix ? product.pricePrefix + " " : "") + catalog.currency + " " +
             product.price.toLocaleString("en-US", { maximumFractionDigits: 2 }) + " " + (product.priceUnit || "");
         var standardCommercialInformation = {
@@ -250,9 +263,24 @@
             "Factory inspection": "Buyers or their appointed representatives may inspect the goods at the factory by appointment",
             "Video inspection": "Remote video inspection is available before shipment"
         };
-        var commercialInformation = product.commercialInformation || standardCommercialInformation;
+        var sinkCommercialInformation = {
+            "Indicative price": indicativePrice.trim(),
+            "Minimum order": product.specifications["Minimum order"] || "Confirm with enquiry",
+            "Currency": "USD",
+            "Payment method": "T/T only",
+            "Payment terms": "30% deposit upon order confirmation and 70% balance before shipment",
+            "Production lead time": product.specifications["Production lead time"] || "Confirm with enquiry",
+            "Packaging": "Protective export packaging according to sink configuration and order quantity",
+            "Trade terms": "EXW, FOB and CIF",
+            "Port of loading": "Confirmed with the final quotation",
+            "Factory inspection": "Buyers or their appointed representatives may inspect the goods by appointment",
+            "Video inspection": "Remote video inspection is available before shipment"
+        };
+        var commercialInformation = product.commercialInformation || (isSink ? sinkCommercialInformation : standardCommercialInformation);
         var commercialNote = product.commercialNote ||
-            "Prices shown on the website are indicative starting prices. Final pricing depends on dimensions, materials, hardware, accessories, order quantity and delivery destination.";
+            (isSink ?
+                "Prices shown are indicative starting prices. Final sink pricing depends on size, material thickness, finish, accessory set, order quantity and delivery destination." :
+                "Prices shown on the website are indicative starting prices. Final pricing depends on dimensions, materials, hardware, accessories, order quantity and delivery destination.");
         var customisationMarkup = customisationOptions.length ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Customisation Options</h2>' +
             '<ul class="product-option-list list-unstyled">' + customisationOptions.map(function (option) {
