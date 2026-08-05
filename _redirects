@@ -10,3 +10,8 @@
 /team.html /project-cases 301
 /testimonial /insights 301
 /testimonial.html /insights 301
+/blog /insights 301
+/blog.html /insights 301
+/blog/* /insights 301
+/oulin /about 301
+/oulin.html /about 301
