@@ -105,3 +105,18 @@ Batch 8 contains 30 optimized, logo-free product images, edited English copy, pr
 - Resume at source page `62749498`: “American pastoral shaped paint door style kitchen cabinet”. Continue screening repeated source listings before assigning the next five catalogue positions.
 - Continue in source-category order and use the same image, data, naming and SEO standard.
 - Do not re-import or regenerate the first forty products unless the user requests changes.
+
+## Sink batch 1
+
+41. `AD1600315837334` - Compact Hidden RV Sink with Folding Faucet
+42. `AD1600315803398` - SUS304 Single-Bowl Workstation Sink
+43. `AD1600312894200` - Brushed Gold Single-Bowl Kitchen Sink
+44. `AD1600473006568` - Black Hidden Rinser Kitchen Sink
+45. `AD1600487917426` - SUS304 Top-Mount Workstation Sink
+
+Sink batch 1 adds the first five products, in source order, from the Adlone Handmade Single Sink category supplied by the user. It contains 30 optimized local JPG images, edited English titles and copy, source-listed USD starting prices and MOQs, traceable internal codes based on Alibaba product IDs, five dedicated SEO pages, Product/Offer structured data and sitemap entries. Where the source category did not expose a specification, the catalogue asks customers to confirm it by enquiry rather than inventing a value.
+
+## Next sink batch
+
+- Resume at Alibaba product ID `1600514069722`: `SUS304 Stainless Steel Manual Sink Kitchen Sink Black Nano Sink Single Bowl Thickened`.
+- Continue in category source order, five products per batch, and screen near-duplicate listings before publication.
