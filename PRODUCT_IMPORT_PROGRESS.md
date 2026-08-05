@@ -1,6 +1,6 @@
 # Product Import Progress
 
-Last updated: 2026-08-04
+Last updated: 2026-08-05
 
 ## Agreed source and publishing rules
 
@@ -40,6 +40,16 @@ Batch 2 contains 30 optimized product images and was published on 2026-08-04 thr
 
 Batch 3 contains 30 optimized product images and was published on 2026-08-04 through PR #13 (merge commit `811ec07aad23c7509973df33251a808978b37d22`). All visible source-brand marks were removed, and every product has six descriptive image alt texts, edited English copy, a starting price, MOQ, lead time, highlights, specifications and a dedicated SEO page. `OL62749344` is an internal traceable code based on the source page ID because the source does not publish a manufacturer model for that item.
 
+## Published batch 4
+
+16. `OLCG008` — Compact Grey Apartment Kitchen
+17. `OLCG014` — Grey Melamine Island Kitchen
+18. `OL62749324` — Grey Lacquer Island Kitchen
+19. `OLCG018` — Blue and Black Storage Kitchen
+20. `OLCG055` — Warm Wood Complete Kitchen with Island
+
+Batch 4 contains 30 optimized, logo-free product images, edited English copy, starting prices, specifications, complete commercial information and dedicated SEO pages. It was published on 2026-08-05 through PR #23. `OL62749324` uses a traceable internal code based on the source page ID because that source item does not publish a manufacturer model. Products 17 and 18 show related layouts but are positioned separately as melamine and lacquer configurations.
+
 ## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
@@ -48,10 +58,10 @@ Batch 3 contains 30 optimized product images and was published on 2026-08-04 thr
 - Products remain enquiry-based rather than direct online checkout.
 - Every published product now has a dedicated crawlable URL under `/products/`.
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
-- All fifteen dedicated product URLs are listed in `sitemap.xml`.
+- All twenty dedicated product URLs are listed in `sitemap.xml`.
 
-## Next batch
+## Next batch after batch 4
 
-- After batch 3 is published, resume with product 16 in the Melamine Kitchen Cabinet section: “Gray apartment economical simple wooden small kitchen design kitchen cabinet”.
+- After batch 4 is published, resume with the next source-order Melamine Kitchen Cabinet product after “New arrivals kitchen complete cheap kitchen cabinet”.
 - Continue in source-category order and use the same image, data, naming and SEO standard.
-- Do not re-import or regenerate the first fifteen products unless the user requests changes.
+- Do not re-import or regenerate the first twenty products unless the user requests changes.
