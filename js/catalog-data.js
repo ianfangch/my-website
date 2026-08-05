@@ -1342,7 +1342,7 @@
                 code: "AD1600315837334",
                 badge: "Handmade Single Sink",
                 image: "img/products/compact-rv-hidden-sink/1.jpg",
-                images: ["img/products/compact-rv-hidden-sink/1.jpg","img/products/compact-rv-hidden-sink/2.jpg","img/products/compact-rv-hidden-sink/3.jpg","img/products/compact-rv-hidden-sink/4.jpg","img/products/compact-rv-hidden-sink/5.jpg","img/products/compact-rv-hidden-sink/6.jpg"],
+                images: ["img/products/compact-rv-hidden-sink/1.jpg","img/products/compact-rv-hidden-sink/2-clean.jpg","img/products/compact-rv-hidden-sink/3.jpg","img/products/compact-rv-hidden-sink/4.jpg","img/products/compact-rv-hidden-sink/5.jpg","img/products/compact-rv-hidden-sink/6.jpg"],
                 imageAlt: "Compact black hidden sink with folding faucet for RV and small kitchens",
                 imageAlts: ["Compact hidden black RV sink installed in a white worktop","Closed black sink cover over the compact bowl","Compact sink with hinged cover open","Flush-mounted compact black sink with closed lid","Covered compact sink integrated into a small kitchen worktop","Stainless sink bowl showing 45 by 30 centimetre source dimensions"],
                 price: 135.9,
