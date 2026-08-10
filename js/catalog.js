@@ -24,7 +24,27 @@
     }
 
     function productUrl(product) {
-        return product.url || ("product.html?id=" + encodeURIComponent(product.id));
+        return product.url || ("/product?id=" + encodeURIComponent(product.id));
+    }
+
+    function bindProductBackLink() {
+        document.querySelectorAll("[data-product-back]").forEach(function (link) {
+            if (link.getAttribute("data-product-back-bound") === "true") return;
+            link.setAttribute("data-product-back-bound", "true");
+            link.addEventListener("click", function (event) {
+                if (!document.referrer || window.history.length < 2) return;
+                try {
+                    var referrer = new URL(document.referrer);
+                    var referrerPath = referrer.pathname.replace(/\.html$/, "").replace(/\/$/, "") || "/";
+                    if (referrer.origin === window.location.origin && referrerPath === "/products") {
+                        event.preventDefault();
+                        window.history.back();
+                    }
+                } catch (error) {
+                    // The normal link remains available if the referrer cannot be parsed.
+                }
+            });
+        });
     }
 
     function getEnquiry() {
@@ -185,7 +205,7 @@
         if (!product) {
             target.innerHTML = '<div class="catalog-empty"><h1>Product not found</h1>' +
                 '<p>This product may have been moved or is not yet published.</p>' +
-                '<a class="btn btn-primary" href="products.html#catalog">Browse Products</a></div>';
+                '<a class="btn btn-primary" href="/products#catalog">Browse Products</a></div>';
             return;
         }
 
@@ -300,7 +320,10 @@
         document.title = product.name + " | IanProject";
         var descriptionMeta = document.querySelector('meta[name="description"]');
         if (descriptionMeta) descriptionMeta.setAttribute("content", product.seoDescription || product.summary);
-        target.innerHTML = '<div class="row g-5 align-items-start">' +
+        target.innerHTML = '<div class="product-detail-actions mb-4">' +
+            '<a class="btn btn-outline-primary px-3 py-2" href="/products#catalog" data-product-back>' +
+            '<i class="fa fa-arrow-left me-2" aria-hidden="true"></i>Back to Products</a></div>' +
+            '<div class="row g-5 align-items-start">' +
             '<div class="col-lg-6">' + galleryMarkup + '</div>' +
             '<div class="col-lg-6"><p class="text-uppercase text-primary mb-2">' +
             escapeHtml(category ? category.name : product.category) + " / " + escapeHtml(product.code) + "</p>" +
@@ -309,11 +332,12 @@
             '<p class="catalog-price-note">Displayed prices exclude freight, duties, installation and project-specific changes unless stated otherwise.</p>' +
             '<ul class="product-highlights list-unstyled my-4">' + highlights + "</ul>" +
             '<div class="d-flex flex-wrap gap-3"><button class="btn btn-primary px-4 py-3" type="button" data-add-product="' +
-            escapeHtml(product.id) + '">Add to Enquiry</button><a class="btn btn-outline-dark px-4 py-3" href="enquiry.html">View Enquiry List</a></div></div>' +
+            escapeHtml(product.id) + '">Add to Enquiry</button><a class="btn btn-outline-dark px-4 py-3" href="/enquiry">View Enquiry List</a></div></div>' +
             directGalleryMarkup +
             '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
             '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div>" +
             customisationMarkup + commercialMarkup + "</div>";
+        bindProductBackLink();
         bindAddButtons();
     }
 
@@ -326,7 +350,7 @@
             if (!items.length) {
                 target.innerHTML = '<div class="catalog-empty"><h2>Your enquiry list is empty.</h2>' +
                     '<p>Add products from the catalogue, then return here to send one combined request.</p>' +
-                    '<a class="btn btn-primary" href="products.html#catalog">Browse Products</a></div>';
+                    '<a class="btn btn-primary" href="/products#catalog">Browse Products</a></div>';
                 document.getElementById("send-enquiry-email").classList.add("disabled");
                 return;
             }
