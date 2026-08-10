@@ -1348,4 +1348,139 @@
             {"id":"5109-calacatta-apuana","url":"products/5109-calacatta-apuana","category":"countertops","name":"Calacatta Apuana","code":"5109","badge":"Quartz Surface","image":"img/products/5109-calacatta-apuana/1.jpg","images":["img/products/5109-calacatta-apuana/1.jpg","img/products/5109-calacatta-apuana/2.jpg"],"imageAlt":"Calacatta Apuana engineered quartz surface pattern","imageAlts":["Calacatta Apuana engineered quartz slab pattern","Calacatta Apuana quartz countertop application"],"price":116,"pricePrefix":"From","priceUnit":"per metre","summary":"Calacatta Apuana combines a luminous white quartz background with fine, elegant grey veins.","seoDescription":"Calacatta Apuana combines a luminous white quartz background with fine, elegant grey veins. Model 5109, from USD 116 per metre.","highlights":["Engineered quartz surface","20 mm standard thickness with custom options","Samples and cut-to-size fabrication available"],"descriptionParagraphs":["Calacatta Apuana combines a luminous white quartz background with fine, elegant grey veins. Its light and balanced composition works well across large countertops, islands and full-height wall applications.","It can be fabricated for countertops, waterfall ends, vanity tops, backsplashes and other interior components. Final vein position, joint planning and any book-matched arrangement should be confirmed before production."],"specifications":{"Material":"Engineered quartz surface","Model":"5109","Minimum order":"Project orders are welcome","Applications":"Countertops, islands, vanities, backsplashes and custom interior surfaces","Slab sizes":"3226 × 1626 mm / 3632 × 2032 mm","Standard thickness":"20 mm / Customizable","Surface finish":"Polished, matte or other finishes","Edge processing":"Flat, eased edge, laminated edge, mitered edge (beveled) and other profiles","Fabrication tolerance":"Length and width: ±1 mm; slab thickness: ±0.5 mm","Book matching":"Available","Packaging":"Protective wooden crates or project-specific export packing","Quality control":"Inspection before packing; photos, videos or layout review can be arranged","Drawing service":"CAD and shop-drawing coordination available for confirmed projects","Reference price":"From US$116 / meter","Reference lead time":"Approx. 30 days","Sample":"Available"},"faq":[{"question":"Are you a trading company or a factory?","answer":"We are a professional factory with over 30 years of rich experience and professional equipment. We have also established a one-stop cross-border international stone engineering service for import and export."},{"question":"Can I visit your stone processing factory?","answer":"Yes. We warmly welcome the opportunity to meet with you in person and discuss your project. Please inform our sales team of your proposed visit date in advance."},{"question":"Do you support customization?","answer":"Yes. We can customize products according to your project requirements."},{"question":"Can you provide CAD drawings for customer confirmation?","answer":"Yes. Our design team can prepare CAD and shop drawings for customer review and confirmation."},{"question":"How do you ensure quality?","answer":"Pre-production samples help us adjust and confirm details before mass production. Photos and videos of the final inspection will be sent to you for confirmation before shipment."},{"question":"I am a homeowner. How should I get started before placing an order?","answer":"We welcome your order. Please contact our sales team to confirm the material, quantity and dimensions required for your project."}]}
         ]
     };
+
+    var quartzSeriesFaq = [
+        { question: "Are you a trading company or a factory?", answer: "We are a professional factory with over 30 years of experience and professional equipment. We have also established a one-stop cross-border international stone engineering service for import and export." },
+        { question: "Can I visit your stone processing factory?", answer: "Yes. Factory visits are welcome. Please inform our sales team of your proposed visit date in advance." },
+        { question: "Do you support customization?", answer: "Yes. Cut-to-size dimensions, edge profiles, sink and appliance cut-outs and other fabrication requirements can be discussed according to approved project drawings." },
+        { question: "Can you provide CAD drawings for customer confirmation?", answer: "Yes. Our design team can prepare CAD and shop drawings for customer review and confirmation." },
+        { question: "How do you ensure quality?", answer: "Pre-production samples help confirm details before mass production. Photos and videos of the final inspection can be provided for confirmation before shipment." },
+        { question: "I am a homeowner. How should I get started before placing an order?", answer: "Please contact our sales team with your preferred colour, quantity, dimensions, edge details, cut-out requirements and delivery destination." }
+    ];
+
+    window.IAN_CATALOG.products.unshift(
+        {
+            id: "sparkle-series-quartz-collection",
+            url: "products/sparkle-series-quartz-collection",
+            category: "countertops",
+            name: "Sparkle Series",
+            code: "1001-1013",
+            badge: "Bestselling Quartz Collection",
+            image: "img/products/sparkle-series-quartz-collection/1.jpg",
+            images: ["img/products/sparkle-series-quartz-collection/1.jpg", "img/products/sparkle-series-quartz-collection/2.jpg"],
+            imageAlt: "Sparkle Series engineered quartz colour range",
+            imageAlts: ["Sparkle Series engineered quartz colour range with models 1001 to 1013", "Eased, laminated and mitered beveled quartz countertop edge processing options"],
+            price: 102,
+            pricePrefix: "From",
+            priceUnit: "per metre",
+            summary: "A bestselling collection of 13 sparkling quartz colours for residential and commercial interiors.",
+            seoDescription: "Sparkle Series engineered quartz collection with 13 popular colours, models 1001 to 1013, from USD 102 per metre.",
+            highlights: ["13 coordinated colour options", "20 mm standard thickness with custom options", "Samples and cut-to-size fabrication available"],
+            descriptionParagraphs: [
+                "The Sparkle Series brings together 13 popular engineered quartz colours with visible mineral-style particles and a subtle reflective character. Neutral options suit everyday countertop projects, while blue, red and green choices create stronger accents for retail, hospitality and custom interiors.",
+                "The consistent small-scale pattern makes this collection practical for countertops, islands, vanity tops, backsplashes and other made-to-order surfaces. Colour selection, current slab availability and fabrication details should be confirmed before production. Physical samples are recommended because screen colours and particle distribution may differ from the finished slab."
+            ],
+            specifications: {
+                "Material": "Engineered quartz surface",
+                "Models": "1001-1013",
+                "Colour range": "13 coordinated options",
+                "Minimum order": "Project orders are welcome",
+                "Applications": "Countertops, islands, vanities, backsplashes and custom interior surfaces",
+                "Reference slab size": "Approx. 3200 × 1600 mm; confirm availability by colour",
+                "Standard thickness": "20 mm / Customizable",
+                "Surface finish": "Polished, matte or other finishes",
+                "Edge processing": "Flat, eased edge, laminated edge, mitered edge (beveled) and other profiles",
+                "Fabrication tolerance": "Length and width: ±1 mm; slab thickness: ±0.5 mm",
+                "Packaging": "Protective wooden crates or project-specific export packing",
+                "Quality control": "Inspection before packing; photos, videos or layout review can be arranged",
+                "Drawing service": "CAD and shop-drawing coordination available for confirmed projects",
+                "Reference price": "From US$102 / meter",
+                "Reference lead time": "Approx. 30 days",
+                "Sample": "Available"
+            },
+            faq: quartzSeriesFaq
+        },
+        {
+            id: "classic-series-quartz-collection",
+            url: "products/classic-series-quartz-collection",
+            category: "countertops",
+            name: "Classic Series",
+            code: "2001-2018",
+            badge: "Quartz Collection",
+            image: "img/products/classic-series-quartz-collection/1.jpg",
+            images: ["img/products/classic-series-quartz-collection/1.jpg", "img/products/classic-series-quartz-collection/2.jpg"],
+            imageAlt: "Classic Series engineered quartz colour range",
+            imageAlts: ["Classic Series engineered quartz colour range with 16 options", "Eased, laminated and mitered beveled quartz countertop edge processing options"],
+            price: 86,
+            pricePrefix: "From",
+            priceUnit: "per metre",
+            summary: "A practical collection of 16 classic quartz colours for adaptable countertop and interior projects.",
+            seoDescription: "Classic Series engineered quartz collection with 16 versatile colours, models 2001 to 2018, from USD 86 per metre.",
+            highlights: ["16 versatile colour options", "20 mm standard thickness with custom options", "Samples and cut-to-size fabrication available"],
+            descriptionParagraphs: [
+                "The Classic Series offers 16 versatile engineered quartz colours, including bright whites, soft greys, warm crema and beige tones, plus stronger black, yellow and blue options. Fine-grain and lightly textured patterns provide a dependable visual foundation for residential, rental, retail and hospitality projects.",
+                "The restrained pattern scale is suitable for countertops, islands, vanity tops, backsplashes, windowsills and other custom interior surfaces. Customers should confirm the selected model, current slab availability and physical sample before production, particularly where several slabs must maintain a consistent tone."
+            ],
+            specifications: {
+                "Material": "Engineered quartz surface",
+                "Models": "2001-2018 (16 available colours)",
+                "Colour range": "Whites, greys, crema, beige, black, yellow and blue",
+                "Minimum order": "Project orders are welcome",
+                "Applications": "Countertops, islands, vanities, backsplashes and custom interior surfaces",
+                "Reference slab size": "Approx. 3200 × 1600 mm; confirm availability by colour",
+                "Standard thickness": "20 mm / Customizable",
+                "Surface finish": "Polished, matte or other finishes",
+                "Edge processing": "Flat, eased edge, laminated edge, mitered edge (beveled) and other profiles",
+                "Fabrication tolerance": "Length and width: ±1 mm; slab thickness: ±0.5 mm",
+                "Packaging": "Protective wooden crates or project-specific export packing",
+                "Quality control": "Inspection before packing; photos, videos or layout review can be arranged",
+                "Drawing service": "CAD and shop-drawing coordination available for confirmed projects",
+                "Reference price": "From US$86 / meter",
+                "Reference lead time": "Approx. 30 days",
+                "Sample": "Available"
+            },
+            faq: quartzSeriesFaq
+        },
+        {
+            id: "exotic-series-quartz-collection",
+            url: "products/exotic-series-quartz-collection",
+            category: "countertops",
+            name: "Exotic Series",
+            code: "3001-3021",
+            badge: "Quartz Collection",
+            image: "img/products/exotic-series-quartz-collection/1.jpg",
+            images: ["img/products/exotic-series-quartz-collection/1.jpg", "img/products/exotic-series-quartz-collection/2.jpg"],
+            imageAlt: "Exotic Series engineered quartz colour range",
+            imageAlts: ["Exotic Series engineered quartz colour range with 21 options", "Eased, laminated and mitered beveled quartz countertop edge processing options"],
+            price: 110,
+            pricePrefix: "From",
+            priceUnit: "per metre",
+            summary: "A decorative collection of 21 expressive quartz colours for distinctive residential and commercial surfaces.",
+            seoDescription: "Exotic Series engineered quartz collection with 21 expressive colours, models 3001 to 3021, from USD 110 per metre.",
+            highlights: ["21 expressive colour options", "20 mm standard thickness with custom options", "Samples and cut-to-size fabrication available"],
+            descriptionParagraphs: [
+                "The Exotic Series presents 21 engineered quartz colours with larger aggregates, layered mineral effects and more expressive pattern movement. The range includes crisp whites, warm browns and golds, soft crema shades, dramatic dark markings and distinctive blue-grey compositions.",
+                "These decorative surfaces can be considered for feature islands, countertops, reception desks, vanities, wall panels and other custom interiors where the material is intended to become a visible design element. Current slab photographs and physical samples are recommended before cutting because colour balance and aggregate distribution may vary between models and production batches."
+            ],
+            specifications: {
+                "Material": "Engineered quartz surface",
+                "Models": "3001-3021",
+                "Colour range": "21 decorative aggregate and mineral-inspired options",
+                "Minimum order": "Project orders are welcome",
+                "Applications": "Countertops, islands, vanities, backsplashes and custom interior surfaces",
+                "Reference slab size": "Approx. 3200 × 1600 mm; confirm availability by colour",
+                "Standard thickness": "20 mm / Customizable",
+                "Surface finish": "Polished, matte or other finishes",
+                "Edge processing": "Flat, eased edge, laminated edge, mitered edge (beveled) and other profiles",
+                "Fabrication tolerance": "Length and width: ±1 mm; slab thickness: ±0.5 mm",
+                "Packaging": "Protective wooden crates or project-specific export packing",
+                "Quality control": "Inspection before packing; photos, videos or layout review can be arranged",
+                "Drawing service": "CAD and shop-drawing coordination available for confirmed projects",
+                "Reference price": "From US$110 / meter",
+                "Reference lead time": "Approx. 30 days",
+                "Sample": "Available"
+            },
+            faq: quartzSeriesFaq
+        }
+    );
 }());
