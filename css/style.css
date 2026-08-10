@@ -758,6 +758,63 @@ p {
     object-fit: cover;
 }
 
+.countertop-detail .product-detail-image {
+    aspect-ratio: 1.95 / 1;
+}
+
+.countertop-detail .product-detail-image img,
+.countertop-detail .product-direct-image img {
+    object-fit: contain;
+}
+
+.countertop-detail .product-direct-image {
+    height: auto;
+    aspect-ratio: auto;
+    background: #f6f4ef;
+}
+
+.countertop-detail .product-direct-image img {
+    height: auto;
+}
+
+.product-description-copy {
+    max-width: 920px;
+    color: #5b5852;
+    line-height: 1.8;
+}
+
+.product-faq details {
+    border-top: 1px solid #dedbd3;
+    padding: 18px 0;
+}
+
+.product-faq details:last-child {
+    border-bottom: 1px solid #dedbd3;
+}
+
+.product-faq summary {
+    color: var(--bs-dark);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.product-faq p {
+    margin: 12px 0 0;
+    color: #5b5852;
+    line-height: 1.75;
+}
+
+.product-contact-panel {
+    padding: 32px;
+    color: #fff;
+    background: var(--bs-dark);
+}
+
+.product-contact-panel h2,
+.product-contact-panel p {
+    color: #fff;
+}
+
 @media (max-width: 767.98px) {
     .product-direct-gallery {
         gap: 16px;
