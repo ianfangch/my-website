@@ -211,15 +211,18 @@
 
         var category = getCategory(product.category);
         var isSink = product.category === "sinks";
+        var isCabinetry = product.category === "cabinetry";
+        var isCountertop = product.category === "countertops";
+        target.classList.toggle("countertop-detail", isCountertop);
         var displaySpecifications = {};
         Object.keys(product.specifications).forEach(function (key) {
             if (key === "Minimum order" || key === "Production lead time") return;
             displaySpecifications[key] = product.specifications[key];
-            if (!isSink && key === "Door finish" && !product.specifications["Standard hinges"]) {
+            if (isCabinetry && key === "Door finish" && !product.specifications["Standard hinges"]) {
                 displaySpecifications["Standard hinges"] = "Blum";
             }
         });
-        if (!isSink && !displaySpecifications["Standard hinges"]) displaySpecifications["Standard hinges"] = "Blum";
+        if (isCabinetry && !displaySpecifications["Standard hinges"]) displaySpecifications["Standard hinges"] = "Blum";
         if (!displaySpecifications["Country of origin"]) displaySpecifications["Country of origin"] = "China";
         var specs = Object.keys(displaySpecifications).map(function (key) {
             return "<tr><th>" + escapeHtml(key) + "</th><td>" +
@@ -232,14 +235,31 @@
         var galleryMarkup = '<div class="product-gallery"><div class="product-detail-image">' +
             '<img id="product-main-image" src="' + escapeHtml(gallery[0]) + '" alt="' +
             escapeHtml(product.imageAlt) + '" width="1254" height="1254" fetchpriority="high"></div></div>';
-        var directGalleryMarkup = gallery.length > 1 ?
+        var detailGallery = isCountertop ? gallery : gallery.slice(1);
+        var directGalleryMarkup = detailGallery.length ?
             '<section class="col-12 mt-5 product-image-section" aria-labelledby="product-gallery-title">' +
-            '<h2 id="product-gallery-title" class="mb-4">Product Gallery</h2>' +
-            '<div class="product-direct-gallery">' + gallery.slice(1).map(function (image, index) {
-                var imageAlt = product.imageAlts && product.imageAlts[index + 1] ? product.imageAlts[index + 1] : product.imageAlt;
+            '<h2 id="product-gallery-title" class="mb-4">' + (isCountertop ? "Surface and Application" : "Product Gallery") + '</h2>' +
+            '<div class="product-direct-gallery">' + detailGallery.map(function (image, index) {
+                var altIndex = isCountertop ? index : index + 1;
+                var imageAlt = product.imageAlts && product.imageAlts[altIndex] ? product.imageAlts[altIndex] : product.imageAlt;
                 return '<div class="product-direct-image"><img src="' + escapeHtml(image) + '" alt="' + escapeHtml(imageAlt) +
                     '" loading="lazy" width="1254" height="1254"></div>';
             }).join("") + "</div></section>" : "";
+        var descriptionMarkup = Array.isArray(product.descriptionParagraphs) && product.descriptionParagraphs.length ?
+            '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Product Description</h2>' +
+            product.descriptionParagraphs.map(function (paragraph) {
+                return '<p class="product-description-copy">' + escapeHtml(paragraph) + '</p>';
+            }).join("") + '</section>' : '';
+        var faqMarkup = Array.isArray(product.faq) && product.faq.length ?
+            '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Frequently Asked Questions</h2>' +
+            '<div class="product-faq">' + product.faq.map(function (item) {
+                return '<details><summary>' + escapeHtml(item.question) + '</summary><p>' + escapeHtml(item.answer) + '</p></details>';
+            }).join("") + '</div></section>' : '';
+        var contactMarkup = isCountertop ?
+            '<section class="col-12 mt-5 product-contact-panel"><h2>Contact Us for Detailed Information</h2>' +
+            '<p>Contact us for pricing, samples, current slab availability, fabrication options, drawings and delivery arrangements.</p>' +
+            '<div class="d-flex flex-wrap gap-3"><a class="btn btn-light px-4 py-3" href="mailto:sales@ianproject.com?subject=Quartz%20Countertop%20Enquiry">Email Us</a>' +
+            '<a class="btn btn-outline-light px-4 py-3" href="https://wa.me/message/A4AOHGMZ6DB6A1" target="_blank" rel="noopener">WhatsApp</a></div></section>' : '';
         var standardCustomisationOptions = [
             "Cabinet dimensions and layout",
             "Door colours and finishes",
@@ -301,14 +321,14 @@
             (isSink ?
                 "Prices shown are indicative starting prices. Final sink pricing depends on size, material thickness, finish, accessory set, order quantity and delivery destination." :
                 "Prices shown on the website are indicative starting prices. Final pricing depends on dimensions, materials, hardware, accessories, order quantity and delivery destination.");
-        var customisationMarkup = customisationOptions.length ?
+        var customisationMarkup = !isCountertop && customisationOptions.length ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Customisation Options</h2>' +
             '<ul class="product-option-list list-unstyled">' + customisationOptions.map(function (option) {
                 return '<li><i class="fa fa-check text-primary" aria-hidden="true"></i><span>' +
                     escapeHtml(option) + "</span></li>";
             }).join("") + "</ul>" + '<p class="product-info-note">' +
                 escapeHtml(customisationNote) + "</p></section>" : "";
-        var commercialMarkup = commercialInformation ?
+        var commercialMarkup = !isCountertop && commercialInformation ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Commercial &amp; Delivery Information</h2>' +
             '<div class="table-responsive"><table class="table product-commercial-table"><tbody>' +
             Object.keys(commercialInformation).map(function (key) {
@@ -334,9 +354,10 @@
             '<div class="d-flex flex-wrap gap-3"><button class="btn btn-primary px-4 py-3" type="button" data-add-product="' +
             escapeHtml(product.id) + '">Add to Enquiry</button><a class="btn btn-outline-dark px-4 py-3" href="/enquiry">View Enquiry List</a></div></div>' +
             directGalleryMarkup +
+            descriptionMarkup +
             '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
             '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div>" +
-            customisationMarkup + commercialMarkup + "</div>";
+            faqMarkup + contactMarkup + customisationMarkup + commercialMarkup + "</div>";
         bindProductBackLink();
         bindAddButtons();
     }
