@@ -109,7 +109,8 @@
 
     function productCard(product) {
         var category = getCategory(product.category);
-        return '<article class="catalog-card">' +
+        var isSeriesCollection = /-series-quartz-collection$/.test(product.id);
+        return '<article class="catalog-card' + (isSeriesCollection ? ' catalog-card-series' : '') + '">' +
             '<a class="catalog-card-image" href="' + escapeHtml(productUrl(product)) + '">' +
             '<img src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.imageAlt) + '" loading="lazy" width="1254" height="1254">' +
             '<span class="badge bg-primary">' + escapeHtml(product.badge) + "</span></a>" +
@@ -213,6 +214,7 @@
         var isSink = product.category === "sinks";
         var isCabinetry = product.category === "cabinetry";
         var isCountertop = product.category === "countertops";
+        var isQuartzSeries = /-series-quartz-collection$/.test(product.id);
         target.classList.toggle("countertop-detail", isCountertop);
         var displaySpecifications = {};
         Object.keys(product.specifications).forEach(function (key) {
@@ -238,7 +240,7 @@
         var detailGallery = isCountertop ? gallery : gallery.slice(1);
         var directGalleryMarkup = detailGallery.length ?
             '<section class="col-12 mt-5 product-image-section" aria-labelledby="product-gallery-title">' +
-            '<h2 id="product-gallery-title" class="mb-4">' + (isCountertop ? "Surface and Application" : "Product Gallery") + '</h2>' +
+            '<h2 id="product-gallery-title" class="mb-4">' + (isQuartzSeries ? "Colour Range and Edge Processing" : (isCountertop ? "Surface and Application" : "Product Gallery")) + '</h2>' +
             '<div class="product-direct-gallery">' + detailGallery.map(function (image, index) {
                 var altIndex = isCountertop ? index : index + 1;
                 var imageAlt = product.imageAlts && product.imageAlts[altIndex] ? product.imageAlts[altIndex] : product.imageAlt;

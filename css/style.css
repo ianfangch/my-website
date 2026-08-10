@@ -545,6 +545,10 @@ p {
     transition: transform .4s ease;
 }
 
+.catalog-card-series .catalog-card-image img {
+    object-fit: contain;
+}
+
 .catalog-card:hover .catalog-card-image img {
     transform: scale(1.03);
 }
