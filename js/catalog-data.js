@@ -5,10 +5,10 @@
         currency: "USD",
         categories: [
             { id: "cabinetry", name: "Cabinetry" },
+            { id: "sinks", name: "Sinks" },
             { id: "countertops", name: "Countertops" },
             { id: "appliances", name: "Appliances" },
-            { id: "storage-accessories", name: "Storage Accessories" },
-            { id: "hardware-components", name: "Hardware & Components" }
+            { id: "accessories", name: "Accessories" }
         ],
         products: [
             {

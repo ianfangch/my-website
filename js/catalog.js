@@ -210,7 +210,7 @@
         }
 
         var category = getCategory(product.category);
-        var isSink = product.category === "sinks-faucets";
+        var isSink = product.category === "sinks";
         var displaySpecifications = {};
         Object.keys(product.specifications).forEach(function (key) {
             if (key === "Minimum order" || key === "Production lead time") return;
