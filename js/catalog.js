@@ -253,7 +253,7 @@
         var faqMarkup = Array.isArray(product.faq) && product.faq.length ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Frequently Asked Questions</h2>' +
             '<div class="product-faq">' + product.faq.map(function (item) {
-                return '<details><summary>' + escapeHtml(item.question) + '</summary><p>' + escapeHtml(item.answer) + '</p></details>';
+                return '<div class="product-faq-item"><h3>' + escapeHtml(item.question) + '</h3><p>' + escapeHtml(item.answer) + '</p></div>';
             }).join("") + '</div></section>' : '';
         var contactMarkup = isCountertop ?
             '<section class="col-12 mt-5 product-contact-panel"><h2>Contact Us for Detailed Information</h2>' +
