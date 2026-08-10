@@ -783,22 +783,22 @@ p {
     line-height: 1.8;
 }
 
-.product-faq details {
+.product-faq-item {
     border-top: 1px solid #dedbd3;
     padding: 18px 0;
 }
 
-.product-faq details:last-child {
+.product-faq-item:last-child {
     border-bottom: 1px solid #dedbd3;
 }
 
-.product-faq summary {
+.product-faq-item h3 {
+    margin: 0;
     color: var(--bs-dark);
-    font-weight: 700;
-    cursor: pointer;
+    font-size: 18px;
 }
 
-.product-faq p {
+.product-faq-item p {
     margin: 12px 0 0;
     color: #5b5852;
     line-height: 1.75;
