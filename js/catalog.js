@@ -217,6 +217,11 @@
             return;
         }
 
+        if (product.category === "flooring" && Array.isArray(product.flooringSwatches)) {
+            renderFlooringProductDetail(target, product);
+            return;
+        }
+
         var category = getCategory(product.category);
         var isSink = product.category === "sinks";
         var isCabinetry = product.category === "cabinetry";
@@ -390,6 +395,35 @@
             faqMarkup + contactMarkup + customisationMarkup + commercialMarkup) + "</div>";
         bindProductBackLink();
         bindAddButtons();
+    }
+
+    function renderFlooringProductDetail(target, product) {
+        var swatches = product.flooringSwatches.map(function (swatch) {
+            return '<div class="flooring-swatch"><img src="' + escapeHtml(swatch.image) + '" alt="' +
+                escapeHtml(swatch.alt) + '" loading="lazy"><span>' + escapeHtml(swatch.code) + '</span></div>';
+        }).join("");
+        var specs = Object.keys(product.specifications).map(function (key) {
+            return '<tr><th>' + escapeHtml(key) + '</th><td>' + escapeHtml(product.specifications[key]) + '</td></tr>';
+        }).join("");
+
+        document.title = product.name + " | IanProject";
+        var descriptionMeta = document.querySelector('meta[name="description"]');
+        if (descriptionMeta) descriptionMeta.setAttribute("content", product.seoDescription);
+        target.classList.add("flooring-product-detail");
+        target.innerHTML = '<div class="product-detail-actions mb-4"><a class="btn btn-outline-primary px-3 py-2" href="/products?category=flooring#catalog" data-product-back>' +
+            '<i class="fa fa-arrow-left me-2" aria-hidden="true"></i>Back to Products</a></div>' +
+            '<section class="flooring-product-heading"><div><p class="text-uppercase text-primary mb-2">Flooring / ' +
+            escapeHtml(product.code) + '</p><h1>' + escapeHtml(product.name) + '</h1><p>' + escapeHtml(product.summary) +
+            '</p></div><div class="flooring-quote-note"><strong>Request a Quote</strong><span>Pricing is confirmed for the required colour, construction, quantity and delivery destination.</span></div></section>' +
+            '<section class="flooring-showcase"><div class="flooring-colours"><p class="text-uppercase text-primary mb-2">Available colours</p><h2>Colour references</h2><div class="flooring-swatch-grid">' +
+            swatches + '</div></div><div class="flooring-application"><div class="flooring-application-image"><img src="' +
+            escapeHtml(product.image) + '" alt="' + escapeHtml(product.imageAlt) + '" fetchpriority="high"><span>Application reference</span></div>' +
+            '<div class="flooring-catalogue-cta"><div><small>More options available</small><strong>Request the full flooring catalogue</strong></div>' +
+            '<div class="d-flex flex-wrap gap-2"><a class="btn btn-primary" href="mailto:sales@ianproject.com?subject=Full%20Flooring%20Catalogue%20Request">Request Catalogue</a>' +
+            '<a class="btn btn-outline-light" href="https://wa.me/message/A4AOHGMZ6DB6A1" target="_blank" rel="noopener">WhatsApp</a></div></div></div></section>' +
+            '<section class="flooring-product-info"><div><p class="text-uppercase text-primary mb-2">Product details</p><h2>Flooring options for coordinated interiors</h2>' +
+            '<p>' + escapeHtml(product.descriptionParagraphs[0]) + '</p></div><div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + '</tbody></table></div></section>';
+        bindProductBackLink();
     }
 
     function renderEnquiry() {

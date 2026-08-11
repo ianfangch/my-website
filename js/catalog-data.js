@@ -7,6 +7,7 @@
             { id: "cabinetry", name: "Cabinetry" },
             { id: "sinks", name: "Sinks" },
             { id: "countertops", name: "Countertops" },
+            { id: "flooring", name: "Flooring" },
             { id: "appliances", name: "Appliances" },
             { id: "accessories", name: "Accessories" }
         ],
@@ -1359,6 +1360,41 @@
     ];
 
     window.IAN_CATALOG.products.unshift(
+        {
+            id: "hrfloor-wood-collection",
+            url: "products/hrfloor-wood-collection",
+            category: "flooring",
+            name: "HRFLOOR Wood Collection",
+            code: "HRF-WOOD-01",
+            badge: "Flooring Collection",
+            image: "img/products/hrfloor-wood-collection/application.jpg",
+            images: ["img/products/hrfloor-wood-collection/application.jpg"],
+            imageAlt: "Contemporary bedroom showing one HRFLOOR wood-look flooring application",
+            quoteOnly: true,
+            summary: "A curated selection of wood-look flooring colours for residential, hospitality and commercial projects.",
+            seoDescription: "Explore a curated HRFLOOR wood-look flooring collection. Contact IanProject for more colours, construction options, samples and the full flooring catalogue.",
+            highlights: ["10 displayed wood-look colours", "More colours and constructions available on request", "Samples and full catalogues available"],
+            descriptionParagraphs: ["This page presents a concise selection of wood-look finishes and one application reference. Contact IanProject for the full flooring catalogue, current options, samples and project-specific recommendations."],
+            flooringSwatches: [
+                { code: "HR1541-15", image: "img/products/hrfloor-wood-collection/hr1541-15.jpg", alt: "Warm natural oak flooring colour HR1541-15" },
+                { code: "HR88001-002", image: "img/products/hrfloor-wood-collection/hr88001-002.jpg", alt: "Soft grey oak flooring colour HR88001-002" },
+                { code: "HR525-11", image: "img/products/hrfloor-wood-collection/hr525-11.jpg", alt: "Dark walnut flooring colour HR525-11" },
+                { code: "HR6110-94", image: "img/products/hrfloor-wood-collection/hr6110-94.jpg", alt: "Light natural oak flooring colour HR6110-94" },
+                { code: "HR6559-12", image: "img/products/hrfloor-wood-collection/hr6559-12.jpg", alt: "Weathered grey flooring colour HR6559-12" },
+                { code: "HR6631-15", image: "img/products/hrfloor-wood-collection/hr6631-15.jpg", alt: "Rustic oak flooring colour HR6631-15" },
+                { code: "HR1059-6", image: "img/products/hrfloor-wood-collection/hr1059-6.jpg", alt: "Rich chestnut flooring colour HR1059-6" },
+                { code: "HR1605-9", image: "img/products/hrfloor-wood-collection/hr1605-9.jpg", alt: "Smoked walnut flooring colour HR1605-9" },
+                { code: "HR6533-11", image: "img/products/hrfloor-wood-collection/hr6533-11.jpg", alt: "Pale grey oak flooring colour HR6533-11" },
+                { code: "HR8850-4", image: "img/products/hrfloor-wood-collection/hr8850-4.jpg", alt: "Espresso oak flooring colour HR8850-4" }
+            ],
+            specifications: {
+                "Product type": "Wood-look flooring collection",
+                "Displayed colours": "10 finishes",
+                "Applications": "Residential, hospitality and commercial interiors",
+                "Samples": "Available on request",
+                "Full catalogue": "Available by enquiry"
+            }
+        },
         {
             id: "handmade-undermount-stainless-sink-series-08",
             url: "products/handmade-undermount-stainless-sink-series-08",
