@@ -1360,6 +1360,61 @@
 
     window.IAN_CATALOG.products.unshift(
         {
+            id: "handmade-topmount-sink-series-05",
+            url: "products/handmade-topmount-sink-series-05",
+            category: "sinks",
+            name: "Handmade Topmount Single-Bowl Sink Series",
+            code: "5040 / 5243 / 5545 / 6045 / 6845 / 6848 / 7548 / 8248",
+            badge: "Handmade Sink Series",
+            image: "img/products/handmade-topmount-single-bowl-sinks/1.jpg",
+            images: [
+                "img/products/handmade-topmount-single-bowl-sinks/1.jpg",
+                "img/products/handmade-topmount-single-bowl-sinks/2.jpg",
+                "img/products/handmade-topmount-single-bowl-sinks/3.jpg"
+            ],
+            imageAlt: "Handmade 304 stainless steel topmount single-bowl sink model 5040",
+            price: 22,
+            priceMax: 37,
+            pricePrefix: "",
+            priceUnit: "per unit",
+            summary: "Handmade 304 stainless steel topmount single-bowl sinks in eight sizes, presented in the same three-group format as catalogue page 05.",
+            seoDescription: "Handmade 304 stainless steel topmount single-bowl sink series with models 5040, 5243, 5545, 6045, 6845, 6848, 7548 and 8248. USD 22-37 per unit.",
+            highlights: [],
+            catalogueRows: [
+                {
+                    image: "img/products/handmade-topmount-single-bowl-sinks/row-1.jpg",
+                    imageAlt: "Models 5040 and 5243 handmade single-bowl topmount sinks",
+                    models: [
+                        { code: "5040", size: "500 x 400 x 210 mm", cutout: "470 x 370 mm" },
+                        { code: "5243", size: "520 x 430 x 210 mm", cutout: "490 x 400 mm" }
+                    ]
+                },
+                {
+                    image: "img/products/handmade-topmount-single-bowl-sinks/row-2.jpg",
+                    imageAlt: "Models 5545, 6045 and 6845 handmade single-bowl topmount sinks",
+                    models: [
+                        { code: "5545", size: "550 x 450 x 210 mm", cutout: "520 x 430 mm" },
+                        { code: "6045", size: "600 x 450 x 210 mm", cutout: "570 x 420 mm" },
+                        { code: "6845", size: "680 x 450 x 210 mm", cutout: "650 x 420 mm" }
+                    ]
+                },
+                {
+                    image: "img/products/handmade-topmount-single-bowl-sinks/row-3.jpg",
+                    imageAlt: "Models 6848, 7548 and 8248 handmade single-bowl topmount sinks",
+                    models: [
+                        { code: "6848", size: "680 x 480 x 210 mm", cutout: "650 x 450 mm" },
+                        { code: "7548", size: "750 x 480 x 210 mm", cutout: "720 x 450 mm" },
+                        { code: "8248", size: "820 x 480 x 210 mm", cutout: "790 x 450 mm" }
+                    ]
+                }
+            ],
+            specifications: {
+                "Minimum order": "Confirm with enquiry",
+                "Production lead time": "Confirm with quotation"
+            },
+            commercialNote: "Reference range converted from CNY 150-250 at approximately USD 0.1475 per CNY. Final pricing depends on the selected model, quantity and delivery destination."
+        },
+        {
             id: "sparkle-series-quartz-collection",
             url: "products/sparkle-series-quartz-collection",
             category: "countertops",
