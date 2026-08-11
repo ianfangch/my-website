@@ -1360,6 +1360,65 @@
 
     window.IAN_CATALOG.products.unshift(
         {
+            id: "handmade-undermount-stainless-sink-series-08",
+            url: "products/handmade-undermount-stainless-sink-series-08",
+            category: "sinks",
+            name: "Handmade Undermount Stainless Steel Sink Series",
+            code: "8146 / 7645 / 6843 / 6045 / 6040 / 5843 / 5540 / 5242 / 5040 / 4545 / 4540 / 4035",
+            badge: "Handmade Sink Series",
+            image: "img/products/handmade-undermount-silver-sinks/1.jpg",
+            images: [
+                "img/products/handmade-undermount-silver-sinks/1.jpg",
+                "img/products/handmade-undermount-silver-sinks/2.jpg",
+                "img/products/handmade-undermount-silver-sinks/3.jpg"
+            ],
+            imageAlt: "Handmade 304 stainless steel undermount sink model 8146",
+            price: 13,
+            priceMax: 50,
+            pricePrefix: "",
+            priceUnit: "per unit",
+            summary: "Handmade 304 stainless steel undermount sinks in twelve sizes, based on catalogue page 08.",
+            seoDescription: "Handmade 304 stainless steel undermount sink series with twelve sizes from model 4035 to 8146. USD 13-50 per unit.",
+            highlights: [],
+            catalogueRows: [
+                {
+                    image: "img/products/handmade-undermount-silver-sinks/row-1.jpg",
+                    imageAlt: "Models 8146, 7645, 6843 and 6045 handmade undermount stainless steel sinks",
+                    models: [
+                        { code: "8146", size: "810 x 460 x 210 mm", cutout: "770 x 420 mm", material: "304 stainless steel" },
+                        { code: "7645", size: "760 x 450 x 210 mm", cutout: "720 x 410 mm", material: "304 stainless steel" },
+                        { code: "6843", size: "680 x 430 x 210 mm", cutout: "640 x 390 mm", material: "304 stainless steel" },
+                        { code: "6045", size: "600 x 450 x 210 mm", cutout: "560 x 410 mm", material: "304 stainless steel" }
+                    ]
+                },
+                {
+                    image: "img/products/handmade-undermount-silver-sinks/row-2.jpg",
+                    imageAlt: "Models 6040, 5843, 5540 and 5242 handmade undermount stainless steel sinks",
+                    models: [
+                        { code: "6040", size: "600 x 400 x 210 mm", cutout: "560 x 360 mm", material: "304 stainless steel" },
+                        { code: "5843", size: "580 x 430 x 210 mm", cutout: "540 x 390 mm", material: "304 stainless steel" },
+                        { code: "5540", size: "550 x 400 x 210 mm", cutout: "520 x 370 mm", material: "304 stainless steel" },
+                        { code: "5242", size: "520 x 420 x 210 mm", cutout: "480 x 380 mm", material: "304 stainless steel" }
+                    ]
+                },
+                {
+                    image: "img/products/handmade-undermount-silver-sinks/row-3.jpg",
+                    imageAlt: "Models 5040, 4545, 4540 and 4035 handmade undermount stainless steel sinks",
+                    models: [
+                        { code: "5040", size: "500 x 400 x 210 mm", cutout: "460 x 360 mm", material: "304 stainless steel" },
+                        { code: "4545", size: "450 x 450 x 210 mm", cutout: "420 x 420 mm", material: "304 stainless steel" },
+                        { code: "4540", size: "450 x 400 x 210 mm", cutout: "410 x 360 mm", material: "304 stainless steel" },
+                        { code: "4035", size: "400 x 350 x 210 mm", cutout: "360 x 310 mm", material: "304 stainless steel" }
+                    ]
+                }
+            ],
+            specifications: {
+                "Minimum order": "Confirm with enquiry",
+                "Production lead time": "Confirm with quotation"
+            },
+            commercialNote: "Indicative online price range. Final pricing depends on the selected model, quantity and delivery destination."
+        },
+        {
             id: "handmade-undermount-black-sink-series-06-07",
             url: "products/handmade-undermount-black-sink-series-06-07",
             category: "sinks",
