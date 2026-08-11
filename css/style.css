@@ -1194,6 +1194,7 @@ p {
 .flooring-swatch { overflow: hidden; border: 1px solid #dce4dd; background: #fff; }
 .flooring-swatch img { display: block; width: 100%; aspect-ratio: 3.8 / 1; object-fit: cover; }
 .flooring-swatch span { display: block; padding: 8px 9px; color: #113130; font-size: .72rem; font-weight: 700; }
+.flooring-palette-image { display: block; width: 100%; height: auto; max-height: 660px; object-fit: contain; object-position: top center; }
 .flooring-application { display: flex; flex-direction: column; background: #113130; }
 .flooring-application-image { position: relative; flex: 1; min-height: 590px; overflow: hidden; }
 .flooring-application-image img { width: 100%; height: 100%; object-fit: cover; }
