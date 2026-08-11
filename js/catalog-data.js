@@ -1360,6 +1360,66 @@
 
     window.IAN_CATALOG.products.unshift(
         {
+            id: "handmade-undermount-black-sink-series-06-07",
+            url: "products/handmade-undermount-black-sink-series-06-07",
+            category: "sinks",
+            name: "Handmade Undermount Black Sink Series",
+            code: "6843 / 4540 / 4035 / 5540 / 6040",
+            badge: "Handmade Sink Series",
+            image: "img/products/handmade-undermount-black-sinks/1.jpg",
+            images: [
+                "img/products/handmade-undermount-black-sinks/1.jpg",
+                "img/products/handmade-undermount-black-sinks/2.jpg",
+                "img/products/handmade-undermount-black-sinks/3.jpg",
+                "img/products/handmade-undermount-black-sinks/4.jpg"
+            ],
+            imageAlt: "Model 6843 handmade black undermount stainless steel sink",
+            price: 11,
+            priceMax: 46,
+            pricePrefix: "",
+            priceUnit: "per unit",
+            summary: "Handmade 304 stainless steel undermount sinks in honeycomb-texture black and nano-black finishes, based on catalogue pages 06 and 07.",
+            seoDescription: "Handmade 304 stainless steel undermount black sink series with honeycomb-texture and nano-black finishes. Models 6843, 4540, 4035, 5540 and 6040. USD 11-46 per unit.",
+            highlights: [],
+            catalogueRows: [
+                {
+                    image: "img/products/handmade-undermount-black-sinks/row-1.jpg",
+                    imageAlt: "Model 6843 honeycomb-texture black undermount sink",
+                    models: [
+                        { code: "6843", note: "Honeycomb-texture black", size: "680 x 430 x 210 mm", cutout: "650 x 400 mm" }
+                    ]
+                },
+                {
+                    image: "img/products/handmade-undermount-black-sinks/row-2.jpg",
+                    imageAlt: "Model 4540 honeycomb-texture black undermount sink",
+                    models: [
+                        { code: "4540", note: "Honeycomb-texture black", size: "450 x 400 x 210 mm", cutout: "420 x 370 mm" }
+                    ]
+                },
+                {
+                    image: "img/products/handmade-undermount-black-sinks/row-3.jpg",
+                    imageAlt: "Models 4035 and 5540 nano-black undermount sinks",
+                    models: [
+                        { code: "4035", note: "Nano black", size: "400 x 350 x 210 mm", cutout: "360 x 310 mm" },
+                        { code: "5540", note: "Nano black", size: "550 x 400 x 210 mm", cutout: "510 x 360 mm" }
+                    ]
+                },
+                {
+                    image: "img/products/handmade-undermount-black-sinks/row-4.jpg",
+                    imageAlt: "Models 6843 and 6040 nano-black undermount sinks",
+                    models: [
+                        { code: "6843", note: "Nano black", size: "680 x 430 x 210 mm", cutout: "640 x 390 mm" },
+                        { code: "6040", note: "Nano black", size: "600 x 400 x 210 mm", cutout: "560 x 360 mm" }
+                    ]
+                }
+            ],
+            specifications: {
+                "Minimum order": "Confirm with enquiry",
+                "Production lead time": "Confirm with quotation"
+            },
+            commercialNote: "Indicative online price range. Final pricing depends on the selected model, finish, quantity and delivery destination."
+        },
+        {
             id: "handmade-topmount-sink-series-05",
             url: "products/handmade-topmount-sink-series-05",
             category: "sinks",
@@ -1373,12 +1433,12 @@
                 "img/products/handmade-topmount-single-bowl-sinks/3.jpg"
             ],
             imageAlt: "Handmade 304 stainless steel topmount single-bowl sink model 5040",
-            price: 22,
-            priceMax: 37,
+            price: 14,
+            priceMax: 53,
             pricePrefix: "",
             priceUnit: "per unit",
             summary: "Handmade 304 stainless steel topmount single-bowl sinks in eight sizes, presented in the same three-group format as catalogue page 05.",
-            seoDescription: "Handmade 304 stainless steel topmount single-bowl sink series with models 5040, 5243, 5545, 6045, 6845, 6848, 7548 and 8248. USD 22-37 per unit.",
+            seoDescription: "Handmade 304 stainless steel topmount single-bowl sink series with models 5040, 5243, 5545, 6045, 6845, 6848, 7548 and 8248. USD 14-53 per unit.",
             highlights: [],
             catalogueRows: [
                 {
@@ -1412,7 +1472,7 @@
                 "Minimum order": "Confirm with enquiry",
                 "Production lead time": "Confirm with quotation"
             },
-            commercialNote: "Reference range converted from CNY 150-250 at approximately USD 0.1475 per CNY. Final pricing depends on the selected model, quantity and delivery destination."
+            commercialNote: "Indicative online price range. Final pricing depends on the selected model, quantity and delivery destination."
         },
         {
             id: "sparkle-series-quartz-collection",
@@ -1554,12 +1614,12 @@
                 "img/products/handmade-topmount-double-bowl-sinks/3.jpg"
             ],
             imageAlt: "Handmade 304 stainless steel topmount double-bowl sink model 8248",
-            price: 22,
-            priceMax: 37,
+            price: 12,
+            priceMax: 48,
             pricePrefix: "",
             priceUnit: "per unit",
             summary: "Handmade 304 stainless steel topmount sinks in six sizes, presented in the same three-group format as catalogue page 04.",
-            seoDescription: "Handmade 304 stainless steel topmount sink series with models 8248, 8245, 7843, 8045, 7541 and 7240. USD 22-37 per unit.",
+            seoDescription: "Handmade 304 stainless steel topmount sink series with models 8248, 8245, 7843, 8045, 7541 and 7240. USD 12-48 per unit.",
             highlights: [],
             catalogueRows: [
                 {
@@ -1592,7 +1652,7 @@
                 "Minimum order": "Confirm with enquiry",
                 "Production lead time": "Confirm with quotation"
             },
-            commercialNote: "Reference range converted from CNY 150-250 at approximately USD 0.1475 per CNY. Final pricing depends on the selected model, quantity and delivery destination."
+            commercialNote: "Indicative online price range. Final pricing depends on the selected model, quantity and delivery destination."
         }
     );
 }());
