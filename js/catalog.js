@@ -350,11 +350,12 @@
                 '<p class="product-info-note">' + escapeHtml(commercialNote) + "</p></section>" : "";
         var catalogueRowsMarkup = Array.isArray(product.catalogueRows) ?
             '<section class="col-12 mt-5">' + product.catalogueRows.map(function (row) {
-                return '<div class="row g-4 align-items-start py-5 border-bottom">' +
+                return '<div class="row g-4 ' + (row.models.length === 1 ? 'align-items-center' : 'align-items-start') + ' py-5 border-bottom">' +
                     '<div class="col-lg-6"><img class="img-fluid d-block" style="width:100%;height:340px;object-fit:contain;object-position:top left" src="' +
                     escapeHtml(row.image) + '" alt="' + escapeHtml(row.imageAlt || product.imageAlt) + '"></div>' +
-                    '<div class="col-lg-6">' + row.models.map(function (model) {
-                        return '<div class="pb-3 mb-3 border-bottom"><h2 class="mb-2">' + escapeHtml(model.code) +
+                    '<div class="col-lg-6">' + row.models.map(function (model, modelIndex) {
+                        var modelClass = modelIndex === row.models.length - 1 ? 'pb-3 mb-3' : 'pb-3 mb-3 border-bottom';
+                        return '<div class="' + modelClass + '"><h2 class="mb-2">' + escapeHtml(model.code) +
                             (model.note ? ' <small class="fs-6 fw-normal">' + escapeHtml(model.note) + '</small>' : '') +
                             '</h2><p class="mb-1"><strong>Overall size:</strong> ' + escapeHtml(model.size) +
                             '</p><p class="mb-1"><strong>Cut-out size:</strong> ' + escapeHtml(model.cutout) +
