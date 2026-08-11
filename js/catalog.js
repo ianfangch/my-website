@@ -62,14 +62,21 @@
     }
 
     function priceMarkup(product, compact) {
+        if (product.quoteOnly) {
+            return '<div class="catalog-price catalog-price-pending"><strong>Request a Quote</strong>' +
+                (compact ? "" : "<small>Pricing is confirmed for the selected model, quantity and delivery destination</small>") + "</div>";
+        }
         if (typeof product.price !== "number") {
             return '<div class="catalog-price catalog-price-pending"><strong>Price to be added</strong>' +
                 (compact ? "" : "<small>Real USD price required before publishing</small>") + "</div>";
         }
 
+        var displayedPrice = product.price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (typeof product.priceMax === "number") {
+            displayedPrice += " - " + product.priceMax.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
         return '<div class="catalog-price"><span>' + escapeHtml(product.pricePrefix || "") + '</span>' +
-            '<strong>' + escapeHtml(catalog.currency) + " " +
-            product.price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) +
+            '<strong>' + escapeHtml(catalog.currency) + " " + displayedPrice +
             '</strong><small>' + escapeHtml(product.priceUnit || "") + "</small></div>";
     }
 
@@ -288,8 +295,11 @@
             (isSink ?
                 "Final sink dimensions, cut-out details, finish and included accessories are confirmed in the approved quotation before production." :
                 "Final specifications are confirmed through drawings, material samples and the approved quotation before production.");
-        var indicativePrice = (product.pricePrefix ? product.pricePrefix + " " : "") + catalog.currency + " " +
-            product.price.toLocaleString("en-US", { maximumFractionDigits: 2 }) + " " + (product.priceUnit || "");
+        var indicativePrice = product.quoteOnly ? "Request a quote" :
+            ((product.pricePrefix ? product.pricePrefix + " " : "") + catalog.currency + " " +
+            product.price.toLocaleString("en-US", { maximumFractionDigits: 2 }) +
+            (typeof product.priceMax === "number" ? " - " + product.priceMax.toLocaleString("en-US", { maximumFractionDigits: 2 }) : "") +
+            " " + (product.priceUnit || ""));
         var standardCommercialInformation = {
             "Indicative price": indicativePrice.trim(),
             "Minimum order": "1 metre",
@@ -338,6 +348,20 @@
                     escapeHtml(commercialInformation[key]) + "</td></tr>";
             }).join("") + "</tbody></table></div>" +
                 '<p class="product-info-note">' + escapeHtml(commercialNote) + "</p></section>" : "";
+        var catalogueRowsMarkup = Array.isArray(product.catalogueRows) ?
+            '<section class="col-12 mt-5">' + product.catalogueRows.map(function (row) {
+                return '<div class="row g-4 align-items-start py-5 border-bottom">' +
+                    '<div class="col-lg-6"><img class="img-fluid d-block" style="width:100%;height:340px;object-fit:contain;object-position:top left" src="' +
+                    escapeHtml(row.image) + '" alt="' + escapeHtml(row.imageAlt || product.imageAlt) + '"></div>' +
+                    '<div class="col-lg-6">' + row.models.map(function (model) {
+                        return '<div class="pb-3 mb-3 border-bottom"><h2 class="mb-2">' + escapeHtml(model.code) +
+                            (model.note ? ' <small class="fs-6 fw-normal">' + escapeHtml(model.note) + '</small>' : '') +
+                            '</h2><p class="mb-1"><strong>Overall size:</strong> ' + escapeHtml(model.size) +
+                            '</p><p class="mb-1"><strong>Cut-out size:</strong> ' + escapeHtml(model.cutout) +
+                            '</p><p class="mb-0"><strong>Material:</strong> 304 stainless steel with thickened rim</p></div>';
+                    }).join("") + '</div></div>';
+            }).join("") + '</section>' : "";
+        var compactCatalogue = Array.isArray(product.catalogueRows);
 
         document.title = product.name + " | IanProject";
         var descriptionMeta = document.querySelector('meta[name="description"]');
@@ -352,14 +376,14 @@
             "<h1>" + escapeHtml(product.name) + "</h1><p class=\"mb-4\">" + escapeHtml(product.summary) + "</p>" +
             priceMarkup(product, false) +
             '<p class="catalog-price-note">Displayed prices exclude freight, duties, installation and project-specific changes unless stated otherwise.</p>' +
-            '<ul class="product-highlights list-unstyled my-4">' + highlights + "</ul>" +
+            (compactCatalogue ? "" : '<ul class="product-highlights list-unstyled my-4">' + highlights + "</ul>") +
             '<div class="d-flex flex-wrap gap-3"><button class="btn btn-primary px-4 py-3" type="button" data-add-product="' +
             escapeHtml(product.id) + '">Add to Enquiry</button><a class="btn btn-outline-dark px-4 py-3" href="/enquiry">View Enquiry List</a></div></div>' +
-            directGalleryMarkup +
+            (compactCatalogue ? catalogueRowsMarkup + commercialMarkup : directGalleryMarkup +
             descriptionMarkup +
             '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
             '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div>" +
-            faqMarkup + contactMarkup + customisationMarkup + commercialMarkup + "</div>";
+            faqMarkup + contactMarkup + customisationMarkup + commercialMarkup) + "</div>";
         bindProductBackLink();
         bindAddButtons();
     }
