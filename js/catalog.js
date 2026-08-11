@@ -349,7 +349,10 @@
             }).join("") + "</tbody></table></div>" +
                 '<p class="product-info-note">' + escapeHtml(commercialNote) + "</p></section>" : "";
         var catalogueRowsMarkup = Array.isArray(product.catalogueRows) ?
-            '<section class="col-12 mt-5">' + product.catalogueRows.map(function (row) {
+            '<section class="col-12 mt-5"><div class="pb-3 mb-2 border-bottom">' +
+            '<p class="text-uppercase text-primary mb-2">Sink Collection</p>' +
+            '<h2 class="mb-0">Available Models &amp; Specifications</h2></div>' +
+            product.catalogueRows.map(function (row) {
                 return '<div class="row g-4 ' + (row.models.length === 1 ? 'align-items-center' : 'align-items-start') + ' py-5 border-bottom">' +
                     '<div class="col-lg-6"><img class="img-fluid d-block" style="width:100%;height:340px;object-fit:contain;object-position:top left" src="' +
                     escapeHtml(row.image) + '" alt="' + escapeHtml(row.imageAlt || product.imageAlt) + '"></div>' +
