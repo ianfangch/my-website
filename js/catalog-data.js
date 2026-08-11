@@ -1483,4 +1483,61 @@
             faq: quartzSeriesFaq
         }
     );
+
+    window.IAN_CATALOG.products.unshift(
+        {
+            id: "handmade-topmount-sink-series-04",
+            url: "products/handmade-topmount-sink-series-04",
+            category: "sinks",
+            name: "Handmade Topmount Sink Series",
+            code: "8248 / 8245 / 7843 / 8045 / 7541 / 7240",
+            badge: "Handmade Sink Series",
+            image: "img/products/handmade-topmount-double-bowl-sinks/1.jpg",
+            images: [
+                "img/products/handmade-topmount-double-bowl-sinks/1.jpg",
+                "img/products/handmade-topmount-double-bowl-sinks/2.jpg",
+                "img/products/handmade-topmount-double-bowl-sinks/3.jpg"
+            ],
+            imageAlt: "Handmade 304 stainless steel topmount double-bowl sink model 8248",
+            price: 22,
+            priceMax: 37,
+            pricePrefix: "",
+            priceUnit: "per unit",
+            summary: "Handmade 304 stainless steel topmount sinks in six sizes, presented in the same three-group format as catalogue page 04.",
+            seoDescription: "Handmade 304 stainless steel topmount sink series with models 8248, 8245, 7843, 8045, 7541 and 7240. USD 22-37 per unit.",
+            highlights: [],
+            catalogueRows: [
+                {
+                    image: "img/products/handmade-topmount-double-bowl-sinks/row-1.jpg",
+                    imageAlt: "Model 8248 handmade double-bowl topmount sink",
+                    models: [
+                        { code: "8248", note: "Equal bowls", size: "820 x 480 x 210 mm", cutout: "790 x 450 mm" }
+                    ]
+                },
+                {
+                    image: "img/products/handmade-topmount-double-bowl-sinks/row-2.jpg",
+                    imageAlt: "Models 8245 and 7843 handmade topmount sinks with knife rack",
+                    models: [
+                        { code: "8245", note: "With knife rack", size: "820 x 450 x 210 mm", cutout: "790 x 420 mm" },
+                        { code: "7843", note: "With knife rack", size: "780 x 430 x 210 mm", cutout: "750 x 400 mm" }
+                    ]
+                },
+                {
+                    image: "img/products/handmade-topmount-double-bowl-sinks/row-3.jpg",
+                    imageAlt: "Models 8045, 7843, 7541 and 7240 handmade double-bowl topmount sinks",
+                    models: [
+                        { code: "8045", size: "800 x 450 x 210 mm", cutout: "780 x 420 mm" },
+                        { code: "7843", size: "780 x 430 x 210 mm", cutout: "750 x 400 mm" },
+                        { code: "7541", size: "750 x 410 x 210 mm", cutout: "720 x 380 mm" },
+                        { code: "7240", size: "720 x 400 x 210 mm", cutout: "690 x 370 mm" }
+                    ]
+                }
+            ],
+            specifications: {
+                "Minimum order": "Confirm with enquiry",
+                "Production lead time": "Confirm with quotation"
+            },
+            commercialNote: "Reference range converted from CNY 150-250 at approximately USD 0.1475 per CNY. Final pricing depends on the selected model, quantity and delivery destination."
+        }
+    );
 }());
