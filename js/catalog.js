@@ -217,7 +217,7 @@
             return;
         }
 
-        if (product.category === "flooring" && Array.isArray(product.flooringSwatches)) {
+        if (product.category === "flooring" && (product.flooringPaletteImage || Array.isArray(product.flooringSwatches))) {
             renderFlooringProductDetail(target, product);
             return;
         }
@@ -398,10 +398,14 @@
     }
 
     function renderFlooringProductDetail(target, product) {
-        var swatches = product.flooringSwatches.map(function (swatch) {
+        var swatches = (product.flooringSwatches || []).map(function (swatch) {
             return '<div class="flooring-swatch"><img src="' + escapeHtml(swatch.image) + '" alt="' +
                 escapeHtml(swatch.alt) + '" loading="lazy"><span>' + escapeHtml(swatch.code) + '</span></div>';
         }).join("");
+        var colourReferences = product.flooringPaletteImage ?
+            '<img class="flooring-palette-image" src="' + escapeHtml(product.flooringPaletteImage) + '" alt="' +
+            escapeHtml(product.paletteAlt || product.imageAlt) + '" loading="lazy">' :
+            '<div class="flooring-swatch-grid">' + swatches + '</div>';
         var specs = Object.keys(product.specifications).map(function (key) {
             return '<tr><th>' + escapeHtml(key) + '</th><td>' + escapeHtml(product.specifications[key]) + '</td></tr>';
         }).join("");
@@ -415,8 +419,8 @@
             '<section class="flooring-product-heading"><div><p class="text-uppercase text-primary mb-2">Flooring / ' +
             escapeHtml(product.code) + '</p><h1>' + escapeHtml(product.name) + '</h1><p>' + escapeHtml(product.summary) +
             '</p></div><div class="flooring-quote-note"><strong>Request a Quote</strong><span>Pricing is confirmed for the required colour, construction, quantity and delivery destination.</span></div></section>' +
-            '<section class="flooring-showcase"><div class="flooring-colours"><p class="text-uppercase text-primary mb-2">Available colours</p><h2>Colour references</h2><div class="flooring-swatch-grid">' +
-            swatches + '</div></div><div class="flooring-application"><div class="flooring-application-image"><img src="' +
+            '<section class="flooring-showcase"><div class="flooring-colours"><p class="text-uppercase text-primary mb-2">Available colours</p><h2>Colour references</h2>' +
+            colourReferences + '</div><div class="flooring-application"><div class="flooring-application-image"><img src="' +
             escapeHtml(product.image) + '" alt="' + escapeHtml(product.imageAlt) + '" fetchpriority="high"><span>Application reference</span></div>' +
             '<div class="flooring-catalogue-cta"><div><small>More options available</small><strong>Request the full flooring catalogue</strong></div>' +
             '<div class="d-flex flex-wrap gap-2"><a class="btn btn-primary" href="mailto:sales@ianproject.com?subject=Full%20Flooring%20Catalogue%20Request">Request Catalogue</a>' +
