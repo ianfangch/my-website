@@ -362,7 +362,7 @@
                             (model.note ? ' <small class="fs-6 fw-normal">' + escapeHtml(model.note) + '</small>' : '') +
                             '</h2><p class="mb-1"><strong>Overall size:</strong> ' + escapeHtml(model.size) +
                             '</p><p class="mb-1"><strong>Cut-out size:</strong> ' + escapeHtml(model.cutout) +
-                            '</p><p class="mb-0"><strong>Material:</strong> 304 stainless steel with thickened rim</p></div>';
+                            '</p><p class="mb-0"><strong>Material:</strong> ' + escapeHtml(model.material || '304 stainless steel with thickened rim') + '</p></div>';
                     }).join("") + '</div></div>';
             }).join("") + '</section>' : "";
         var compactCatalogue = Array.isArray(product.catalogueRows);
