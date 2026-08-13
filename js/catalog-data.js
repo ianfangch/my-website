@@ -8,7 +8,7 @@
             { id: "sinks", name: "Sinks" },
             { id: "countertops", name: "Countertops" },
             { id: "flooring", name: "Flooring" },
-            { id: "appliances", name: "Appliances" },
+            { id: "furniture", name: "Furniture" },
             { id: "accessories", name: "Accessories" }
         ],
         products: [
