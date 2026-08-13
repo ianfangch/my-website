@@ -751,6 +751,17 @@ p {
     object-fit: cover;
 }
 
+.product-direct-gallery-natural .product-direct-image {
+    overflow: visible;
+    aspect-ratio: auto;
+    background: transparent;
+}
+
+.product-direct-gallery-natural .product-direct-image img {
+    height: auto;
+    object-fit: contain;
+}
+
 .countertop-detail .product-detail-image {
     aspect-ratio: auto;
 }

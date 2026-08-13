@@ -1386,6 +1386,64 @@
 
     window.IAN_CATALOG.products.unshift(
         {
+            id: "custom-304-stainless-steel-outdoor-kitchen",
+            url: "products/custom-304-stainless-steel-outdoor-kitchen",
+            category: "furniture",
+            name: "Custom 304 Stainless Steel Outdoor Kitchen",
+            code: "Ref. 1053256184516",
+            badge: "Outdoor Living",
+            image: "img/products/stainless-steel-outdoor-kitchen/1.jpg",
+            images: [
+                "img/products/stainless-steel-outdoor-kitchen/1.jpg",
+                "img/products/stainless-steel-outdoor-kitchen/2.jpg",
+                "img/products/stainless-steel-outdoor-kitchen/3.jpg",
+                "img/products/stainless-steel-outdoor-kitchen/4.jpg",
+                "img/products/stainless-steel-outdoor-kitchen/5.jpg"
+            ],
+            preserveDetailImageRatio: true,
+            imageDimensions: [
+                { width: 1254, height: 1254 },
+                { width: 790, height: 1520 },
+                { width: 790, height: 800 },
+                { width: 790, height: 1020 },
+                { width: 790, height: 2310 }
+            ],
+            imageAlt: "Custom 304 stainless steel outdoor kitchen with grill, sink and canopy beside a beach",
+            imageAlts: [
+                "Custom 304 stainless steel outdoor kitchen with grill, sink and canopy beside a beach",
+                "304 stainless steel outdoor kitchen cabinetry and barbecue workstation detail",
+                "Outdoor stainless steel kitchen module and appliance configuration",
+                "Custom outdoor kitchen cabinet construction and storage detail",
+                "Stainless steel outdoor kitchen installation and functional detail"
+            ],
+            currency: "CNY",
+            price: 8580,
+            priceMax: 46280,
+            priceUnit: "per set",
+            summary: "A fully customisable 304 stainless steel outdoor kitchen system integrating preparation, washing, storage and barbecue functions for villas, patios and hospitality projects.",
+            seoDescription: "Custom 304 stainless steel outdoor kitchen and barbecue cabinet system, CNY 8,580-46,280 per set with a one-set minimum order.",
+            highlights: ["304 stainless steel construction", "Custom modular configuration", "Integrated grill and preparation zones", "Designed for outdoor residential and hospitality use"],
+            descriptionParagraphs: [
+                "This modular outdoor kitchen combines stainless steel cabinets, worktops and appliance zones in a durable open-air cooking station. Layouts can coordinate sinks, grills, refrigeration, storage, preparation surfaces and weather-protection structures according to the site.",
+                "Each system is made to project requirements. Final dimensions, appliance openings, service connections, finish, accessories and installation conditions are confirmed through drawings and the approved quotation."
+            ],
+            variantOptions: ["Fully customisable configuration"],
+            specifications: {
+                "Product type": "Custom modular outdoor kitchen",
+                "Primary material": "304 stainless steel",
+                "Application": "Villa, courtyard, patio, terrace and hospitality outdoor areas",
+                "Configuration": "Customisable modules, layout and appliance integration",
+                "Available functions": "Cooking, grilling, washing, preparation, refrigeration and storage",
+                "Source reference price": "CNY 8,580.00-46,280.00 per set",
+                "Minimum order": "1 set",
+                "Supplier reference": "1688 item 1053256184516",
+                "Production lead time": "Confirm with quotation"
+            },
+            customisationOptions: ["Overall dimensions and modular layout", "Cabinet, drawer and door arrangement", "Grill, sink, refrigerator and appliance integration", "Worktop and stainless steel finish", "Canopy, lighting and service connections", "Project packaging and delivery requirements"],
+            customisationNote: "Please provide the site dimensions, preferred functions, appliance list and installation conditions. Final construction, openings, utilities and included components are confirmed in approved drawings and the quotation.",
+            commercialNote: "The source reference price is CNY 8,580.00-46,280.00 per set with a one-set minimum. Final export pricing depends on dimensions, configuration, appliances, accessories, packaging and delivery destination."
+        },
+        {
             id: "italian-black-leather-storage-bed",
             url: "products/italian-black-leather-storage-bed",
             category: "furniture",

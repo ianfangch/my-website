@@ -229,11 +229,12 @@
         var directGalleryMarkup = detailGallery.length ?
             '<section class="col-12 mt-5 product-image-section" aria-labelledby="product-gallery-title">' +
             '<h2 id="product-gallery-title" class="mb-4">' + (isQuartzSeries ? "Colour Range and Edge Processing" : (isCountertop ? "Surface and Application" : "Product Gallery")) + '</h2>' +
-            '<div class="product-direct-gallery">' + detailGallery.map(function (image, index) {
+            '<div class="product-direct-gallery' + (product.preserveDetailImageRatio ? ' product-direct-gallery-natural' : '') + '">' + detailGallery.map(function (image, index) {
                 var altIndex = isCountertop ? index : index + 1;
                 var imageAlt = product.imageAlts && product.imageAlts[altIndex] ? product.imageAlts[altIndex] : product.imageAlt;
+                var dimensions = product.imageDimensions && product.imageDimensions[altIndex] ? product.imageDimensions[altIndex] : { width: 1254, height: 1254 };
                 return '<div class="product-direct-image"><img src="' + escapeHtml(image) + '" alt="' + escapeHtml(imageAlt) +
-                    '" loading="lazy" width="1254" height="1254"></div>';
+                    '" loading="' + (product.preserveDetailImageRatio ? 'eager' : 'lazy') + '" width="' + dimensions.width + '" height="' + dimensions.height + '"></div>';
             }).join("") + "</div></section>" : "";
         var descriptionMarkup = Array.isArray(product.descriptionParagraphs) && product.descriptionParagraphs.length ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Product Description</h2>' +
