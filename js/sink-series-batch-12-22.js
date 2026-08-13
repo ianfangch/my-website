@@ -46,16 +46,16 @@
                 { image: "img/products/drawn-undermount-single-bowl-sinks/row-3.jpg", imageAlt: "Model 3238 drawn undermount sink", models: [
                     { code: "3238", size: "320 x 380 x 200 mm", cutout: "290 x 350 mm", material: "304 stainless steel, one-piece drawn" }
                 ]},
-                { image: null, imageAlt: "Models 4545 and 5545 drawn undermount sinks", models: [
+                { image: "img/products/drawn-undermount-single-bowl-sinks/row-4.jpg", imageAlt: "Models 4545 and 5545 drawn undermount sinks", models: [
                     { code: "4545", size: "450 x 450 x 200 mm", cutout: "420 x 420 mm", material: "304 stainless steel, one-piece drawn" },
                     { code: "5545", size: "550 x 450 x 200 mm", cutout: "520 x 420 mm", material: "304 stainless steel, one-piece drawn" }
                 ]},
-                { image: null, imageAlt: "Models 3634, 4038 and 4643 drawn undermount sinks", models: [
+                { image: "img/products/drawn-undermount-single-bowl-sinks/row-5.jpg", imageAlt: "Models 3634, 4038 and 4643 drawn undermount sinks", models: [
                     { code: "3634", size: "360 x 340 x 200 mm", cutout: "330 x 310 mm", material: "304 stainless steel, one-piece drawn" },
                     { code: "4038", size: "400 x 380 x 200 mm", cutout: "370 x 350 mm", material: "304 stainless steel, one-piece drawn" },
                     { code: "4643", size: "460 x 430 x 200 mm", cutout: "430 x 400 mm", material: "304 stainless steel, one-piece drawn" }
                 ]},
-                { image: null, imageAlt: "Models 3330 and 4236 drawn undermount sinks", models: [
+                { image: "img/products/drawn-undermount-single-bowl-sinks/row-6.jpg", imageAlt: "Models 3330 and 4236 drawn undermount sinks", models: [
                     { code: "3330", size: "330 x 300 x 200 mm", cutout: "300 x 270 mm", material: "304 stainless steel, one-piece drawn" },
                     { code: "4236", size: "420 x 360 x 200 mm", cutout: "390 x 330 mm", material: "304 stainless steel, one-piece drawn" }
                 ]}
@@ -178,7 +178,7 @@
                     { code: "3434", note: "Brushed", size: "340 x 340 x 180 mm", cutout: "320 x 320 mm", material: "304 stainless steel, one-piece drawn" },
                     { code: "3636", note: "Brushed", size: "360 x 360 x 180 mm", cutout: "340 x 340 mm", material: "304 stainless steel, one-piece drawn" }
                 ]},
-                { image: null, imageAlt: "Round sink models 4040, 4242 and 4545", models: [
+                { image: "img/products/round-stainless-steel-sinks/row-3.jpg", imageAlt: "Round sink models 4040, 4242 and 4545", models: [
                     { code: "4040", note: "Brushed", size: "400 x 400 x 180 mm", cutout: "380 x 380 mm", material: "304 stainless steel, one-piece drawn" },
                     { code: "4242", note: "Brushed", size: "420 x 420 x 180 mm", cutout: "400 x 400 mm", material: "304 stainless steel, one-piece drawn" },
                     { code: "4545", note: "Brushed", size: "450 x 450 x 180 mm", cutout: "430 x 430 mm", material: "304 stainless steel, one-piece drawn" }
