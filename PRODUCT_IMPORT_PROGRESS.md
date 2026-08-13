@@ -110,6 +110,16 @@ Batch 9 contains 30 optimized, logo-free product images, edited English copy, so
 
 Batch 10 processes source positions 57–62 of 85 and adds five distinct cabinetry products with 30 optimized, logo-free images, edited English copy, prices, specifications and dedicated SEO pages. Source page `62749466` at position 61 was skipped because it represents the same dark solid-wood kitchen as source page `62749353`, using overlapping views and the related model `OLCG003-2`.
 
+## Published cabinet batch 11
+
+51. `OLCG030` — White and Wood Smart Storage Kitchen
+52. `OLCG027` — Grey Glass-Front Island Kitchen
+53. `OL62749319` — Grey European Island Kitchen
+54. `OLCG043` — Black and White Storage Kitchen
+55. `OLCG037-2` — Classic White Compact Kitchen
+
+Batch 11 processes source positions 63–68 of 85 and adds five distinct cabinetry products with 30 optimized, logo-free images, edited English copy, prices, specifications and dedicated SEO pages. Source page `62749315` at position 65 was skipped because it repeats the white-and-wood kitchen from source page `62749419` with overlapping views and the related model `OLCG030-2`. `OL62749319` uses a traceable source-page code because its listing does not publish a usable manufacturer model.
+
 ## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
@@ -118,13 +128,13 @@ Batch 10 processes source positions 57–62 of 85 and adds five distinct cabinet
 - Products remain enquiry-based rather than direct online checkout.
 - Every published product now has a dedicated crawlable URL under `/products/`.
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
-- All fifty dedicated cabinetry URLs are listed in `sitemap.xml`.
+- All fifty-five dedicated cabinetry URLs are listed in `sitemap.xml`.
 
-## Next cabinet batch after batch 10
+## Next cabinet batch after batch 11
 
-- Resume at source position 63 of 85, page `62749419`: “Simple kitchen cabinet wooden kitchen furniture cabinet designs smart kichenpull out cabnet”. Continue screening repeated source listings before assigning cabinet positions 51–55.
+- Resume at source position 69 of 85, page `62749856`: “Modern wood grain and lacquer combination kitchen cabinet”. Continue screening repeated source listings before assigning cabinet positions 56–60.
 - Continue in source-category order and use the same image, data, naming and SEO standard.
-- Do not re-import or regenerate the first fifty cabinetry products unless the user requests changes.
+- Do not re-import or regenerate the first fifty-five cabinetry products unless the user requests changes.
 
 ## Sink batch 1
 
