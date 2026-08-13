@@ -1386,6 +1386,74 @@
 
     window.IAN_CATALOG.products.unshift(
         {
+            id: "emerald-green-velvet-modular-sofa",
+            url: "products/emerald-green-velvet-modular-sofa",
+            category: "furniture",
+            name: "Emerald Green Velvet Modular Sofa",
+            code: "Ref. 993512075963",
+            badge: "Living Room Furniture",
+            image: "img/products/emerald-green-velvet-sofa/1.jpg",
+            images: [
+                "img/products/emerald-green-velvet-sofa/1.jpg",
+                "img/products/emerald-green-velvet-sofa/2.jpg",
+                "img/products/emerald-green-velvet-sofa/3.jpg",
+                "img/products/emerald-green-velvet-sofa/4.jpg",
+                "img/products/emerald-green-velvet-sofa/5.jpg",
+                "img/products/emerald-green-velvet-sofa/6.jpg",
+                "img/products/emerald-green-velvet-sofa/7.jpg",
+                "img/products/emerald-green-velvet-sofa/8.jpg"
+            ],
+            imageAlt: "Emerald green velvet modular sofa in a French-inspired living room",
+            imageAlts: [
+                "Emerald green velvet modular sofa in a French-inspired living room",
+                "Front view of the emerald green velvet modular sofa",
+                "Emerald green velvet sofa shown in a contemporary interior",
+                "Detail view of the green velvet sofa upholstery and cushions",
+                "Emerald green velvet sofa product detail",
+                "Emerald green velvet sofa construction detail",
+                "Emerald green velvet sofa material detail",
+                "Emerald green velvet sofa dimensions and feature detail"
+            ],
+            currency: "CNY",
+            price: 1150,
+            priceMax: 3750,
+            priceUnit: "per set",
+            summary: "A soft, low-profile emerald green velvet sofa with rounded arms and modular seating for modern and French-inspired living rooms.",
+            seoDescription: "Emerald green velvet modular living room sofa, CNY 1,150-3,750 per set with a one-set minimum order.",
+            highlights: ["Soft velvet upholstery", "Deep, relaxed seating", "Rounded arm profile", "Multiple size and storage configurations"],
+            descriptionParagraphs: [
+                "This statement sofa combines a rich emerald green velvet finish with a low, rounded silhouette. Generous cushions and softly curved arms create a relaxed centrepiece for living rooms, lounges and hospitality interiors.",
+                "The displayed price range is the supplier reference for one set. Final pricing is confirmed according to the selected configuration, quantity, packaging and delivery destination."
+            ],
+            variantOptions: [
+                "1.5 m frame structure (steel-and-wood bed base)",
+                "1.8 m frame structure (steel-and-wood bed base)",
+                "1.5 m gas-lift structure",
+                "1.8 m gas-lift structure",
+                "1.5 m three-drawer gas-lift structure",
+                "1.8 m three-drawer gas-lift structure"
+            ],
+            specifications: {
+                "Product type": "Modular straight sofa",
+                "Style": "Modern French-inspired / light luxury",
+                "Upholstery shown": "Emerald green velvet",
+                "Configuration": "Multiple sizes and combinations available",
+                "Source reference price": "CNY 1,150.00-3,750.00 per set",
+                "Minimum order": "1 set",
+                "Supplier reference": "1688 item 993512075963",
+                "Production lead time": "Confirm with quotation"
+            },
+            customisationOptions: ["Sofa size and seating configuration", "Velvet colour", "Upholstery material", "Cushion firmness", "Project quantity and export packaging"],
+            customisationNote: "Please confirm the required size, colour and configuration before ordering. Final dimensions, materials and included components are stated in the approved quotation.",
+            commercialInformation: {
+                "Indicative price": "CNY 1,150.00-3,750.00 per set",
+                "Minimum order": "1 set",
+                "Currency": "CNY",
+                "Payment and delivery": "Confirmed with the final quotation"
+            },
+            commercialNote: "The source reference price is CNY 1,150.00-3,750.00 per set with a one-set minimum. Final export pricing depends on the selected configuration, quantity, packaging and delivery destination."
+        },
+        {
             id: "hrfloor-wood-collection",
             url: "products/hrfloor-wood-collection",
             category: "flooring",

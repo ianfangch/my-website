@@ -68,7 +68,7 @@
             displayedPrice += " - " + product.priceMax.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
         return '<div class="catalog-price"><span>' + escapeHtml(product.pricePrefix || "") + '</span>' +
-            '<strong>' + escapeHtml(catalog.currency) + " " + displayedPrice +
+            '<strong>' + escapeHtml(product.currency || catalog.currency) + " " + displayedPrice +
             '</strong><small>' + escapeHtml(product.priceUnit || "") + "</small></div>";
     }
 
@@ -240,6 +240,12 @@
             product.descriptionParagraphs.map(function (paragraph) {
                 return '<p class="product-description-copy">' + escapeHtml(paragraph) + '</p>';
             }).join("") + '</section>' : '';
+        var variantMarkup = Array.isArray(product.variantOptions) && product.variantOptions.length ?
+            '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Available Styles</h2>' +
+            '<ul class="product-option-list list-unstyled">' + product.variantOptions.map(function (option) {
+                return '<li><i class="fa fa-check text-primary" aria-hidden="true"></i><span>' +
+                    escapeHtml(option) + '</span></li>';
+            }).join("") + '</ul></section>' : '';
         var faqMarkup = Array.isArray(product.faq) && product.faq.length ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Frequently Asked Questions</h2>' +
             '<div class="product-faq">' + product.faq.map(function (item) {
@@ -277,7 +283,7 @@
                 "Final sink dimensions, cut-out details, finish and included accessories are confirmed in the approved quotation before production." :
                 "Final specifications are confirmed through drawings, material samples and the approved quotation before production.");
         var indicativePrice = product.quoteOnly ? "Request a quote" :
-            ((product.pricePrefix ? product.pricePrefix + " " : "") + catalog.currency + " " +
+            ((product.pricePrefix ? product.pricePrefix + " " : "") + (product.currency || catalog.currency) + " " +
             product.price.toLocaleString("en-US", { maximumFractionDigits: 2 }) +
             (typeof product.priceMax === "number" ? " - " + product.priceMax.toLocaleString("en-US", { maximumFractionDigits: 2 }) : "") +
             " " + (product.priceUnit || ""));
@@ -373,6 +379,7 @@
             '<div class="d-flex flex-wrap gap-3">' + productContactLink(product, false) + '</div></div>' +
             (compactCatalogue ? catalogueRowsMarkup + commercialMarkup : directGalleryMarkup +
             descriptionMarkup +
+            variantMarkup +
             '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
             '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div>" +
             optionRowsMarkup + faqMarkup + contactMarkup + customisationMarkup + commercialMarkup) + "</div>";
