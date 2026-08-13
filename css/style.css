@@ -17,9 +17,9 @@
 .back-to-top {
     position: fixed;
     display: none;
-    right: 45px;
-    bottom: 45px;
-    z-index: 99;
+    right: 24px;
+    bottom: 144px;
+    z-index: 1021;
 }
 
 /*** Button ***/
@@ -95,8 +95,8 @@
 .site-quote-cta {
     position: fixed;
     right: 24px;
-    bottom: 24px;
-    z-index: 98;
+    bottom: 84px;
+    z-index: 1020;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -115,7 +115,9 @@
 }
 
 @media (max-width: 575.98px) {
-    .site-quote-cta { right: 12px; bottom: 12px; padding: 12px 15px; }
+    body .enquiry-fab { right: 12px; bottom: 12px; }
+    .site-quote-cta { right: 12px; bottom: 68px; padding: 12px 15px; }
+    .back-to-top { right: 12px; bottom: 132px; }
 }
 
 @media (max-width: 991.98px) {
