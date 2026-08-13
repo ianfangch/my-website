@@ -1797,9 +1797,8 @@
             name: "Pull-Out Kitchen Waste Sorting Bin Series",
             code: "Ref. 874018693970",
             badge: "Cabinet Accessories",
-            image: "img/products/pull-out-kitchen-waste-bin/1.jpg",
+            image: "img/products/pull-out-kitchen-waste-bin/2.jpg",
             images: [
-                "img/products/pull-out-kitchen-waste-bin/1.jpg",
                 "img/products/pull-out-kitchen-waste-bin/2.jpg",
                 "img/products/pull-out-kitchen-waste-bin/3.jpg",
                 "img/products/pull-out-kitchen-waste-bin/4.jpg",
