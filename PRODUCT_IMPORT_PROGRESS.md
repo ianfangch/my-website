@@ -120,6 +120,16 @@ Batch 10 processes source positions 57–62 of 85 and adds five distinct cabinet
 
 Batch 11 processes source positions 63–68 of 85 and adds five distinct cabinetry products with 30 optimized, logo-free images, edited English copy, prices, specifications and dedicated SEO pages. Source page `62749315` at position 65 was skipped because it repeats the white-and-wood kitchen from source page `62749419` with overlapping views and the related model `OLCG030-2`. `OL62749319` uses a traceable source-page code because its listing does not publish a usable manufacturer model.
 
+## Published cabinet batch 12
+
+56. `OLCG061` - Grey Lacquer Peninsula Kitchen
+57. `OLCG057` - Dark Walnut and Grey Linear Kitchen
+58. `OLCG058` - White Oak Glass-Front Island Kitchen
+59. `OLCG054` - Charcoal and Oak Island Kitchen
+60. `OLCG052` - Taupe and Walnut Dining Kitchen
+
+Batch 12 processes source positions 69–74 of 85 and adds five distinct cabinetry products with 30 optimized, logo-free images, edited English copy, prices, specifications and dedicated SEO pages. Source page `62749673` at position 72 was skipped because model `OLCG041-2` repeats the white, wood and ribbed-grey island kitchen already published as `OLCG041` from source page `62749446`.
+
 ## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
@@ -128,13 +138,13 @@ Batch 11 processes source positions 63–68 of 85 and adds five distinct cabinet
 - Products remain enquiry-based rather than direct online checkout.
 - Every published product now has a dedicated crawlable URL under `/products/`.
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
-- All fifty-five dedicated cabinetry URLs are listed in `sitemap.xml`.
+- All sixty dedicated cabinetry URLs are listed in `sitemap.xml`.
 
-## Next cabinet batch after batch 11
+## Next cabinet batch after batch 12
 
-- Resume at source position 69 of 85, page `62749856`: “Modern wood grain and lacquer combination kitchen cabinet”. Continue screening repeated source listings before assigning cabinet positions 56–60.
+- Resume at source position 75 of 85, page `62749760`: “European modular kitchen home improvement kitchen cabinet”. Continue screening repeated source listings before assigning cabinet positions 61–65.
 - Continue in source-category order and use the same image, data, naming and SEO standard.
-- Do not re-import or regenerate the first fifty-five cabinetry products unless the user requests changes.
+- Do not re-import or regenerate the first sixty cabinetry products unless the user requests changes.
 
 ## Sink batch 1
 
