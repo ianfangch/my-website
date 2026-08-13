@@ -47,7 +47,8 @@
 
     function productContactLink(product, compact) {
         var sizeClass = compact ? "" : " px-4 py-3";
-        return '<a class="btn btn-primary' + sizeClass + '" href="/contact#quote-builder-form">Contact</a>';
+        var label = compact ? "Contact Us" : "Contact";
+        return '<a class="btn btn-primary' + sizeClass + '" href="/contact#quote-builder-form">' + label + '</a>';
     }
 
     function priceMarkup(product, compact) {
