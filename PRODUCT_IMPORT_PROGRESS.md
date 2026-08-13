@@ -140,6 +140,17 @@ Batch 12 processes source positions 69–74 of 85 and adds five distinct cabinet
 
 Batch 13 processes source positions 75–81 of 85 and adds five distinct cabinetry products with 30 optimized, logo-free images, edited English copy, prices, specifications and dedicated SEO pages. Source page `62749760` at position 75 was skipped because model `OLCG001-1` repeats the existing `OLCG001` European White Solid-Wood Kitchen. Source page `62749786` at position 76 was skipped because model `OLCG002-3` repeats the existing `OLCG002` Charcoal Wood Dining Kitchen.
 
+## Final cabinet source audit
+
+Source positions 82–85 of 85 were reviewed and all four were skipped because they repeat cabinetry products already published in the catalogue:
+
+- Position 82, page `62749704`, model `OLCG032-3`, repeats `OLCG032` White and Oak Linear Kitchen.
+- Position 83, page `62749700`, model `OLCG030-3`, repeats the complete six-image set used by `OLCG030` White and Wood Smart Storage Kitchen.
+- Position 84, page `62749515`, model `OLCG034-1`, repeats `OLCG034` White Concrete Dining Kitchen from source page `62749422`.
+- Position 85, page `62749653`, model `OLCG036-2`, repeats `OLCG036` Blue Shaker Corner Kitchen.
+
+All 85 cabinetry source listings have now been processed. The catalogue contains 65 distinct published cabinetry products; duplicate source listings were deliberately excluded.
+
 ## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
@@ -150,11 +161,11 @@ Batch 13 processes source positions 75–81 of 85 and adds five distinct cabinet
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
 - All sixty-five dedicated cabinetry URLs are listed in `sitemap.xml`.
 
-## Next cabinet batch after batch 13
+## Cabinet source status
 
-- Resume at source position 82 of 85, page `62749704`: “Modern kitchen cabinet furniture cabinet designs”. This page visually repeats the existing `OLCG032` White and Oak Linear Kitchen and should be skipped; continue checking the remaining source pages before assigning another cabinetry position.
-- Continue in source-category order and use the same image, data, naming and SEO standard.
-- Do not re-import or regenerate the first sixty-five cabinetry products unless the user requests changes.
+- Source processing is complete at position 85 of 85.
+- There is no remaining product in the current OULIN cabinetry source list.
+- Do not re-import or regenerate the sixty-five published cabinetry products unless the user requests changes or provides a new source list.
 
 ## Sink batch 1
 
