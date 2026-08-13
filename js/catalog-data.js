@@ -3,6 +3,10 @@
 
     window.IAN_CATALOG = {
         currency: "USD",
+        exchangeRates: {
+            CNY_PER_USD: 6.78,
+            updated: "2026-08-13"
+        },
         categories: [
             { id: "cabinetry", name: "Cabinetry" },
             { id: "sinks", name: "Sinks" },
@@ -1421,7 +1425,7 @@
             priceMax: 46280,
             priceUnit: "per set",
             summary: "A fully customisable 304 stainless steel outdoor kitchen system integrating preparation, washing, storage and barbecue functions for villas, patios and hospitality projects.",
-            seoDescription: "Custom 304 stainless steel outdoor kitchen and barbecue cabinet system, CNY 8,580-46,280 per set with a one-set minimum order.",
+            seoDescription: "Custom 304 stainless steel outdoor kitchen and barbecue cabinet system, approximately USD 1,265.49-6,825.96 per set with a one-set minimum order.",
             highlights: ["304 stainless steel construction", "Custom modular configuration", "Integrated grill and preparation zones", "Designed for outdoor residential and hospitality use"],
             descriptionParagraphs: [
                 "This modular outdoor kitchen combines stainless steel cabinets, worktops and appliance zones in a durable open-air cooking station. Layouts can coordinate sinks, grills, refrigeration, storage, preparation surfaces and weather-protection structures according to the site.",
@@ -1434,14 +1438,14 @@
                 "Application": "Villa, courtyard, patio, terrace and hospitality outdoor areas",
                 "Configuration": "Customisable modules, layout and appliance integration",
                 "Available functions": "Cooking, grilling, washing, preparation, refrigeration and storage",
-                "Source reference price": "CNY 8,580.00-46,280.00 per set",
+                "Source reference price": "Automatically converted to USD from CNY",
                 "Minimum order": "1 set",
                 "Supplier reference": "1688 item 1053256184516",
                 "Production lead time": "Confirm with quotation"
             },
             customisationOptions: ["Overall dimensions and modular layout", "Cabinet, drawer and door arrangement", "Grill, sink, refrigerator and appliance integration", "Worktop and stainless steel finish", "Canopy, lighting and service connections", "Project packaging and delivery requirements"],
             customisationNote: "Please provide the site dimensions, preferred functions, appliance list and installation conditions. Final construction, openings, utilities and included components are confirmed in approved drawings and the quotation.",
-            commercialNote: "The source reference price is CNY 8,580.00-46,280.00 per set with a one-set minimum. Final export pricing depends on dimensions, configuration, appliances, accessories, packaging and delivery destination."
+            commercialNote: "The displayed USD reference is automatically converted from the CNY source price. Final export pricing depends on the confirmed exchange rate, dimensions, configuration, appliances, accessories, packaging and delivery destination."
         },
         {
             id: "italian-black-leather-storage-bed",
@@ -1471,7 +1475,7 @@
             priceMax: 3750,
             priceUnit: "per set",
             summary: "A modern Italian-inspired black leather bed with a deeply padded headboard and frame, available with standard, gas-lift and drawer-storage structures.",
-            seoDescription: "Italian-style black leather upholstered storage bed in 1.5 m and 1.8 m sizes, CNY 1,150-3,750 per set with a one-set minimum order.",
+            seoDescription: "Italian-style black leather upholstered storage bed in 1.5 m and 1.8 m sizes, approximately USD 169.62-553.10 per set with a one-set minimum order.",
             highlights: ["Deeply padded leather headboard", "1.5 m and 1.8 m sizes", "Standard or gas-lift storage structures", "Optional three-drawer storage"],
             descriptionParagraphs: [
                 "This contemporary bed pairs a black upholstered frame with a generously cushioned, channel-tufted headboard. Its low, clean-lined silhouette suits modern master bedrooms, rental apartments and hotel projects.",
@@ -1492,14 +1496,14 @@
                 "Available mattress widths": "1.5 m / 1.8 m",
                 "Structure options": "Frame / gas lift / three-drawer gas lift",
                 "Bed base": "Steel-and-wood base on frame versions",
-                "Source reference price": "CNY 1,150.00-3,750.00 per set",
+                "Source reference price": "Automatically converted to USD from CNY",
                 "Minimum order": "1 set",
                 "Supplier reference": "1688 item 997397924847",
                 "Production lead time": "Confirm with quotation"
             },
             customisationOptions: ["Bed width and storage structure", "Leather colour and upholstery material", "Headboard and frame finish", "Mattress requirements", "Project quantity and export packaging"],
             customisationNote: "Please confirm the mattress width, preferred base structure, upholstery and storage requirements before ordering. Final dimensions and included components are stated in the approved quotation.",
-            commercialNote: "The source reference price is CNY 1,150.00-3,750.00 per set with a one-set minimum. Final export pricing depends on the selected size and structure, quantity, packaging and delivery destination."
+            commercialNote: "The displayed USD reference is automatically converted from the CNY source price. Final export pricing depends on the confirmed exchange rate, selected size and structure, quantity, packaging and delivery destination."
         },
         {
             id: "emerald-green-velvet-modular-sofa",
@@ -1535,7 +1539,7 @@
             priceMax: 3600,
             priceUnit: "per set",
             summary: "A soft, low-profile emerald green velvet sofa with rounded arms and modular seating for modern and French-inspired living rooms.",
-            seoDescription: "Emerald green velvet modular living room sofa, CNY 650-3,600 per set with a one-set minimum order.",
+            seoDescription: "Emerald green velvet modular living room sofa, approximately USD 95.87-530.97 per set with a one-set minimum order.",
             highlights: ["Soft velvet upholstery", "Deep, relaxed seating", "Rounded arm profile", "Ten seating sizes from 1.25 to 3.6 metres"],
             descriptionParagraphs: [
                 "This statement sofa combines a rich emerald green velvet finish with a low, rounded silhouette. Generous cushions and softly curved arms create a relaxed centrepiece for living rooms, lounges and hospitality interiors.",
@@ -1559,7 +1563,7 @@
                 "Upholstery shown": "Emerald green velvet",
                 "Available sizes": "1.25 / 1.7 / 2.0 / 2.3 / 2.6 / 2.8 / 3.0 / 3.2 / 3.4 / 3.6 m",
                 "Section options": "Single section; 2-section and 3-section configurations",
-                "Source reference price": "CNY 650.00-3,600.00 per set",
+                "Source reference price": "Automatically converted to USD from CNY",
                 "Minimum order": "1 set",
                 "Supplier reference": "1688 item 993512075963",
                 "Production lead time": "Confirm with quotation"
@@ -1567,12 +1571,12 @@
             customisationOptions: ["Sofa size and seating configuration", "Velvet colour", "Upholstery material", "Cushion firmness", "Project quantity and export packaging"],
             customisationNote: "Please confirm the required size, colour and configuration before ordering. Final dimensions, materials and included components are stated in the approved quotation.",
             commercialInformation: {
-                "Indicative price": "CNY 650.00-3,600.00 per set",
+                "Indicative price": "Automatically converted to USD from CNY",
                 "Minimum order": "1 set",
-                "Currency": "CNY",
+                "Currency": "USD (converted from CNY)",
                 "Payment and delivery": "Confirmed with the final quotation"
             },
-            commercialNote: "The source reference price is CNY 650.00-3,600.00 per set with a one-set minimum. Final export pricing depends on the selected size, quantity, packaging and delivery destination."
+            commercialNote: "The displayed USD reference is automatically converted from the CNY source price. Final export pricing depends on the confirmed exchange rate, selected size, quantity, packaging and delivery destination."
         },
         {
             id: "hrfloor-wood-collection",

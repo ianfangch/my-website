@@ -53,6 +53,20 @@
             '<a class="btn btn-primary px-4 py-3" href="/contact#quote-builder-form">Request a Quote</a>';
     }
 
+    function displayPricing(product) {
+        var price = product.price;
+        var priceMax = product.priceMax;
+        var currency = product.currency || catalog.currency;
+        var converted = false;
+        if (currency === "CNY" && catalog.exchangeRates && typeof catalog.exchangeRates.CNY_PER_USD === "number") {
+            price = price / catalog.exchangeRates.CNY_PER_USD;
+            priceMax = typeof priceMax === "number" ? priceMax / catalog.exchangeRates.CNY_PER_USD : priceMax;
+            currency = "USD";
+            converted = true;
+        }
+        return { price: price, priceMax: priceMax, currency: currency, converted: converted };
+    }
+
     function priceMarkup(product, compact) {
         if (product.quoteOnly) {
             return '<div class="catalog-price catalog-price-pending"><strong>Request a Quote</strong>' +
@@ -63,13 +77,14 @@
                 (compact ? "" : "<small>Real USD price required before publishing</small>") + "</div>";
         }
 
-        var displayedPrice = product.price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        if (typeof product.priceMax === "number") {
-            displayedPrice += " - " + product.priceMax.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        var pricing = displayPricing(product);
+        var displayedPrice = pricing.price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (typeof pricing.priceMax === "number") {
+            displayedPrice += " - " + pricing.priceMax.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
         return '<div class="catalog-price"><span>' + escapeHtml(product.pricePrefix || "") + '</span>' +
-            '<strong>' + escapeHtml(product.currency || catalog.currency) + " " + displayedPrice +
-            '</strong><small>' + escapeHtml(product.priceUnit || "") + "</small></div>";
+            '<strong>' + escapeHtml(pricing.currency) + " " + displayedPrice +
+            '</strong><small>' + escapeHtml(product.priceUnit || "") + (pricing.converted ? " · reference conversion from CNY" : "") + "</small></div>";
     }
 
     function productCard(product) {
@@ -283,10 +298,11 @@
             (isSink ?
                 "Final sink dimensions, cut-out details, finish and included accessories are confirmed in the approved quotation before production." :
                 "Final specifications are confirmed through drawings, material samples and the approved quotation before production.");
+        var convertedPricing = displayPricing(product);
         var indicativePrice = product.quoteOnly ? "Request a quote" :
-            ((product.pricePrefix ? product.pricePrefix + " " : "") + (product.currency || catalog.currency) + " " +
-            product.price.toLocaleString("en-US", { maximumFractionDigits: 2 }) +
-            (typeof product.priceMax === "number" ? " - " + product.priceMax.toLocaleString("en-US", { maximumFractionDigits: 2 }) : "") +
+            ((product.pricePrefix ? product.pricePrefix + " " : "") + convertedPricing.currency + " " +
+            convertedPricing.price.toLocaleString("en-US", { maximumFractionDigits: 2 }) +
+            (typeof convertedPricing.priceMax === "number" ? " - " + convertedPricing.priceMax.toLocaleString("en-US", { maximumFractionDigits: 2 }) : "") +
             " " + (product.priceUnit || ""));
         var standardCommercialInformation = {
             "Indicative price": indicativePrice.trim(),
