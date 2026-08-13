@@ -45,17 +45,9 @@
         });
     }
 
-    function productContactLinks(product, compact) {
-        var subject = "Product Enquiry - " + product.code + " - " + product.name;
-        var message = "Hello IanProject team,\n\nI would like a quotation for:\nProduct: " + product.name +
-            "\nModel: " + product.code + "\n\nQuantity:\nDelivery destination:\nRequired date:\n\nThank you.";
+    function productContactLink(product, compact) {
         var sizeClass = compact ? "" : " px-4 py-3";
-        return '<a class="btn btn-primary' + sizeClass + '" href="mailto:sales@ianproject.com?subject=' +
-            encodeURIComponent(subject) + '&amp;body=' + encodeURIComponent(message) +
-            '"><i class="fa fa-envelope me-2" aria-hidden="true"></i>Email</a>' +
-            '<a class="btn btn-outline-dark' + sizeClass + '" href="https://wa.me/8619956229033?text=' +
-            encodeURIComponent(message) + '" target="_blank" rel="noopener">' +
-            '<i class="fab fa-whatsapp me-2" aria-hidden="true"></i>WhatsApp</a>';
+        return '<a class="btn btn-primary' + sizeClass + '" href="/contact#quote-builder-form">Contact</a>';
     }
 
     function priceMarkup(product, compact) {
@@ -91,7 +83,7 @@
             priceMarkup(product, true) +
             '<div class="d-flex flex-wrap gap-2 mt-4">' +
             '<a class="btn btn-outline-primary" href="' + escapeHtml(productUrl(product)) + '">View Details</a>' +
-            productContactLinks(product, true) +
+            productContactLink(product, true) +
             "</div></div></article>";
     }
 
@@ -346,7 +338,7 @@
             priceMarkup(product, false) +
             '<p class="catalog-price-note">Displayed prices exclude freight, duties, installation and project-specific changes unless stated otherwise.</p>' +
             (compactCatalogue ? "" : '<ul class="product-highlights list-unstyled my-4">' + highlights + "</ul>") +
-            '<div class="d-flex flex-wrap gap-3">' + productContactLinks(product, false) + '</div></div>' +
+            '<div class="d-flex flex-wrap gap-3">' + productContactLink(product, false) + '</div></div>' +
             (compactCatalogue ? catalogueRowsMarkup + commercialMarkup : directGalleryMarkup +
             descriptionMarkup +
             '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
