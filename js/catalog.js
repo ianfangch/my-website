@@ -320,10 +320,11 @@
             '<p class="text-uppercase text-primary mb-2">Sink Collection</p>' +
             '<h2 class="mb-0">Available Models &amp; Specifications</h2></div>' +
             product.catalogueRows.map(function (row) {
+                var imageColumn = row.image ? '<div class="col-lg-6"><img class="img-fluid d-block" style="width:100%;height:340px;object-fit:contain;object-position:top left" src="' +
+                    escapeHtml(row.image) + '" alt="' + escapeHtml(row.imageAlt || product.imageAlt) + '"></div>' : '';
+                var detailsColumn = row.image ? 'col-lg-6' : 'col-12';
                 return '<div class="row g-4 ' + (row.models.length === 1 ? 'align-items-center' : 'align-items-start') + ' py-5 border-bottom">' +
-                    '<div class="col-lg-6"><img class="img-fluid d-block" style="width:100%;height:340px;object-fit:contain;object-position:top left" src="' +
-                    escapeHtml(row.image) + '" alt="' + escapeHtml(row.imageAlt || product.imageAlt) + '"></div>' +
-                    '<div class="col-lg-6">' + row.models.map(function (model, modelIndex) {
+                    imageColumn + '<div class="' + detailsColumn + '">' + row.models.map(function (model, modelIndex) {
                         var modelClass = modelIndex === row.models.length - 1 ? 'pb-3 mb-3' : 'pb-3 mb-3 border-bottom';
                         return '<div class="' + modelClass + '"><h2 class="mb-2">' + escapeHtml(model.code) +
                             (model.note ? ' <small class="fs-6 fw-normal">' + escapeHtml(model.note) + '</small>' : '') +
