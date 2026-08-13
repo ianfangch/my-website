@@ -44,7 +44,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css?v=20260813-procurement-trust" rel="stylesheet">
 </head>
 
 <body>
@@ -209,6 +209,9 @@
                                 <div class="col-md-6"><label class="form-label" for="quote-quantity">Estimated quantity</label><input class="form-control" id="quote-quantity" name="quantity" placeholder="e.g. 30 kitchens or 500 m²"></div>
                                 <div class="col-md-6"><label class="form-label" for="quote-destination">Delivery destination</label><input class="form-control" id="quote-destination" name="destination" placeholder="City, port or country"></div>
                                 <div class="col-md-6"><label class="form-label" for="quote-date">Target delivery date</label><input class="form-control" id="quote-date" name="date" type="date"></div>
+                                <div class="col-md-6"><label class="form-label" for="quote-finish">Required model / finish</label><input class="form-control" id="quote-finish" name="finish" placeholder="Model, colour, material or finish"></div>
+                                <div class="col-md-6"><label class="form-label" for="quote-packaging">Packaging requirement</label><input class="form-control" id="quote-packaging" name="packaging" placeholder="Standard export packing or project requirement"></div>
+                                <div class="col-12"><label class="form-label" for="quote-inspection">Inspection requirement</label><select class="form-select" id="quote-inspection" name="inspection"><option value="">Not specified</option><option>Pre-shipment inspection information required</option><option>Third-party inspection planned</option><option>Please advise available inspection arrangement</option></select></div>
                                 <div class="col-12"><label class="form-label" for="quote-message">Requirements *</label><textarea class="form-control" id="quote-message" name="message" rows="5" required placeholder="Tell us about dimensions, materials, finishes, models or other requirements."></textarea></div>
                             </div>
                             <div class="d-flex flex-wrap gap-3 mt-4">
@@ -331,7 +334,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script src="js/contact.js"></script>
+    <script src="js/contact.js?v=20260813-procurement-fields"></script>
 </body>
 
 </html>

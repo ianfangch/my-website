@@ -1102,6 +1102,34 @@ p {
 .flooring-swatch img { display: block; width: 100%; aspect-ratio: 3.8 / 1; object-fit: cover; }
 .flooring-swatch span { display: block; padding: 8px 9px; color: #113130; font-size: .72rem; font-weight: 700; }
 .flooring-palette-image { display: block; width: 100%; height: auto; max-height: 660px; object-fit: contain; object-position: top center; }
+
+.process-notice { display: flex; gap: 16px; padding: 22px; border-left: 3px solid var(--primary); background: #fff; }
+.process-notice i { margin-top: 4px; color: var(--primary); font-size: 1.25rem; }
+.commercial-check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.commercial-check-grid article { padding: 26px; border: 1px solid #dce4dd; background: #fff; }
+.commercial-check-grid i { color: var(--primary); font-size: 1.5rem; }
+.commercial-check-grid h3 { margin: 14px 0 8px; font-size: 1.2rem; }
+.commercial-check-grid p { margin: 0; color: #656d69; line-height: 1.65; }
+.category-control-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.category-control-grid article { padding: 30px; border-top: 3px solid var(--primary); background: #f3f7f4; }
+.category-control-grid h3 { margin-bottom: 18px; font-size: 1.3rem; }
+.category-control-grid ul { margin: 0; padding-left: 18px; }
+.category-control-grid li { margin-bottom: 10px; color: #5f6763; line-height: 1.55; }
+.shipment-checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; margin: 0; padding: 0; list-style: none; }
+.shipment-checklist li { position: relative; padding: 12px 12px 12px 38px; border: 1px solid rgba(255,255,255,.16); }
+.shipment-checklist li::before { position: absolute; left: 14px; color: var(--primary); content: "\2713"; font-weight: 700; }
+.shipment-stage { height: 100%; padding: 28px; border: 1px solid rgba(255,255,255,.16); }
+.shipment-stage span { color: var(--primary); font-weight: 700; }
+.shipment-stage h3 { margin: 12px 0; color: #fff; font-size: 1.25rem; }
+.shipment-stage p { margin: 0; color: rgba(255,255,255,.62); line-height: 1.65; }
+
+@media (max-width: 991.98px) {
+    .category-control-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 575.98px) {
+    .commercial-check-grid, .category-control-grid, .shipment-checklist { grid-template-columns: 1fr; }
+}
 .flooring-application { display: flex; flex-direction: column; background: #113130; }
 .flooring-application-image { position: relative; flex: 1; min-height: 590px; overflow: hidden; }
 .flooring-application-image img { width: 100%; height: 100%; object-fit: cover; }
