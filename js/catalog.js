@@ -441,6 +441,8 @@
                     '<p>Add products from the catalogue, then return here to send one combined request.</p>' +
                     '<a class="btn btn-primary" href="/products#catalog">Browse Products</a></div>';
                 document.getElementById("send-enquiry-email").classList.add("disabled");
+                var emptyWhatsApp = document.getElementById("send-enquiry-whatsapp");
+                if (emptyWhatsApp) emptyWhatsApp.classList.add("disabled");
                 return;
             }
 
@@ -467,6 +469,11 @@
             email.href = "mailto:sales@ianproject.com?subject=" +
                 encodeURIComponent("Product Enquiry - IanProject") + "&body=" + encodeURIComponent(body);
             email.classList.remove("disabled");
+            var whatsapp = document.getElementById("send-enquiry-whatsapp");
+            if (whatsapp) {
+                whatsapp.href = "https://wa.me/8619956229033?text=" + encodeURIComponent(body);
+                whatsapp.classList.remove("disabled");
+            }
         }
 
         target.addEventListener("change", function (event) {
@@ -499,11 +506,22 @@
         });
     }
 
+    function addQuoteCta() {
+        if (document.getElementById("site-quote-cta") || document.getElementById("quote-builder-form") || document.getElementById("send-enquiry-email")) return;
+        var link = document.createElement("a");
+        link.id = "site-quote-cta";
+        link.className = "site-quote-cta";
+        link.href = "/contact#quote-builder-form";
+        link.innerHTML = '<i class="fa fa-file-alt" aria-hidden="true"></i><span>Request a Quote</span>';
+        document.body.appendChild(link);
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
         updateEnquiryCount();
         renderCatalog();
         renderProductDetail();
         renderEnquiry();
         bindAddButtons();
+        addQuoteCta();
     });
 }());
