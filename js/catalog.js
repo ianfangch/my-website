@@ -46,9 +46,13 @@
     }
 
     function productContactLink(product, compact) {
-        var sizeClass = compact ? "" : " px-4 py-3";
-        var label = compact ? "Contact Us" : "Contact";
-        return '<a class="btn btn-primary' + sizeClass + '" href="/contact#quote-builder-form">' + label + '</a>';
+        if (compact) {
+            return '<a class="btn btn-primary" href="/contact#quote-builder-form">Contact Us</a>';
+        }
+        var catalogueSubject = encodeURIComponent(product.name + " Catalogue Request");
+        var catalogueBody = encodeURIComponent("Hello IanProject,\n\nPlease send me the current catalogue and available options for " + product.name + ".");
+        return '<a class="btn btn-outline-primary px-4 py-3" href="mailto:sales@ianproject.com?subject=' + catalogueSubject + '&body=' + catalogueBody + '">Request Catalogue</a>' +
+            '<a class="btn btn-primary px-4 py-3" href="/contact#quote-builder-form">Request a Quote</a>';
     }
 
     function priceMarkup(product, compact) {
