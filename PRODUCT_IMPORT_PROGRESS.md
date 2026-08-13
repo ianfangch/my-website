@@ -130,6 +130,16 @@ Batch 11 processes source positions 63–68 of 85 and adds five distinct cabinet
 
 Batch 12 processes source positions 69–74 of 85 and adds five distinct cabinetry products with 30 optimized, logo-free images, edited English copy, prices, specifications and dedicated SEO pages. Source page `62749673` at position 72 was skipped because model `OLCG041-2` repeats the white, wood and ribbed-grey island kitchen already published as `OLCG041` from source page `62749446`.
 
+## Published cabinet batch 13
+
+61. `OLCG026-1` - Graphite and Walnut Island Kitchen
+62. `OLCG031-1` - Black Shaker Island Kitchen
+63. `OLCG039-1` - Grey and Walnut Peninsula Kitchen
+64. `OLCG040-1` - Concrete Grey Island Kitchen
+65. `OLCG034` - White Concrete Dining Kitchen
+
+Batch 13 processes source positions 75–81 of 85 and adds five distinct cabinetry products with 30 optimized, logo-free images, edited English copy, prices, specifications and dedicated SEO pages. Source page `62749760` at position 75 was skipped because model `OLCG001-1` repeats the existing `OLCG001` European White Solid-Wood Kitchen. Source page `62749786` at position 76 was skipped because model `OLCG002-3` repeats the existing `OLCG002` Charcoal Wood Dining Kitchen.
+
 ## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
@@ -138,13 +148,13 @@ Batch 12 processes source positions 69–74 of 85 and adds five distinct cabinet
 - Products remain enquiry-based rather than direct online checkout.
 - Every published product now has a dedicated crawlable URL under `/products/`.
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
-- All sixty dedicated cabinetry URLs are listed in `sitemap.xml`.
+- All sixty-five dedicated cabinetry URLs are listed in `sitemap.xml`.
 
-## Next cabinet batch after batch 12
+## Next cabinet batch after batch 13
 
-- Resume at source position 75 of 85, page `62749760`: “European modular kitchen home improvement kitchen cabinet”. Continue screening repeated source listings before assigning cabinet positions 61–65.
+- Resume at source position 82 of 85, page `62749704`: “Modern kitchen cabinet furniture cabinet designs”. This page visually repeats the existing `OLCG032` White and Oak Linear Kitchen and should be skipped; continue checking the remaining source pages before assigning another cabinetry position.
 - Continue in source-category order and use the same image, data, naming and SEO standard.
-- Do not re-import or regenerate the first sixty cabinetry products unless the user requests changes.
+- Do not re-import or regenerate the first sixty-five cabinetry products unless the user requests changes.
 
 ## Sink batch 1
 
