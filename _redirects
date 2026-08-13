@@ -15,3 +15,6 @@
 /blog/* /insights 301
 /oulin /about 301
 /oulin.html /about 301
+
+/enquiry /contact 301
+/enquiry.html /contact 301

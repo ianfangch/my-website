@@ -49,13 +49,5 @@
         items: 1
     });
 
-    if (!document.getElementById("site-quote-cta") && !document.getElementById("quote-builder-form")) {
-        var quoteCta = document.createElement("a");
-        quoteCta.id = "site-quote-cta";
-        quoteCta.className = "site-quote-cta";
-        quoteCta.href = "/contact#quote-builder-form";
-        quoteCta.innerHTML = '<i class="fa fa-file-alt" aria-hidden="true"></i><span>Request a Quote</span>';
-        document.body.appendChild(quoteCta);
-    }
 })(jQuery);
 
