@@ -1089,18 +1089,11 @@ p {
 }
 
 .flooring-product-heading {
-    display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(260px, .7fr);
-    gap: 64px;
-    align-items: end;
     margin-bottom: 48px;
 }
 
 .flooring-product-heading h1 { font-size: clamp(2.5rem, 5vw, 4.8rem); }
 .flooring-product-heading p { max-width: 760px; color: #6b6f6d; line-height: 1.7; }
-.flooring-quote-note { padding: 24px; border-left: 3px solid var(--primary); background: #eef4ed; }
-.flooring-quote-note strong, .flooring-quote-note span { display: block; }
-.flooring-quote-note span { margin-top: 8px; color: #5f6763; font-size: .9rem; line-height: 1.55; }
 .flooring-showcase { display: grid; grid-template-columns: minmax(360px, 40%) 1fr; border: 1px solid #dce4dd; }
 .flooring-colours { padding: 42px; background: #fff; }
 .flooring-colours h2 { margin-bottom: 28px; }
