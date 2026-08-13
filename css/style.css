@@ -421,8 +421,11 @@ p {
     line-height: 1.75;
 }
 
-.navbar-brand h1 {
+.navbar-brand .site-brand {
+    display: block;
     font-size: 30px;
+    font-weight: 500;
+    line-height: 1.2;
     letter-spacing: -.04em;
 }
 
