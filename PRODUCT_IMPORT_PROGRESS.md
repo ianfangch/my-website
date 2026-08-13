@@ -1,6 +1,6 @@
 # Product Import Progress
 
-Last updated: 2026-08-05
+Last updated: 2026-08-13
 
 ## Agreed source and publishing rules
 
@@ -90,6 +90,16 @@ Batch 7 contains 30 optimized, logo-free product images, concise English product
 
 Batch 8 contains 30 optimized, logo-free product images, edited English copy, prices, specifications, full customisation and commercial information, and five dedicated SEO pages. Source pages `62749349`, `62749651`, `62749649`, and `62749560` were skipped because their image sets duplicated products already represented in the catalogue. `OL62749322` and `OL62749720` use traceable source-page codes because those listings do not provide a usable manufacturer model.
 
+## Published cabinet batch 9
+
+41. `OLCG019-1` — Rustic White Corner Kitchen
+42. `OLCG016-1` — Blue Solid-Wood Corner Kitchen
+43. `OLCG016-3` — Blue and White Storage Kitchen
+44. `OLCG050` — Matte Wood Apartment Kitchen
+45. `OLCG041` — European Lacquer Island Kitchen
+
+Batch 9 contains 30 optimized, logo-free product images, edited English copy, source-aligned prices and specifications, complete commercial and customisation information, and five dedicated SEO pages. All five source image sets were screened against the existing forty cabinetry products before publication.
+
 ## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
@@ -98,13 +108,13 @@ Batch 8 contains 30 optimized, logo-free product images, edited English copy, pr
 - Products remain enquiry-based rather than direct online checkout.
 - Every published product now has a dedicated crawlable URL under `/products/`.
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
-- All forty dedicated product URLs are listed in `sitemap.xml`.
+- All forty-five dedicated cabinetry URLs are listed in `sitemap.xml`.
 
-## Next batch after batch 8
+## Next cabinet batch after batch 9
 
-- Resume at source page `62749498`: “American pastoral shaped paint door style kitchen cabinet”. Continue screening repeated source listings before assigning the next five catalogue positions.
+- Resume at source page `62749671`: “new luxury white quartz countertop kitchen cabinet”. Continue screening repeated source listings before assigning cabinet positions 46–50.
 - Continue in source-category order and use the same image, data, naming and SEO standard.
-- Do not re-import or regenerate the first forty products unless the user requests changes.
+- Do not re-import or regenerate the first forty-five cabinetry products unless the user requests changes.
 
 ## Sink batch 1
 
