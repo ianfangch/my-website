@@ -724,12 +724,16 @@ p {
 }
 
 .countertop-detail .product-detail-image {
-    aspect-ratio: 1.95 / 1;
+    aspect-ratio: auto;
 }
 
 .countertop-detail .product-detail-image img,
 .countertop-detail .product-direct-image img {
     object-fit: contain;
+}
+
+.countertop-detail .product-detail-image img {
+    height: auto;
 }
 
 .countertop-detail .product-direct-image {
