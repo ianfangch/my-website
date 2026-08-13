@@ -1,6 +1,6 @@
 # Product Import Progress
 
-Last updated: 2026-08-05
+Last updated: 2026-08-13
 
 ## Agreed source and publishing rules
 
@@ -90,6 +90,67 @@ Batch 7 contains 30 optimized, logo-free product images, concise English product
 
 Batch 8 contains 30 optimized, logo-free product images, edited English copy, prices, specifications, full customisation and commercial information, and five dedicated SEO pages. Source pages `62749349`, `62749651`, `62749649`, and `62749560` were skipped because their image sets duplicated products already represented in the catalogue. `OL62749322` and `OL62749720` use traceable source-page codes because those listings do not provide a usable manufacturer model.
 
+## Published cabinet batch 9
+
+41. `OLCG019-1` — Rustic White Corner Kitchen
+42. `OLCG016-1` — Blue Solid-Wood Corner Kitchen
+43. `OLCG016-3` — Blue and White Storage Kitchen
+44. `OLCG050` — Matte Wood Apartment Kitchen
+45. `OLCG041` — European Lacquer Island Kitchen
+
+Batch 9 contains 30 optimized, logo-free product images, edited English copy, source-aligned prices and specifications, complete commercial and customisation information, and five dedicated SEO pages. All five source image sets were screened against the existing forty cabinetry products before publication.
+
+## Published cabinet batch 10
+
+46. `OLCG042-2` — White and Walnut Linear Kitchen
+47. `OLCG010` — Ivory Solid-Wood Peninsula Kitchen
+48. `OLCG001` — European White Solid-Wood Kitchen
+49. `OLCG003` — Dark Walnut Solid-Wood Island Kitchen
+50. `OLCG032` — White and Oak Linear Kitchen
+
+Batch 10 processes source positions 57–62 of 85 and adds five distinct cabinetry products with 30 optimized, logo-free images, edited English copy, prices, specifications and dedicated SEO pages. Source page `62749466` at position 61 was skipped because it represents the same dark solid-wood kitchen as source page `62749353`, using overlapping views and the related model `OLCG003-2`.
+
+## Published cabinet batch 11
+
+51. `OLCG030` — White and Wood Smart Storage Kitchen
+52. `OLCG027` — Grey Glass-Front Island Kitchen
+53. `OL62749319` — Grey European Island Kitchen
+54. `OLCG043` — Black and White Storage Kitchen
+55. `OLCG037-2` — Classic White Compact Kitchen
+
+Batch 11 processes source positions 63–68 of 85 and adds five distinct cabinetry products with 30 optimized, logo-free images, edited English copy, prices, specifications and dedicated SEO pages. Source page `62749315` at position 65 was skipped because it repeats the white-and-wood kitchen from source page `62749419` with overlapping views and the related model `OLCG030-2`. `OL62749319` uses a traceable source-page code because its listing does not publish a usable manufacturer model.
+
+## Published cabinet batch 12
+
+56. `OLCG061` - Grey Lacquer Peninsula Kitchen
+57. `OLCG057` - Dark Walnut and Grey Linear Kitchen
+58. `OLCG058` - White Oak Glass-Front Island Kitchen
+59. `OLCG054` - Charcoal and Oak Island Kitchen
+60. `OLCG052` - Taupe and Walnut Dining Kitchen
+
+Batch 12 processes source positions 69–74 of 85 and adds five distinct cabinetry products with 30 optimized, logo-free images, edited English copy, prices, specifications and dedicated SEO pages. Source page `62749673` at position 72 was skipped because model `OLCG041-2` repeats the white, wood and ribbed-grey island kitchen already published as `OLCG041` from source page `62749446`.
+
+## Published cabinet batch 13
+
+61. `OLCG026-1` - Graphite and Walnut Island Kitchen
+62. `OLCG031-1` - Black Shaker Island Kitchen
+63. `OLCG039-1` - Grey and Walnut Peninsula Kitchen
+64. `OLCG040-1` - Concrete Grey Island Kitchen
+65. `OLCG034` - White Concrete Dining Kitchen
+
+Batch 13 processes source positions 75–81 of 85 and adds five distinct cabinetry products with 30 optimized, logo-free images, edited English copy, prices, specifications and dedicated SEO pages. Source page `62749760` at position 75 was skipped because model `OLCG001-1` repeats the existing `OLCG001` European White Solid-Wood Kitchen. Source page `62749786` at position 76 was skipped because model `OLCG002-3` repeats the existing `OLCG002` Charcoal Wood Dining Kitchen.
+
+## Final cabinet source audit
+
+Source positions 82–85 of 85 were reviewed and all four were skipped because they repeat cabinetry products already published in the catalogue:
+
+- Position 82, page `62749704`, model `OLCG032-3`, repeats `OLCG032` White and Oak Linear Kitchen.
+- Position 83, page `62749700`, model `OLCG030-3`, repeats the complete six-image set used by `OLCG030` White and Wood Smart Storage Kitchen.
+- Position 84, page `62749515`, model `OLCG034-1`, repeats `OLCG034` White Concrete Dining Kitchen from source page `62749422`.
+- Position 85, page `62749653`, model `OLCG036-2`, repeats `OLCG036` Blue Shaker Corner Kitchen.
+
+All 85 cabinetry source listings have now been processed. The catalogue contains 65 distinct published cabinetry products; duplicate source listings were deliberately excluded.
+
 ## Catalogue and SEO decisions
 
 - Product cards use an approximately 50/50 image-to-copy split.
@@ -98,13 +159,13 @@ Batch 8 contains 30 optimized, logo-free product images, edited English copy, pr
 - Products remain enquiry-based rather than direct online checkout.
 - Every published product now has a dedicated crawlable URL under `/products/`.
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
-- All forty dedicated product URLs are listed in `sitemap.xml`.
+- All sixty-five dedicated cabinetry URLs are listed in `sitemap.xml`.
 
-## Next batch after batch 8
+## Cabinet source status
 
-- Resume at source page `62749498`: “American pastoral shaped paint door style kitchen cabinet”. Continue screening repeated source listings before assigning the next five catalogue positions.
-- Continue in source-category order and use the same image, data, naming and SEO standard.
-- Do not re-import or regenerate the first forty products unless the user requests changes.
+- Source processing is complete at position 85 of 85.
+- There is no remaining product in the current OULIN cabinetry source list.
+- Do not re-import or regenerate the sixty-five published cabinetry products unless the user requests changes or provides a new source list.
 
 ## Sink batch 1
 
