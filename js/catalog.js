@@ -4,8 +4,6 @@
     var catalog = window.IAN_CATALOG;
     if (!catalog) return;
 
-    var storageKey = "ianproject-enquiry";
-
     function escapeHtml(value) {
         return String(value == null ? "" : value)
             .replace(/&/g, "&amp;")
@@ -47,18 +45,17 @@
         });
     }
 
-    function getEnquiry() {
-        try {
-            var parsed = JSON.parse(localStorage.getItem(storageKey) || "[]");
-            return Array.isArray(parsed) ? parsed : [];
-        } catch (error) {
-            return [];
-        }
-    }
-
-    function saveEnquiry(items) {
-        localStorage.setItem(storageKey, JSON.stringify(items));
-        updateEnquiryCount();
+    function productContactLinks(product, compact) {
+        var subject = "Product Enquiry - " + product.code + " - " + product.name;
+        var message = "Hello IanProject team,\n\nI would like a quotation for:\nProduct: " + product.name +
+            "\nModel: " + product.code + "\n\nQuantity:\nDelivery destination:\nRequired date:\n\nThank you.";
+        var sizeClass = compact ? "" : " px-4 py-3";
+        return '<a class="btn btn-primary' + sizeClass + '" href="mailto:sales@ianproject.com?subject=' +
+            encodeURIComponent(subject) + '&amp;body=' + encodeURIComponent(message) +
+            '"><i class="fa fa-envelope me-2" aria-hidden="true"></i>Email</a>' +
+            '<a class="btn btn-outline-dark' + sizeClass + '" href="https://wa.me/8619956229033?text=' +
+            encodeURIComponent(message) + '" target="_blank" rel="noopener">' +
+            '<i class="fab fa-whatsapp me-2" aria-hidden="true"></i>WhatsApp</a>';
     }
 
     function priceMarkup(product, compact) {
@@ -80,40 +77,6 @@
             '</strong><small>' + escapeHtml(product.priceUnit || "") + "</small></div>";
     }
 
-    function addToEnquiry(productId) {
-        var items = getEnquiry();
-        var existing = items.find(function (item) { return item.id === productId; });
-        if (existing) {
-            existing.quantity += 1;
-        } else {
-            items.push({ id: productId, quantity: 1 });
-        }
-        saveEnquiry(items);
-        showNotice("Added to enquiry list");
-    }
-
-    function showNotice(message) {
-        var notice = document.getElementById("catalog-notice");
-        if (!notice) {
-            notice = document.createElement("div");
-            notice.id = "catalog-notice";
-            notice.className = "catalog-notice";
-            notice.setAttribute("role", "status");
-            document.body.appendChild(notice);
-        }
-        notice.textContent = message;
-        notice.classList.add("show");
-        window.setTimeout(function () { notice.classList.remove("show"); }, 1800);
-    }
-
-    function updateEnquiryCount() {
-        var count = getEnquiry().reduce(function (total, item) { return total + item.quantity; }, 0);
-        document.querySelectorAll("[data-enquiry-count]").forEach(function (element) {
-            element.textContent = count;
-            element.hidden = count === 0;
-        });
-    }
-
     function productCard(product) {
         var category = getCategory(product.category);
         var isSeriesCollection = /-series-quartz-collection$/.test(product.id);
@@ -128,7 +91,7 @@
             priceMarkup(product, true) +
             '<div class="d-flex flex-wrap gap-2 mt-4">' +
             '<a class="btn btn-outline-primary" href="' + escapeHtml(productUrl(product)) + '">View Details</a>' +
-            '<button class="btn btn-primary" type="button" data-add-product="' + escapeHtml(product.id) + '">Add to Enquiry</button>' +
+            productContactLinks(product, true) +
             "</div></div></article>";
     }
 
@@ -177,7 +140,6 @@
             grid.innerHTML = products.length ? products.map(productCard).join("") :
                 '<div class="catalog-empty"><h3>No products in this category yet.</h3>' +
                 '<p>The category is ready for future products. Send us the first product images, codes and prices to publish them.</p></div>';
-            bindAddButtons();
         }
 
         filterContainer.addEventListener("click", function (event) {
@@ -386,15 +348,13 @@
             priceMarkup(product, false) +
             '<p class="catalog-price-note">Displayed prices exclude freight, duties, installation and project-specific changes unless stated otherwise.</p>' +
             (compactCatalogue ? "" : '<ul class="product-highlights list-unstyled my-4">' + highlights + "</ul>") +
-            '<div class="d-flex flex-wrap gap-3"><button class="btn btn-primary px-4 py-3" type="button" data-add-product="' +
-            escapeHtml(product.id) + '">Add to Enquiry</button><a class="btn btn-outline-dark px-4 py-3" href="/enquiry">View Enquiry List</a></div></div>' +
+            '<div class="d-flex flex-wrap gap-3">' + productContactLinks(product, false) + '</div></div>' +
             (compactCatalogue ? catalogueRowsMarkup + commercialMarkup : directGalleryMarkup +
             descriptionMarkup +
             '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
             '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div>" +
             faqMarkup + contactMarkup + customisationMarkup + commercialMarkup) + "</div>";
         bindProductBackLink();
-        bindAddButtons();
     }
 
     function renderFlooringProductDetail(target, product) {
@@ -430,98 +390,8 @@
         bindProductBackLink();
     }
 
-    function renderEnquiry() {
-        var target = document.getElementById("enquiry-list");
-        if (!target) return;
-
-        function draw() {
-            var items = getEnquiry();
-            if (!items.length) {
-                target.innerHTML = '<div class="catalog-empty"><h2>Your enquiry list is empty.</h2>' +
-                    '<p>Add products from the catalogue, then return here to send one combined request.</p>' +
-                    '<a class="btn btn-primary" href="/products#catalog">Browse Products</a></div>';
-                document.getElementById("send-enquiry-email").classList.add("disabled");
-                var emptyWhatsApp = document.getElementById("send-enquiry-whatsapp");
-                if (emptyWhatsApp) emptyWhatsApp.classList.add("disabled");
-                return;
-            }
-
-            target.innerHTML = items.map(function (item) {
-                var product = getProduct(item.id);
-                if (!product) return "";
-                return '<div class="enquiry-item"><img src="' + escapeHtml(product.image) + '" alt="">' +
-                    '<div class="enquiry-item-main"><p>' + escapeHtml(product.code) + '</p><h3>' +
-                    escapeHtml(product.name) + "</h3>" + priceMarkup(product, true) + "</div>" +
-                    '<div class="enquiry-quantity"><label for="qty-' + escapeHtml(product.id) + '">Quantity</label>' +
-                    '<input id="qty-' + escapeHtml(product.id) + '" type="number" min="1" value="' + item.quantity +
-                    '" data-quantity-product="' + escapeHtml(product.id) + '"></div>' +
-                    '<button class="btn btn-link text-danger" type="button" data-remove-product="' +
-                    escapeHtml(product.id) + '">Remove</button></div>';
-            }).join("");
-
-            var lines = items.map(function (item) {
-                var product = getProduct(item.id);
-                return product ? "- " + product.code + " | " + product.name + " | Quantity: " + item.quantity : "";
-            }).filter(Boolean);
-            var body = "Hello IanProject team,\n\nPlease quote the following products:\n\n" +
-                lines.join("\n") + "\n\nCompany:\nCountry:\nDelivery destination:\nRequired date:\n\nThank you.";
-            var email = document.getElementById("send-enquiry-email");
-            email.href = "mailto:sales@ianproject.com?subject=" +
-                encodeURIComponent("Product Enquiry - IanProject") + "&body=" + encodeURIComponent(body);
-            email.classList.remove("disabled");
-            var whatsapp = document.getElementById("send-enquiry-whatsapp");
-            if (whatsapp) {
-                whatsapp.href = "https://wa.me/8619956229033?text=" + encodeURIComponent(body);
-                whatsapp.classList.remove("disabled");
-            }
-        }
-
-        target.addEventListener("change", function (event) {
-            var input = event.target.closest("[data-quantity-product]");
-            if (!input) return;
-            var items = getEnquiry();
-            var item = items.find(function (candidate) { return candidate.id === input.getAttribute("data-quantity-product"); });
-            if (item) item.quantity = Math.max(1, parseInt(input.value, 10) || 1);
-            saveEnquiry(items);
-            draw();
-        });
-        target.addEventListener("click", function (event) {
-            var button = event.target.closest("[data-remove-product]");
-            if (!button) return;
-            saveEnquiry(getEnquiry().filter(function (item) {
-                return item.id !== button.getAttribute("data-remove-product");
-            }));
-            draw();
-        });
-        draw();
-    }
-
-    function bindAddButtons() {
-        document.querySelectorAll("[data-add-product]").forEach(function (button) {
-            if (button.dataset.bound) return;
-            button.dataset.bound = "true";
-            button.addEventListener("click", function () {
-                addToEnquiry(button.getAttribute("data-add-product"));
-            });
-        });
-    }
-
-    function addQuoteCta() {
-        if (document.getElementById("site-quote-cta") || document.getElementById("quote-builder-form") || document.getElementById("send-enquiry-email")) return;
-        var link = document.createElement("a");
-        link.id = "site-quote-cta";
-        link.className = "site-quote-cta";
-        link.href = "/contact#quote-builder-form";
-        link.innerHTML = '<i class="fa fa-file-alt" aria-hidden="true"></i><span>Request a Quote</span>';
-        document.body.appendChild(link);
-    }
-
     document.addEventListener("DOMContentLoaded", function () {
-        updateEnquiryCount();
         renderCatalog();
         renderProductDetail();
-        renderEnquiry();
-        bindAddButtons();
-        addQuoteCta();
     });
 }());
