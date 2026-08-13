@@ -178,9 +178,11 @@
                     { code: "3434", note: "Brushed", size: "340 x 340 x 180 mm", cutout: "320 x 320 mm", material: "304 stainless steel, one-piece drawn" },
                     { code: "3636", note: "Brushed", size: "360 x 360 x 180 mm", cutout: "340 x 340 mm", material: "304 stainless steel, one-piece drawn" }
                 ]},
-                { image: "img/products/round-stainless-steel-sinks/row-3.jpg", imageAlt: "Round sink models 4040, 4242 and 4545", models: [
+                { image: "img/products/round-stainless-steel-sinks/row-3.jpg", imageAlt: "Round sink models 4040 and 4242", models: [
                     { code: "4040", note: "Brushed", size: "400 x 400 x 180 mm", cutout: "380 x 380 mm", material: "304 stainless steel, one-piece drawn" },
-                    { code: "4242", note: "Brushed", size: "420 x 420 x 180 mm", cutout: "400 x 400 mm", material: "304 stainless steel, one-piece drawn" },
+                    { code: "4242", note: "Brushed", size: "420 x 420 x 180 mm", cutout: "400 x 400 mm", material: "304 stainless steel, one-piece drawn" }
+                ]},
+                { image: "img/products/round-stainless-steel-sinks/row-4.jpg", imageAlt: "Round sink model 4545", models: [
                     { code: "4545", note: "Brushed", size: "450 x 450 x 180 mm", cutout: "430 x 430 mm", material: "304 stainless steel, one-piece drawn" }
                 ]}
             ]
