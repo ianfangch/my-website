@@ -90,6 +90,25 @@
             "</div></div></article>";
     }
 
+    function procurementMarkup() {
+        var information = {
+            "MOQ": "Confirmed after the product, finish and order combination are reviewed",
+            "Production planning": "Confirmed after specifications, quantity, approvals and packaging requirements are agreed",
+            "Quality review": "Applicable checks are aligned with the approved product and order requirements",
+            "Packaging": "Confirmed according to product configuration, order quantity and delivery requirements",
+            "Loading and shipment": "Confirmed with the packing information, destination and agreed shipment arrangement"
+        };
+        return '<section class="col-12 mt-5 product-info-section product-procurement-summary">' +
+            '<p class="text-uppercase text-primary mb-2">Procurement information</p>' +
+            '<h2 class="mb-4">Order, Quality &amp; Delivery</h2>' +
+            '<div class="table-responsive"><table class="table product-commercial-table"><tbody>' +
+            Object.keys(information).map(function (key) {
+                return '<tr><th>' + escapeHtml(key) + '</th><td>' + escapeHtml(information[key]) + '</td></tr>';
+            }).join("") + '</tbody></table></div>' +
+            '<div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-outline-primary" href="/quality-process">View Quality &amp; Process</a>' +
+            '<a class="btn btn-primary" href="/contact#quote-builder-form">Confirm Project Requirements</a></div></section>';
+    }
+
     function renderCatalog() {
         var grid = document.getElementById("catalog-grid");
         if (!grid) return;
@@ -302,7 +321,7 @@
                     escapeHtml(option) + "</span></li>";
             }).join("") + "</ul>" + '<p class="product-info-note">' +
                 escapeHtml(customisationNote) + "</p></section>" : "";
-        var commercialMarkup = !isCountertop && commercialInformation ?
+        var legacyCommercialMarkup = !isCountertop && commercialInformation ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Commercial &amp; Delivery Information</h2>' +
             '<div class="table-responsive"><table class="table product-commercial-table"><tbody>' +
             Object.keys(commercialInformation).map(function (key) {
@@ -310,6 +329,7 @@
                     escapeHtml(commercialInformation[key]) + "</td></tr>";
             }).join("") + "</tbody></table></div>" +
                 '<p class="product-info-note">' + escapeHtml(commercialNote) + "</p></section>" : "";
+        var commercialMarkup = procurementMarkup();
         var catalogueRowsMarkup = Array.isArray(product.catalogueRows) ?
             '<section class="col-12 mt-5"><div class="pb-3 mb-2 border-bottom">' +
             '<p class="text-uppercase text-primary mb-2">Sink Collection</p>' +
@@ -381,7 +401,8 @@
             '<div class="d-flex flex-wrap gap-2"><a class="btn btn-light" href="/catalogues">Catalogue Download</a>' +
             '<a class="btn btn-outline-light" href="/contact#quote-builder-form">Request a Quote</a></div></div></div></section>' +
             '<section class="flooring-product-info"><div><p class="text-uppercase text-primary mb-2">Product details</p><h2>Flooring options for coordinated interiors</h2>' +
-            '<p>' + escapeHtml(product.descriptionParagraphs[0]) + '</p></div><div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + '</tbody></table></div></section>';
+            '<p>' + escapeHtml(product.descriptionParagraphs[0]) + '</p></div><div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + '</tbody></table></div></section>' +
+            '<div class="row">' + procurementMarkup() + '</div>';
         bindProductBackLink();
     }
 
