@@ -347,6 +347,13 @@
                             '</p><p class="mb-0"><strong>Material:</strong> ' + escapeHtml(model.material || '304 stainless steel with thickened rim') + '</p></div>';
                     }).join("") + '</div></div>';
             }).join("") + '</section>' : "";
+        var optionRowsMarkup = Array.isArray(product.optionRows) ?
+            '<section class="col-12 mt-5 product-options"><div class="pb-3 mb-4 border-bottom">' +
+            '<p class="text-uppercase text-primary mb-2">Available Options</p><h2 class="mb-0">Sizes &amp; Configurations</h2></div>' +
+            '<div class="table-responsive"><table class="table table-bordered align-middle product-options-table"><thead><tr><th>Option</th><th>Cabinet</th><th>Bins / capacity</th><th>Lid &amp; tray</th><th>Product size<br><small>W × D × H</small></th><th>Required cabinet clearance</th><th>Frame / slides</th></tr></thead><tbody>' +
+            product.optionRows.map(function (row) {
+                return '<tr><th scope="row">' + escapeHtml(row.sku) + (row.note ? '<small>' + escapeHtml(row.note) + '</small>' : '') + '</th><td>' + escapeHtml(row.cabinet) + '</td><td><strong>' + escapeHtml(row.bins) + '</strong><small>' + escapeHtml(row.capacity) + '</small></td><td>' + escapeHtml(row.lid) + '</td><td>' + escapeHtml(row.productSize) + '</td><td><small>Width</small>' + escapeHtml(row.clearWidth) + '<br><small>Depth</small>' + escapeHtml(row.clearDepth) + '<br><small>Height</small>' + escapeHtml(row.clearHeight) + '</td><td>' + escapeHtml(row.frame) + '</td></tr>';
+            }).join("") + '</tbody></table></div><p class="product-info-note mt-3">Dimensions shown are source reference measurements. Allow for installation tolerances and confirm the finished cabinet opening before ordering.</p></section>' : "";
         var compactCatalogue = Array.isArray(product.catalogueRows);
 
         document.title = product.name + " | IanProject";
@@ -368,7 +375,7 @@
             descriptionMarkup +
             '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
             '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div>" +
-            faqMarkup + contactMarkup + customisationMarkup + commercialMarkup) + "</div>";
+            optionRowsMarkup + faqMarkup + contactMarkup + customisationMarkup + commercialMarkup) + "</div>";
         bindProductBackLink();
     }
 

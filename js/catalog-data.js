@@ -1723,6 +1723,57 @@
 
     window.IAN_CATALOG.products.unshift(
         {
+            id: "pull-out-kitchen-waste-bin-series",
+            url: "products/pull-out-kitchen-waste-bin-series",
+            category: "accessories",
+            name: "Pull-Out Kitchen Waste Sorting Bin Series",
+            code: "Ref. 874018693970",
+            badge: "Cabinet Accessories",
+            image: "img/products/pull-out-kitchen-waste-bin/1.jpg",
+            images: [
+                "img/products/pull-out-kitchen-waste-bin/1.jpg",
+                "img/products/pull-out-kitchen-waste-bin/2.jpg",
+                "img/products/pull-out-kitchen-waste-bin/3.jpg",
+                "img/products/pull-out-kitchen-waste-bin/4.jpg",
+                "img/products/pull-out-kitchen-waste-bin/5.jpg"
+            ],
+            imageAlt: "Pull-out kitchen cabinet waste sorting bins with covered storage tray",
+            quoteOnly: true,
+            summary: "A concealed pull-out waste sorting system with removable inner bins and configurations for 300–600 mm kitchen base cabinets.",
+            seoDescription: "Concealed pull-out kitchen waste sorting bin series for 300–600 mm base cabinets, with two-bin, three-bin and four-bin configurations.",
+            highlights: ["Concealed in the base cabinet", "Removable bins for easier emptying and cleaning", "Two-bin, three-bin and four-bin sorting options", "Selected versions include bin lids and an upper utility tray"],
+            specifications: {
+                "Product type": "Pull-out cabinet waste sorting system",
+                "Cabinet widths": "300 / 400 / 450 / 500 / 600 mm",
+                "Available configurations": "Two-bin, three-bin and four-bin options",
+                "Installation": "Kitchen base cabinet, pull-out mounting",
+                "Colour shown": "Dark grey",
+                "Bin access": "Removable inner containers",
+                "Source reference price": "CNY 320.34–668.00 per set",
+                "Minimum order": "1 set",
+                "Production lead time": "Confirm with quotation"
+            },
+            customisationOptions: ["Cabinet width and internal clear dimensions", "Bin quantity and sorting configuration", "Lid and upper utility tray combination", "Project quantity and export packaging"],
+            optionRows: [
+                { sku: "SKU 1", cabinet: "300 mm", bins: "2 bins", capacity: "Confirm with enquiry", lid: "Small-bin lid; upper utility tray", productSize: "260 × 505 × 500 mm", clearWidth: "260–268 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Two-side slides / ABS frame", note: "Small bin can mount to cabinet front" },
+                { sku: "SKU 2", cabinet: "300 mm", bins: "2 bins", capacity: "Confirm with enquiry", lid: "Two bin lids; upper utility tray", productSize: "260 × 505 × 500 mm", clearWidth: "260–268 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Two-side slides / ABS frame" },
+                { sku: "SKU 3", cabinet: "400 mm", bins: "2 bins", capacity: "18 L × 2", lid: "No bin lids; upper utility tray", productSize: "360 × 500 × 500 mm", clearWidth: "360–368 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Two-side slides / ABS frame" },
+                { sku: "SKU 4", cabinet: "400 mm", bins: "2 bins", capacity: "18 L × 2", lid: "Two bin lids; upper utility tray", productSize: "360 × 500 × 500 mm", clearWidth: "360–368 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Two-side slides / ABS frame" },
+                { sku: "SKU 5", cabinet: "400 mm", bins: "3 bins", capacity: "18 L + 6 L + 5 L", lid: "Small-bin lid; upper utility tray", productSize: "360 × 500 × 500 mm", clearWidth: "360–368 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Two-side slides / ABS frame" },
+                { sku: "SKU 6", cabinet: "400 mm", bins: "3 bins", capacity: "18 L + 6 L + 5 L", lid: "Two small-bin lids; upper utility tray", productSize: "360 × 500 × 500 mm", clearWidth: "360–368 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Two-side slides / ABS frame" },
+                { sku: "SKU 7", cabinet: "450 mm", bins: "2 bins", capacity: "30 L × 2", lid: "No bin lids; upper utility tray", productSize: "410 × 500 × 460 mm", clearWidth: "410–418 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 8", cabinet: "450 mm", bins: "2 bins", capacity: "30 L × 2", lid: "Two bin lids; upper utility tray", productSize: "410 × 500 × 460 mm", clearWidth: "410–418 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 9", cabinet: "500 mm", bins: "2 bins", capacity: "30 L × 2", lid: "No bin lids; upper utility tray", productSize: "460 × 500 × 460 mm", clearWidth: "460–468 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 10", cabinet: "500 mm", bins: "2 bins", capacity: "30 L × 2", lid: "Two bin lids; upper utility tray", productSize: "460 × 500 × 460 mm", clearWidth: "460–468 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 11", cabinet: "600 mm", bins: "2 bins", capacity: "30 L × 2", lid: "No bin lids; upper utility tray", productSize: "560 × 500 × 460 mm", clearWidth: "560–568 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 12", cabinet: "600 mm", bins: "2 bins", capacity: "30 L × 2", lid: "Two bin lids; upper utility tray", productSize: "560 × 500 × 460 mm", clearWidth: "560–568 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 13 / Type A", cabinet: "600 mm", bins: "4 bins", capacity: "18 L × 2 + 10 L × 2", lid: "Two small-bin lids shown; upper utility tray", productSize: "560 × 500 × 460 mm", clearWidth: "560–568 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 14 / Type B", cabinet: "600 mm", bins: "4 bins", capacity: "18 L × 2 + 6 L + 5 L", lid: "Small-bin lid shown; upper utility tray", productSize: "560 × 500 × 460 mm", clearWidth: "560–568 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" }
+            ],
+            customisationNote: "Please provide the cabinet width, internal clear dimensions and preferred bin configuration. Final fit, hardware, capacity and included components are confirmed in the approved quotation.",
+            commercialNote: "The source reference price is CNY 320.34–668.00 per set with a one-set minimum. Final export pricing depends on the selected configuration, quantity, packaging and delivery destination."
+        },
+        {
             id: "handmade-topmount-sink-series-04",
             url: "products/handmade-topmount-sink-series-04",
             category: "sinks",
