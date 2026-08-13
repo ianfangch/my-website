@@ -2,8 +2,6 @@
     const copyButton = document.getElementById("copy-sales-email");
     const status = document.getElementById("copy-email-status");
 
-    if (!copyButton || !status) return;
-
     const fallbackCopy = (value) => {
         const field = document.createElement("textarea");
         field.value = value;
@@ -17,7 +15,7 @@
         return copied;
     };
 
-    copyButton.addEventListener("click", async () => {
+    if (copyButton && status) copyButton.addEventListener("click", async () => {
         const email = copyButton.dataset.email;
         try {
             if (navigator.clipboard && window.isSecureContext) {
@@ -30,4 +28,57 @@
             status.textContent = `Please copy manually: ${email}`;
         }
     });
+
+    const form = document.getElementById("quote-builder-form");
+    const formStatus = document.getElementById("quote-builder-status");
+    if (!form || !formStatus) return;
+
+    const requestedCategory = new URLSearchParams(window.location.search).get("category");
+    if (requestedCategory) {
+        const categoryField = form.elements.category;
+        const matchingOption = Array.from(categoryField.options).find((option) => option.value.toLowerCase() === requestedCategory.toLowerCase());
+        if (matchingOption) categoryField.value = matchingOption.value;
+    }
+
+    const buildMessage = () => {
+        const data = new FormData(form);
+        return [
+            "Hello IanProject team,",
+            "",
+            "I would like to request a quotation.",
+            "",
+            `Name: ${data.get("name") || ""}`,
+            `Company: ${data.get("company") || ""}`,
+            `Country / market: ${data.get("country") || ""}`,
+            `Product category: ${data.get("category") || ""}`,
+            `Project type: ${data.get("project") || ""}`,
+            `Estimated quantity: ${data.get("quantity") || ""}`,
+            `Delivery destination: ${data.get("destination") || ""}`,
+            `Target delivery date: ${data.get("date") || ""}`,
+            "",
+            "Requirements:",
+            data.get("message") || "",
+            "",
+            "Please advise the suitable products, MOQ, indicative pricing and lead time."
+        ].join("\n");
+    };
+
+    const openChannel = (channel) => {
+        if (!form.reportValidity()) {
+            formStatus.textContent = "Please complete the required fields.";
+            return;
+        }
+        const message = buildMessage();
+        const url = channel === "whatsapp"
+            ? `https://wa.me/8619956229033?text=${encodeURIComponent(message)}`
+            : `mailto:sales@ianproject.com?subject=${encodeURIComponent("Project Quote Request - IanProject")}&body=${encodeURIComponent(message)}`;
+        formStatus.textContent = channel === "whatsapp" ? "Opening WhatsApp…" : "Opening your email application…";
+        window.location.href = url;
+    };
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        openChannel("email");
+    });
+    form.querySelector('[data-quote-channel="whatsapp"]').addEventListener("click", () => openChannel("whatsapp"));
 })();
