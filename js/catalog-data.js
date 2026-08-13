@@ -1386,6 +1386,64 @@
 
     window.IAN_CATALOG.products.unshift(
         {
+            id: "italian-black-leather-storage-bed",
+            url: "products/italian-black-leather-storage-bed",
+            category: "furniture",
+            name: "Italian-Style Black Leather Storage Bed",
+            code: "Ref. 997397924847",
+            badge: "Bedroom Furniture",
+            image: "img/products/italian-black-leather-storage-bed/1.jpg",
+            images: [
+                "img/products/italian-black-leather-storage-bed/1.jpg",
+                "img/products/italian-black-leather-storage-bed/2.jpg",
+                "img/products/italian-black-leather-storage-bed/3.jpg",
+                "img/products/italian-black-leather-storage-bed/4.jpg",
+                "img/products/italian-black-leather-storage-bed/5.jpg"
+            ],
+            imageAlt: "Modern Italian-style black leather upholstered bed with a padded headboard",
+            imageAlts: [
+                "Modern Italian-style black leather upholstered bed with a padded headboard",
+                "Black leather storage bed with three open side drawers",
+                "Front view of the black upholstered double bed",
+                "Black leather bed shown in a modern bedroom",
+                "Black upholstered bed product construction and material detail"
+            ],
+            currency: "CNY",
+            price: 1150,
+            priceMax: 3750,
+            priceUnit: "per set",
+            summary: "A modern Italian-inspired black leather bed with a deeply padded headboard and frame, available with standard, gas-lift and drawer-storage structures.",
+            seoDescription: "Italian-style black leather upholstered storage bed in 1.5 m and 1.8 m sizes, CNY 1,150-3,750 per set with a one-set minimum order.",
+            highlights: ["Deeply padded leather headboard", "1.5 m and 1.8 m sizes", "Standard or gas-lift storage structures", "Optional three-drawer storage"],
+            descriptionParagraphs: [
+                "This contemporary bed pairs a black upholstered frame with a generously cushioned, channel-tufted headboard. Its low, clean-lined silhouette suits modern master bedrooms, rental apartments and hotel projects.",
+                "Choose a standard steel-and-wood bed base, a gas-lift storage structure or a three-drawer gas-lift configuration. Final upholstery, internal structure and included components are confirmed in the approved quotation."
+            ],
+            variantOptions: [
+                "1.5 m frame structure (steel-and-wood bed base)",
+                "1.8 m frame structure (steel-and-wood bed base)",
+                "1.5 m gas-lift structure",
+                "1.8 m gas-lift structure",
+                "1.5 m three-drawer gas-lift structure",
+                "1.8 m three-drawer gas-lift structure"
+            ],
+            specifications: {
+                "Product type": "Upholstered double bed",
+                "Style": "Modern Italian-inspired",
+                "Upholstery shown": "Black leather",
+                "Available mattress widths": "1.5 m / 1.8 m",
+                "Structure options": "Frame / gas lift / three-drawer gas lift",
+                "Bed base": "Steel-and-wood base on frame versions",
+                "Source reference price": "CNY 1,150.00-3,750.00 per set",
+                "Minimum order": "1 set",
+                "Supplier reference": "1688 item 997397924847",
+                "Production lead time": "Confirm with quotation"
+            },
+            customisationOptions: ["Bed width and storage structure", "Leather colour and upholstery material", "Headboard and frame finish", "Mattress requirements", "Project quantity and export packaging"],
+            customisationNote: "Please confirm the mattress width, preferred base structure, upholstery and storage requirements before ordering. Final dimensions and included components are stated in the approved quotation.",
+            commercialNote: "The source reference price is CNY 1,150.00-3,750.00 per set with a one-set minimum. Final export pricing depends on the selected size and structure, quantity, packaging and delivery destination."
+        },
+        {
             id: "emerald-green-velvet-modular-sofa",
             url: "products/emerald-green-velvet-modular-sofa",
             category: "furniture",
