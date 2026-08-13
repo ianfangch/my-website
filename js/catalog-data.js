@@ -1415,30 +1415,35 @@
                 "Emerald green velvet sofa dimensions and feature detail"
             ],
             currency: "CNY",
-            price: 1150,
-            priceMax: 3750,
+            price: 650,
+            priceMax: 3600,
             priceUnit: "per set",
             summary: "A soft, low-profile emerald green velvet sofa with rounded arms and modular seating for modern and French-inspired living rooms.",
-            seoDescription: "Emerald green velvet modular living room sofa, CNY 1,150-3,750 per set with a one-set minimum order.",
-            highlights: ["Soft velvet upholstery", "Deep, relaxed seating", "Rounded arm profile", "Multiple size and storage configurations"],
+            seoDescription: "Emerald green velvet modular living room sofa, CNY 650-3,600 per set with a one-set minimum order.",
+            highlights: ["Soft velvet upholstery", "Deep, relaxed seating", "Rounded arm profile", "Ten seating sizes from 1.25 to 3.6 metres"],
             descriptionParagraphs: [
                 "This statement sofa combines a rich emerald green velvet finish with a low, rounded silhouette. Generous cushions and softly curved arms create a relaxed centrepiece for living rooms, lounges and hospitality interiors.",
                 "The displayed price range is the supplier reference for one set. Final pricing is confirmed according to the selected configuration, quantity, packaging and delivery destination."
             ],
             variantOptions: [
-                "1.5 m frame structure (steel-and-wood bed base)",
-                "1.8 m frame structure (steel-and-wood bed base)",
-                "1.5 m gas-lift structure",
-                "1.8 m gas-lift structure",
-                "1.5 m three-drawer gas-lift structure",
-                "1.8 m three-drawer gas-lift structure"
+                "Single seat - 1.25 m",
+                "Two seats - 1.7 m, 2 sections",
+                "Three seats - 2.0 m, 2 sections",
+                "Four seats - 2.3 m, 3 sections",
+                "Large four seats - 2.6 m, 3 sections",
+                "Five seats - 2.8 m, 3 sections",
+                "Large five seats - 3.0 m, 3 sections",
+                "Six seats - 3.2 m, 3 sections",
+                "Large six seats - 3.4 m, 3 sections",
+                "Seven seats - 3.6 m, 3 sections"
             ],
             specifications: {
                 "Product type": "Modular straight sofa",
                 "Style": "Modern French-inspired / light luxury",
                 "Upholstery shown": "Emerald green velvet",
-                "Configuration": "Multiple sizes and combinations available",
-                "Source reference price": "CNY 1,150.00-3,750.00 per set",
+                "Available sizes": "1.25 / 1.7 / 2.0 / 2.3 / 2.6 / 2.8 / 3.0 / 3.2 / 3.4 / 3.6 m",
+                "Section options": "Single section; 2-section and 3-section configurations",
+                "Source reference price": "CNY 650.00-3,600.00 per set",
                 "Minimum order": "1 set",
                 "Supplier reference": "1688 item 993512075963",
                 "Production lead time": "Confirm with quotation"
@@ -1446,12 +1451,12 @@
             customisationOptions: ["Sofa size and seating configuration", "Velvet colour", "Upholstery material", "Cushion firmness", "Project quantity and export packaging"],
             customisationNote: "Please confirm the required size, colour and configuration before ordering. Final dimensions, materials and included components are stated in the approved quotation.",
             commercialInformation: {
-                "Indicative price": "CNY 1,150.00-3,750.00 per set",
+                "Indicative price": "CNY 650.00-3,600.00 per set",
                 "Minimum order": "1 set",
                 "Currency": "CNY",
                 "Payment and delivery": "Confirmed with the final quotation"
             },
-            commercialNote: "The source reference price is CNY 1,150.00-3,750.00 per set with a one-set minimum. Final export pricing depends on the selected configuration, quantity, packaging and delivery destination."
+            commercialNote: "The source reference price is CNY 650.00-3,600.00 per set with a one-set minimum. Final export pricing depends on the selected size, quantity, packaging and delivery destination."
         },
         {
             id: "hrfloor-wood-collection",
