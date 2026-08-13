@@ -49,9 +49,7 @@
         if (compact) {
             return '<a class="btn btn-primary" href="/contact#quote-builder-form">Contact Us</a>';
         }
-        var catalogueSubject = encodeURIComponent(product.name + " Catalogue Request");
-        var catalogueBody = encodeURIComponent("Hello IanProject,\n\nPlease send me the current catalogue and available options for " + product.name + ".");
-        return '<a class="btn btn-outline-primary px-4 py-3" href="mailto:sales@ianproject.com?subject=' + catalogueSubject + '&body=' + catalogueBody + '">Request Catalogue</a>' +
+        return '<a class="btn btn-outline-primary px-4 py-3" href="/catalogues">Catalogue Download</a>' +
             '<a class="btn btn-primary px-4 py-3" href="/contact#quote-builder-form">Request a Quote</a>';
     }
 
@@ -379,9 +377,9 @@
             '<section class="flooring-showcase"><div class="flooring-colours"><p class="text-uppercase text-primary mb-2">Available colours</p><h2>Colour references</h2>' +
             colourReferences + '</div><div class="flooring-application"><div class="flooring-application-image"><img src="' +
             escapeHtml(product.image) + '" alt="' + escapeHtml(product.imageAlt) + '" fetchpriority="high"><span>Application reference</span></div>' +
-            '<div class="flooring-catalogue-cta"><div><small>More options available</small><strong>Request the full flooring catalogue</strong></div>' +
-            '<div class="d-flex flex-wrap gap-2"><a class="btn btn-primary" href="mailto:sales@ianproject.com?subject=Full%20Flooring%20Catalogue%20Request">Request Catalogue</a>' +
-            '<a class="btn btn-outline-light" href="https://wa.me/message/A4AOHGMZ6DB6A1" target="_blank" rel="noopener">WhatsApp</a></div></div></div></section>' +
+            '<div class="flooring-catalogue-cta"><div><small>More options available</small><strong>Explore the full flooring catalogue</strong></div>' +
+            '<div class="d-flex flex-wrap gap-2"><a class="btn btn-light" href="/catalogues">Catalogue Download</a>' +
+            '<a class="btn btn-outline-light" href="/contact#quote-builder-form">Request a Quote</a></div></div></div></section>' +
             '<section class="flooring-product-info"><div><p class="text-uppercase text-primary mb-2">Product details</p><h2>Flooring options for coordinated interiors</h2>' +
             '<p>' + escapeHtml(product.descriptionParagraphs[0]) + '</p></div><div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + '</tbody></table></div></section>';
         bindProductBackLink();
