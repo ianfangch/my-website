@@ -176,6 +176,22 @@ All 85 cabinetry source listings have now been processed. The catalogue contains
 - Before publication, compare every source title with all photographs and alert the user when the title and images do not match.
 - Use product titles based on the actual photographs after user review, and keep approved products in the website `Cabinetry` category.
 
+## Published full-house cabinetry batch 1
+
+1. `OLQW001` - Dark Glass Walk-In Wardrobe
+2. `OLQW013` - Light Oak Open Walk-In Wardrobe
+3. `OL62749318` - Black Glass Wardrobe with Blush Drawers
+4. `OLQW015-4` - Ivory Glass Wardrobe with Dressing Table
+5. `OLQW018` - Black Glass Marble-Panel Wardrobe
+
+This batch publishes five Bedroom Cabinet / Wardrobe products with 30 optimized, logo-free images, photograph-led English titles, complete commercial specifications and dedicated SEO pages. Bedroom source position 4 (`62749815`) was reviewed and excluded because its photographs and source title include Dining Cabinet, which is outside the approved scope. The catalogue therefore processes approved-scope source positions 1–6 while publishing five products.
+
+## Next approved full-house cabinetry batch
+
+- Resume at Bedroom Cabinet source position 7, page `62749456`: `French wood tv stands living room furniture`.
+- Five products are published from the 41 raw listings in the approved Bedroom / TV / Children’s Room source scope; six raw listings have been reviewed.
+- Continue to compare titles with all photographs, skip duplicates and excluded furniture types, and report both published-product and reviewed-source progress.
+
 ## Sink batch 1
 
 41. `AD1600315837334` - Compact Hidden RV Sink with Folding Faucet
