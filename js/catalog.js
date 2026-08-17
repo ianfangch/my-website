@@ -53,6 +53,20 @@
             '<a class="btn btn-primary px-4 py-3" href="/contact#quote-builder-form">Request a Quote</a>';
     }
 
+    function displayPricing(product) {
+        var price = product.price;
+        var priceMax = product.priceMax;
+        var currency = product.currency || catalog.currency;
+        var converted = false;
+        if (currency === "CNY" && catalog.exchangeRates && typeof catalog.exchangeRates.CNY_PER_USD === "number") {
+            price = price / catalog.exchangeRates.CNY_PER_USD;
+            priceMax = typeof priceMax === "number" ? priceMax / catalog.exchangeRates.CNY_PER_USD : priceMax;
+            currency = "USD";
+            converted = true;
+        }
+        return { price: price, priceMax: priceMax, currency: currency, converted: converted };
+    }
+
     function priceMarkup(product, compact) {
         if (product.quoteOnly) {
             return '<div class="catalog-price catalog-price-pending"><strong>Request a Quote</strong>' +
@@ -63,13 +77,14 @@
                 (compact ? "" : "<small>Real USD price required before publishing</small>") + "</div>";
         }
 
-        var displayedPrice = product.price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        if (typeof product.priceMax === "number") {
-            displayedPrice += " - " + product.priceMax.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        var pricing = displayPricing(product);
+        var displayedPrice = pricing.price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        if (typeof pricing.priceMax === "number") {
+            displayedPrice += " - " + pricing.priceMax.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
         return '<div class="catalog-price"><span>' + escapeHtml(product.pricePrefix || "") + '</span>' +
-            '<strong>' + escapeHtml(catalog.currency) + " " + displayedPrice +
-            '</strong><small>' + escapeHtml(product.priceUnit || "") + "</small></div>";
+            '<strong>' + escapeHtml(pricing.currency) + " " + displayedPrice +
+            '</strong><small>' + escapeHtml(product.priceUnit || "") + (pricing.converted ? " · reference conversion from CNY" : "") + "</small></div>";
     }
 
     function productCard(product) {
@@ -229,17 +244,24 @@
         var directGalleryMarkup = detailGallery.length ?
             '<section class="col-12 mt-5 product-image-section" aria-labelledby="product-gallery-title">' +
             '<h2 id="product-gallery-title" class="mb-4">' + (isQuartzSeries ? "Colour Range and Edge Processing" : (isCountertop ? "Surface and Application" : "Product Gallery")) + '</h2>' +
-            '<div class="product-direct-gallery">' + detailGallery.map(function (image, index) {
+            '<div class="product-direct-gallery' + (product.preserveDetailImageRatio ? ' product-direct-gallery-natural' : '') + '">' + detailGallery.map(function (image, index) {
                 var altIndex = isCountertop ? index : index + 1;
                 var imageAlt = product.imageAlts && product.imageAlts[altIndex] ? product.imageAlts[altIndex] : product.imageAlt;
+                var dimensions = product.imageDimensions && product.imageDimensions[altIndex] ? product.imageDimensions[altIndex] : { width: 1254, height: 1254 };
                 return '<div class="product-direct-image"><img src="' + escapeHtml(image) + '" alt="' + escapeHtml(imageAlt) +
-                    '" loading="lazy" width="1254" height="1254"></div>';
+                    '" loading="' + (product.preserveDetailImageRatio ? 'eager' : 'lazy') + '" width="' + dimensions.width + '" height="' + dimensions.height + '"></div>';
             }).join("") + "</div></section>" : "";
         var descriptionMarkup = Array.isArray(product.descriptionParagraphs) && product.descriptionParagraphs.length ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Product Description</h2>' +
             product.descriptionParagraphs.map(function (paragraph) {
                 return '<p class="product-description-copy">' + escapeHtml(paragraph) + '</p>';
             }).join("") + '</section>' : '';
+        var variantMarkup = Array.isArray(product.variantOptions) && product.variantOptions.length ?
+            '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Available Styles</h2>' +
+            '<ul class="product-option-list list-unstyled">' + product.variantOptions.map(function (option) {
+                return '<li><i class="fa fa-check text-primary" aria-hidden="true"></i><span>' +
+                    escapeHtml(option) + '</span></li>';
+            }).join("") + '</ul></section>' : '';
         var faqMarkup = Array.isArray(product.faq) && product.faq.length ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Frequently Asked Questions</h2>' +
             '<div class="product-faq">' + product.faq.map(function (item) {
@@ -276,10 +298,11 @@
             (isSink ?
                 "Final sink dimensions, cut-out details, finish and included accessories are confirmed in the approved quotation before production." :
                 "Final specifications are confirmed through drawings, material samples and the approved quotation before production.");
+        var convertedPricing = displayPricing(product);
         var indicativePrice = product.quoteOnly ? "Request a quote" :
-            ((product.pricePrefix ? product.pricePrefix + " " : "") + catalog.currency + " " +
-            product.price.toLocaleString("en-US", { maximumFractionDigits: 2 }) +
-            (typeof product.priceMax === "number" ? " - " + product.priceMax.toLocaleString("en-US", { maximumFractionDigits: 2 }) : "") +
+            ((product.pricePrefix ? product.pricePrefix + " " : "") + convertedPricing.currency + " " +
+            convertedPricing.price.toLocaleString("en-US", { maximumFractionDigits: 2 }) +
+            (typeof convertedPricing.priceMax === "number" ? " - " + convertedPricing.priceMax.toLocaleString("en-US", { maximumFractionDigits: 2 }) : "") +
             " " + (product.priceUnit || ""));
         var standardCommercialInformation = {
             "Indicative price": indicativePrice.trim(),
@@ -347,6 +370,13 @@
                             '</p><p class="mb-0"><strong>Material:</strong> ' + escapeHtml(model.material || '304 stainless steel with thickened rim') + '</p></div>';
                     }).join("") + '</div></div>';
             }).join("") + '</section>' : "";
+        var optionRowsMarkup = Array.isArray(product.optionRows) ?
+            '<section class="col-12 mt-5 product-options"><div class="pb-3 mb-4 border-bottom">' +
+            '<p class="text-uppercase text-primary mb-2">Available Options</p><h2 class="mb-0">Sizes &amp; Configurations</h2></div>' +
+            '<div class="table-responsive"><table class="table table-bordered align-middle product-options-table"><thead><tr><th>Option</th><th>Cabinet</th><th>Bins / capacity</th><th>Lid &amp; tray</th><th>Product size<br><small>W × D × H</small></th><th>Required cabinet clearance</th><th>Frame / slides</th></tr></thead><tbody>' +
+            product.optionRows.map(function (row) {
+                return '<tr><th scope="row">' + escapeHtml(row.sku) + (row.note ? '<small>' + escapeHtml(row.note) + '</small>' : '') + '</th><td>' + escapeHtml(row.cabinet) + '</td><td><strong>' + escapeHtml(row.bins) + '</strong><small>' + escapeHtml(row.capacity) + '</small></td><td>' + escapeHtml(row.lid) + '</td><td>' + escapeHtml(row.productSize) + '</td><td><small>Width</small>' + escapeHtml(row.clearWidth) + '<br><small>Depth</small>' + escapeHtml(row.clearDepth) + '<br><small>Height</small>' + escapeHtml(row.clearHeight) + '</td><td>' + escapeHtml(row.frame) + '</td></tr>';
+            }).join("") + '</tbody></table></div><p class="product-info-note mt-3">Dimensions shown are source reference measurements. Allow for installation tolerances and confirm the finished cabinet opening before ordering.</p></section>' : "";
         var compactCatalogue = Array.isArray(product.catalogueRows);
 
         document.title = product.name + " | IanProject";
@@ -366,9 +396,10 @@
             '<div class="d-flex flex-wrap gap-3">' + productContactLink(product, false) + '</div></div>' +
             (compactCatalogue ? catalogueRowsMarkup + commercialMarkup : directGalleryMarkup +
             descriptionMarkup +
+            variantMarkup +
             '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
             '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div>" +
-            faqMarkup + contactMarkup + customisationMarkup + commercialMarkup) + "</div>";
+            optionRowsMarkup + faqMarkup + contactMarkup + customisationMarkup + commercialMarkup) + "</div>";
         bindProductBackLink();
     }
 

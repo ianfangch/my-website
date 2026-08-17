@@ -3,12 +3,16 @@
 
     window.IAN_CATALOG = {
         currency: "USD",
+        exchangeRates: {
+            CNY_PER_USD: 6.78,
+            updated: "2026-08-13"
+        },
         categories: [
             { id: "cabinetry", name: "Cabinetry" },
             { id: "sinks", name: "Sinks" },
             { id: "countertops", name: "Countertops" },
             { id: "flooring", name: "Flooring" },
-            { id: "appliances", name: "Appliances" },
+            { id: "furniture", name: "Furniture" },
             { id: "accessories", name: "Accessories" }
         ],
         products: [
@@ -1391,6 +1395,195 @@
 
     window.IAN_CATALOG.products.unshift(
         {
+            id: "custom-304-stainless-steel-outdoor-kitchen",
+            url: "products/custom-304-stainless-steel-outdoor-kitchen",
+            category: "furniture",
+            name: "Custom 304 Stainless Steel Outdoor Kitchen",
+            code: "Ref. 1053256184516",
+            badge: "Outdoor Living",
+            image: "img/products/stainless-steel-outdoor-kitchen/1.jpg",
+            images: [
+                "img/products/stainless-steel-outdoor-kitchen/1.jpg",
+                "img/products/stainless-steel-outdoor-kitchen/2.jpg",
+                "img/products/stainless-steel-outdoor-kitchen/3.jpg",
+                "img/products/stainless-steel-outdoor-kitchen/4.jpg",
+                "img/products/stainless-steel-outdoor-kitchen/5.jpg"
+            ],
+            preserveDetailImageRatio: true,
+            imageDimensions: [
+                { width: 1254, height: 1254 },
+                { width: 790, height: 1520 },
+                { width: 790, height: 800 },
+                { width: 790, height: 1020 },
+                { width: 790, height: 2310 }
+            ],
+            imageAlt: "Custom 304 stainless steel outdoor kitchen with grill, sink and canopy beside a beach",
+            imageAlts: [
+                "Custom 304 stainless steel outdoor kitchen with grill, sink and canopy beside a beach",
+                "304 stainless steel outdoor kitchen cabinetry and barbecue workstation detail",
+                "Outdoor stainless steel kitchen module and appliance configuration",
+                "Custom outdoor kitchen cabinet construction and storage detail",
+                "Stainless steel outdoor kitchen installation and functional detail"
+            ],
+            currency: "CNY",
+            price: 8580,
+            priceMax: 46280,
+            priceUnit: "per set",
+            summary: "A fully customisable 304 stainless steel outdoor kitchen system integrating preparation, washing, storage and barbecue functions for villas, patios and hospitality projects.",
+            seoDescription: "Custom 304 stainless steel outdoor kitchen and barbecue cabinet system, approximately USD 1,265.49-6,825.96 per set with a one-set minimum order.",
+            highlights: ["304 stainless steel construction", "Custom modular configuration", "Integrated grill and preparation zones", "Designed for outdoor residential and hospitality use"],
+            descriptionParagraphs: [
+                "This modular outdoor kitchen combines stainless steel cabinets, worktops and appliance zones in a durable open-air cooking station. Layouts can coordinate sinks, grills, refrigeration, storage, preparation surfaces and weather-protection structures according to the site.",
+                "Each system is made to project requirements. Final dimensions, appliance openings, service connections, finish, accessories and installation conditions are confirmed through drawings and the approved quotation."
+            ],
+            variantOptions: ["Fully customisable configuration"],
+            specifications: {
+                "Product type": "Custom modular outdoor kitchen",
+                "Primary material": "304 stainless steel",
+                "Application": "Villa, courtyard, patio, terrace and hospitality outdoor areas",
+                "Configuration": "Customisable modules, layout and appliance integration",
+                "Available functions": "Cooking, grilling, washing, preparation, refrigeration and storage",
+                "Source reference price": "Automatically converted to USD from CNY",
+                "Minimum order": "1 set",
+                "Supplier reference": "1688 item 1053256184516",
+                "Production lead time": "Confirm with quotation"
+            },
+            customisationOptions: ["Overall dimensions and modular layout", "Cabinet, drawer and door arrangement", "Grill, sink, refrigerator and appliance integration", "Worktop and stainless steel finish", "Canopy, lighting and service connections", "Project packaging and delivery requirements"],
+            customisationNote: "Please provide the site dimensions, preferred functions, appliance list and installation conditions. Final construction, openings, utilities and included components are confirmed in approved drawings and the quotation.",
+            commercialNote: "The displayed USD reference is automatically converted from the CNY source price. Final export pricing depends on the confirmed exchange rate, dimensions, configuration, appliances, accessories, packaging and delivery destination."
+        },
+        {
+            id: "italian-black-leather-storage-bed",
+            url: "products/italian-black-leather-storage-bed",
+            category: "furniture",
+            name: "Italian-Style Black Leather Storage Bed",
+            code: "Ref. 997397924847",
+            badge: "Bedroom Furniture",
+            image: "img/products/italian-black-leather-storage-bed/1.jpg",
+            images: [
+                "img/products/italian-black-leather-storage-bed/1.jpg",
+                "img/products/italian-black-leather-storage-bed/2.jpg",
+                "img/products/italian-black-leather-storage-bed/3.jpg",
+                "img/products/italian-black-leather-storage-bed/4.jpg",
+                "img/products/italian-black-leather-storage-bed/5.jpg"
+            ],
+            imageAlt: "Modern Italian-style black leather upholstered bed with a padded headboard",
+            imageAlts: [
+                "Modern Italian-style black leather upholstered bed with a padded headboard",
+                "Black leather storage bed with three open side drawers",
+                "Front view of the black upholstered double bed",
+                "Black leather bed shown in a modern bedroom",
+                "Black upholstered bed product construction and material detail"
+            ],
+            currency: "CNY",
+            price: 1150,
+            priceMax: 3750,
+            priceUnit: "per set",
+            summary: "A modern Italian-inspired black leather bed with a deeply padded headboard and frame, available with standard, gas-lift and drawer-storage structures.",
+            seoDescription: "Italian-style black leather upholstered storage bed in 1.5 m and 1.8 m sizes, approximately USD 169.62-553.10 per set with a one-set minimum order.",
+            highlights: ["Deeply padded leather headboard", "1.5 m and 1.8 m sizes", "Standard or gas-lift storage structures", "Optional three-drawer storage"],
+            descriptionParagraphs: [
+                "This contemporary bed pairs a black upholstered frame with a generously cushioned, channel-tufted headboard. Its low, clean-lined silhouette suits modern master bedrooms, rental apartments and hotel projects.",
+                "Choose a standard steel-and-wood bed base, a gas-lift storage structure or a three-drawer gas-lift configuration. Final upholstery, internal structure and included components are confirmed in the approved quotation."
+            ],
+            variantOptions: [
+                "1.5 m frame structure (steel-and-wood bed base)",
+                "1.8 m frame structure (steel-and-wood bed base)",
+                "1.5 m gas-lift structure",
+                "1.8 m gas-lift structure",
+                "1.5 m three-drawer gas-lift structure",
+                "1.8 m three-drawer gas-lift structure"
+            ],
+            specifications: {
+                "Product type": "Upholstered double bed",
+                "Style": "Modern Italian-inspired",
+                "Upholstery shown": "Black leather",
+                "Available mattress widths": "1.5 m / 1.8 m",
+                "Structure options": "Frame / gas lift / three-drawer gas lift",
+                "Bed base": "Steel-and-wood base on frame versions",
+                "Source reference price": "Automatically converted to USD from CNY",
+                "Minimum order": "1 set",
+                "Supplier reference": "1688 item 997397924847",
+                "Production lead time": "Confirm with quotation"
+            },
+            customisationOptions: ["Bed width and storage structure", "Leather colour and upholstery material", "Headboard and frame finish", "Mattress requirements", "Project quantity and export packaging"],
+            customisationNote: "Please confirm the mattress width, preferred base structure, upholstery and storage requirements before ordering. Final dimensions and included components are stated in the approved quotation.",
+            commercialNote: "The displayed USD reference is automatically converted from the CNY source price. Final export pricing depends on the confirmed exchange rate, selected size and structure, quantity, packaging and delivery destination."
+        },
+        {
+            id: "emerald-green-velvet-modular-sofa",
+            url: "products/emerald-green-velvet-modular-sofa",
+            category: "furniture",
+            name: "Emerald Green Velvet Modular Sofa",
+            code: "Ref. 993512075963",
+            badge: "Living Room Furniture",
+            image: "img/products/emerald-green-velvet-sofa/1.jpg",
+            images: [
+                "img/products/emerald-green-velvet-sofa/1.jpg",
+                "img/products/emerald-green-velvet-sofa/2.jpg",
+                "img/products/emerald-green-velvet-sofa/3.jpg",
+                "img/products/emerald-green-velvet-sofa/4.jpg",
+                "img/products/emerald-green-velvet-sofa/5.jpg",
+                "img/products/emerald-green-velvet-sofa/6.jpg",
+                "img/products/emerald-green-velvet-sofa/7.jpg",
+                "img/products/emerald-green-velvet-sofa/8.jpg"
+            ],
+            imageAlt: "Emerald green velvet modular sofa in a French-inspired living room",
+            imageAlts: [
+                "Emerald green velvet modular sofa in a French-inspired living room",
+                "Front view of the emerald green velvet modular sofa",
+                "Emerald green velvet sofa shown in a contemporary interior",
+                "Detail view of the green velvet sofa upholstery and cushions",
+                "Emerald green velvet sofa product detail",
+                "Emerald green velvet sofa construction detail",
+                "Emerald green velvet sofa material detail",
+                "Emerald green velvet sofa dimensions and feature detail"
+            ],
+            currency: "CNY",
+            price: 650,
+            priceMax: 3600,
+            priceUnit: "per set",
+            summary: "A soft, low-profile emerald green velvet sofa with rounded arms and modular seating for modern and French-inspired living rooms.",
+            seoDescription: "Emerald green velvet modular living room sofa, approximately USD 95.87-530.97 per set with a one-set minimum order.",
+            highlights: ["Soft velvet upholstery", "Deep, relaxed seating", "Rounded arm profile", "Ten seating sizes from 1.25 to 3.6 metres"],
+            descriptionParagraphs: [
+                "This statement sofa combines a rich emerald green velvet finish with a low, rounded silhouette. Generous cushions and softly curved arms create a relaxed centrepiece for living rooms, lounges and hospitality interiors.",
+                "The displayed price range is the supplier reference for one set. Final pricing is confirmed according to the selected configuration, quantity, packaging and delivery destination."
+            ],
+            variantOptions: [
+                "Single seat - 1.25 m",
+                "Two seats - 1.7 m, 2 sections",
+                "Three seats - 2.0 m, 2 sections",
+                "Four seats - 2.3 m, 3 sections",
+                "Large four seats - 2.6 m, 3 sections",
+                "Five seats - 2.8 m, 3 sections",
+                "Large five seats - 3.0 m, 3 sections",
+                "Six seats - 3.2 m, 3 sections",
+                "Large six seats - 3.4 m, 3 sections",
+                "Seven seats - 3.6 m, 3 sections"
+            ],
+            specifications: {
+                "Product type": "Modular straight sofa",
+                "Style": "Modern French-inspired / light luxury",
+                "Upholstery shown": "Emerald green velvet",
+                "Available sizes": "1.25 / 1.7 / 2.0 / 2.3 / 2.6 / 2.8 / 3.0 / 3.2 / 3.4 / 3.6 m",
+                "Section options": "Single section; 2-section and 3-section configurations",
+                "Source reference price": "Automatically converted to USD from CNY",
+                "Minimum order": "1 set",
+                "Supplier reference": "1688 item 993512075963",
+                "Production lead time": "Confirm with quotation"
+            },
+            customisationOptions: ["Sofa size and seating configuration", "Velvet colour", "Upholstery material", "Cushion firmness", "Project quantity and export packaging"],
+            customisationNote: "Please confirm the required size, colour and configuration before ordering. Final dimensions, materials and included components are stated in the approved quotation.",
+            commercialInformation: {
+                "Indicative price": "Automatically converted to USD from CNY",
+                "Minimum order": "1 set",
+                "Currency": "USD (converted from CNY)",
+                "Payment and delivery": "Confirmed with the final quotation"
+            },
+            commercialNote: "The displayed USD reference is automatically converted from the CNY source price. Final export pricing depends on the confirmed exchange rate, selected size, quantity, packaging and delivery destination."
+        },
+        {
             id: "hrfloor-wood-collection",
             url: "products/hrfloor-wood-collection",
             category: "flooring",
@@ -1727,6 +1920,56 @@
     );
 
     window.IAN_CATALOG.products.unshift(
+        {
+            id: "pull-out-kitchen-waste-bin-series",
+            url: "products/pull-out-kitchen-waste-bin-series",
+            category: "accessories",
+            name: "Pull-Out Kitchen Waste Sorting Bin Series",
+            code: "Ref. 874018693970",
+            badge: "Cabinet Accessories",
+            image: "img/products/pull-out-kitchen-waste-bin/2.jpg",
+            images: [
+                "img/products/pull-out-kitchen-waste-bin/2.jpg",
+                "img/products/pull-out-kitchen-waste-bin/3.jpg",
+                "img/products/pull-out-kitchen-waste-bin/4.jpg",
+                "img/products/pull-out-kitchen-waste-bin/5.jpg"
+            ],
+            imageAlt: "Pull-out kitchen cabinet waste sorting bins with covered storage tray",
+            quoteOnly: true,
+            summary: "A concealed pull-out waste sorting system with removable inner bins and configurations for 300–600 mm kitchen base cabinets.",
+            seoDescription: "Concealed pull-out kitchen waste sorting bin series for 300–600 mm base cabinets, with two-bin, three-bin and four-bin configurations.",
+            highlights: ["Concealed in the base cabinet", "Removable bins for easier emptying and cleaning", "Two-bin, three-bin and four-bin sorting options", "Selected versions include bin lids and an upper utility tray"],
+            specifications: {
+                "Product type": "Pull-out cabinet waste sorting system",
+                "Cabinet widths": "300 / 400 / 450 / 500 / 600 mm",
+                "Available configurations": "Two-bin, three-bin and four-bin options",
+                "Installation": "Kitchen base cabinet, pull-out mounting",
+                "Colour shown": "Dark grey",
+                "Bin access": "Removable inner containers",
+                "Source reference price": "CNY 320.34–668.00 per set",
+                "Minimum order": "1 set",
+                "Production lead time": "Confirm with quotation"
+            },
+            customisationOptions: ["Cabinet width and internal clear dimensions", "Bin quantity and sorting configuration", "Lid and upper utility tray combination", "Project quantity and export packaging"],
+            optionRows: [
+                { sku: "SKU 1", cabinet: "300 mm", bins: "2 bins", capacity: "Confirm with enquiry", lid: "Small-bin lid; upper utility tray", productSize: "260 × 505 × 500 mm", clearWidth: "260–268 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Two-side slides / ABS frame", note: "Small bin can mount to cabinet front" },
+                { sku: "SKU 2", cabinet: "300 mm", bins: "2 bins", capacity: "Confirm with enquiry", lid: "Two bin lids; upper utility tray", productSize: "260 × 505 × 500 mm", clearWidth: "260–268 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Two-side slides / ABS frame" },
+                { sku: "SKU 3", cabinet: "400 mm", bins: "2 bins", capacity: "18 L × 2", lid: "No bin lids; upper utility tray", productSize: "360 × 500 × 500 mm", clearWidth: "360–368 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Two-side slides / ABS frame" },
+                { sku: "SKU 4", cabinet: "400 mm", bins: "2 bins", capacity: "18 L × 2", lid: "Two bin lids; upper utility tray", productSize: "360 × 500 × 500 mm", clearWidth: "360–368 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Two-side slides / ABS frame" },
+                { sku: "SKU 5", cabinet: "400 mm", bins: "3 bins", capacity: "18 L + 6 L + 5 L", lid: "Small-bin lid; upper utility tray", productSize: "360 × 500 × 500 mm", clearWidth: "360–368 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Two-side slides / ABS frame" },
+                { sku: "SKU 6", cabinet: "400 mm", bins: "3 bins", capacity: "18 L + 6 L + 5 L", lid: "Two small-bin lids; upper utility tray", productSize: "360 × 500 × 500 mm", clearWidth: "360–368 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Two-side slides / ABS frame" },
+                { sku: "SKU 7", cabinet: "450 mm", bins: "2 bins", capacity: "30 L × 2", lid: "No bin lids; upper utility tray", productSize: "410 × 500 × 460 mm", clearWidth: "410–418 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 8", cabinet: "450 mm", bins: "2 bins", capacity: "30 L × 2", lid: "Two bin lids; upper utility tray", productSize: "410 × 500 × 460 mm", clearWidth: "410–418 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 9", cabinet: "500 mm", bins: "2 bins", capacity: "30 L × 2", lid: "No bin lids; upper utility tray", productSize: "460 × 500 × 460 mm", clearWidth: "460–468 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 10", cabinet: "500 mm", bins: "2 bins", capacity: "30 L × 2", lid: "Two bin lids; upper utility tray", productSize: "460 × 500 × 460 mm", clearWidth: "460–468 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 11", cabinet: "600 mm", bins: "2 bins", capacity: "30 L × 2", lid: "No bin lids; upper utility tray", productSize: "560 × 500 × 460 mm", clearWidth: "560–568 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 12", cabinet: "600 mm", bins: "2 bins", capacity: "30 L × 2", lid: "Two bin lids; upper utility tray", productSize: "560 × 500 × 460 mm", clearWidth: "560–568 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 13 / Type A", cabinet: "600 mm", bins: "4 bins", capacity: "18 L × 2 + 10 L × 2", lid: "Two small-bin lids shown; upper utility tray", productSize: "560 × 500 × 460 mm", clearWidth: "560–568 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" },
+                { sku: "SKU 14 / Type B", cabinet: "600 mm", bins: "4 bins", capacity: "18 L × 2 + 6 L + 5 L", lid: "Small-bin lid shown; upper utility tray", productSize: "560 × 500 × 460 mm", clearWidth: "560–568 mm", clearDepth: "≥510 mm", clearHeight: "≥560 mm", frame: "Soft-close nylon slides / metal frame" }
+            ],
+            customisationNote: "Please provide the cabinet width, internal clear dimensions and preferred bin configuration. Final fit, hardware, capacity and included components are confirmed in the approved quotation.",
+            commercialNote: "The source reference price is CNY 320.34–668.00 per set with a one-set minimum. Final export pricing depends on the selected configuration, quantity, packaging and delivery destination."
+        },
         {
             id: "handmade-topmount-sink-series-04",
             url: "products/handmade-topmount-sink-series-04",
