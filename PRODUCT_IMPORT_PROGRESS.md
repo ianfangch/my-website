@@ -159,13 +159,29 @@ All 85 cabinetry source listings have now been processed. The catalogue contains
 - Products remain enquiry-based rather than direct online checkout.
 - Every published product now has a dedicated crawlable URL under `/products/`.
 - Each dedicated page includes unique title and description metadata, a canonical URL, social-sharing metadata, visible HTML product content and Product/Offer JSON-LD in the initial HTML.
-- All sixty-five dedicated cabinetry URLs are listed in `sitemap.xml`.
+- All seventy dedicated cabinetry URLs are listed in `sitemap.xml`.
 
 ## Cabinet source status
 
 - Source processing is complete at position 85 of 85.
 - There is no remaining product in the current OULIN cabinetry source list.
 - Do not re-import or regenerate the sixty-five published cabinetry products unless the user requests changes or provides a new source list.
+
+## Full-house cabinetry batch 1
+
+66. `OL62749316` - Modern Laundry Storage Cabinet System
+67. `OL62749821` - White and Walnut Whole-Home Cabinet Collection
+68. `OL62749822` - Teal Whole-Home Cabinet Collection
+69. `OL62749852` - Grey-Green Whole-Home Cabinet Collection
+70. `OL62749614` - Dusty Rose Whole-Home Cabinet Collection
+
+Full-house cabinetry batch 1 processes source positions 1–5 of 57 from the OULIN Full House Solution categories. The five source listings sit under Bathroom Vanity, but their image sets show laundry, living, bedroom, study, entrance, dining, kitchen, dressing and bathroom cabinetry. With the user's approval, public product titles and descriptions follow the actual photographs rather than the mismatched source titles. The generic source model value `Grace` is not unique, so the public `OL` codes use the traceable source page IDs.
+
+## Next full-house cabinetry batch
+
+- Resume at full-house source position 6 of 57, Bathroom Vanity page `62749640`: “Modern design cheap bathroom vanity cabinet for apartments”.
+- Before publication, compare every source title with all six photographs and alert the user when they do not match.
+- Continue in category source order, five distinct products per batch, and keep all full-house cabinet products in the `Cabinetry` website category.
 
 ## Sink batch 1
 
