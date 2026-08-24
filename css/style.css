@@ -1162,12 +1162,34 @@ p {
 .shipment-stage h3 { margin: 12px 0; color: #fff; font-size: 1.25rem; }
 .shipment-stage p { margin: 0; color: rgba(255,255,255,.62); line-height: 1.65; }
 
+.custom-capability-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.custom-capability-grid article { height: 100%; padding: 30px; border: 1px solid #dce4dd; background: #fff; }
+.custom-capability-grid i { color: var(--primary); font-size: 1.65rem; }
+.custom-capability-grid h3 { margin: 18px 0 10px; font-size: 1.25rem; }
+.custom-capability-grid p { margin: 0; color: #626b67; line-height: 1.65; }
+.custom-product-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.custom-product-list span { padding: 18px 20px; border-left: 3px solid var(--primary); background: #f3f7f4; color: var(--dark); font-weight: 600; }
+.custom-audience-card { height: 100%; padding: 28px; border: 1px solid rgba(255,255,255,.16); }
+.custom-audience-card h3 { color: #fff; font-size: 1.25rem; }
+.custom-audience-card p { margin: 12px 0 0; color: rgba(255,255,255,.64); line-height: 1.65; }
+.custom-process-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.custom-process-list li { padding: 24px; border-top: 3px solid var(--primary); background: #f3f7f4; }
+.custom-process-list span { color: var(--primary); font-weight: 700; }
+.custom-process-list h3 { margin: 14px 0 8px; font-size: 1.15rem; }
+.custom-process-list p { margin: 0; color: #626b67; font-size: .94rem; line-height: 1.6; }
+.custom-brief-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; margin: 0; padding: 0; list-style: none; }
+.custom-brief-list li { position: relative; padding: 15px 16px 15px 42px; border: 1px solid #dce4dd; background: #fff; }
+.custom-brief-list li::before { position: absolute; left: 16px; color: var(--primary); content: "\2713"; font-weight: 700; }
+
 @media (max-width: 991.98px) {
     .category-control-grid { grid-template-columns: 1fr 1fr; }
+    .custom-capability-grid { grid-template-columns: 1fr 1fr; }
+    .custom-process-list { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 575.98px) {
     .commercial-check-grid, .category-control-grid, .shipment-checklist { grid-template-columns: 1fr; }
+    .custom-capability-grid, .custom-product-list, .custom-process-list, .custom-brief-list { grid-template-columns: 1fr; }
 }
 .flooring-application { display: flex; flex-direction: column; background: #113130; }
 .flooring-application-image { position: relative; flex: 1; min-height: 590px; overflow: hidden; }
