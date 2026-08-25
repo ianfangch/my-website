@@ -262,6 +262,17 @@
                 return '<li><i class="fa fa-check text-primary" aria-hidden="true"></i><span>' +
                     escapeHtml(option) + '</span></li>';
             }).join("") + '</ul></section>' : '';
+        var variantCardsMarkup = Array.isArray(product.variantCards) && product.variantCards.length ?
+            '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Available Configurations</h2>' +
+            '<div class="product-variant-grid">' + product.variantCards.map(function (variant) {
+                return '<figure class="product-variant-card"><img src="' + escapeHtml(variant.image) + '" alt="' +
+                    escapeHtml(variant.label) + '" loading="lazy" width="800" height="800"><figcaption>' +
+                    escapeHtml(variant.label) + '</figcaption></figure>';
+            }).join("") + '</div></section>' : '';
+        var productVideoMarkup = product.video ?
+            '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Product Video</h2>' +
+            '<video class="product-video" controls preload="metadata" playsinline><source src="' +
+            escapeHtml(product.video) + '" type="video/mp4">Your browser does not support embedded video.</video></section>' : '';
         var faqMarkup = Array.isArray(product.faq) && product.faq.length ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Frequently Asked Questions</h2>' +
             '<div class="product-faq">' + product.faq.map(function (item) {
@@ -396,6 +407,8 @@
             '<div class="d-flex flex-wrap gap-3">' + productContactLink(product, false) + '</div></div>' +
             (compactCatalogue ? catalogueRowsMarkup + commercialMarkup : directGalleryMarkup +
             descriptionMarkup +
+            productVideoMarkup +
+            variantCardsMarkup +
             variantMarkup +
             '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
             '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div>" +
