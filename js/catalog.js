@@ -196,6 +196,48 @@
         draw();
     }
 
+    function renderCategoryCatalog() {
+        var grid = document.querySelector("[data-category-catalog]");
+        if (!grid) return;
+
+        var categoryId = grid.getAttribute("data-category-catalog");
+        var searchInput = document.getElementById("category-search");
+        var sortInput = document.getElementById("category-sort");
+        var resultCount = document.getElementById("category-result-count");
+
+        function draw() {
+            var search = searchInput ? searchInput.value.trim().toLowerCase() : "";
+            var sort = sortInput ? sortInput.value : "featured";
+            var products = catalog.products.filter(function (product) {
+                var haystack = (product.name + " " + product.code + " " + product.summary).toLowerCase();
+                return product.category === categoryId && haystack.indexOf(search) !== -1;
+            });
+
+            if (sort === "name") {
+                products.sort(function (a, b) { return a.name.localeCompare(b.name); });
+            } else if (sort === "price-low") {
+                products.sort(function (a, b) {
+                    return (typeof a.price === "number" ? a.price : Number.MAX_VALUE) -
+                        (typeof b.price === "number" ? b.price : Number.MAX_VALUE);
+                });
+            } else if (sort === "price-high") {
+                products.sort(function (a, b) {
+                    return (typeof b.price === "number" ? b.price : -1) -
+                        (typeof a.price === "number" ? a.price : -1);
+                });
+            }
+
+            if (resultCount) {
+                resultCount.textContent = products.length + (products.length === 1 ? " product" : " products");
+            }
+            grid.innerHTML = products.length ? products.map(productCard).join("") :
+                '<div class="catalog-empty"><h3>No matching products.</h3><p>Try another product name or item code.</p></div>';
+        }
+
+        if (searchInput) searchInput.addEventListener("input", draw);
+        if (sortInput) sortInput.addEventListener("change", draw);
+        draw();
+    }
     function renderProductDetail() {
         var target = document.getElementById("product-detail");
         if (!target) return;
@@ -449,6 +491,7 @@
 
     document.addEventListener("DOMContentLoaded", function () {
         renderCatalog();
+        renderCategoryCatalog();
         renderProductDetail();
     });
 }());
