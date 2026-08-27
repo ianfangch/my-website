@@ -785,6 +785,16 @@ p {
     height: auto;
 }
 
+/* Quartz collection charts use a dedicated hero crop; gallery images retain natural dimensions. */
+.countertop-detail.quartz-series-detail .product-detail-image {
+    aspect-ratio: 2628 / 1896;
+}
+
+.countertop-detail.quartz-series-detail .product-detail-image img {
+    height: 100%;
+    object-fit: cover;
+}
+
 .product-description-copy {
     max-width: 920px;
     color: #5b5852;

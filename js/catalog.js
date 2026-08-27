@@ -261,6 +261,7 @@
         var isCountertop = product.category === "countertops";
         var isQuartzSeries = /-series-quartz-collection$/.test(product.id);
         target.classList.toggle("countertop-detail", isCountertop);
+        target.classList.toggle("quartz-series-detail", isQuartzSeries);
         var displaySpecifications = {};
         Object.keys(product.specifications).forEach(function (key) {
             if (key === "Minimum order" || key === "Production lead time") return;
@@ -280,7 +281,7 @@
         }).join("");
         var gallery = Array.isArray(product.images) && product.images.length ? product.images : [product.image];
         var galleryMarkup = '<div class="product-gallery"><div class="product-detail-image">' +
-            '<img id="product-main-image" src="' + escapeHtml(gallery[0]) + '" alt="' +
+            '<img id="product-main-image" src="' + escapeHtml(product.heroImage || gallery[0]) + '" alt="' +
             escapeHtml(product.imageAlt) + '" width="1254" height="1254" fetchpriority="high"></div></div>';
         var detailGallery = isCountertop ? gallery : gallery.slice(1);
         var directGalleryMarkup = detailGallery.length ?
