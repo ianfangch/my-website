@@ -1536,18 +1536,18 @@
             image: "img/products/italian-black-leather-storage-bed/1.jpg",
             images: [
                 "img/products/italian-black-leather-storage-bed/1.jpg",
-                "img/products/italian-black-leather-storage-bed/2.jpg",
+                "img/products/italian-black-leather-storage-bed/5.jpg",
                 "img/products/italian-black-leather-storage-bed/3.jpg",
-                "img/products/italian-black-leather-storage-bed/4.jpg",
-                "img/products/italian-black-leather-storage-bed/5.jpg"
+                "img/products/italian-black-leather-storage-bed/gallery-storage-system.webp",
+                "img/products/italian-black-leather-storage-bed/gallery-leather-colours.webp"
             ],
             imageAlt: "Modern Italian-style black leather upholstered bed with a padded headboard",
             imageAlts: [
                 "Modern Italian-style black leather upholstered bed with a padded headboard",
-                "Black leather storage bed with three open side drawers",
+                "Black upholstered bed product construction and material detail",
                 "Front view of the black upholstered double bed",
-                "Black leather bed shown in a modern bedroom",
-                "Black upholstered bed product construction and material detail"
+                "Black leather storage bed with raised platform, organized under-bed storage and open side drawers",
+                "Custom leather colour swatches for the Italian-style upholstered storage bed"
             ],
             currency: "CNY",
             price: 1150,
