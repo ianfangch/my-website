@@ -1591,27 +1591,19 @@
             name: "Emerald Green Velvet Modular Sofa",
             code: "Ref. 993512075963",
             badge: "Living Room Furniture",
-            image: "img/products/emerald-green-velvet-sofa/1.jpg",
+            image: "img/products/emerald-green-velvet-sofa/hero-green-v2.webp",
             images: [
-                "img/products/emerald-green-velvet-sofa/1.jpg",
-                "img/products/emerald-green-velvet-sofa/2.jpg",
-                "img/products/emerald-green-velvet-sofa/3.jpg",
-                "img/products/emerald-green-velvet-sofa/4.jpg",
-                "img/products/emerald-green-velvet-sofa/5.jpg",
-                "img/products/emerald-green-velvet-sofa/6.jpg",
-                "img/products/emerald-green-velvet-sofa/7.jpg",
-                "img/products/emerald-green-velvet-sofa/8.jpg"
+                "img/products/emerald-green-velvet-sofa/hero-green-v2.webp",
+                "img/products/emerald-green-velvet-sofa/gallery-green-v2.webp",
+                "img/products/emerald-green-velvet-sofa/gallery-rust-v2.webp",
+                "img/products/emerald-green-velvet-sofa/gallery-cream-v2.webp"
             ],
-            imageAlt: "Emerald green velvet modular sofa in a French-inspired living room",
+            imageAlt: "Front view of the emerald green velvet modular sofa in a French-inspired living room",
             imageAlts: [
-                "Emerald green velvet modular sofa in a French-inspired living room",
-                "Front view of the emerald green velvet modular sofa",
-                "Emerald green velvet sofa shown in a contemporary interior",
-                "Detail view of the green velvet sofa upholstery and cushions",
-                "Emerald green velvet sofa product detail",
-                "Emerald green velvet sofa construction detail",
-                "Emerald green velvet sofa material detail",
-                "Emerald green velvet sofa dimensions and feature detail"
+                "Front view of the emerald green velvet modular sofa in a French-inspired living room",
+                "Emerald green velvet modular sofa shown in a bright living room",
+                "Rust-orange velvet colour option for the rounded modular sofa",
+                "Cream-white upholstery option for the rounded modular sofa"
             ],
             currency: "CNY",
             price: 650,
