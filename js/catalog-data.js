@@ -2007,11 +2007,12 @@
             image: "img/products/pull-out-kitchen-waste-bin/2.jpg",
             images: [
                 "img/products/pull-out-kitchen-waste-bin/2.jpg",
-                "img/products/pull-out-kitchen-waste-bin/3.jpg",
-                "img/products/pull-out-kitchen-waste-bin/4.jpg",
-                "img/products/pull-out-kitchen-waste-bin/5.jpg"
+                "img/products/pull-out-kitchen-waste-bin/gallery-installation-and-removal.webp",
+                "img/products/pull-out-kitchen-waste-bin/gallery-four-configurations.webp",
+                "img/products/pull-out-kitchen-waste-bin/gallery-bottom-mounted-configurations-v2.webp"
             ],
             imageAlt: "Pull-out kitchen cabinet waste sorting bins with covered storage tray",
+            imageAlts: ["Pull-out kitchen cabinet waste sorting bins with covered storage tray", "Side-by-side installed and removable pull-out waste sorting bin views", "Four pull-out waste sorting configurations including a three-compartment model", "Bottom-mounted pull-out waste bin configurations for 300 mm to 450 mm cabinets"],
             quoteOnly: true,
             summary: "A concealed pull-out waste sorting system with removable inner bins and configurations for 300–600 mm kitchen base cabinets.",
             seoDescription: "Concealed pull-out kitchen waste sorting bin series for 300–600 mm base cabinets, with two-bin, three-bin and four-bin configurations.",
