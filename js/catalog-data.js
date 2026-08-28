@@ -1402,7 +1402,7 @@
             code: "Ref. 870384469142",
             badge: "Dining Room Furniture",
             image: "img/products/walnut-sintered-stone-dining-table-set/1.jpg",
-            images: ["img/products/walnut-sintered-stone-dining-table-set/1.jpg", "img/products/walnut-sintered-stone-dining-table-set/2.jpg", "img/products/walnut-sintered-stone-dining-table-set/3.jpg", "img/products/walnut-sintered-stone-dining-table-set/4.jpg", "img/products/walnut-sintered-stone-dining-table-set/5.jpg"],
+            images: ["img/products/walnut-sintered-stone-dining-table-set/1.jpg", "img/products/walnut-sintered-stone-dining-table-set/2.jpg", "img/products/walnut-sintered-stone-dining-table-set/3.jpg", "img/products/walnut-sintered-stone-dining-table-set/4.jpg", "img/products/walnut-sintered-stone-dining-table-set/5-clean.jpg"],
             preserveDetailImageRatio: true,
             imageAlt: "Modern walnut-tone solid wood dining table with a black sintered stone top and matching dining chairs",
             imageAlts: ["Modern walnut-tone solid wood dining table with a black sintered stone top and matching dining chairs", "Black sintered stone dining table with mixed black and ivory upholstered walnut chairs", "Top view of the rounded rectangular black sintered stone dining table and six chairs", "Walnut-tone sintered stone dining table shown with six ivory upholstered dining chairs", "Eight customisable sintered stone tabletop colour samples"],
