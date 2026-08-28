@@ -305,10 +305,14 @@
                 return '<li><i class="fa fa-check text-primary" aria-hidden="true"></i><span>' +
                     escapeHtml(option) + '</span></li>';
             }).join("") + '</ul></section>' : '';
+        var configurationTableHeaders = Array.isArray(product.configurationTableHeaders) && product.configurationTableHeaders.length === 5 ?
+            product.configurationTableHeaders : ["Option", "Room / item", "Bed width", "Included configuration", "Mattress"];
         var configurationRowsMarkup = Array.isArray(product.configurationRows) && product.configurationRows.length ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Available Configurations</h2>' +
             '<div class="table-responsive"><table class="table table-bordered align-middle product-configuration-table">' +
-            '<thead><tr><th>Option</th><th>Room / item</th><th>Bed width</th><th>Included configuration</th><th>Mattress</th></tr></thead><tbody>' +
+            '<thead><tr>' + configurationTableHeaders.map(function (heading) {
+                return '<th>' + escapeHtml(heading) + '</th>';
+            }).join("") + '</tr></thead><tbody>' +
             product.configurationRows.map(function (row) {
                 return '<tr><th scope="row">' + escapeHtml(row.option) + '</th><td>' + escapeHtml(row.type) +
                     '</td><td>' + escapeHtml(row.width) + '</td><td>' + escapeHtml(row.configuration) +

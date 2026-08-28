@@ -1395,6 +1395,42 @@
 
     window.IAN_CATALOG.products.unshift(
         {
+            id: "walnut-sintered-stone-dining-table-set",
+            url: "products/walnut-sintered-stone-dining-table-set",
+            category: "furniture",
+            name: "Walnut Solid Wood Sintered Stone Dining Table Set",
+            code: "Ref. 870384469142",
+            badge: "Dining Room Furniture",
+            image: "img/products/walnut-sintered-stone-dining-table-set/1.jpg",
+            images: ["img/products/walnut-sintered-stone-dining-table-set/1.jpg", "img/products/walnut-sintered-stone-dining-table-set/2.jpg", "img/products/walnut-sintered-stone-dining-table-set/3.jpg", "img/products/walnut-sintered-stone-dining-table-set/4.jpg", "img/products/walnut-sintered-stone-dining-table-set/5.jpg"],
+            preserveDetailImageRatio: true,
+            imageAlt: "Modern walnut-tone solid wood dining table with a black sintered stone top and matching dining chairs",
+            imageAlts: ["Modern walnut-tone solid wood dining table with a black sintered stone top and matching dining chairs", "Black sintered stone dining table with mixed black and ivory upholstered walnut chairs", "Top view of the rounded rectangular black sintered stone dining table and six chairs", "Walnut-tone sintered stone dining table shown with six ivory upholstered dining chairs", "Eight customisable sintered stone tabletop colour samples"],
+            currency: "CNY",
+            price: 1150,
+            priceMax: 4300,
+            priceUnit: "per set",
+            summary: "A refined contemporary dining collection pairing a walnut-tone solid wood base with a slim rounded sintered stone top and coordinated upholstered chairs.",
+            seoDescription: "Modern walnut-tone solid wood sintered stone dining table and chair set, approximately USD 169.62-634.22 per set, with seven table sizes and customisable tabletop colours.",
+            highlights: ["Walnut-tone solid wood base", "Rounded sintered stone tabletop", "Seven table sizes from 130 to 240 cm", "Coordinated upholstered dining chairs"],
+            descriptionParagraphs: ["This Italian-inspired dining set combines a warm walnut-tone solid wood base with a slim sintered stone tabletop. Rounded corners and softly curved chair backs create a clean, comfortable profile for contemporary dining rooms and open-plan kitchens.", "The supplier reference price covers different table and chair combinations. Please confirm the table size, chair quantity, upholstery colour and sintered stone finish so the exact included components and final quotation can be approved before ordering."],
+            configurationRows: [
+                { option: "01", type: "Dining table", width: "130 × 80 cm", configuration: "4 cm thick ash wood legs", mattress: "Custom stone colour" },
+                { option: "02", type: "Dining table", width: "140 × 80 cm", configuration: "4 cm thick ash wood legs", mattress: "Custom stone colour" },
+                { option: "03", type: "Dining table", width: "160 × 80 cm", configuration: "4 cm thick ash wood legs", mattress: "Custom stone colour" },
+                { option: "04", type: "Dining table", width: "180 × 80 cm", configuration: "4 cm thick ash wood legs", mattress: "Custom stone colour" },
+                { option: "05", type: "Dining table", width: "200 × 80 cm", configuration: "4 cm thick ash wood legs", mattress: "Custom stone colour" },
+                { option: "06", type: "Dining table", width: "220 × 90 cm", configuration: "4 cm thick ash wood legs", mattress: "Custom stone colour" },
+                { option: "07", type: "Dining table", width: "240 × 90 cm", configuration: "4 cm thick ash wood legs", mattress: "Custom stone colour" }
+            ],
+            configurationTableHeaders: ["Option", "Product", "Table size", "Leg specification", "Stone finish"],
+            variantOptions: ["Armani Grey - matte", "Galaxy Black - matte", "Bulgarian Black - matte", "Pure Black - matte", "Mutton-Fat White Jade - glossy", "Chanel - glossy", "Snow Mountain Stone - matte", "Pure White - matte"],
+            specifications: {"Product type": "Dining table and chair collection", "Style": "Modern Italian-inspired minimalism", "Tabletop": "Sintered stone with rounded corners", "Base shown": "Walnut-tone solid wood with 4 cm thick ash wood legs", "Available table sizes": "130 × 80 / 140 × 80 / 160 × 80 / 180 × 80 / 200 × 80 / 220 × 90 / 240 × 90 cm", "Chair design shown": "Curved wood back with upholstered seat and slim metal legs", "Configuration": "Dining table or table-and-chair set; confirm the required combination", "Source reference price": "Automatically converted to USD from CNY", "Minimum order": "Confirm with quotation", "Supplier reference": "1688 item 870384469142", "Production lead time": "Confirm with quotation"},
+            customisationOptions: ["Table dimensions", "Sintered stone colour and finish", "Dining chair quantity", "Chair upholstery colour", "Wood colour", "Project quantity and export packaging"],
+            customisationNote: "Please confirm the table dimensions, tabletop colour, chair quantity and upholstery preference. Final materials, dimensions and included components are stated in the approved quotation.",
+            commercialNote: "The displayed USD reference is automatically converted from the CNY source price. Final export pricing depends on the confirmed exchange rate, table size, chair quantity, finishes, packaging and delivery destination."
+        },
+        {
             id: "modular-hotel-guest-room-furniture-set",
             url: "products/modular-hotel-guest-room-furniture-set",
             category: "furniture",
