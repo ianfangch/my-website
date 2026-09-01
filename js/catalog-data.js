@@ -12,10 +12,12 @@
             { id: "sinks", name: "Sinks" },
             { id: "countertops", name: "Countertops" },
             { id: "flooring", name: "Flooring" },
+            { id: "carpet", name: "Carpet" },
             { id: "furniture", name: "Furniture" },
             { id: "accessories", name: "Accessories" }
         ],
         products: [
+            { id: "cyan-swell-carpet-tile", url: "products/cyan-swell-carpet-tile", category: "carpet", name: "Cyan Swell Carpet Tile", code: "ZM157", badge: "Commercial Carpet Tile", image: "img/products/cyan-swell-carpet-tile/01-hero.jpg", images: ["img/products/cyan-swell-carpet-tile/01-hero.jpg", "img/products/cyan-swell-carpet-tile/02-colours.jpg", "img/products/cyan-swell-carpet-tile/03-cyan-swell-a.jpg", "img/products/cyan-swell-carpet-tile/04-cyan-swell-a.jpg", "img/products/cyan-swell-carpet-tile/05-cyan-swell-b.jpg", "img/products/cyan-swell-carpet-tile/06-cyan-swell-c.jpg", "img/products/cyan-swell-carpet-tile/07-cyan-swell-d.jpg", "img/products/cyan-swell-carpet-tile/08-cyan-swell-e.jpg", "img/products/cyan-swell-carpet-tile/09-cyan-swell-f.jpg", "img/products/cyan-swell-carpet-tile/10-specifications.jpg"], imageAlt: "Cyan Swell ZM157 modular carpet tiles in a contemporary interior", quoteOnly: true, summary: "A solution-dyed Nylon 6 commercial carpet tile collection with six coordinated colourways and a high-low jacquard surface.", seoDescription: "Cyan Swell ZM157 commercial carpet tiles in six colourways. Solution-dyed Nylon 6, 33.33 x 100 cm, 7.5 mm thickness and B1 flammability rating.", highlights: ["Six coordinated colourways: A-F", "Solution-dyed Nylon 6 high-low jacquard surface", "Commercial modular format with custom options"], specifications: {"Model":"ZM157","Collection":"Cyan Swell","Colourways":"A / B / C / D / E / F","Face yarn":"Nylon 6","Dye method":"Solution dyed","Construction":"High-low jacquard","Pile weight":"550 g ± 20 g","Product thickness":"7.5 mm ± 0.5 mm","Tile size":"33.33 x 100 cm","Customisation":"Available","Flammability rating":"B1, GB 8624-2012","Environmental standard":"GB 18587-2001","Antimicrobial":"AATCC TM174","Antistatic standard":"Grade II, GB/T 18044-2008","Colour fastness":"AATCC 16E"} },
             {
                 id: "mini-smart-kitchen",
                 url: "products/compact-smart-kitchen",
@@ -2384,7 +2386,7 @@
         {
             id: "carpet-tile-collection",
             url: "products/carpet-tile-collection",
-            category: "flooring",
+            category: "carpet",
             name: "Carpet Tile Collection",
             code: "HRF-P31-32",
             badge: "Flooring Collection",
@@ -2397,7 +2399,7 @@
             pricePrefix: "From",
             priceUnit: "per square metre",
             summary: "Textured carpet tile references in blue, grey, taupe and charcoal project colours.",
-            seoDescription: "Textured carpet tile references in blue, grey, taupe and charcoal project colours. Contact IanProject for samples, current options and the full flooring catalogue.",
+            seoDescription: "Textured carpet tile references in blue, grey, taupe and charcoal project colours. Contact IanProject for samples, current options and the full carpet catalogue.",
             highlights: ["Static colour and pattern references", "More options available on request", "Samples and full catalogues available"],
             descriptionParagraphs: ["This page presents the available source-catalogue references and one application image. Contact IanProject for current construction options, samples, quantities and project-specific recommendations."],
             specifications: {
