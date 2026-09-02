@@ -1406,6 +1406,38 @@
 
     window.IAN_CATALOG.products.unshift(
         {
+            id: "childrens-storage-staircase-bunk-bed",
+            url: "products/childrens-storage-staircase-bunk-bed",
+            category: "furniture",
+            name: "Children's Storage Staircase Metal Bunk Bed",
+            code: "Ref. 1077024068668",
+            badge: "Children's Bedroom Furniture",
+            image: "img/products/childrens-storage-staircase-bunk-bed/1-optimized.png",
+            images: ["img/products/childrens-storage-staircase-bunk-bed/1-optimized.png", "img/products/childrens-storage-staircase-bunk-bed/2.jpg", "img/products/childrens-storage-staircase-bunk-bed/3.jpg", "img/products/childrens-storage-staircase-bunk-bed/4-english.png"],
+            preserveDetailImageRatio: true,
+            imageAlt: "Optimized walnut-look children's bunk bed with storage staircase, ladder and under-bed drawers",
+            imageAlts: ["Optimized walnut-look children's bunk bed with storage staircase, ladder and under-bed drawers", "White and charcoal children's bunk bed with storage stairs and under-bed drawers", "Dark wood-look children's bunk bed with staircase storage and front ladder", "English age-range guide for the children's bunk bed"],
+            currency: "CNY",
+            price: 3000,
+            priceUnit: "per set",
+            summary: "A space-saving children's bunk bed combining metal support elements, wood-look panels, a storage staircase, front ladder and practical under-bed drawers.",
+            seoDescription: "Children's metal-supported bunk bed with storage staircase in 1.2 m, 1.35 m and 1.5 m widths, approximately USD 442.48 per set.",
+            highlights: ["Three bed widths: 1.2 m / 1.35 m / 1.5 m", "Storage staircase plus front ladder", "Under-bed drawer storage", "White 1.35 × 1.9 m configuration available"],
+            descriptionParagraphs: ["Designed for compact children's rooms, this two-level bunk bed combines sleeping space with a staircase storage unit, a front access ladder and drawers beneath the lower bed. Wood-look panels soften the appearance of the metal-supported structure.", "The quoted reference price is for the specified configuration. Please confirm the required bed width, colour, staircase orientation, mattress size and included storage components before ordering."],
+            configurationRows: [
+                { option: "01", type: "Bunk bed", width: "1.2 m", configuration: "196 × 128 × 180 cm", mattress: "120 × 190 cm" },
+                { option: "02", type: "Bunk bed", width: "1.35 m", configuration: "196 × 143 × 180 cm", mattress: "135 × 190 cm" },
+                { option: "03", type: "Bunk bed", width: "1.5 m", configuration: "196 × 158 × 180 cm", mattress: "150 × 190 cm" },
+                { option: "04", type: "Storage staircase", width: "43 cm", configuration: "43 × 120 × 170 cm", mattress: "Not applicable" }
+            ],
+            configurationTableHeaders: ["Option", "Component", "Nominal width", "Overall dimensions", "Mattress size"],
+            variantOptions: ["1.2 m bunk bed", "1.35 m bunk bed", "1.5 m bunk bed", "1.35 × 1.9 m white configuration"],
+            specifications: {"Product type": "Children's two-level bunk bed", "Structure shown": "Metal supports with wood-look panels", "Available nominal widths": "1.2 m / 1.35 m / 1.5 m", "Overall length": "196 cm", "Overall height": "180 cm", "Storage staircase size": "43 × 120 × 170 cm", "Access": "Storage staircase and front ladder", "Storage": "Stair drawers and under-bed drawers", "Colour specified": "White, 1.35 × 1.9 m configuration", "Source reference price": "Automatically converted to USD from CNY", "Minimum order": "Confirm with quotation", "Supplier reference": "1688 item 1077024068668", "Production lead time": "Confirm with quotation"},
+            customisationOptions: ["Bed width and mattress size", "White, charcoal or wood-look colour combination", "Staircase position and storage layout", "Drawer and guardrail configuration", "Mattress requirements", "Project quantity and export packaging"],
+            customisationNote: "Please confirm the bed width, mattress dimensions, colour, staircase orientation and storage configuration. Final construction and included components are stated in the approved quotation.",
+            commercialNote: "The displayed USD reference is automatically converted from the CNY source price. Final export pricing depends on the confirmed exchange rate, selected size, colour, structure, quantity, packaging and delivery destination."
+        },
+        {
             id: "walnut-sintered-stone-dining-table-set",
             url: "products/walnut-sintered-stone-dining-table-set",
             category: "furniture",
