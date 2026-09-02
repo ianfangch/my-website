@@ -1406,6 +1406,40 @@
 
     window.IAN_CATALOG.products.unshift(
         {
+            id: "compact-sliding-door-bedroom-wardrobe",
+            url: "products/compact-sliding-door-bedroom-wardrobe",
+            category: "furniture",
+            name: "Compact Sliding-Door Bedroom Wardrobe",
+            code: "Ref. 1051973848744",
+            badge: "Bedroom Storage Furniture",
+            image: "img/products/compact-sliding-door-bedroom-wardrobe/1-optimized-v4.png",
+            images: ["img/products/compact-sliding-door-bedroom-wardrobe/1-optimized-v4.png", "img/products/compact-sliding-door-bedroom-wardrobe/2.jpg", "img/products/compact-sliding-door-bedroom-wardrobe/3.jpg", "img/products/compact-sliding-door-bedroom-wardrobe/4.jpg", "img/products/compact-sliding-door-bedroom-wardrobe/5.jpg", "img/products/compact-sliding-door-bedroom-wardrobe/6.jpg"],
+            preserveDetailImageRatio: true,
+            imageAlt: "Complete white one-metre sliding-door wardrobe with hanging rail and storage shelves",
+            imageAlts: ["Complete white one-metre sliding-door wardrobe with hanging rail and storage shelves", "Light walnut and white 1.6-metre sliding-door wardrobe with shelving", "Elegant grey and white 1.6-metre sliding-door wardrobe", "White 1.6-metre sliding-door wardrobe with open shelving", "Light walnut 1.6-metre sliding-door wardrobe with shelves and hanging storage", "Teak-colour 1.6-metre sliding-door wardrobe with shelving"],
+            currency: "CNY",
+            price: 500,
+            priceUnit: "per wardrobe",
+            summary: "A space-saving bedroom wardrobe with sliding doors, hanging storage and open shelving, available in compact 1.0 m and larger 1.6 m configurations.",
+            seoDescription: "Compact sliding-door bedroom wardrobe in 1.0 m and 1.6 m widths with multiple colour options, approximately USD 73.75 per wardrobe.",
+            highlights: ["Space-saving sliding doors", "1.0 m and 1.6 m widths shown", "Hanging rail and shelf storage", "Five colour combinations shown"],
+            descriptionParagraphs: ["Designed for bedrooms, children's rooms and rental properties, this easy-to-organise wardrobe combines sliding doors with hanging and shelf storage while keeping the door opening footprint compact.", "The supplied options show 1.0 m and 1.6 m widths, both approximately 180 cm high. Please confirm the required colour, width, depth, internal layout and board specification before ordering."],
+            configurationRows: [
+                { option: "01", width: "1.0 m", colour: "White", height: "180 cm", construction: "Thickened board option" },
+                { option: "02", width: "1.6 m", colour: "Light walnut + white", height: "180 cm", construction: "Thickened board option" },
+                { option: "03", width: "1.6 m", colour: "Elegant grey + white", height: "180 cm", construction: "Thickened board option" },
+                { option: "04", width: "1.6 m", colour: "White", height: "180 cm", construction: "Thickened board option" },
+                { option: "05", width: "1.6 m", colour: "Light walnut", height: "180 cm", construction: "Thickened board option" },
+                { option: "06", width: "1.6 m", colour: "Teak colour", height: "180 cm", construction: "Thickened board option" }
+            ],
+            configurationTableHeaders: ["Option", "Width", "Colour", "Height shown", "Board option"],
+            variantOptions: ["White · 1.0 m", "Light walnut + white · 1.6 m", "Elegant grey + white · 1.6 m", "White · 1.6 m", "Light walnut · 1.6 m", "Teak colour · 1.6 m"],
+            specifications: {"Product type": "Sliding-door bedroom wardrobe", "Widths shown": "1.0 m / 1.6 m", "Height shown": "180 cm", "Door type": "Sliding doors", "Storage shown": "Hanging rail and shelves", "Board specification": "Thickened board option; confirm composition with quotation", "Applications": "Bedroom, children's room, rental property and compact storage", "Assembly": "Assembly required", "Depth": "Confirm with quotation", "Source reference price": "Automatically converted to USD from CNY", "Minimum order": "Confirm with quotation", "Supplier reference": "1688 item 1051973848744", "Production lead time": "Confirm with quotation"},
+            customisationOptions: ["Wardrobe width and depth", "Colour combination", "Internal hanging and shelf layout", "Board specification and finish", "Door and handle details", "Project quantity and export packaging"],
+            customisationNote: "Please confirm the required width, depth, colour, internal storage layout, board composition and included fittings. Final construction details are stated in the approved quotation.",
+            commercialNote: "The displayed USD reference is automatically converted from the CNY source price. Final export pricing depends on the confirmed exchange rate, width, colour, board specification, internal layout, quantity, packaging and delivery destination."
+        },
+        {
             id: "white-three-drawer-home-office-desk",
             url: "products/white-three-drawer-home-office-desk",
             category: "furniture",
