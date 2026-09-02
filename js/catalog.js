@@ -58,6 +58,9 @@
         var priceMax = product.priceMax;
         var currency = product.currency || catalog.currency;
         var converted = false;
+        if (product.category === "furniture" && typeof price === "number" && typeof priceMax !== "number") {
+            priceMax = price * 2;
+        }
         if (currency === "CNY" && catalog.exchangeRates && typeof catalog.exchangeRates.CNY_PER_USD === "number") {
             price = price / catalog.exchangeRates.CNY_PER_USD;
             priceMax = typeof priceMax === "number" ? priceMax / catalog.exchangeRates.CNY_PER_USD : priceMax;
@@ -84,7 +87,7 @@
         }
         return '<div class="catalog-price"><span>' + escapeHtml(product.pricePrefix || "") + '</span>' +
             '<strong>' + escapeHtml(pricing.currency) + " " + displayedPrice +
-            '</strong><small>' + escapeHtml(product.priceUnit || "") + (pricing.converted ? " · reference conversion from CNY" : "") + "</small></div>";
+            '</strong><small>' + escapeHtml(product.priceUnit || "") + "</small></div>";
     }
 
     function productCard(product) {
