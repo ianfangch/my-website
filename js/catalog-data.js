@@ -1406,6 +1406,31 @@
 
     window.IAN_CATALOG.products.unshift(
         {
+            id: "white-three-drawer-home-office-desk",
+            url: "products/white-three-drawer-home-office-desk",
+            category: "furniture",
+            name: "White Three-Drawer Home Office Desk",
+            code: "Home Office Desk",
+            badge: "Home Office Furniture",
+            image: "img/products/white-three-drawer-home-office-desk/1.png",
+            images: ["img/products/white-three-drawer-home-office-desk/1.png", "img/products/white-three-drawer-home-office-desk/2.png", "img/products/white-three-drawer-home-office-desk/3.png", "img/products/white-three-drawer-home-office-desk/4.png"],
+            preserveDetailImageRatio: true,
+            imageAlt: "Minimal white home office desk with integrated storage pedestal in a bright modern workspace",
+            imageAlts: ["Minimal white home office desk with integrated storage pedestal in a bright modern workspace", "White writing desk with three-drawer storage pedestal shown from an angled view", "Front view of a simple white computer desk with three drawers", "White office desk with a right-side single-door storage pedestal"],
+            currency: "CNY",
+            price: 300,
+            priceUnit: "per desk",
+            summary: "A clean-lined white computer and writing desk with integrated side storage for bedrooms, study areas and compact home offices.",
+            seoDescription: "Minimal white home office computer and writing desk with integrated side storage, approximately USD 44.25 per desk.",
+            highlights: ["Minimal white finish", "Integrated side storage", "Suitable for study, writing and computer work", "Left- and right-side storage arrangements shown"],
+            descriptionParagraphs: ["This simple white desk combines a generous work surface with an integrated side pedestal, creating a practical workstation for bedrooms, student study areas and home offices.", "The supplied images show both a three-drawer pedestal and a single-door storage pedestal, positioned on either side. Please confirm the required storage style, orientation, dimensions and construction material before ordering."],
+            variantOptions: ["Three-drawer pedestal on left", "Single-door pedestal on right", "Storage orientation to be confirmed"],
+            specifications: {"Product type": "Computer, writing and study desk", "Colour shown": "White", "Storage shown": "Three-drawer pedestal or single-door pedestal", "Storage orientation": "Left or right, depending on selected configuration", "Applications": "Bedroom, student study area, home office and general workspace", "Dimensions": "Confirm with quotation", "Construction material": "Confirm with quotation", "Source reference price": "Automatically converted to USD from CNY", "Minimum order": "Confirm with quotation", "Production lead time": "Confirm with quotation"},
+            customisationOptions: ["Overall dimensions", "Drawer or cabinet storage configuration", "Left- or right-side pedestal", "Colour and finish", "Cable-management requirements", "Project quantity and export packaging"],
+            customisationNote: "Please confirm the required dimensions, storage configuration, pedestal side, construction material and finish. Final details are stated in the approved quotation.",
+            commercialNote: "The displayed USD reference is automatically converted from the CNY source price. Final export pricing depends on the confirmed exchange rate, dimensions, storage configuration, material, quantity, packaging and delivery destination."
+        },
+        {
             id: "childrens-storage-staircase-bunk-bed",
             url: "products/childrens-storage-staircase-bunk-bed",
             category: "furniture",
