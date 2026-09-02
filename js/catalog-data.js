@@ -9,10 +9,10 @@
         },
         categories: [
             { id: "cabinetry", name: "Cabinetry" },
-            { id: "sinks", name: "Sinks" },
             { id: "countertops", name: "Countertops" },
             { id: "flooring", name: "Flooring" },
             { id: "carpet", name: "Carpet" },
+            { id: "sinks", name: "Sinks" },
             { id: "furniture", name: "Furniture" },
             { id: "accessories", name: "Accessories" }
         ],
