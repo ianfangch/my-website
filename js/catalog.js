@@ -165,6 +165,15 @@
                 });
             } else if (sort === "name") {
                 products.sort(function (a, b) { return a.name.localeCompare(b.name); });
+            } else if (activeCategory === "all") {
+                var categoryOrder = catalog.categories.reduce(function (order, category, index) {
+                    order[category.id] = index;
+                    return order;
+                }, {});
+                products.sort(function (a, b) {
+                    return (categoryOrder[a.category] ?? Number.MAX_VALUE) -
+                        (categoryOrder[b.category] ?? Number.MAX_VALUE);
+                });
             }
 
             document.getElementById("catalog-result-count").textContent =
