@@ -2150,7 +2150,7 @@
             specifications: {
                 "Product type": "Pull-out cabinet waste sorting system",
                 "Cabinet widths": "300 / 400 / 450 / 500 / 600 mm",
-                "Available configurations": "Two-bin, three-bin and four-bin options",
+                "Available configurations": "2 bins / 3 bins / 4 bins",
                 "Installation": "Kitchen base cabinet, pull-out mounting",
                 "Colour shown": "Dark grey",
                 "Bin access": "Removable inner containers",

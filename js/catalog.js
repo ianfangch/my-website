@@ -298,11 +298,6 @@
                 }));
             }, []).join("; ");
         }
-        if (Array.isArray(product.optionRows) && product.optionRows.length) {
-            displaySpecifications["Available options"] = product.optionRows.map(function (row) {
-                return [row.sku, row.cabinet, row.bins, row.capacity, row.productSize].filter(Boolean).join(" — ");
-            }).join("; ");
-        }
         if (Array.isArray(product.customisationOptions) && product.customisationOptions.length) {
             displaySpecifications["Customisation options"] = product.customisationOptions.join("; ");
         }
