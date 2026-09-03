@@ -49,7 +49,7 @@
         if (compact) {
             return '<a class="btn btn-primary" href="/contact#quote-builder-form">Contact Us</a>';
         }
-        return '<a class="btn btn-outline-primary px-4 py-3" href="/catalogues">Catalogue Download</a>' +
+        return '<a class="btn btn-outline-primary px-4 py-3" href="/catalogues">Get Catalogue</a>' +
             '<a class="btn btn-primary px-4 py-3" href="/contact#quote-builder-form">Request a Quote</a>';
     }
 
@@ -108,23 +108,26 @@
             "</div></div></article>";
     }
 
-    function procurementMarkup() {
+    function tradeInformationMarkup(product) {
+        var projectOrderCategories = ["cabinetry", "countertops", "flooring", "carpet"];
         var information = {
-            "MOQ": "Confirmed after the product, finish and order combination are reviewed",
-            "Production planning": "Confirmed after specifications, quantity, approvals and packaging requirements are agreed",
-            "Quality review": "Applicable checks are aligned with the approved product and order requirements",
-            "Packaging": "Confirmed according to product configuration, order quantity and delivery requirements",
-            "Loading and shipment": "Confirmed with the packing information, destination and agreed shipment arrangement"
+            "Country of Origin": "China",
+            "MOQ": projectOrderCategories.indexOf(product.category) !== -1 ?
+                "1 order — Negotiable, please contact us" :
+                "100 units — Negotiable, please contact us",
+            "Payment Method": "T/T",
+            "Lead Time": "20–45 days",
+            "Free Samples": "Not available; paid samples may be arranged",
+            "Trade Terms": "EXW / FOB / CIF / DDP",
+            "OEM Service": "Available",
+            "Customisation": "Available"
         };
         return '<section class="col-12 mt-5 product-info-section product-procurement-summary">' +
-            '<p class="text-uppercase text-primary mb-2">Procurement information</p>' +
-            '<h2 class="mb-4">Order, Quality &amp; Delivery</h2>' +
+            '<h2 class="mb-4">Trade Information</h2>' +
             '<div class="table-responsive"><table class="table product-commercial-table"><tbody>' +
             Object.keys(information).map(function (key) {
                 return '<tr><th>' + escapeHtml(key) + '</th><td>' + escapeHtml(information[key]) + '</td></tr>';
-            }).join("") + '</tbody></table></div>' +
-            '<div class="d-flex flex-wrap gap-3 mt-4"><a class="btn btn-outline-primary" href="/quality-process">View Quality &amp; Process</a>' +
-            '<a class="btn btn-primary" href="/contact#quote-builder-form">Confirm Project Requirements</a></div></section>';
+            }).join("") + '</tbody></table></div></section>';
     }
 
     function renderCatalog() {
@@ -262,10 +265,6 @@
             return;
         }
 
-        if (product.category === "flooring" && (product.flooringPaletteImage || Array.isArray(product.flooringSwatches))) {
-            renderFlooringProductDetail(target, product);
-            return;
-        }
 
         var category = getCategory(product.category);
         var isSink = product.category === "sinks";
@@ -276,14 +275,38 @@
         target.classList.toggle("quartz-series-detail", isQuartzSeries);
         var displaySpecifications = {};
         Object.keys(product.specifications).forEach(function (key) {
-            if (key === "Minimum order" || key === "Production lead time") return;
+            if (["Minimum order", "Production lead time", "Reference lead time", "Country of origin", "Sample", "Samples"].indexOf(key) !== -1) return;
             displaySpecifications[key] = product.specifications[key];
             if (isCabinetry && key === "Door finish" && !product.specifications["Standard hinges"]) {
                 displaySpecifications["Standard hinges"] = "Blum";
             }
         });
         if (isCabinetry && !displaySpecifications["Standard hinges"]) displaySpecifications["Standard hinges"] = "Blum";
-        if (!displaySpecifications["Country of origin"]) displaySpecifications["Country of origin"] = "China";
+        if (Array.isArray(product.variantOptions) && product.variantOptions.length) {
+            displaySpecifications["Available styles"] = product.variantOptions.join("; ");
+        }
+        if (Array.isArray(product.configurationRows) && product.configurationRows.length) {
+            displaySpecifications["Available configurations"] = product.configurationRows.map(function (row) {
+                return [row.option, row.type, row.width, row.configuration, row.mattress].filter(Boolean).join(" — ");
+            }).join("; ");
+        }
+        if (Array.isArray(product.catalogueRows) && product.catalogueRows.length) {
+            displaySpecifications["Available models"] = product.catalogueRows.reduce(function (models, row) {
+                return models.concat(row.models.map(function (model) {
+                    return model.code + ": " + model.size + " overall, " + model.cutout + " cut-out, " +
+                        (model.material || "304 stainless steel with thickened rim");
+                }));
+            }, []).join("; ");
+        }
+        if (Array.isArray(product.optionRows) && product.optionRows.length) {
+            displaySpecifications["Available options"] = product.optionRows.map(function (row) {
+                return [row.sku, row.cabinet, row.bins, row.capacity, row.productSize].filter(Boolean).join(" — ");
+            }).join("; ");
+        }
+        if (Array.isArray(product.customisationOptions) && product.customisationOptions.length) {
+            displaySpecifications["Customisation options"] = product.customisationOptions.join("; ");
+        }
+        if (product.customisationNote) displaySpecifications["Customisation note"] = product.customisationNote;
         var specs = Object.keys(displaySpecifications).map(function (key) {
             return "<tr><th>" + escapeHtml(key) + "</th><td>" +
                 escapeHtml(displaySpecifications[key]) + "</td></tr>";
@@ -295,22 +318,37 @@
         var galleryMarkup = '<div class="product-gallery"><div class="product-detail-image">' +
             '<img id="product-main-image" src="' + escapeHtml(product.heroImage || gallery[0]) + '" alt="' +
             escapeHtml(product.imageAlt) + '" width="1254" height="1254" fetchpriority="high"></div></div>';
-        var detailGallery = isCountertop ? gallery : gallery.slice(1);
+        var detailGallery = isCountertop ? gallery.slice() : gallery.slice(1);
+        var supplementalImageAlts = {};
+        if (Array.isArray(product.flooringSwatches)) {
+            product.flooringSwatches.forEach(function (swatch) {
+                if (detailGallery.indexOf(swatch.image) === -1) detailGallery.push(swatch.image);
+                supplementalImageAlts[swatch.image] = swatch.alt || (product.name + " colour " + swatch.code);
+            });
+        }
+        if (Array.isArray(product.catalogueRows)) {
+            product.catalogueRows.forEach(function (row) {
+                if (detailGallery.indexOf(row.image) === -1) detailGallery.push(row.image);
+                supplementalImageAlts[row.image] = row.imageAlt || product.imageAlt;
+            });
+        }
+        if (!detailGallery.length) detailGallery = gallery.slice(0, 1);
         var directGalleryMarkup = detailGallery.length ?
             '<section class="col-12 mt-5 product-image-section" aria-labelledby="product-gallery-title">' +
-            '<h2 id="product-gallery-title" class="mb-4">' + (isQuartzSeries ? "Colour Range and Edge Processing" : (isCountertop ? "Surface and Application" : "Product Gallery")) + '</h2>' +
+            '<h2 id="product-gallery-title" class="mb-4">Product Gallery</h2>' +
             '<div class="product-direct-gallery' + (product.preserveDetailImageRatio ? ' product-direct-gallery-natural' : '') + '">' + detailGallery.map(function (image, index) {
                 var altIndex = isCountertop ? index : index + 1;
-                var imageAlt = product.imageAlts && product.imageAlts[altIndex] ? product.imageAlts[altIndex] : product.imageAlt;
+                var imageAlt = supplementalImageAlts[image] || (product.imageAlts && product.imageAlts[altIndex] ? product.imageAlts[altIndex] : product.imageAlt);
                 var dimensions = product.imageDimensions && product.imageDimensions[altIndex] ? product.imageDimensions[altIndex] : { width: 1254, height: 1254 };
                 return '<div class="product-direct-image"><img src="' + escapeHtml(image) + '" alt="' + escapeHtml(imageAlt) +
                     '" loading="' + (product.preserveDetailImageRatio ? 'eager' : 'lazy') + '" width="' + dimensions.width + '" height="' + dimensions.height + '"></div>';
             }).join("") + "</div></section>" : "";
-        var descriptionMarkup = Array.isArray(product.descriptionParagraphs) && product.descriptionParagraphs.length ?
-            '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Product Description</h2>' +
-            product.descriptionParagraphs.map(function (paragraph) {
+        var descriptionParagraphs = Array.isArray(product.descriptionParagraphs) && product.descriptionParagraphs.length ?
+            product.descriptionParagraphs : [product.seoDescription || product.summary];
+        var descriptionMarkup = '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Product Description</h2>' +
+            descriptionParagraphs.map(function (paragraph) {
                 return '<p class="product-description-copy">' + escapeHtml(paragraph) + '</p>';
-            }).join("") + '</section>' : '';
+            }).join("") + '</section>';
         var variantMarkup = Array.isArray(product.variantOptions) && product.variantOptions.length ?
             '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Available Styles</h2>' +
             '<ul class="product-option-list list-unstyled">' + product.variantOptions.map(function (option) {
@@ -420,7 +458,7 @@
                     escapeHtml(commercialInformation[key]) + "</td></tr>";
             }).join("") + "</tbody></table></div>" +
                 '<p class="product-info-note">' + escapeHtml(commercialNote) + "</p></section>" : "";
-        var commercialMarkup = procurementMarkup();
+        var tradeMarkup = tradeInformationMarkup(product);
         var catalogueRowsMarkup = Array.isArray(product.catalogueRows) ?
             '<section class="col-12 mt-5"><div class="pb-3 mb-2 border-bottom">' +
             '<p class="text-uppercase text-primary mb-2">Sink Collection</p>' +
@@ -459,20 +497,17 @@
             escapeHtml(category ? category.name : product.category) + " / " + escapeHtml(product.code) + "</p>" +
             "<h1>" + escapeHtml(product.name) + "</h1><p class=\"mb-4\">" + escapeHtml(product.summary) + "</p>" +
             priceMarkup(product, false) +
-            '<p class="catalog-price-note">Displayed prices exclude freight, duties, installation and project-specific changes unless stated otherwise.</p>' +
-            (compactCatalogue ? "" : '<ul class="product-highlights list-unstyled my-4">' + highlights + "</ul>") +
-            '<div class="d-flex flex-wrap gap-3">' + productContactLink(product, false) + '</div></div>' +
-            (compactCatalogue ? catalogueRowsMarkup + commercialMarkup : directGalleryMarkup +
-            descriptionMarkup +
-            configurationRowsMarkup +
-            variantMarkup +
-            '<div class="col-12 mt-5"><h2 class="mb-4">Key Specifications</h2>' +
-            '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></div>" +
-            optionRowsMarkup + faqMarkup + contactMarkup + customisationMarkup + commercialMarkup) + "</div>";
+            '<div class="d-flex flex-wrap gap-3 mt-4">' + productContactLink(product, false) + '</div></div>' +
+            directGalleryMarkup +
+            '<section class="col-12 mt-5 product-info-section"><h2 class="mb-4">Product Specifications</h2>' +
+            '<div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + "</tbody></table></div></section>" +
+            descriptionMarkup + tradeMarkup +
+            '<section class="col-12 mt-5 product-info-section product-bottom-actions"><div class="d-flex flex-wrap gap-3">' +
+            productContactLink(product, false) + '</div></section></div>';
         bindProductBackLink();
     }
 
-    function renderFlooringProductDetail(target, product) {
+    function renderFlooringProductDetailLegacy(target, product) {
         var swatches = (product.flooringSwatches || []).map(function (swatch) {
             return '<div class="flooring-swatch"><img src="' + escapeHtml(swatch.image) + '" alt="' +
                 escapeHtml(swatch.alt) + '" loading="lazy"><span>' + escapeHtml(swatch.code) + '</span></div>';
@@ -502,7 +537,7 @@
             '<a class="btn btn-outline-light" href="/contact#quote-builder-form">Request a Quote</a></div></div></div></section>' +
             '<section class="flooring-product-info"><div><p class="text-uppercase text-primary mb-2">Product details</p><h2>Flooring options for coordinated interiors</h2>' +
             '<p>' + escapeHtml(product.descriptionParagraphs[0]) + '</p></div><div class="table-responsive"><table class="table product-spec-table"><tbody>' + specs + '</tbody></table></div></section>' +
-            '<div class="row">' + procurementMarkup() + '</div>';
+            '<div class="row">' + tradeInformationMarkup(product) + '</div>';
         bindProductBackLink();
     }
 
