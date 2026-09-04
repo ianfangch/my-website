@@ -1598,11 +1598,7 @@
                 "Primary material": "304 stainless steel",
                 "Application": "Villa, courtyard, patio, terrace and hospitality outdoor areas",
                 "Configuration": "Customisable modules, layout and appliance integration",
-                "Available functions": "Cooking, grilling, washing, preparation, refrigeration and storage",
-                "Source reference price": "Automatically converted to USD from CNY",
-                "Minimum order": "1 set",
-                "Supplier reference": "1688 item 1053256184516",
-                "Production lead time": "Confirm with quotation"
+                "Available functions": "Cooking, grilling, washing, preparation, refrigeration and storage"
             },
             customisationOptions: ["Overall dimensions and modular layout", "Cabinet, drawer and door arrangement", "Grill, sink, refrigerator and appliance integration", "Worktop and stainless steel finish", "Canopy, lighting and service connections", "Project packaging and delivery requirements"],
             customisationNote: "Please provide the site dimensions, preferred functions, appliance list and installation conditions. Final construction, openings, utilities and included components are confirmed in approved drawings and the quotation.",
