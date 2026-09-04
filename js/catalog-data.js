@@ -1690,28 +1690,12 @@
                 "This statement sofa combines a rich emerald green velvet finish with a low, rounded silhouette. Generous cushions and softly curved arms create a relaxed centrepiece for living rooms, lounges and hospitality interiors.",
                 "The displayed price range is the supplier reference for one set. Final pricing is confirmed according to the selected configuration, quantity, packaging and delivery destination."
             ],
-            variantOptions: [
-                "Single seat - 1.25 m",
-                "Two seats - 1.7 m, 2 sections",
-                "Three seats - 2.0 m, 2 sections",
-                "Four seats - 2.3 m, 3 sections",
-                "Large four seats - 2.6 m, 3 sections",
-                "Five seats - 2.8 m, 3 sections",
-                "Large five seats - 3.0 m, 3 sections",
-                "Six seats - 3.2 m, 3 sections",
-                "Large six seats - 3.4 m, 3 sections",
-                "Seven seats - 3.6 m, 3 sections"
-            ],
             specifications: {
                 "Product type": "Modular straight sofa",
                 "Style": "Modern French-inspired / light luxury",
                 "Upholstery shown": "Emerald green velvet",
                 "Available sizes": "1.25 / 1.7 / 2.0 / 2.3 / 2.6 / 2.8 / 3.0 / 3.2 / 3.4 / 3.6 m",
-                "Section options": "Single section; 2-section and 3-section configurations",
-                "Source reference price": "Automatically converted to USD from CNY",
-                "Minimum order": "1 set",
-                "Supplier reference": "1688 item 993512075963",
-                "Production lead time": "Confirm with quotation"
+                "Section options": "Single section; 2-section and 3-section configurations"
             },
             customisationOptions: ["Sofa size and seating configuration", "Velvet colour", "Upholstery material", "Cushion firmness", "Project quantity and export packaging"],
             customisationNote: "Please confirm the required size, colour and configuration before ordering. Final dimensions, materials and included components are stated in the approved quotation.",
