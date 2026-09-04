@@ -1652,11 +1652,7 @@
                 "Upholstery shown": "Black leather",
                 "Available mattress widths": "1.5 m / 1.8 m",
                 "Structure options": "Frame / gas lift / three-drawer gas lift",
-                "Bed base": "Steel-and-wood base on frame versions",
-                "Source reference price": "Automatically converted to USD from CNY",
-                "Minimum order": "1 set",
-                "Supplier reference": "1688 item 997397924847",
-                "Production lead time": "Confirm with quotation"
+                "Bed base": "Steel-and-wood base on frame versions"
             },
             customisationOptions: ["Bed width and storage structure", "Leather colour and upholstery material", "Headboard and frame finish", "Mattress requirements", "Project quantity and export packaging"],
             customisationNote: "Please confirm the mattress width, preferred base structure, upholstery and storage requirements before ordering. Final dimensions and included components are stated in the approved quotation.",
