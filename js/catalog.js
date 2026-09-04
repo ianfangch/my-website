@@ -291,12 +291,16 @@
             }).join("; ");
         }
         if (Array.isArray(product.catalogueRows) && product.catalogueRows.length) {
-            displaySpecifications["Available models"] = product.catalogueRows.reduce(function (models, row) {
-                return models.concat(row.models.map(function (model) {
-                    return model.code + ": " + model.size + " overall, " + model.cutout + " cut-out, " +
-                        (model.material || "304 stainless steel with thickened rim");
-                }));
-            }, []).join("; ");
+            var modelLabelCounts = {};
+            product.catalogueRows.forEach(function (row) {
+                row.models.forEach(function (model) {
+                    var baseLabel = "Model " + model.code + (model.note ? " — " + model.note : "");
+                    modelLabelCounts[baseLabel] = (modelLabelCounts[baseLabel] || 0) + 1;
+                    var modelLabel = baseLabel + (modelLabelCounts[baseLabel] > 1 ? " — Option " + modelLabelCounts[baseLabel] : "");
+                    displaySpecifications[modelLabel] = "Overall size: " + model.size + "; Cut-out size: " + model.cutout +
+                        "; Material: " + (model.material || "304 stainless steel with thickened rim");
+                });
+            });
         }
         if (Array.isArray(product.customisationOptions) && product.customisationOptions.length) {
             displaySpecifications["Customisation options"] = product.customisationOptions.join("; ");
@@ -313,7 +317,9 @@
         var galleryMarkup = '<div class="product-gallery"><div class="product-detail-image">' +
             '<img id="product-main-image" src="' + escapeHtml(product.heroImage || gallery[0]) + '" alt="' +
             escapeHtml(product.imageAlt) + '" width="1254" height="1254" fetchpriority="high"></div></div>';
-        var detailGallery = isCountertop ? gallery.slice() : gallery.slice(1);
+        var detailGallery = isSink && Array.isArray(product.catalogueRows) ?
+            product.catalogueRows.map(function (row) { return row.image; }) :
+            (isCountertop ? gallery.slice() : gallery.slice(1));
         var supplementalImageAlts = {};
         if (Array.isArray(product.flooringSwatches)) {
             product.flooringSwatches.forEach(function (swatch) {
