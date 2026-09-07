@@ -438,11 +438,11 @@
             " " + (product.priceUnit || ""));
         var standardCommercialInformation = {
             "Indicative price": indicativePrice.trim(),
-            "Minimum order": product.specifications["Minimum order"] || "1 metre",
+            "Minimum order": product.moq || product.specifications["Minimum order"] || "Confirmed with quotation",
             "Currency": "USD",
             "Payment method": "T/T only",
             "Payment terms": "30% deposit upon order confirmation and 70% balance before shipment",
-            "Production lead time": product.specifications["Production lead time"] || "Approximately 30–40 days after confirmation of drawings, materials and deposit",
+            "Production lead time": product.leadTime || product.specifications["Production lead time"] || "20–40 days after order confirmation",
             "Packaging": "Flat-pack or assembled export packaging according to project requirements",
             "Trade terms": "EXW, FOB and CIF",
             "DDP delivery": "Available for selected destinations, subject to the final delivery address and local import requirements",
@@ -453,11 +453,11 @@
         };
         var sinkCommercialInformation = {
             "Indicative price": indicativePrice.trim(),
-            "Minimum order": product.specifications["Minimum order"] || "Confirm with enquiry",
+            "Minimum order": product.moq || product.specifications["Minimum order"] || "Confirmed with quotation",
             "Currency": "USD",
             "Payment method": "T/T only",
             "Payment terms": "30% deposit upon order confirmation and 70% balance before shipment",
-            "Production lead time": product.specifications["Production lead time"] || "Confirm with enquiry",
+            "Production lead time": product.leadTime || product.specifications["Production lead time"] || "20–40 days after order confirmation",
             "Packaging": "Protective export packaging according to sink configuration and order quantity",
             "Trade terms": "EXW, FOB and CIF",
             "Port of loading": "Confirmed with the final quotation",
