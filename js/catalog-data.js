@@ -2681,3 +2681,63 @@
         })
     );
 }());
+(function () {
+    "use strict";
+
+    var catalog = window.IAN_CATALOG;
+    if (!catalog || !Array.isArray(catalog.products)) return;
+
+    var leadTime = "20–40 days after order confirmation";
+    var seoDescriptions = {
+        "mini-smart-kitchen": "Compact modular kitchen cabinets for apartments with smart pull-out storage and custom finishes. Model OLCG026, from USD 640 per metre.",
+        "aluminium-frame-kitchen": "Modern aluminium-frame modular kitchen cabinets with custom colours and dimensions. Model OLCG025, from USD 638 per metre.",
+        "shaker-storage-kitchen": "Modern Shaker kitchen cabinets with glass doors and flexible internal storage. Model OLCG012, from USD 638 per metre.",
+        "minimalist-glass-kitchen": "Minimalist glass-front kitchen cabinets with lacquer finish and custom storage planning. Model OLCG051, from USD 638 per metre.",
+        "high-gloss-kitchen": "High-gloss modern modular kitchen cabinets with custom layout, colour and accessories. Model OLCG038-1, from USD 509 per metre."
+    };
+    var customisationByCategory = {
+        cabinetry: ["Cabinet dimensions and layout", "Carcase and door materials", "Colours and surface finishes", "Countertop and edge details", "Hardware and internal storage", "Project quantity and export packaging"],
+        countertops: ["Slab size and thickness", "Colour and pattern selection", "Surface finish", "Edge profile and laminated details", "Cut-outs and fabrication drawings", "Project quantity and export packaging"],
+        flooring: ["Construction and thickness", "Colour and surface texture", "Plank, tile or sheet dimensions", "Installation method and accessories", "Performance requirements", "Samples and project quantity"],
+        carpet: ["Colour and pattern selection", "Tile dimensions and layout", "Pile construction and yarn", "Backing specification", "Performance requirements", "Samples and project quantity"],
+        furniture: ["Overall dimensions and configuration", "Material and construction", "Colour, upholstery and finish", "Storage and functional details", "Hardware and accessories", "Project quantity and export packaging"],
+        accessories: ["Overall dimensions and configuration", "Material and surface finish", "Accessory combination", "Installation requirements", "Project quantity and export packaging"],
+        sinks: ["Sink dimensions and bowl depth", "Stainless steel grade and thickness", "Surface finish and colour", "Installation configuration", "Hole and drain layout", "Accessories and export packaging"]
+    };
+    var commercialNoteByCategory = {
+        sinks: "Prices shown are indicative. Final sink pricing and MOQ depend on the selected model, material, finish, accessories, quantity, packaging and delivery destination.",
+        countertops: "Prices shown are indicative. Final pricing and MOQ depend on the selected surface, slab size, thickness, fabrication, quantity, packaging and delivery destination.",
+        flooring: "Prices shown are indicative. Final pricing and MOQ depend on construction, thickness, colour, quantity, packaging and delivery destination.",
+        carpet: "Prices shown are indicative. Final pricing and MOQ depend on construction, tile size, backing, colour, quantity, packaging and delivery destination.",
+        furniture: "Prices shown are indicative. Final pricing and MOQ depend on dimensions, materials, finish, configuration, quantity, packaging and delivery destination.",
+        accessories: "Prices shown are indicative. Final pricing and MOQ depend on the selected configuration, quantity, packaging and delivery destination.",
+        cabinetry: "Prices shown are indicative. Final pricing and MOQ depend on dimensions, materials, finishes, hardware, accessories, quantity, packaging and delivery destination."
+    };
+
+    catalog.products.forEach(function (product) {
+        product.specifications = product.specifications || {};
+        product.moq = "1 set";
+        product.leadTime = leadTime;
+        product.specifications["Minimum order"] = product.moq;
+        product.specifications["Production lead time"] = leadTime;
+        if (Object.prototype.hasOwnProperty.call(product.specifications, "Reference lead time")) {
+            product.specifications["Reference lead time"] = leadTime;
+        }
+        if (product.commercialInformation) {
+            product.commercialInformation["Minimum order"] = product.moq;
+            product.commercialInformation["Production lead time"] = leadTime;
+        }
+        if (!Array.isArray(product.customisationOptions) || !product.customisationOptions.length) {
+            product.customisationOptions = (customisationByCategory[product.category] || customisationByCategory.furniture).slice();
+        }
+        if (!product.commercialNote) {
+            product.commercialNote = commercialNoteByCategory[product.category] || commercialNoteByCategory.furniture;
+        }
+        if (!product.seoDescription && seoDescriptions[product.id]) {
+            product.seoDescription = seoDescriptions[product.id];
+        }
+        if (product.id === "5201-paris-season") {
+            product.summary = "Paris Season features a bright white quartz base with flowing grey veins for elegant countertops, islands and vanity surfaces.";
+        }
+    });
+}());
