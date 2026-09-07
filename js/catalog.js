@@ -134,6 +134,11 @@
         var grid = document.getElementById("catalog-grid");
         if (!grid) return;
 
+        var pageSize = 24;
+        var visibleCount = pageSize;
+        var loadMoreButton = document.getElementById("catalog-load-more");
+        var visibleStatus = document.getElementById("catalog-visible-status");
+
         var params = new URLSearchParams(window.location.search);
         var activeCategory = params.get("category") || "all";
         var search = "";
@@ -181,9 +186,20 @@
 
             document.getElementById("catalog-result-count").textContent =
                 products.length + (products.length === 1 ? " product" : " products");
-            grid.innerHTML = products.length ? products.map(productCard).join("") :
+            var visibleProducts = products.slice(0, visibleCount);
+            grid.innerHTML = products.length ? visibleProducts.map(productCard).join("") :
                 '<div class="catalog-empty"><h3>No products in this category yet.</h3>' +
                 '<p>The category is ready for future products. Send us the first product images, codes and prices to publish them.</p></div>';
+
+            if (visibleStatus) {
+                visibleStatus.textContent = products.length ?
+                    "Showing " + visibleProducts.length + " of " + products.length + " products" : "";
+            }
+            if (loadMoreButton) {
+                var remaining = Math.max(products.length - visibleProducts.length, 0);
+                loadMoreButton.hidden = remaining === 0;
+                loadMoreButton.textContent = remaining ? "Load More Products (" + remaining + ")" : "";
+            }
         }
 
         filterContainer.addEventListener("click", function (event) {
@@ -197,17 +213,26 @@
             if (activeCategory === "all") url.searchParams.delete("category");
             else url.searchParams.set("category", activeCategory);
             window.history.replaceState({}, "", url.pathname + url.search + "#catalog");
+            visibleCount = pageSize;
             draw();
         });
 
         searchInput.addEventListener("input", function () {
             search = searchInput.value.trim().toLowerCase();
+            visibleCount = pageSize;
             draw();
         });
         sortInput.addEventListener("change", function () {
             sort = sortInput.value;
+            visibleCount = pageSize;
             draw();
         });
+        if (loadMoreButton) {
+            loadMoreButton.addEventListener("click", function () {
+                visibleCount += pageSize;
+                draw();
+            });
+        }
         draw();
     }
 
