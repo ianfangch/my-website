@@ -95,7 +95,7 @@ function ianproject_import_batch( $offset, $limit = 4 ) {
         $post_id = wp_insert_post( wp_slash( array(
             'post_type' => $type, 'post_status' => 'draft' === ( $record['status'] ?? '' ) ? 'draft' : 'publish',
             'post_title' => $record['title'] ?? $slug, 'post_name' => $slug,
-            'post_content' => ianproject_tokens( $record['content'] ?? '' ),
+            'post_content' => ianproject_tokens( ianproject_repair_layout_content( $record['content'] ?? '', $source ) ),
             'post_excerpt' => $record['summary'] ?? $record['description'] ?? '',
             'post_parent' => $parent, 'menu_order' => $offset + $index,
             'comment_status' => 'closed', 'ping_status' => 'closed',
