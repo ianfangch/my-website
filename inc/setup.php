@@ -10,6 +10,30 @@ function ianproject_manifest() {
     return is_array( $manifest ) ? $manifest : array();
 }
 
+function ianproject_imported_post( $source, $post_type = 'page' ) {
+    $posts = get_posts( array( 'post_type' => $post_type, 'post_status' => array( 'publish', 'draft', 'pending', 'private', 'future' ), 'meta_key' => '_ian_source', 'meta_value' => $source, 'posts_per_page' => 1, 'orderby' => 'ID', 'order' => 'ASC' ) );
+    return $posts ? $posts[0] : null;
+}
+
+function ianproject_homepage_id() {
+    $id = absint( get_option( 'ian_homepage_id' ) );
+    if ( $id && 'page' === get_post_type( $id ) && 'trash' !== get_post_status( $id ) && 'index.html' === get_post_meta( $id, '_ian_source', true ) ) { return $id; }
+    $page = ianproject_imported_post( 'index.html' );
+    return $page ? $page->ID : 0;
+}
+
+function ianproject_set_homepage() {
+    $id = ianproject_homepage_id();
+    if ( ! $id ) { return new WP_Error( 'ian_home_missing', '尚未找到导入的原站首页。请先点击「导入页面和产品」，再设置首页。' ); }
+    if ( 'publish' !== get_post_status( $id ) ) { return new WP_Error( 'ian_home_not_published', '原站首页尚未发布。请先在页面编辑器发布该页，再设置首页。' ); }
+    update_option( 'ian_homepage_id', $id );
+    update_option( 'page_on_front', $id );
+    update_option( 'show_on_front', 'page' );
+    if ( 'page' !== get_option( 'show_on_front' ) || $id !== absint( get_option( 'page_on_front' ) ) ) { return new WP_Error( 'ian_home_save_failed', '首页设置未保存成功，请稍后重试。' ); }
+    do_action( 'litespeed_purge_all' );
+    return true;
+}
+
 function ianproject_import_records() {
     $manifest = ianproject_manifest(); $records = array();
     foreach ( array( 'pages' => 'page', 'posts' => 'ian_insight', 'products' => 'ian_product', 'drafts' => 'page' ) as $group => $type ) {
@@ -48,21 +72,26 @@ function ianproject_import_image( $source, $post_id, $title ) {
     set_post_thumbnail( $post_id, $id );
 }
 
-/** Idempotent, bounded import; edited records and slug collisions are never overwritten. */
+/** Preserve imported edits and keep unrelated old pages when paths collide. */
 function ianproject_import_batch( $offset, $limit = 4 ) {
     $all = ianproject_import_records(); $imported = 0; $skipped = 0; $errors = array();
     foreach ( array_slice( $all, $offset, $limit ) as $index => $record ) {
         $source = $record['source'] ?? ( 'products/' . ( $record['id'] ?? $record['slug'] ?? '' ) . '.html' );
         $type = $record['_type'];
-        $existing = get_posts( array( 'post_type' => $type, 'post_status' => 'any', 'meta_key' => '_ian_source', 'meta_value' => $source, 'posts_per_page' => 1, 'fields' => 'ids' ) );
+        $existing = ianproject_imported_post( $source, $type );
+        if ( $existing ) {
+            if ( 'index.html' === $source ) { update_option( 'ian_homepage_id', $existing->ID ); }
+            ++$skipped;
+            continue;
+        }
         $slug = sanitize_title( $record['slug'] ?? $record['id'] ?? '' );
         $parent = 0;
         if ( ! empty( $record['parent'] ) ) {
-            $parent_post = get_page_by_path( sanitize_title( $record['parent'] ), OBJECT, 'page' );
+            $parent_post = ianproject_imported_post( sanitize_title( $record['parent'] ) . '.html' );
             if ( $parent_post ) { $parent = $parent_post->ID; }
         }
         $path = $parent ? get_page_uri( $parent ) . '/' . $slug : $slug;
-        if ( $existing || get_page_by_path( $path, OBJECT, $type ) ) { ++$skipped; continue; }
+        if ( get_page_by_path( $path, OBJECT, $type ) ) { $slug = 'ianproject-' . $slug; }
         $post_id = wp_insert_post( wp_slash( array(
             'post_type' => $type, 'post_status' => 'draft' === ( $record['status'] ?? '' ) ? 'draft' : 'publish',
             'post_title' => $record['title'] ?? $slug, 'post_name' => $slug,
@@ -100,8 +129,10 @@ add_action( 'admin_menu', function () {
 } );
 
 add_action( 'admin_notices', function () {
-    if ( current_user_can( 'manage_options' ) && ! get_option( 'ian_import_complete' ) ) {
-        echo '<div class="notice notice-info"><p>IanProject 已启用。<a href="' . esc_url( admin_url( 'themes.php?page=ianproject-setup' ) ) . '">进入快速设置，导入原站页面和产品</a>。</p></div>';
+    if ( ! current_user_can( 'manage_options' ) ) { return; }
+    $home = ianproject_homepage_id();
+    if ( ! get_option( 'ian_import_complete' ) || ! $home || 'page' !== get_option( 'show_on_front' ) || $home !== absint( get_option( 'page_on_front' ) ) ) {
+        echo '<div class="notice notice-info"><p>IanProject：请确认首页已切换到导入的原站页面。<a href="' . esc_url( admin_url( 'themes.php?page=ianproject-setup' ) ) . '">进入快速设置，查看当前首页并补齐导入</a>。</p></div>';
     }
 } );
 
@@ -115,16 +146,21 @@ function ianproject_setup_page() {
     }
     if ( isset( $_POST['ian_set_home'] ) ) {
         check_admin_referer( 'ian_settings_save' );
-        $home_id = absint( get_option( 'ian_homepage_id' ) );
-        if ( $home_id && 'publish' === get_post_status( $home_id ) ) {
-            update_option( 'show_on_front', 'page' ); update_option( 'page_on_front', $home_id );
-            echo '<div class="notice notice-success"><p>原站 Home 页面已设为首页。</p></div>';
-        }
+        $result = ianproject_set_homepage();
+        echo is_wp_error( $result ) ? '<div class="notice notice-error"><p>' . esc_html( $result->get_error_message() ) . '</p></div>' : '<div class="notice notice-success"><p>首页已切换到导入的原站页面，旧页面仍保留。</p></div>';
     }
+    $home_id = ianproject_homepage_id();
+    $current_home = 'page' === get_option( 'show_on_front' ) ? get_post( absint( get_option( 'page_on_front' ) ) ) : null;
+    $imported_home = $home_id ? get_post( $home_id ) : null;
     ?>
     <div class="wrap" style="max-width:900px"><h1>IanProject 快速设置</h1>
-        <p>导入原站页面、126 件产品及行业文章；所有正文均可在 WordPress 区块编辑器修改。重复导入会跳过已有内容，不覆盖你的编辑。原站的示例详情模板会保留为草稿。</p>
-        <h2>1. 导入原站内容</h2><p>导入会创建已发布页面和产品，并把产品封面复制到媒体库。已有相同路径会跳过。请保持本页打开至完成。</p>
+        <p>导入原站页面、126 件产品及行业文章；正文可在 WordPress 区块编辑器修改。重复导入保留已编辑的导入内容；遇到同名旧页面时，会另建原站页面并调整新版导航链接。原站示例详情模板保留为草稿。</p>
+        <h2>当前首页检查</h2>
+        <p>当前首页：<?php if ( $current_home ) : ?><strong><?php echo esc_html( $current_home->post_title ); ?></strong>（ID <?php echo absint( $current_home->ID ); ?>） <a href="<?php echo esc_url( get_permalink( $current_home ) ); ?>" target="_blank" rel="noopener">查看</a><?php else : ?>最新文章<?php endif; ?></p>
+        <p>导入的原站首页：<?php if ( $imported_home ) : ?><strong><?php echo esc_html( $imported_home->post_title ); ?></strong>（ID <?php echo absint( $home_id ); ?>，<?php echo esc_html( $imported_home->post_status ); ?>） <a href="<?php echo esc_url( get_preview_post_link( $home_id ) ); ?>" target="_blank" rel="noopener">预览</a> · <a href="<?php echo esc_url( get_edit_post_link( $home_id ) ); ?>">编辑</a><?php else : ?><strong>尚未导入，请先执行第 1 步。</strong><?php endif; ?></p>
+        <?php if ( $imported_home && $current_home && $home_id !== $current_home->ID ) : ?><p><strong>当前仍显示另一个页面，请完成第 2 步切换首页。</strong></p><?php endif; ?>
+        <?php $front_template = get_block_template( get_stylesheet() . '//front-page', 'wp_template' ); if ( $front_template && 'custom' === $front_template->source ) : ?><p>检测到站点编辑器保存过自定义首页模板。如果切换页面后仍显示旧正文，请在 <a href="<?php echo esc_url( admin_url( 'site-editor.php' ) ); ?>">外观 → 编辑器</a> 检查「首页」模板是否包含「页面内容」区块；自定义模板会优先于主题默认模板。</p><?php endif; ?>
+        <h2>1. 导入原站内容</h2><p>导入会创建页面和产品，并把产品封面复制到媒体库。同名旧页面会保留；导入不会更改当前首页。请保持本页打开至完成。</p>
         <button id="ian-start-import" class="button button-primary">导入页面和产品</button><p id="ian-import-status" aria-live="polite"></p><progress id="ian-import-progress" value="0" max="100" style="width:100%;display:none"></progress>
         <h2>2. 设置首页</h2><p>导入完成后点击。此操作会将“设置 → 阅读”的首页改为原站 Home 页面。</p>
         <form method="post"><?php wp_nonce_field( 'ian_settings_save' ); ?><button class="button" name="ian_set_home" value="1">将原站 Home 设为首页</button></form>

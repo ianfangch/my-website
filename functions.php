@@ -24,13 +24,13 @@ add_action( 'wp_enqueue_scripts', function () {
     $base = get_theme_file_uri( 'assets' );
     foreach ( array( 'fonts' => 'vendor/fonts/fonts.css', 'bootstrap' => 'css/bootstrap.min.css', 'icons' => 'vendor/fontawesome/css/all.min.css', 'bootstrap-icons' => 'vendor/bootstrap-icons/font/bootstrap-icons.css', 'owl' => 'lib/owlcarousel/assets/owl.carousel.min.css', 'original' => 'css/style.css', 'converted' => 'css/converted.css', 'header-footer' => 'css/header-footer.css', 'wordpress' => 'css/wordpress.css' ) as $handle => $file ) {
         if ( file_exists( get_theme_file_path( 'assets/' . $file ) ) ) {
-            wp_enqueue_style( 'ian-' . $handle, $base . '/' . $file, array(), '1.0.0' );
+            wp_enqueue_style( 'ian-' . $handle, $base . '/' . $file, array(), '1.0.1' );
         }
     }
     wp_enqueue_script( 'ian-bootstrap', $base . '/vendor/bootstrap/bootstrap.bundle.min.js', array(), '5.0.0', true );
     wp_enqueue_script( 'ian-owl', $base . '/lib/owlcarousel/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
-    wp_enqueue_script( 'ian-theme', $base . '/js/theme.js', array( 'jquery', 'ian-bootstrap', 'ian-owl' ), '1.0.0', true );
-    wp_enqueue_script( 'ian-contact', $base . '/js/contact.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'ian-theme', $base . '/js/theme.js', array( 'jquery', 'ian-bootstrap', 'ian-owl' ), '1.0.1', true );
+    wp_enqueue_script( 'ian-contact', $base . '/js/contact.js', array(), '1.0.1', true );
     wp_localize_script( 'ian-contact', 'IAN_CONTACT', array( 'email' => get_option( 'ian_sales_email', 'sales@ianproject.com' ), 'whatsapp' => get_option( 'ian_whatsapp', '8619956229033' ) ) );
 } );
 
@@ -40,7 +40,9 @@ add_action( 'init', function () {
     foreach ( ianproject_manifest()['pages'] ?? array() as $page ) {
         if ( 'products' === ( $page['parent'] ?? '' ) ) {
             $slug = sanitize_title( $page['slug'] );
-            add_rewrite_rule( '^products/' . preg_quote( $slug, '~' ) . '/?$', 'index.php?pagename=products/' . $slug, 'top' );
+            $imported = ianproject_imported_post( 'products/' . $slug . '.html' );
+            $target = $imported ? 'index.php?page_id=' . $imported->ID : 'index.php?pagename=products/' . $slug;
+            add_rewrite_rule( '^products/' . preg_quote( $slug, '~' ) . '/?$', $target, 'top' );
         }
     }
     foreach ( array( 'header', 'footer' ) as $part ) {
@@ -55,6 +57,7 @@ add_filter( 'query_vars', function ( $vars ) { $vars[] = 'ian_legacy_product'; r
 require_once __DIR__ . '/inc/content-types.php';
 require_once __DIR__ . '/inc/catalogue.php';
 require_once __DIR__ . '/inc/setup.php';
+require_once __DIR__ . '/inc/compatibility.php';
 
 // Resolve old static links without hardcoding a production domain.
 add_action( 'template_redirect', function () {
