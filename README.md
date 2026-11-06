@@ -1,54 +1,61 @@
-# IanProject Website
+# IanProject WordPress 主题安装与编辑
 
-Static B2B product catalogue and project-sourcing website for
-[ianproject.com](https://ianproject.com/). Production deploys from GitHub's
-`main` branch through Cloudflare Pages.
+适用于 WordPress 6.6+、PHP 8.0+。建议使用较新的 WordPress 和 PHP 8.2+。本主题采用 WordPress 原生区块编辑器（Gutenberg），无需购买编辑插件；也不是 Elementor 的原生页面模板。
 
-## Site structure
+## 安装
 
-- `index.html` - homepage
-- `products.html` - filterable catalogue index
-- `product.html` - non-indexed reusable product-detail template
-- `products/` - indexable product landing pages
-- `js/catalog-data.js` - catalogue source of truth
-- `js/catalog.js` - catalogue filtering and detail rendering
-- `img/products/<slug>/` - media grouped by product slug
-- `css/` and `js/` - active shared site assets
-- `lib/` - current third-party animation and carousel libraries
-- `scss/` - Bootstrap/iSTUDIO source styles retained for future theme builds
-- `sitemap.xml`, `robots.txt` and `_redirects` - search and hosting controls
+1. WordPress 后台 → 外观 → 主题 → 安装主题 → 上传主题，选择 `ianproject-wordpress-theme.zip`，安装并启用。
+2. 外观 → IanProject 设置 → 点击「导入页面和产品」，保持页面打开，等待导入完成。
+3. 点击「将原站 Home 设为首页」。
+4. 如新页面提示 404，到 设置 → 固定链接，选择「文章名」并保存一次；服务器需已配置 WordPress 常规伪静态规则。
 
-## Local preview
+此分支为保留原图的完整版本，ZIP 约 130 MiB。若后台提示超过上传大小，请在主机面板提高 PHP `upload_max_filesize` 和 `post_max_size`（建议至少 256 MB），或用主机文件管理器解压主题到 `wp-content/themes/ianproject/`，再到后台启用。本主题专用分支下载的 GitHub ZIP 可以直接作为主题上传，下载文件名可能包含仓库名与分支名，也可改名为 `ianproject-wordpress-theme.zip`。原静态网站 main 分支的源码 ZIP 不能作为主题安装。
 
-Serve the repository root so extensionless links behave like production:
+## 已迁移内容
 
-```powershell
-python -m http.server 8080
-```
+- 16 个页面：首页、关于、产品总览、5 个产品分类页、案例、联系、定制方案、质量流程、资料下载、行业文章列表及政策页面。
+- 126 件产品、7 个产品分类，保留图库、规格、型号表、FAQ、定制选项和询价入口。
+- 7 篇行业文章。
+- 原站 2 个通用示例详情模板作为草稿保留，方便以后参考。
+- 产品列表支持分类、名称/型号搜索、名称/价格排序和分页。文章列表自动显示新增行业文章。
 
-Then open <http://localhost:8080/>.
+导入会创建发布内容及产品封面媒体。重复导入会跳过已有记录及相同路径，不覆盖编辑。启用主题本身不会自动更改首页；点击设置按钮后才更改。首次部署建议先完成 WordPress 安装，再导入原站内容。
 
-Run the metadata, heading, JSON-LD, sitemap and local-reference checks with:
+## 平时如何编辑
 
-```powershell
-node scripts/validate-site.mjs
-```
+| 要修改什么 | 后台入口 |
+| --- | --- |
+| 首页、关于、案例等页面的文字和图片 | 页面 → 所有页面 → 编辑 |
+| 产品详情、图库、规格、FAQ | 产品 → 全部产品 → 编辑 |
+| 产品名称、摘要、列表封面 | 产品编辑页：顶部标题、右侧摘要与特色图片 |
+| 产品价格、型号、单位、币种 | 产品编辑页下方「产品目录信息」 |
+| 产品分类 | 产品 → 产品分类，或产品编辑页右侧 |
+| 行业文章 | 行业文章 → 编辑 / 添加文章 |
+| 页眉、菜单、页脚 | 外观 → 编辑器 → 设计 → 样板/模板部件 → 页眉与导航 / 页脚 |
+| 询价表单使用的销售邮箱、WhatsApp 号码 | 外观 → IanProject 设置 |
 
-## Content and SEO maintenance
+在区块编辑器中点击文字即可修改；点击图片可从工具栏「替换」上传图片。嵌套较深的区块可用左上角「列表视图」定位。页面内容按原站布局组织，删除或移动整组区块前可以先用预览检查结果。
 
-- Use lowercase kebab-case for page names, product slugs and media folders.
-- Keep each product's images inside its matching `img/products/<slug>/` folder.
-- Treat `js/catalog-data.js` as the catalogue source of truth; do not duplicate
-  product records in additional JavaScript files.
-- Keep reusable templates set to `noindex` until real content replaces them.
-- Add a product page, catalogue record, media folder, canonical URL, structured
-  data and sitemap entry as one change.
-- Keep internal links extensionless and ensure canonical and sitemap URLs return
-  HTTP 200. Legacy URLs may redirect but must not appear in navigation or sitemap.
-- Preserve the B2B enquiry flow through Request a Quote, email or WhatsApp; do
-  not add an invented online payment flow.
+产品标题、摘要、特色图片及价格会同步到产品列表；详情页标题、摘要和价格也会同步。型号/分类说明使用动态简码读取字段；规格表中的文字可在正文区块中单独修改。新增产品请填写摘要、特色图片、分类和下方产品目录信息。
 
-## Licensing
+原站家具价格以 CNY 存储，沿用原站固定汇率 6.78 显示 USD。需要直接按美元维护时，将币种设为 USD，并填写美元价格即可。
 
-The site is based on the free iSTUDIO template by HTML Codex and distributed by
-ThemeWagon. See `LICENSE.txt` for terms.
+## 编辑器与表单插件
+
+- 本主题正文采用原生区块。WordPress 自带编辑器即可编辑；安装 Gutenberg 插件是可选项。
+- Elementor 可以用于自行新建页面；已迁移内容应使用区块编辑器编辑。不要期待 Elementor 将这些区块自动转换为其原生控件。
+- 现有询价表单会打开访客的邮件应用或 WhatsApp，信息由访客发送，网站不保存提交。
+- 如果要在网站内接收表单，可安装 Contact Form 7 或 WPForms，配置收件邮箱/SMTP，再把联系页 `[ian_quote_form]` 简码区块替换为插件提供的表单区块或简码。
+- 页脚和普通页面中的联系方式属于可编辑内容；修改「询价入口」设置后，也请按需在页面和页脚中更新显示文字。
+
+请保留自动目录和动态价格的简码区块：`[ian_catalog]`、`[ian_product_price]`、`[ian_product_meta]`。它们负责显示数据库里的最新产品信息。
+
+## 图片与备份
+
+产品封面会复制到媒体库。正文图库图片、字体和脚本随主题存放在 `assets/`，安装后无需访问原 GitHub 仓库即可显示。若以后换主题并准备删除本主题文件，请先将仍在使用的正文图片迁入媒体库。产品、行业文章的管理功能由本主题注册；切换主题后，数据仍保存在数据库中。
+
+主题保留原模板的署名和许可证，见 `LICENSE.txt`；本地第三方资源许可证见 `assets/vendor/`。
+
+## 验证范围
+
+已在本地 WordPress 7.1.4 / PHP 8.4 环境完成启用、通过后台导入 151 项、重复导入不覆盖、产品字段编辑、目录筛选/搜索/分页、分类与详情路径、旧链接跳转、行业文章列表、移动端布局和询价链接生成测试。正文及页眉页脚共 11,063 个区块通过 WordPress 编辑器解析校验。未向邮件或 WhatsApp 发送测试消息。

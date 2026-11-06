@@ -1,0 +1,84 @@
+{
+  "version": 3,
+  "$schema": "https://schemas.wp.org/wp/6.6/theme.json",
+  "settings": {
+    "appearanceTools": true,
+    "useRootPaddingAwareAlignments": false,
+    "layout": {
+      "contentSize": "1140px",
+      "wideSize": "1320px"
+    },
+    "color": {
+      "palette": [
+        {
+          "slug": "primary",
+          "name": "Ian Primary",
+          "color": " #0D6B68"
+        },
+        {
+          "slug": "dark",
+          "name": "Dark",
+          "color": "#202942"
+        },
+        {
+          "slug": "light",
+          "name": "Light",
+          "color": "#F8F9FA"
+        },
+        {
+          "slug": "white",
+          "name": "White",
+          "color": "#FFFFFF"
+        }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "slug": "body",
+          "name": "Open Sans",
+          "fontFamily": "\"Open Sans\", sans-serif"
+        },
+        {
+          "slug": "heading",
+          "name": "Space Grotesk",
+          "fontFamily": "\"Space Grotesk\", sans-serif"
+        }
+      ],
+      "fluid": true
+    }
+  },
+  "styles": {
+    "spacing": {
+      "blockGap": "0px",
+      "padding": {
+        "top": "0px",
+        "right": "0px",
+        "bottom": "0px",
+        "left": "0px"
+      }
+    },
+    "typography": {
+      "fontFamily": "var:preset|font-family|body"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|heading"
+        }
+      }
+    }
+  },
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "页眉与导航",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "页脚",
+      "area": "footer"
+    }
+  ]
+}
