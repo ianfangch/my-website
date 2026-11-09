@@ -107,6 +107,23 @@ add_action( 'update_option_iansf_contacts', function () { do_action( 'litespeed_
 add_action( 'admin_menu', function () {
     add_options_page( 'IanProject 联系方式', 'IanProject 联系方式', 'manage_options', 'ianproject-contacts', 'iansf_contacts_page' );
 } );
+add_action( 'admin_menu', function () {
+    if ( ! iansf_compatible() ) { return; }
+    $hook = get_plugin_page_hookname( 'ianproject-setup', 'themes.php' );
+    if ( has_action( $hook, 'ianproject_setup_page' ) ) {
+        remove_action( $hook, 'ianproject_setup_page' );
+        add_action( $hook, 'iansf_theme_setup_page' );
+    }
+}, 100 );
+
+function iansf_theme_setup_page() {
+    if ( ! current_user_can( 'manage_options' ) || ! function_exists( 'ianproject_setup_page' ) ) { return; }
+    ob_start();
+    ianproject_setup_page();
+    $html = ob_get_clean();
+    $section = '<h2>3. 联系方式（全站统一）</h2><p>全站只使用一个通用邮箱。邮箱、电话、WhatsApp、地址和社交链接在同一处修改，保存一次即可同步。</p><p><a class="button button-primary" href="' . esc_url( admin_url( 'options-general.php?page=ianproject-contacts' ) ) . '">修改全站联系方式</a></p>';
+    echo preg_replace( '~<h2>3\. 询价入口</h2>.*?(?=<h2>日常编辑</h2>)~s', $section, $html );
+}
 
 function iansf_contacts_page() {
     if ( ! current_user_can( 'manage_options' ) ) { return; }
