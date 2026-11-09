@@ -12,6 +12,10 @@ function ianproject_tokens( $text ) {
     return str_replace( array( '{{IAN_ASSET}}', '{{IAN_HOME}}' ), array( untrailingslashit( get_theme_file_uri( 'assets' ) ), untrailingslashit( home_url() ) ), $text );
 }
 
+if ( ! function_exists( 'iansf_compatible' ) ) { function iansf_compatible() { return function_exists( 'ianproject_manifest' ); } }
+if ( ! function_exists( 'iansf_contacts' ) ) { require_once __DIR__ . '/inc/contacts.php'; }
+add_action( 'after_setup_theme', function () { if ( ! function_exists( 'iansf_boot' ) ) { iansf_contacts_boot(); } }, 20 );
+
 add_action( 'after_setup_theme', function () {
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
@@ -24,14 +28,15 @@ add_action( 'wp_enqueue_scripts', function () {
     $base = get_theme_file_uri( 'assets' );
     foreach ( array( 'fonts' => 'vendor/fonts/fonts.css', 'bootstrap' => 'css/bootstrap.min.css', 'icons' => 'vendor/fontawesome/css/all.min.css', 'bootstrap-icons' => 'vendor/bootstrap-icons/font/bootstrap-icons.css', 'owl' => 'lib/owlcarousel/assets/owl.carousel.min.css', 'original' => 'css/style.css', 'converted' => 'css/converted.css', 'header-footer' => 'css/header-footer.css', 'wordpress' => 'css/wordpress.css' ) as $handle => $file ) {
         if ( file_exists( get_theme_file_path( 'assets/' . $file ) ) ) {
-            wp_enqueue_style( 'ian-' . $handle, $base . '/' . $file, array(), '1.0.2' );
+            wp_enqueue_style( 'ian-' . $handle, $base . '/' . $file, array(), '2.0.0' );
         }
     }
     wp_enqueue_script( 'ian-bootstrap', $base . '/vendor/bootstrap/bootstrap.bundle.min.js', array(), '5.0.0', true );
     wp_enqueue_script( 'ian-owl', $base . '/lib/owlcarousel/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
-    wp_enqueue_script( 'ian-theme', $base . '/js/theme.js', array( 'jquery', 'ian-bootstrap', 'ian-owl' ), '1.0.2', true );
-    wp_enqueue_script( 'ian-contact', $base . '/js/contact.js', array(), '1.0.2', true );
-    wp_localize_script( 'ian-contact', 'IAN_CONTACT', array( 'email' => get_option( 'ian_sales_email', 'sales@ianproject.com' ), 'whatsapp' => get_option( 'ian_whatsapp', '8619956229033' ) ) );
+    wp_enqueue_script( 'ian-theme', $base . '/js/theme.js', array( 'jquery', 'ian-bootstrap', 'ian-owl' ), '2.0.0', true );
+    wp_enqueue_script( 'ian-contact', $base . '/js/contact.js', array(), '2.0.0', true );
+    $contacts = iansf_contacts();
+    wp_localize_script( 'ian-contact', 'IAN_CONTACT', array( 'email' => $contacts['email'], 'whatsapp' => $contacts['whatsapp'], 'whatsappUrl' => iansf_whatsapp_url( $contacts ) ) );
 } );
 
 add_action( 'init', function () {
@@ -55,10 +60,14 @@ add_action( 'init', function () {
 add_filter( 'query_vars', function ( $vars ) { $vars[] = 'ian_legacy_product'; return $vars; } );
 
 require_once __DIR__ . '/inc/content-types.php';
-require_once __DIR__ . '/inc/catalogue.php';
+require_once __DIR__ . '/inc/presentation.php';
+require_once __DIR__ . '/inc/upgrade.php';
+require_once __DIR__ . '/inc/media.php';
 require_once __DIR__ . '/inc/setup.php';
 require_once __DIR__ . '/inc/layout.php';
+require_once __DIR__ . '/inc/content-repairs.php';
 require_once __DIR__ . '/inc/compatibility.php';
+require_once __DIR__ . '/inc/preview.php';
 
 // Resolve old static links without hardcoding a production domain.
 add_action( 'template_redirect', function () {

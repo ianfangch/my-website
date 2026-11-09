@@ -1,0 +1,52 @@
+[
+  {
+    "source": "products.html",
+    "old": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/project-1.jpg\" alt=\"Kitchen cabinetry system\"/></figure>\n<!-- /wp:image -->",
+    "new": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/products/white-oak-island-kitchen/1.jpg\" alt=\"White and oak kitchen cabinetry with an island\"/></figure>\n<!-- /wp:image -->"
+  },
+  {
+    "source": "products.html",
+    "old": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/project-2.jpg\" alt=\"Kitchen sinks\"/></figure>\n<!-- /wp:image -->",
+    "new": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/products/handmade-undermount-black-sinks/1.jpg\" alt=\"Black single-bowl undermount kitchen sink\"/></figure>\n<!-- /wp:image -->"
+  },
+  {
+    "source": "products.html",
+    "old": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/project-3.jpg\" alt=\"Kitchen countertop solutions\"/></figure>\n<!-- /wp:image -->",
+    "new": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/catalog/countertop-detail.jpg\" alt=\"Veined kitchen countertop and matching wall surface\"/></figure>\n<!-- /wp:image -->"
+  },
+  {
+    "source": "products.html",
+    "old": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/project-6.jpg\" alt=\"Furniture for coordinated residential and commercial interiors\"/></figure>\n<!-- /wp:image -->",
+    "new": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/products/emerald-green-velvet-sofa/hero-green-v2.webp\" alt=\"Emerald green sofa with a coffee table\"/></figure>\n<!-- /wp:image -->"
+  },
+  {
+    "source": "products.html",
+    "old": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/project-5.jpg\" alt=\"Kitchen accessories\"/></figure>\n<!-- /wp:image -->",
+    "new": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/products/pull-out-kitchen-waste-bin/2.jpg\" alt=\"Pull-out kitchen waste bins inside a cabinet\"/></figure>\n<!-- /wp:image -->"
+  },
+  {
+    "source": "products.html",
+    "old": "<!-- wp:paragraph {\"className\":\"ian-inline-copy mb-0\"} -->\n<p class=\"ian-inline-copy mb-0\"><a href=\"{{IAN_HOME}}/products?category=furniture#catalog\"><small class=\"text-white\">Integrated kitchen equipment</small></a></p>\n<!-- /wp:paragraph -->",
+    "new": "<!-- wp:paragraph {\"className\":\"ian-inline-copy mb-0\"} -->\n<p class=\"ian-inline-copy mb-0\"><a href=\"{{IAN_HOME}}/products?category=furniture#catalog\"><small class=\"text-white\">Beds, sofas and home furniture</small></a></p>\n<!-- /wp:paragraph -->"
+  },
+  {
+    "source": "index.html",
+    "old": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/project-2.jpg\" alt=\"Bathroom vanity project\"/></figure>\n<!-- /wp:image -->",
+    "new": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/products/large-format-stone-tile-collection/application.jpg\" alt=\"Bathroom with a freestanding bath, washbasins and stone-look tiles\"/></figure>\n<!-- /wp:image -->"
+  },
+  {
+    "source": "index.html",
+    "old": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/project-3.jpg\" alt=\"Wardrobe cabinetry\"/></figure>\n<!-- /wp:image -->",
+    "new": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/products/italian-black-leather-storage-bed/1.jpg\" alt=\"Black leather bed in a bedroom\"/></figure>\n<!-- /wp:image -->"
+  },
+  {
+    "source": "index.html",
+    "old": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/project-5.jpg\" alt=\"Standard interior components\"/></figure>\n<!-- /wp:image -->",
+    "new": "<!-- wp:image {\"sizeSlug\":\"full\",\"linkDestination\":\"none\",\"className\":\"img-fluid w-100\"} -->\n<figure class=\"wp-block-image size-full img-fluid w-100\"><img src=\"{{IAN_ASSET}}/img/products/emerald-green-velvet-sofa/hero-green-v2.webp\" alt=\"Emerald green sofa with a coffee table\"/></figure>\n<!-- /wp:image -->"
+  },
+  {
+    "source": "footer",
+    "old": "<!-- wp:paragraph -->\n<p><a href=\"{{IAN_HOME}}/custom-solutions/\">Standard Products</a></p>\n<!-- /wp:paragraph -->",
+    "new": "<!-- wp:paragraph -->\n<p><a href=\"{{IAN_HOME}}/products/\">Standard Products</a></p>\n<!-- /wp:paragraph -->"
+  }
+]

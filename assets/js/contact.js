@@ -73,8 +73,8 @@
         }
         const message = buildMessage();
         const url = channel === "whatsapp"
-            ? `https://wa.me/${window.IAN_CONTACT?.whatsapp || "8619956229033"}?text=${encodeURIComponent(message)}`
-            : `mailto:${window.IAN_CONTACT?.email || "sales@ianproject.com"}?subject=${encodeURIComponent("Project Quote Request - IanProject")}&body=${encodeURIComponent(message)}`;
+            ? (() => { const target = new URL(window.IAN_CONTACT.whatsappUrl); target.searchParams.set("text", message); return target.href; })()
+            : `mailto:${window.IAN_CONTACT.email}?subject=${encodeURIComponent("Project Quote Request - IanProject")}&body=${encodeURIComponent(message)}`;
         formStatus.textContent = channel === "whatsapp" ? "Opening WhatsApp…" : "Opening your email application…";
         window.location.href = url;
     };
@@ -83,5 +83,5 @@
         event.preventDefault();
         openChannel("email");
     });
-    form.querySelector('[data-quote-channel="whatsapp"]').addEventListener("click", () => openChannel("whatsapp"));
+    form.querySelector('[data-quote-channel="whatsapp"]')?.addEventListener("click", () => openChannel("whatsapp"));
 })();

@@ -24,7 +24,7 @@ function ianproject_homepage_id() {
 
 function ianproject_set_homepage() {
     $id = ianproject_homepage_id();
-    if ( ! $id ) { return new WP_Error( 'ian_home_missing', '尚未找到导入的原站首页。请先点击「导入页面和产品」，再设置首页。' ); }
+    if ( ! $id ) { return new WP_Error( 'ian_home_missing', '尚未找到导入的原站首页。请先点击「导入网站页面」，再设置首页。' ); }
     if ( 'publish' !== get_post_status( $id ) ) { return new WP_Error( 'ian_home_not_published', '原站首页尚未发布。请先在页面编辑器发布该页，再设置首页。' ); }
     update_option( 'ian_homepage_id', $id );
     update_option( 'page_on_front', $id );
@@ -36,7 +36,7 @@ function ianproject_set_homepage() {
 
 function ianproject_import_records() {
     $manifest = ianproject_manifest(); $records = array();
-    foreach ( array( 'pages' => 'page', 'posts' => 'ian_insight', 'products' => 'ian_product', 'drafts' => 'page' ) as $group => $type ) {
+    foreach ( array( 'pages' => 'page', 'posts' => 'ian_insight' ) as $group => $type ) {
         foreach ( $manifest[ $group ] ?? array() as $record ) {
             $record['_type'] = $type;
             if ( 'drafts' === $group ) { $record['status'] = 'draft'; }
@@ -95,7 +95,7 @@ function ianproject_import_batch( $offset, $limit = 4 ) {
         $post_id = wp_insert_post( wp_slash( array(
             'post_type' => $type, 'post_status' => 'draft' === ( $record['status'] ?? '' ) ? 'draft' : 'publish',
             'post_title' => $record['title'] ?? $slug, 'post_name' => $slug,
-            'post_content' => ianproject_tokens( ianproject_repair_layout_content( $record['content'] ?? '', $source ) ),
+            'post_content' => ianproject_tokens( ianproject_repair_category_content( ianproject_repair_layout_content( $record['content'] ?? '', $source ), $source, false ) ),
             'post_excerpt' => $record['summary'] ?? $record['description'] ?? '',
             'post_parent' => $parent, 'menu_order' => $offset + $index,
             'comment_status' => 'closed', 'ping_status' => 'closed',
@@ -104,17 +104,6 @@ function ianproject_import_batch( $offset, $limit = 4 ) {
         update_post_meta( $post_id, '_ian_source', $source );
         update_post_meta( $post_id, '_ian_description', sanitize_text_field( $record['description'] ?? $record['seoDescription'] ?? $record['summary'] ?? '' ) );
         if ( 'index.html' === $source ) { update_option( 'ian_homepage_id', $post_id ); }
-        if ( 'ian_product' === $type ) {
-            $data = $record;
-            $data['unit'] = $data['unit'] ?? $data['priceUnit'] ?? '';
-            unset( $data['content'], $data['_type'] );
-            if ( ! empty( $data['image'] ) && ! preg_match( '~^(?:https?:|\{\{)~', $data['image'] ) ) { $data['image'] = '{{IAN_ASSET}}/' . ltrim( $data['image'], '/' ); }
-            update_post_meta( $post_id, '_ian_product_data', $data );
-            update_post_meta( $post_id, '_ian_price_usd', ianproject_price_value( $data ) );
-            if ( ! empty( $record['category'] ) ) { wp_set_object_terms( $post_id, sanitize_title( $record['category'] ), 'ian_product_category' ); }
-            // SKU is searchable through WordPress's native search index.
-            if ( ! empty( $record['code'] ) ) { update_post_meta( $post_id, '_ian_sku', sanitize_text_field( $record['code'] ) ); }
-        }
         $image = $record['featuredImage'] ?? $record['image'] ?? '';
         if ( $image ) { ianproject_import_image( $image, $post_id, $record['title'] ?? $slug ); }
         ++$imported;
@@ -138,12 +127,6 @@ add_action( 'admin_notices', function () {
 
 function ianproject_setup_page() {
     if ( ! current_user_can( 'manage_options' ) ) { return; }
-    if ( isset( $_POST['ian_settings_save'] ) ) {
-        check_admin_referer( 'ian_settings_save' );
-        update_option( 'ian_sales_email', sanitize_email( wp_unslash( $_POST['ian_sales_email'] ?? '' ) ) ?: 'sales@ianproject.com' );
-        update_option( 'ian_whatsapp', preg_replace( '/[^0-9]/', '', wp_unslash( $_POST['ian_whatsapp'] ?? '' ) ) ?: '8619956229033' );
-        echo '<div class="notice notice-success"><p>询价入口已保存。页眉、页脚和页面中的联系方式请在区块编辑器中修改。</p></div>';
-    }
     if ( isset( $_POST['ian_set_home'] ) ) {
         check_admin_referer( 'ian_settings_save' );
         $result = ianproject_set_homepage();
@@ -154,23 +137,22 @@ function ianproject_setup_page() {
     $imported_home = $home_id ? get_post( $home_id ) : null;
     ?>
     <div class="wrap" style="max-width:900px"><h1>IanProject 快速设置</h1>
-        <p>导入原站页面、126 件产品及行业文章；正文可在 WordPress 区块编辑器修改。重复导入保留已编辑的导入内容；遇到同名旧页面时，会另建原站页面并调整新版导航链接。原站示例详情模板保留为草稿。</p>
+        <p>主题只包含网站页面和行业文章布局，不包含产品数据。产品由独立的 IanProject 产品目录插件管理；您可以从空目录开始重新制作产品，或继续编辑现有产品。页面内容仍可使用原生区块编辑器修改。</p>
         <h2>当前首页检查</h2>
         <p>当前首页：<?php if ( $current_home ) : ?><strong><?php echo esc_html( $current_home->post_title ); ?></strong>（ID <?php echo absint( $current_home->ID ); ?>） <a href="<?php echo esc_url( get_permalink( $current_home ) ); ?>" target="_blank" rel="noopener">查看</a><?php else : ?>最新文章<?php endif; ?></p>
         <p>导入的原站首页：<?php if ( $imported_home ) : ?><strong><?php echo esc_html( $imported_home->post_title ); ?></strong>（ID <?php echo absint( $home_id ); ?>，<?php echo esc_html( $imported_home->post_status ); ?>） <a href="<?php echo esc_url( get_preview_post_link( $home_id ) ); ?>" target="_blank" rel="noopener">预览</a> · <a href="<?php echo esc_url( get_edit_post_link( $home_id ) ); ?>">编辑</a><?php else : ?><strong>尚未导入，请先执行第 1 步。</strong><?php endif; ?></p>
         <?php if ( $imported_home && $current_home && $home_id !== $current_home->ID ) : ?><p><strong>当前仍显示另一个页面，请完成第 2 步切换首页。</strong></p><?php endif; ?>
         <?php $front_template = get_block_template( get_stylesheet() . '//front-page', 'wp_template' ); if ( $front_template && 'custom' === $front_template->source ) : ?><p>检测到站点编辑器保存过自定义首页模板。如果切换页面后仍显示旧正文，请在 <a href="<?php echo esc_url( admin_url( 'site-editor.php' ) ); ?>">外观 → 编辑器</a> 检查「首页」模板是否包含「页面内容」区块；自定义模板会优先于主题默认模板。</p><?php endif; ?>
-        <h2>1. 导入原站内容</h2><p>导入会创建页面和产品，并把产品封面复制到媒体库。同名旧页面会保留；导入不会更改当前首页。请保持本页打开至完成。</p>
-        <button id="ian-start-import" class="button button-primary">导入页面和产品</button><p id="ian-import-status" aria-live="polite"></p><progress id="ian-import-progress" value="0" max="100" style="width:100%;display:none"></progress>
+        <h2>1. 导入网站页面（不含产品）</h2><p>只导入页面和行业文章，不会创建产品、产品分类或产品示例草稿。重复导入保留已编辑的内容，不会自动切换首页。</p>
+        <button id="ian-start-import" class="button button-primary">导入网站页面</button><p id="ian-import-status" aria-live="polite"></p><progress id="ian-import-progress" value="0" max="100" style="width:100%;display:none"></progress>
         <h2>2. 设置首页</h2><p>导入完成后点击。此操作会将“设置 → 阅读”的首页改为原站 Home 页面。</p>
         <form method="post"><?php wp_nonce_field( 'ian_settings_save' ); ?><button class="button" name="ian_set_home" value="1">将原站 Home 设为首页</button></form>
-        <h2>3. 询价入口</h2><p>询价表单会打开访客的邮件应用或 WhatsApp，由访客发送；网站不保存提交。需要站内收件时，可将简码区块替换为 Contact Form 7 / WPForms 的表单区块，并配置邮件服务。</p>
-        <form method="post"><?php wp_nonce_field( 'ian_settings_save' ); ?>
-            <p><label>销售邮箱<br><input type="email" class="regular-text" name="ian_sales_email" value="<?php echo esc_attr( get_option( 'ian_sales_email', 'sales@ianproject.com' ) ); ?>" required></label></p>
-            <p><label>WhatsApp 号码（含国家码，仅数字）<br><input type="text" class="regular-text" name="ian_whatsapp" value="<?php echo esc_attr( get_option( 'ian_whatsapp', '8619956229033' ) ); ?>" required></label></p>
-            <button class="button" name="ian_settings_save" value="1">保存询价入口</button>
-        </form>
-        <h2>日常编辑</h2><p>页面 → 首页 / 关于 / 案例等：修改文字、图片、按钮和区块顺序。产品 → 全部产品：编辑详情、价格、摘要和特色图片。行业文章：添加和编辑文章。外观 → 编辑器：编辑页眉、导航、页脚及全站颜色字体。</p>
+        <h2>3. 联系方式</h2><p>全站仅使用一个通用邮箱。联系方式和全部修复均已整合到主题，不需要原来的网站修复插件。</p>
+        <p><a class="button button-primary" href="<?php echo esc_url( admin_url( 'options-general.php?page=ianproject-contacts' ) ); ?>">修改全站联系方式</a></p>
+        <h2>4. 现有站点升级：迁移旧主题图片</h2>
+        <p>首次切换到新版主题后，旧页面或产品可能仍引用旧主题目录中的图片。点击后会逐批复制到媒体库，并更新对应引用。完成且无错误后，再删除旧主题。迁移会保留原始正文备份，不会删除产品。</p>
+        <button id="ian-media-start" class="button">迁移并检查旧主题图片</button><p id="ian-media-status" aria-live="polite"></p>
+        <h2>日常编辑</h2><p>页面 → 首页 / 关于 / 案例等：修改文字、图片、按钮和区块顺序。产品 → 全部产品：编辑详情、价格、摘要和特色图片。行业文章：添加和编辑文章。外观 → 编辑器：编辑页眉、导航、页脚及全站颜色字体。产品菜单需要单独启用产品目录插件。</p>
         <p>产品列表由 <code>[ian_catalog]</code> 简码自动生成；产品价格由 <code>[ian_product_price]</code> 简码读取产品字段。请保留这些简码区块。</p>
     </div>
     <script>
@@ -185,8 +167,5 @@ add_action( 'wp_ajax_ian_import_batch', function () {
     $offset = max( 0, absint( $_POST['offset'] ?? 0 ) );
     $manifest = ianproject_manifest();
     if ( ! $manifest ) { wp_send_json_error( array( 'message' => '找不到主题内容文件。' ), 500 ); }
-    foreach ( $manifest['categories'] ?? array() as $category ) {
-        if ( ! term_exists( $category['id'], 'ian_product_category' ) ) { wp_insert_term( $category['name'], 'ian_product_category', array( 'slug' => $category['id'] ) ); }
-    }
     wp_send_json_success( ianproject_import_batch( $offset ) );
 } );

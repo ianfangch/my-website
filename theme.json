@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "$schema": "https://schemas.wp.org/wp/6.6/theme.json",
+  "$schema": "https://schemas.wp.org/wp/6.7/theme.json",
   "settings": {
     "appearanceTools": true,
     "useRootPaddingAwareAlignments": false,
@@ -13,7 +13,7 @@
         {
           "slug": "primary",
           "name": "Ian Primary",
-          "color": " #0D6B68"
+          "color": "#0D6B68"
         },
         {
           "slug": "dark",
