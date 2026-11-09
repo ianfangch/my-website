@@ -21,20 +21,20 @@ add_action( 'after_setup_theme', function () {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'responsive-embeds' );
     add_theme_support( 'editor-styles' );
-    add_editor_style( array( 'assets/vendor/fonts/fonts.css', 'assets/vendor/fontawesome/css/all.min.css', 'assets/vendor/bootstrap-icons/font/bootstrap-icons.css', 'assets/css/bootstrap.min.css', 'assets/css/style.css', 'assets/css/converted.css', 'assets/css/header-footer.css', 'assets/css/wordpress.css' ) );
+    add_editor_style( array( 'assets/vendor/fonts/fonts.css', 'assets/vendor/fontawesome/css/all.min.css', 'assets/vendor/bootstrap-icons/font/bootstrap-icons.css', 'assets/css/bootstrap.min.css', 'assets/css/style.css', 'assets/css/converted.css', 'assets/css/header-footer.css', 'assets/css/wordpress.css', 'assets/css/home-story.css' ) );
 } );
 
 add_action( 'wp_enqueue_scripts', function () {
     $base = get_theme_file_uri( 'assets' );
     foreach ( array( 'fonts' => 'vendor/fonts/fonts.css', 'bootstrap' => 'css/bootstrap.min.css', 'icons' => 'vendor/fontawesome/css/all.min.css', 'bootstrap-icons' => 'vendor/bootstrap-icons/font/bootstrap-icons.css', 'owl' => 'lib/owlcarousel/assets/owl.carousel.min.css', 'original' => 'css/style.css', 'converted' => 'css/converted.css', 'header-footer' => 'css/header-footer.css', 'wordpress' => 'css/wordpress.css' ) as $handle => $file ) {
         if ( file_exists( get_theme_file_path( 'assets/' . $file ) ) ) {
-            wp_enqueue_style( 'ian-' . $handle, $base . '/' . $file, array(), '2.0.0' );
+            wp_enqueue_style( 'ian-' . $handle, $base . '/' . $file, array(), '2.0.1' );
         }
     }
     wp_enqueue_script( 'ian-bootstrap', $base . '/vendor/bootstrap/bootstrap.bundle.min.js', array(), '5.0.0', true );
     wp_enqueue_script( 'ian-owl', $base . '/lib/owlcarousel/owl.carousel.min.js', array( 'jquery' ), '2.3.4', true );
-    wp_enqueue_script( 'ian-theme', $base . '/js/theme.js', array( 'jquery', 'ian-bootstrap', 'ian-owl' ), '2.0.0', true );
-    wp_enqueue_script( 'ian-contact', $base . '/js/contact.js', array(), '2.0.0', true );
+    wp_enqueue_script( 'ian-theme', $base . '/js/theme.js', array( 'jquery', 'ian-bootstrap', 'ian-owl' ), '2.0.1', true );
+    wp_enqueue_script( 'ian-contact', $base . '/js/contact.js', array(), '2.0.1', true );
     $contacts = iansf_contacts();
     wp_localize_script( 'ian-contact', 'IAN_CONTACT', array( 'email' => $contacts['email'], 'whatsapp' => $contacts['whatsapp'], 'whatsappUrl' => iansf_whatsapp_url( $contacts ) ) );
 } );
@@ -96,3 +96,6 @@ add_action( 'wp_head', function () {
         if ( $description ) { echo '<meta name="description" content="' . esc_attr( wp_strip_all_tags( $description ) ) . '">' . "\n"; }
     }
 } );
+
+require_once __DIR__ . '/inc/home-story.php';
+add_action( 'wp_enqueue_scripts', function () { wp_enqueue_style( 'ian-home-story', get_theme_file_uri( 'assets/css/home-story.css' ), array( 'ian-wordpress' ), '2.0.1' ); }, 20 );
