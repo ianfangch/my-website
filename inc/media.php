@@ -16,6 +16,9 @@ function ianproject_media_source( $url ) {
     $segments = explode( '/', $relative );
     if ( count( $segments ) < 4 || 'assets' !== $segments[1] || ! preg_match( '~\.(?:jpe?g|png|webp|gif|avif)$~i', $path ) ) { return null; }
     $theme = wp_get_theme( $segments[0] );
+    if ( ! $theme->exists() && $segments[0] === get_option( 'ian_legacy_stylesheet_v2' ) ) {
+        return new WP_Error( 'ian_media_theme_missing', '旧主题文件夹已不存在：' . $segments[0] . '。请先恢复旧主题文件，再迁移图片。' );
+    }
     if ( ! $theme->exists() || ! str_starts_with( $theme->get( 'Name' ), 'IanProject' ) ) { return null; }
     $base = realpath( get_theme_root() );
     $file = realpath( get_theme_root() . '/' . $relative );
