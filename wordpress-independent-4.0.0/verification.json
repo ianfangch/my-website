@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-11",
+  "environment": {
+    "wordpress": "7.1.4",
+    "woocommerce": "11.2.2",
+    "php": "8.4.24"
+  },
+  "checks": {
+    "backend": 49,
+    "browser": 50,
+    "full_migration": 18,
+    "zero_plugin_theme": 18,
+    "disabled_variation": 1
+  },
+  "migration_fixture": {
+    "products": 126,
+    "native_variations": 112,
+    "articles_and_projects": 58
+  },
+  "production_modified": false,
+  "host_email_delivery_tested": false,
+  "packages": [
+    {
+      "file": "ianproject-independent-4.0.0.zip",
+      "bytes": 4121933,
+      "sha256": "670aef97133023a08de6fc034b7527a9ba592e093dac692902518dac3081d24a",
+      "files": 107
+    },
+    {
+      "file": "ianproject-tools-1.0.0.zip",
+      "bytes": 10751,
+      "sha256": "cfc9f93e6df08949857b4bac451bde5120eb4ce11d34ecc163adba643fe623cc",
+      "files": 3
+    },
+    {
+      "file": "ianproject-legacy-importer-1.0.0.zip",
+      "bytes": 46248,
+      "sha256": "7060a17128b47940292c2370dee76d7d13b3f4f0fe28ac8d3bec63942c354e16",
+      "files": 8
+    }
+  ]
+}
