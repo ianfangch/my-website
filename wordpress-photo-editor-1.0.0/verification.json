@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "date": "2026-11-11",
+  "passed": 42,
+  "total": 42,
+  "environment": {
+    "wordpress": "7.1.4",
+    "php": "8.4.24",
+    "browser": "Chromium / Playwright"
+  },
+  "native_media_save_tested": true,
+  "original_file_hash_unchanged": true,
+  "production_modified": false,
+  "packages": [
+    {
+      "file": "ianproject-photo-editor-1.0.0.zip",
+      "bytes": 28600,
+      "sha256": "9533002212a09ba0b05f9bfd34176487903e7880c4a8b8e8cdd6432512c16d55"
+    },
+    {
+      "file": "ianproject-photo-editor-offline-1.0.0.zip",
+      "bytes": 15925,
+      "sha256": "0e0f5dbe6e656702a83339037c860fe0a189831e59ff2dd7e75894f6259392f4"
+    }
+  ]
+}
