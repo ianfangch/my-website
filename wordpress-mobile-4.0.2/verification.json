@@ -1,0 +1,41 @@
+{
+  "version": "4.0.2",
+  "tests": {
+    "backend.json": {
+      "passed": 12,
+      "total": 12
+    },
+    "fallback.json": {
+      "passed": 3,
+      "total": 3
+    },
+    "results.json": {
+      "passed": 22,
+      "total": 22
+    },
+    "visual-resources.json": {
+      "passed": 37,
+      "total": 37
+    }
+  },
+  "passed": 74,
+  "mobile_hero": {
+    "before_bytes": 574908,
+    "after_bytes": 185072,
+    "width": 1280,
+    "height": 720
+  },
+  "desktop_hero": {
+    "after_bytes": 331042,
+    "width": 1672,
+    "height": 941
+  },
+  "homepage_stylesheet_requests": {
+    "before": 21,
+    "after": 6
+  },
+  "font_conversion": "Original glyphs, metrics and weights retained; WOFF2",
+  "messages_sent": 0,
+  "live_site_modified": false,
+  "limits": "Resource and browser tests are isolated. The live mobile PageSpeed/LCP must be measured after installing this package and clearing cache."
+}
