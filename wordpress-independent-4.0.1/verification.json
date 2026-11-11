@@ -1,0 +1,26 @@
+{
+  "version": "4.0.1",
+  "date": "2026-11-11",
+  "checks": {
+    "isolated_wordpress_browser": 22,
+    "query_encoding_regression": 1,
+    "quote_only_checkout_guards": 2
+  },
+  "live_audit": {
+    "page_addresses": 217,
+    "products": 126,
+    "posts_and_projects": 58,
+    "resources_checked": 835,
+    "missing_resources_confirmed": 0,
+    "no_server_changes": true,
+    "live_cart_final_validation": "pending after formal domain cutover; transport resets interrupted the online session",
+    "native_variations_in_public_catalogue": 112
+  },
+  "package": {
+    "file": "ianproject-independent-4.0.1.zip",
+    "bytes": 4124234,
+    "sha256": "28485d13a0b3dcf8d8bd2c8ddc9f8620ad5e69d3da58bc37a7db4281c956a5d5"
+  },
+  "external_messages_sent": 0,
+  "dns_modified": false
+}
