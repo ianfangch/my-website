@@ -1,0 +1,65 @@
+{
+  "theme_version": "5.0.0",
+  "enquiry_version": "1.0.0",
+  "migration_version": "2.0.0",
+  "tools_version": "2.0.0",
+  "photo_editor_version": "1.0.0 (unchanged)",
+  "checks": {
+    "migration-results.json": {
+      "passed": 14,
+      "total": 14
+    },
+    "core-results.json": {
+      "passed": 14,
+      "total": 14
+    },
+    "exw-browser.json": {
+      "passed": 13,
+      "total": 13
+    },
+    "results.json": {
+      "passed": 22,
+      "total": 22
+    },
+    "theme-woo.json": {
+      "passed": 5,
+      "total": 5
+    },
+    "theme-no-woo.json": {
+      "passed": 4,
+      "total": 4
+    },
+    "plugin-stock-theme.json": {
+      "passed": 5,
+      "total": 5
+    },
+    "independence-browser.json": {
+      "passed": 6,
+      "total": 6
+    },
+    "native-home.json": {
+      "passed": 5,
+      "total": 5
+    }
+  },
+  "passed": 88,
+  "native_blocks": {
+    "sections": 211,
+    "blocks": 1792,
+    "invalid": []
+  },
+  "original_images": {
+    "original_files_checked": 802,
+    "modified_originals": 0,
+    "passed": true
+  },
+  "fixture_conversion": {
+    "records": 196,
+    "products": 126,
+    "variations": 112
+  },
+  "unknown_price_policy": "Blank native unit price; no assignment of series range prices or automatic currency conversion. Existing positive native prices preserved.",
+  "live_database_modified": false,
+  "real_messages_sent": 0,
+  "test_prices_in_packages": false
+}
