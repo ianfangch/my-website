@@ -1,0 +1,61 @@
+{
+  "theme": "5.0.2",
+  "migration_tool": "2.0.2",
+  "enquiry_plugin": "1.0.0 unchanged",
+  "tests": {
+    "backend.json": {
+      "passed": 25,
+      "total": 25
+    },
+    "ui-browser.json": {
+      "passed": 32,
+      "total": 32
+    },
+    "results.json": {
+      "passed": 22,
+      "total": 22
+    },
+    "exw-browser.json": {
+      "passed": 13,
+      "total": 13
+    },
+    "cards-browser.json": {
+      "passed": 36,
+      "total": 36
+    },
+    "location-browser.json": {
+      "passed": 21,
+      "total": 21
+    },
+    "admin-settings.json": {
+      "passed": 4,
+      "total": 4
+    }
+  },
+  "passed": 153,
+  "native_blocks": {
+    "sections": 1,
+    "blocks": 31,
+    "invalid": []
+  },
+  "content_preservation": {
+    "passed": true,
+    "records": 300,
+    "compared": "ID, type, parent, title, content, excerpt, status; products, variations, articles, projects"
+  },
+  "product_records_unchanged": 126,
+  "live_site_modified": false,
+  "real_messages_sent": 0,
+  "card_layout_rules_changed": true,
+  "shared_contact_settings": "iansf_contacts",
+  "store_tax_address_modified": false,
+  "original_images_modified": false,
+  "card_rows": {
+    "metadata": 1,
+    "title": 2,
+    "summary": 2,
+    "project_article_structure": "shared image, meta, title, summary, footer",
+    "price": "minimum 2, never clip amount",
+    "footer": "one row, aligned at bottom"
+  }
+}
