@@ -1,0 +1,3 @@
+9625a8e65a130a4ddfdd37e8021fe7ae77bcd0fe77823ca666b9bd80453a462a  IanProject-EXW-price-input-20261112.csv
+2c195ba012d65077e49bf9e49601faf80e191501b18ea2ecca56c16e2a667db8  IanProject-EXW-price-input-20261112.xlsx
+a1d42e570a6cec65f309d735a18d35d12463bff07f6163d261c7ef2dce1a9f40  ianproject-independent-4.0.4.zip

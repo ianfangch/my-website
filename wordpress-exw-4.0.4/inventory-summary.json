@@ -1,0 +1,17 @@
+{
+  "published_products": 126,
+  "simple_price_rows": 116,
+  "variation_price_rows": 112,
+  "price_rows": 228,
+  "currency_to_fill": "USD",
+  "by_category": {
+    "Accessories": 14,
+    "Cabinetry & Joinery": 70,
+    "Carpet": 11,
+    "Countertops": 16,
+    "Flooring": 11,
+    "Furniture": 8,
+    "Sinks": 98
+  },
+  "all_new_prices_blank": true
+}

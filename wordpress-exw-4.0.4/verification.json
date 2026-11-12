@@ -1,0 +1,25 @@
+{
+  "version": "4.0.4",
+  "date": "2026-11-12",
+  "tests": {
+    "pricing.json": {
+      "passed": 14,
+      "total": 14
+    },
+    "results.json": {
+      "passed": 22,
+      "total": 22
+    },
+    "exw-browser.json": {
+      "passed": 13,
+      "total": 13
+    }
+  },
+  "passed": 49,
+  "native_pricing": "WooCommerce product/variation normal and sale prices",
+  "price_basis": "EXW; excludes freight, insurance, customs clearance, duties, taxes, installation",
+  "unpriced_behavior": "Contact only; no zero-price cart addition",
+  "existing_reference_metadata": "retained, not used as confirmed unit price",
+  "messages_sent": 0,
+  "live_prices_modified": false
+}
