@@ -1,0 +1,51 @@
+{
+  "theme": "5.0.1",
+  "migration_tool": "2.0.1",
+  "enquiry_plugin": "1.0.0 unchanged",
+  "tests": {
+    "backend.json": {
+      "passed": 15,
+      "total": 15
+    },
+    "ui-browser.json": {
+      "passed": 32,
+      "total": 32
+    },
+    "results.json": {
+      "passed": 22,
+      "total": 22
+    },
+    "exw-browser.json": {
+      "passed": 13,
+      "total": 13
+    },
+    "cards-browser.json": {
+      "passed": 36,
+      "total": 36
+    }
+  },
+  "passed": 118,
+  "native_blocks": {
+    "sections": 1,
+    "blocks": 27,
+    "invalid": []
+  },
+  "content_preservation": {
+    "passed": true,
+    "content_records_checked": 300,
+    "changed": 0
+  },
+  "product_records_unchanged": 126,
+  "live_site_modified": false,
+  "real_messages_sent": 0,
+  "card_layout_rules_changed": true,
+  "card_rows": {
+    "metadata": 1,
+    "title": 2,
+    "summary": 2,
+    "project_products": 2,
+    "project_materials": 2,
+    "price": "minimum 2, never clip amount",
+    "footer": "one row, aligned at bottom"
+  }
+}
