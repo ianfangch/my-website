@@ -1,0 +1,55 @@
+{
+  "theme": "5.0.3",
+  "migration_tool": "2.0.2 unchanged; only needed for previous address update",
+  "enquiry_plugin": "1.0.0 unchanged",
+  "tests": {
+    "video-backend.json": {
+      "passed": 31,
+      "total": 31
+    },
+    "video-browser.json": {
+      "passed": 33,
+      "total": 33
+    },
+    "ui-browser.json": {
+      "passed": 32,
+      "total": 32
+    },
+    "results.json": {
+      "passed": 22,
+      "total": 22
+    },
+    "exw-browser.json": {
+      "passed": 13,
+      "total": 13
+    },
+    "cards-browser.json": {
+      "passed": 36,
+      "total": 36
+    }
+  },
+  "passed": 167,
+  "native_blocks": {
+    "sections": 2,
+    "blocks": 206,
+    "invalid": []
+  },
+  "content_preservation": {
+    "passed": true,
+    "existing_content_records_unchanged": 300,
+    "theme_image_assets_unchanged": 24,
+    "migration_tool": "2.0.2 unchanged",
+    "production_records_modified": 0,
+    "test_fixtures_not_shipped": true
+  },
+  "video_storage": "native product long description or post body; no custom fields",
+  "display": "cover link; create youtube-nocookie iframe only after click",
+  "server_oembed_requests_on_render": 0,
+  "no_video_script_without_video": true,
+  "native_embed_cache_modified_by_feature": false,
+  "actual_youtube_playback_verified": false,
+  "playback_limit": "media network unavailable in test environment; browser player request intercepted, actual playback requires installation acceptance",
+  "live_site_modified": false,
+  "real_messages_sent": 0,
+  "test_fixtures_shipped": false
+}
