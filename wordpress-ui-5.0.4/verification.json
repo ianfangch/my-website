@@ -1,0 +1,59 @@
+{
+  "theme": "5.0.4",
+  "changed_files": [
+    "README.md",
+    "style.css",
+    "functions.php",
+    "assets/css/site-bundle.min.css",
+    "assets/css/ui-refinements.css"
+  ],
+  "functional_change": "price reserve: 1 line, nowrap; existing minimum card height reduced by the same line",
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "width": 320,
+        "singleLine": true
+      },
+      {
+        "width": 390,
+        "singleLine": true
+      },
+      {
+        "width": 768,
+        "singleLine": true
+      },
+      {
+        "width": 1440,
+        "singleLine": true
+      },
+      {
+        "normalPriceRangeSingleLine": true
+      },
+      {
+        "originalThreeColumnLayout": true
+      }
+    ],
+    "liveSiteModified": false,
+    "heightComparison": {
+      "before": {
+        "height": 620,
+        "priceHeight": 60.796875,
+        "summary": 57.796875,
+        "image": 272
+      },
+      "now": {
+        "height": 589.59375,
+        "priceHeight": 31.390625,
+        "summary": 57.796875,
+        "image": 272
+      },
+      "reducedBy": 30.40625
+    },
+    "singleLineAfterHeightAdjustment": true
+  },
+  "original_images_changed": false,
+  "source_content_changed": false,
+  "plugins_changed": false,
+  "live_site_modified": false
+}
